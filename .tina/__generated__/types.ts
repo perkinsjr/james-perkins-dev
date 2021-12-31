@@ -190,7 +190,14 @@ export type PageConnection = Connection & {
 export type Post = {
   __typename?: 'Post';
   title?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['String']>;
+  image?: Maybe<Scalars['String']>;
+  author?: Maybe<Scalars['String']>;
+  authorTwitter?: Maybe<Scalars['String']>;
+  category?: Maybe<Array<Maybe<Scalars['String']>>>;
+  tags?: Maybe<Array<Maybe<Scalars['String']>>>;
+  description?: Maybe<Scalars['String']>;
+  body?: Maybe<Scalars['JSON']>;
 };
 
 export type PostDocument = Node & Document & {
@@ -283,12 +290,19 @@ export type PageMutation = {
 
 export type PostMutation = {
   title?: InputMaybe<Scalars['String']>;
-  body?: InputMaybe<Scalars['String']>;
+  date?: InputMaybe<Scalars['String']>;
+  image?: InputMaybe<Scalars['String']>;
+  author?: InputMaybe<Scalars['String']>;
+  authorTwitter?: InputMaybe<Scalars['String']>;
+  category?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  tags?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  description?: InputMaybe<Scalars['String']>;
+  body?: InputMaybe<Scalars['JSON']>;
 };
 
 export type PagePartsFragment = { __typename?: 'Page', body?: any | null | undefined };
 
-export type PostPartsFragment = { __typename?: 'Post', title?: string | null | undefined, body?: string | null | undefined };
+export type PostPartsFragment = { __typename?: 'Post', title?: string | null | undefined, date?: string | null | undefined, image?: string | null | undefined, author?: string | null | undefined, authorTwitter?: string | null | undefined, category?: Array<string | null | undefined> | null | undefined, tags?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined, body?: any | null | undefined };
 
 export type GetPageDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -307,12 +321,12 @@ export type GetPostDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetPostDocumentQuery = { __typename?: 'Query', getPostDocument: { __typename?: 'PostDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Post', title?: string | null | undefined, body?: string | null | undefined } } };
+export type GetPostDocumentQuery = { __typename?: 'Query', getPostDocument: { __typename?: 'PostDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Post', title?: string | null | undefined, date?: string | null | undefined, image?: string | null | undefined, author?: string | null | undefined, authorTwitter?: string | null | undefined, category?: Array<string | null | undefined> | null | undefined, tags?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined, body?: any | null | undefined } } };
 
 export type GetPostListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostListQuery = { __typename?: 'Query', getPostList: { __typename?: 'PostConnection', totalCount: number, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'PostDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Post', title?: string | null | undefined, body?: string | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
+export type GetPostListQuery = { __typename?: 'Query', getPostList: { __typename?: 'PostConnection', totalCount: number, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'PostDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Post', title?: string | null | undefined, date?: string | null | undefined, image?: string | null | undefined, author?: string | null | undefined, authorTwitter?: string | null | undefined, category?: Array<string | null | undefined> | null | undefined, tags?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined, body?: any | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
 
 export const PagePartsFragmentDoc = gql`
     fragment PageParts on Page {
@@ -322,6 +336,13 @@ export const PagePartsFragmentDoc = gql`
 export const PostPartsFragmentDoc = gql`
     fragment PostParts on Post {
   title
+  date
+  image
+  author
+  authorTwitter
+  category
+  tags
+  description
   body
 }
     `;

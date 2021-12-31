@@ -35,13 +35,87 @@
           ]
         },
         {
+          "type": "datetime",
+          "label": "Published Date",
+          "name": "date",
+          "namespace": [
+            "post",
+            "date"
+          ]
+        },
+        {
+          "type": "image",
+          "label": "Cover Image",
+          "name": "image",
+          "namespace": [
+            "post",
+            "image"
+          ]
+        },
+        {
           "type": "string",
+          "label": "Author",
+          "name": "author",
+          "namespace": [
+            "post",
+            "author"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Author Twitter Handle",
+          "name": "authorTwitter",
+          "namespace": [
+            "post",
+            "authorTwitter"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Category",
+          "name": "category",
+          "options": [
+            "tutorial",
+            "thoughts",
+            "productivity"
+          ],
+          "list": true,
+          "namespace": [
+            "post",
+            "category"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Tags",
+          "name": "tags",
+          "options": [
+            "nextjs",
+            "javascript",
+            "devops",
+            "productivity"
+          ],
+          "list": true,
+          "namespace": [
+            "post",
+            "tags"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Description",
+          "name": "description",
+          "namespace": [
+            "post",
+            "description"
+          ]
+        },
+        {
+          "type": "rich-text",
           "label": "Blog Post Body",
           "name": "body",
           "isBody": true,
-          "ui": {
-            "component": "textarea"
-          },
+          "templates": [],
           "namespace": [
             "post",
             "body"
