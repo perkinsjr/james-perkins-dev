@@ -2,94 +2,41 @@ import { staticRequest } from 'tinacms'
 import { Layout } from '../../components/Layout'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import {CodeBlock} from '../../components/CodeBlock';
+import { CustomLink } from '../../components/CustomLink';
 import ChakraUIRenderer from "chakra-ui-markdown-renderer"
-import { Box, Heading, Code,
-  Link,
-} from "@chakra-ui/react";
-
+import { Box, Heading, Code} from "@chakra-ui/react";
+import Image from "next/image";
 export default function Slug(props) {
-  
 
-  const CustomLink = ({children,href}) => {
-    console.log(children,href);
-    return (
-      <Link
-        textDecoration="underline"
-        fontWeight="bold"
-        transition=".3s"
-        pos="relative"
-        fontSize="1rem"
-        _hover={{
-          color: "#E883ED",
-          _after: {
-            w: "100%",
-          }
-        }}
-        _after={{
-          content: "''",
-          height: "2px",
-          bgColor: "#E883ED",
-          position: "absolute",
-          left: "0",
-          bottom: "-3px",
-          transition: ".3s",
-          w: "0"
-        }}
-        href={href}
-      >
-        {children}
-      </Link>
-    )
-  }
-
-  const custom = {
-      a: CustomLink
-  };
   const components = {
-    code: (props) => {
-      return <Code px={2} fontWeight="bold" colorScheme="purple">{props.children}</Code>;
-    },
+    h1: (props) =>  <Heading as="h1" fontSize="3xl" m={2} {...props} />,
+    h2: (props) => <Heading as="h2" fontSize="2xl" m={2} {...props} />,
+    h3: (props) => <Heading as="h3" fontSize="xl" m={2} {...props} />,
+    h4: (props) => <Heading as="h4" fontSize="lg" m={2} {...props} />,
+    h5: (props) => <Heading as="h5" fontSize="md" m={2} {...props} />,
+    h6: (props) => <Heading as="h6" fontSize="sm" m={2} {...props} />,
+    li: (props) => <Box as="li" fontSize="md" m={2} {...props} />,
+    ul: (props) => <Box as="ul" fontSize="md" m={2} {...props} />,
+    ol: (props) => <Box as="ol" fontSize="md" m={2} {...props} />,
     code_block: (props) => {
       return <CodeBlock language={props.lang}>{props.children}</CodeBlock>;
     },
     a: (props) => {
-      return (<Link
-        textDecoration="underline"
-        fontWeight="bold"
-        transition=".3s"
-        pos="relative"
-        fontSize="1rem"
-        _hover={{
-          textDecoration: "none",
-          color: "#E883ED",
-          _after: {
-            w: "100%",
-          }
-        }}
-        _after={{
-          content: "''",
-          height: "2px",
-          bgColor: "#E883ED",
-          position: "absolute",
-          left: "0",
-          bottom: "-3px",
-          transition: ".3s",
-          w: "0"
-        }}
-        href={props.href}
-      >
-        {props.children}
-      </Link>)
+      return (<CustomLink href={props.href}>{props.children}</CustomLink>);
+    },
+    img: (props) => {
+      return (<Image src={props.url} alt={props.alt} width={1920} height={1080} />);
     }
+
   };
   if (props.data && props.data.getPostDocument?.data) {
     return (
         <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}  >
         <article>
-                    <Heading as="h2" size="3xl" textAlign="center" my={8}>
+                    <Heading as="h1" size="3xl" textAlign="center" my={8}>
                         {props.data.getPostDocument.data.title}
                     </Heading>
-          <TinaMarkdown content={props.data.getPostDocument.data.body} components={ChakraUIRenderer(),components} />
+          <TinaMarkdown content={props.data.getPostDocument.data.body} components={components} />
         </article>
         </Box>
     )
