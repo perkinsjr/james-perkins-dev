@@ -1,30 +1,11 @@
-import { getStaticPropsForTina } from 'tinacms'
-import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import { Layout } from '../components/Layout'
-export default function Home(props) {
-  const content = props.data.getPageDocument.data.body
-  return (
+import { Hero } from '../components/Layout/Hero'
+import {FeaturedArticles} from "../components/Layout/FeaturedPost/FeaturedArticles"
+export default function Home() {
+  return (    
     <Layout>
-      <TinaMarkdown content={content} />
+      <Hero title="James Perkins" subheading="Developer Advocate" image="http://res.cloudinary.com/dub20ptvt/image/upload/v1627759692/me-and-tina_hgq79d.jpg" description="Helping Developers understand the Jamstack, and how it can be used to build a faster web." />
+      <FeaturedArticles features={props.featureList} />
     </Layout>
   )
-}
-
-export const getStaticProps = async () => {
-  const tinaProps = await getStaticPropsForTina({
-    query: `{
-    getPageDocument(relativePath: "home.mdx"){
-      data{
-        body
-      }
-    }
-  }`,
-    variables: {},
-  })
-
-  return {
-    props: {
-      ...tinaProps,
-    },
-  }
 }

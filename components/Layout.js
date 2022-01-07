@@ -1,5 +1,3 @@
-import Link from 'next/link'
-import Head from 'next/head'
 import {Flex} from "@chakra-ui/react"
 export const Layout = (props) => {
   return (

@@ -1,20 +1,19 @@
 import { getStaticPropsForTina } from 'tinacms'
 import { Layout } from '../../components/Layout'
-import Link from 'next/link'
+import { FeaturedPost } from '../../components/Layout/FeaturedPost/FeaturedPost'
+import {Heading, SimpleGrid, Box} from "@chakra-ui/react"
 export default function Home(props) {
   const postsList = props.data.getPostList.edges
   return (
     <Layout>
-      <h1>Posts</h1>
-      <div>
+      <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
+      <Heading as="h1" textAlign="center" fontSize="3xl" m={2}>All Posts</Heading>
+      <SimpleGrid columns={[1, null, 3]} spacing='40px'>
         {postsList.map((post) => (
-          <div key={post.node.id}>
-            <Link href={`/posts/${post.node.sys.filename}`}>
-              <a>{post.node.sys.filename}</a>
-            </Link>
-          </div>
+          <FeaturedPost key={post.node.id} href={`/post/${post.node.sys.filename}`} props={post.node.data} />
         ))}
-      </div>
+      </SimpleGrid>
+      </Box>
     </Layout>
   )
 }
@@ -22,17 +21,25 @@ export default function Home(props) {
 export const getStaticProps = async () => {
   const tinaProps = await getStaticPropsForTina({
     query: `{
-        getPostList{
-          edges {
-            node {
-              id
-              sys {
-                filename
-              }
+      getPostList{
+        edges {
+          node {
+            id
+            data{
+              title
+              description
+              author
+              authorTwitter
+              category
+              image
+            }
+            sys {
+              filename
             }
           }
         }
-      }`,
+      }
+    }`,
     variables: {},
   })
 

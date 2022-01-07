@@ -10,6 +10,166 @@
           "label": "Main Content",
           "type": "rich-text",
           "isBody": true,
+          "templates": [
+            {
+              "name": "Hero",
+              "label": "Hero",
+              "fields": [
+                {
+                  "type": "string",
+                  "name": "heading",
+                  "label": "Heading",
+                  "namespace": [
+                    "page",
+                    "body",
+                    "Hero",
+                    "heading"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "subheading",
+                  "label": "Subheading",
+                  "namespace": [
+                    "page",
+                    "body",
+                    "Hero",
+                    "subheading"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "name": "description",
+                  "label": "Description",
+                  "ui": {
+                    "component": "textarea"
+                  },
+                  "namespace": [
+                    "page",
+                    "body",
+                    "Hero",
+                    "description"
+                  ]
+                },
+                {
+                  "type": "image",
+                  "name": "image",
+                  "label": "Hero Image",
+                  "namespace": [
+                    "page",
+                    "body",
+                    "Hero",
+                    "image"
+                  ]
+                }
+              ],
+              "namespace": [
+                "page",
+                "body",
+                "Hero"
+              ]
+            },
+            {
+              "name": "FeatureSection",
+              "label": "Feature",
+              "fields": [
+                {
+                  "type": "object",
+                  "name": "featureList",
+                  "label": "Feature List",
+                  "list": true,
+                  "fields": [
+                    {
+                      "name": "image",
+                      "label": "Feature Image",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "body",
+                        "FeatureSection",
+                        "featureList",
+                        "image"
+                      ]
+                    },
+                    {
+                      "name": "title",
+                      "label": "Feature Title",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "body",
+                        "FeatureSection",
+                        "featureList",
+                        "title"
+                      ]
+                    },
+                    {
+                      "name": "author",
+                      "label": "Author",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "body",
+                        "FeatureSection",
+                        "featureList",
+                        "author"
+                      ]
+                    },
+                    {
+                      "type": "string",
+                      "label": "Category",
+                      "name": "category",
+                      "namespace": [
+                        "page",
+                        "body",
+                        "FeatureSection",
+                        "featureList",
+                        "category"
+                      ]
+                    },
+                    {
+                      "name": "description",
+                      "label": "Description",
+                      "type": "string",
+                      "ui": {
+                        "component": "textarea"
+                      },
+                      "namespace": [
+                        "page",
+                        "body",
+                        "FeatureSection",
+                        "featureList",
+                        "description"
+                      ]
+                    },
+                    {
+                      "name": "href",
+                      "label": "Link",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "body",
+                        "FeatureSection",
+                        "featureList",
+                        "href"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "body",
+                    "FeatureSection",
+                    "featureList"
+                  ]
+                }
+              ],
+              "namespace": [
+                "page",
+                "body",
+                "FeatureSection"
+              ]
+            }
+          ],
           "namespace": [
             "page",
             "body"
