@@ -10,26 +10,26 @@ export default function Home(props) {
       {props.data.getPageDocument.data.blocks
         ? props.data.getPageDocument.data.blocks.map(function (block, i) {
           switch (block.__typename) {
-            case "PageBlocksHero":
-              return (
-                <Fragment key={i + block.__typename}>
-                  <Hero data={block} />
-                </Fragment>
-              );
-            case "PageBlocksFeatures":
-              return (
-                <Fragment key={i + block.__typename}>
-                  <FeaturedArticles data={block} />
-                </Fragment>
-              );
-            case "PageBlocksContent":
-              return (
-                <Fragment key={i + block.__typename}>
-                  <Content data={block} />
-                </Fragment>
-              );
-            default:
-              return null;
+          case "PageBlocksHero":
+            return (
+              <Fragment key={i + block.__typename}>
+                <Hero data={block} />
+              </Fragment>
+            );
+          case "PageBlocksFeatures":
+            return (
+              <Fragment key={i + block.__typename}>
+                <FeaturedArticles data={block} />
+              </Fragment>
+            );
+          case "PageBlocksContent":
+            return (
+              <Fragment key={i + block.__typename}>
+                <Content data={block} />
+              </Fragment>
+            );
+          default:
+            return null;
           }
         })
         : null}

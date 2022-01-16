@@ -36,14 +36,14 @@ export default function Slug(props) {
   };
   if (props.data && props.data.getPostDocument?.data) {
     return (
-        <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}  >
+      <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}  >
         <article>
-                    <Heading as="h1" size="3xl" textAlign="center" my={8}>
-                        {props.data.getPostDocument.data.title}
-                    </Heading>
+          <Heading as="h1" size="3xl" textAlign="center" my={8}>
+            {props.data.getPostDocument.data.title}
+          </Heading>
           <TinaMarkdown content={props.data.getPostDocument.data.body} components={components} />
         </article>
-        </Box>
+      </Box>
     )
   }
   return (

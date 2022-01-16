@@ -1,21 +1,21 @@
 import {
-    Box,
-    Heading,
-    Stack,
-    Text,
-    useColorModeValue as mode,
-    chakra
-  } from '@chakra-ui/react'
+  Box,
+  Heading,
+  Stack,
+  Text,
+  useColorModeValue as mode,
+  chakra
+} from '@chakra-ui/react'
 
 import Image from 'next/image'
 
- export const Hero = ({data}) => {
+export const Hero = ({data}) => {
   const CoverImg = chakra(Image, {
     shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
   })
-    const { heading, subheading, description, image } = data;
-    return(
-<Box as="section" bg={mode('gray.50', 'gray.800')} pt={{base:"0", md: "2", lg: "16"}} pb="24">
+  const { heading, subheading, description, image } = data;
+  return(
+    <Box as="section" bg={mode('gray.50', 'gray.800')} pt={{base:"0", md: "2", lg: "16"}} pb="24">
       <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
         <Stack
           direction={{ base: 'column', lg: 'row' }}
@@ -42,16 +42,16 @@ import Image from 'next/image'
           </Box>
           <Box pos="relative" w={{ base: 'full',md:'560px', lg: '560px' }} h={{ base: 'auto', md:'360px', lg: '360px' }}>
             <Box >
-            <CoverImg
-              zIndex={1}
-              width="560px"
-              height="360px"
-              quality={70}
-              pos="relative"
-              objectFit="cover"
-              src={image}
-              alt={heading}
-            />
+              <CoverImg
+                zIndex={1}
+                width="560px"
+                height="360px"
+                quality={70}
+                pos="relative"
+                objectFit="cover"
+                src={image}
+                alt={heading}
+              />
             </Box>
             <Box
               pos="absolute"
@@ -65,7 +65,7 @@ import Image from 'next/image'
         </Stack>
       </Box>
     </Box>
-    )
+  )
 
 
 

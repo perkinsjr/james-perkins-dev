@@ -7,12 +7,12 @@ export default function BlogPosts(props) {
   return (
     <Layout>
       <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
-      <Heading as="h1" textAlign="center" fontSize="3xl" m={2}>All Posts</Heading>
-      <SimpleGrid columns={[1, null, 3]} spacing='40px' mt={4}>
-        {postsList.map((post) => (
-          <FeaturedPost key={post.node.id} href={`/post/${post.node.sys.filename}`} props={post.node.data} />
-        ))}
-      </SimpleGrid>
+        <Heading as="h1" textAlign="center" fontSize="3xl" m={2}>All Posts</Heading>
+        <SimpleGrid columns={[1, null, 3]} spacing='40px' mt={4}>
+          {postsList.map((post) => (
+            <FeaturedPost key={post.node.id} href={`/post/${post.node.sys.filename}`} props={post.node.data} />
+          ))}
+        </SimpleGrid>
       </Box>
     </Layout>
   )

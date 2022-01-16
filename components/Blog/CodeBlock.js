@@ -6,43 +6,43 @@ import {CopyIcon,CheckIcon} from "@chakra-ui/icons";
 export const CodeBlock = ({ children, language }) => {
   const theme = useTheme();
   const CopyButton = ({ codeString }) => {
-      const { hasCopied, onCopy } = useClipboard(codeString);
+    const { hasCopied, onCopy } = useClipboard(codeString);
     
-      return (
-        <IconButton
-          size="sm"
-          colorScheme="blackAlpha"
-          variant="outline"
-          icon={
-            <Icon
-              as={hasCopied ? CheckIcon : CopyIcon}
-              height={5}
-              width={5}
-              color="white"
-              aria-hidden="true"
-            />
-          }
-          onClick={onCopy}
-          aria-hidden={hasCopied ? "Copied" : "Copy"}
-        />
-      );
-    };
+    return (
+      <IconButton
+        size="sm"
+        colorScheme="blackAlpha"
+        variant="outline"
+        icon={
+          <Icon
+            as={hasCopied ? CheckIcon : CopyIcon}
+            height={5}
+            width={5}
+            color="white"
+            aria-hidden="true"
+          />
+        }
+        onClick={onCopy}
+        aria-hidden={hasCopied ? "Copied" : "Copy"}
+      />
+    );
+  };
   return (
     <Box position="relative" width={"100%"}>
-    <SyntaxHighlighter
-      code={children || ""}
-      language={language || "jsx"}
-      style={atomOneDark}
-      customStyle={{
-        marginTop: 0,
-        marginBottom: 0,
-        width:"100%",
-        padding: `${theme.space["12"]} ${theme.space["4"]} ${theme.space["4"]}`,
-        fontSize: theme.fontSizes["sm"],
-        borderRadius: theme.radii["md"],
-      }}
-    />
-    <Flex
+      <SyntaxHighlighter
+        code={children || ""}
+        language={language || "jsx"}
+        style={atomOneDark}
+        customStyle={{
+          marginTop: 0,
+          marginBottom: 0,
+          width:"100%",
+          padding: `${theme.space["12"]} ${theme.space["4"]} ${theme.space["4"]}`,
+          fontSize: theme.fontSizes["sm"],
+          borderRadius: theme.radii["md"],
+        }}
+      />
+      <Flex
         position="absolute"
         top={2}
         insetX={4}

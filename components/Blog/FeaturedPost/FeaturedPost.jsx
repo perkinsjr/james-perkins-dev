@@ -1,20 +1,20 @@
 import {
-    Box,
-    Flex,
-    Heading,
-    LinkBox,
-    LinkOverlay,
-    Text,
-    useColorModeValue as mode,
-  } from '@chakra-ui/react'
+  Box,
+  Flex,
+  Heading,
+  LinkBox,
+  LinkOverlay,
+  Text,
+  useColorModeValue as mode,
+} from '@chakra-ui/react'
 
 import Image from 'next/image'
 import Link from 'next/link'
 
 export const FeaturedPost = ({props, href}) => {
-    const { title, description, image, author, category } = props
-    return (
-      <Link href={href} passHref>
+  const { title, description, image, author, category } = props
+  return (
+    <Link href={href} passHref>
       <LinkBox
         as="article"
         bg={{
@@ -78,6 +78,6 @@ export const FeaturedPost = ({props, href}) => {
           </Flex>
         </Flex>
       </LinkBox>
-      </Link>
-    )
-  }
+    </Link>
+  )
+}
