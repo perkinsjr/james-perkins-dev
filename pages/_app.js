@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic'
 import { TinaEditProvider } from 'tinacms/dist/edit-state'
 import { ChakraProvider } from '@chakra-ui/react'
-import {Navbar} from '../components/layout/NavBar/Navbar'
+import {Navbar} from '../components/Layout/NavBar/Navbar'
 const TinaCMS = dynamic(() => import('tinacms'), { ssr: false })
 
 const NEXT_PUBLIC_TINA_CLIENT_ID = process.env.NEXT_PUBLIC_TINA_CLIENT_ID
