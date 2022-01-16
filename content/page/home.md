@@ -10,7 +10,7 @@ blocks:
     _template: hero
   - items:
       - image: >-
-          http://res.cloudinary.com/dub20ptvt/image/upload/v1642358877/James-Perkins-Site/f7npx7sui25sut3jou0o.png
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642358877/James-Perkins-Site/f7npx7sui25sut3jou0o.png
         name: Youtube
         description: >+
           Youtube is where most of my content is created. I provide tutorials on
@@ -18,7 +18,7 @@ blocks:
 
         href: 'https://youtube.com/c/learntocodewithjames'
       - image: >-
-          http://res.cloudinary.com/dub20ptvt/image/upload/v1642359207/James-Perkins-Site/rhst206klpfbpogmcrzq.jpg
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642359207/James-Perkins-Site/rhst206klpfbpogmcrzq.jpg
         name: Developers Hangout Podcast
         description: >-
           The podcast isn't like most podcasts. I interview people in tech from
@@ -26,7 +26,7 @@ blocks:
           about what we do outside out of work!
         href: 'https://developershangoutpodcast.com'
       - image: >-
-          http://res.cloudinary.com/dub20ptvt/image/upload/v1642359295/James-Perkins-Site/m6gkg8rhlyu36cguz5us.png
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642359295/James-Perkins-Site/m6gkg8rhlyu36cguz5us.png
         name: 'Twitch '
         description: >-
           I use Twitch to cover fun and exciting content. Sometimes we work on
@@ -35,7 +35,7 @@ blocks:
     _template: content
   - items:
       - image: >-
-          http://res.cloudinary.com/dub20ptvt/image/upload/v1628455828/Developers_Hangout_Update_kwfwf3.png
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1628455828/Developers_Hangout_Update_kwfwf3.png
         title: Developers Hangout Update
         author: James Perkins
         category: Developers Hangout
@@ -44,13 +44,13 @@ blocks:
           it would be cool to give you an update.
         href: /post/test
       - image: >-
-          http://res.cloudinary.com/dub20ptvt/image/upload/v1633284008/force-page-reload_rqi48d.webp
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1633284008/force-page-reload_rqi48d.webp
         title: Force Next.js Page Reloads
         author: James Perkins
         category: tutorials
         description: 'Forcing a page reload might be required sometimes, so I teach you are.'
       - image: >-
-          http://res.cloudinary.com/dub20ptvt/image/upload/v1635377217/Tailwind_uryoth.jpg
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1635377217/Tailwind_uryoth.jpg
         title: A title
         author: James Perkins
         category: Tutorials
