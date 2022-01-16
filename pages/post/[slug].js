@@ -1,23 +1,22 @@
 import { staticRequest } from 'tinacms'
-import { Layout } from '../../components/Layout'
+import { Layout } from '../../components/Layout/Layout'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
-import {CodeBlock} from '../../components/CodeBlock';
-import { CustomLink } from '../../components/CustomLink';
-import ChakraUIRenderer from "chakra-ui-markdown-renderer"
-import { Box, Heading, Code} from "@chakra-ui/react";
-import Image from "next/image";
+import {CodeBlock} from '../../components/Blog/CodeBlock';
+import { CustomLink } from '../../components/Blog/CustomLink';
+import { Box, Heading, Code, chakra} from "@chakra-ui/react";
+import Image from "next/image"
 export default function Slug(props) {
-
+  
   const components = {
-    h1: (props) =>  <Heading as="h1" fontSize="3xl" m={2} {...props} />,
-    h2: (props) => <Heading as="h2" fontSize="2xl" m={2} {...props} />,
-    h3: (props) => <Heading as="h3" fontSize="xl" m={2} {...props} />,
-    h4: (props) => <Heading as="h4" fontSize="lg" m={2} {...props} />,
-    h5: (props) => <Heading as="h5" fontSize="md" m={2} {...props} />,
-    h6: (props) => <Heading as="h6" fontSize="sm" m={2} {...props} />,
-    li: (props) => <Box as="li" fontSize="md" m={2} {...props} />,
-    ul: (props) => <Box as="ul" fontSize="md" m={2} {...props} />,
-    ol: (props) => <Box as="ol" fontSize="md" m={2} {...props} />,
+    h1: (props) =>  <Heading as="h1" fontSize="6xl" my={2} {...props} />,
+    h2: (props) => <Heading as="h2" fontSize="5xl" my={2} {...props} />,
+    h3: (props) => <Heading as="h3" fontSize="4xl" my={2} {...props} />,
+    h4: (props) => <Heading as="h4" fontSize="3xl" my={2} {...props} />,
+    h5: (props) => <Heading as="h5" fontSize="2xl" my={2} {...props} />,
+    h6: (props) => <Heading as="h6" fontSize="xl" my={2} {...props} />,
+    li: (props) => <Box as="li" fontSize="md" my={2} mx={4} {...props} />,
+    ul: (props) => <Box as="ul" fontSize="md" my={2} mx={4} {...props} />,
+    ol: (props) => <Box as="ol" fontSize="md" my={2} mx={4} {...props} />,
     code_block: (props) => {
       return <CodeBlock language={props.lang}>{props.children}</CodeBlock>;
     },
@@ -25,7 +24,13 @@ export default function Slug(props) {
       return (<CustomLink href={props.href}>{props.children}</CustomLink>);
     },
     img: (props) => {
-      return (<Image src={props.url} alt={props.alt} width={1920} height={1080} />);
+      const BlogImg = chakra(Image, {
+        shouldForwardProp: (prop) => ['height', 'width', 'quality', 'src', 'alt'].includes(prop),
+      })
+      return (<BlogImg mx="auto" src={props.url} height="540" width="960" alt={props.alt} layout="fill" quality="50" />);
+    },
+    code: (props) => {
+      return (<Code colorScheme="purple">{props.children}</Code>);
     }
 
   };

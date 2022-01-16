@@ -1,5 +1,4 @@
-import { chakra, useColorModeValue } from '@chakra-ui/react'
-import * as React from 'react'
+import { chakra } from '@chakra-ui/react'
 
 const DesktopNavLink = (props) => {
   return (
@@ -9,10 +8,8 @@ const DesktopNavLink = (props) => {
       display="flex"
       alignItems="center"
       justifyContent="center"
-      fontWeight="bold"
         transition=".3s"
         pos="relative"
-        fontSize="1rem"
         _hover={{
           textDecoration: "none",
           color: "RGB(113, 90, 255)",

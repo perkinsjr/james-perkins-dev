@@ -1,14 +1,10 @@
 import dynamic from 'next/dynamic'
 import { TinaEditProvider } from 'tinacms/dist/edit-state'
-import { TinaCloudCloudinaryMediaStore } from 'next-tinacms-cloudinary'
 import { ChakraProvider } from '@chakra-ui/react'
 import {Navbar} from '../components/layout/NavBar/Navbar'
-import theme from "../utils/theme"
 const TinaCMS = dynamic(() => import('tinacms'), { ssr: false })
 
 const NEXT_PUBLIC_TINA_CLIENT_ID = process.env.NEXT_PUBLIC_TINA_CLIENT_ID
-const NEXT_PUBLIC_USE_LOCAL_CLIENT =
-  process.env.NEXT_PUBLIC_USE_LOCAL_CLIENT || true
 
 const App = ({ Component, pageProps }) => {
   return (
@@ -20,7 +16,10 @@ const App = ({ Component, pageProps }) => {
             branch="main"
             clientId={NEXT_PUBLIC_TINA_CLIENT_ID}
             isLocalClient={true}
-            mediaStore={TinaCloudCloudinaryMediaStore}
+            mediaStore={async () => {
+              const pack = await import("next-tinacms-cloudinary");
+              return pack.TinaCloudCloudinaryMediaStore;
+            }}
             {...pageProps}
           >
             {(livePageProps) => <Component {...livePageProps} />}

@@ -2,19 +2,20 @@ import {
     Box,
     Flex,
     Heading,
-    Img,
     LinkBox,
     Link,
-    LinkOverlay,
     SimpleGrid,
     Text,
     useColorModeValue as mode,
+    chakra
 } from '@chakra-ui/react'
+import Image from 'next/image';
 import { ArrowForwardIcon } from '@chakra-ui/icons'
-
-import Image from 'next/image'
-export const FeaturedArticles = ({ features }) => {
-    console.log(features);
+export const FeaturedArticles = ({ data }) => {
+    const FeaturedImage = chakra(Image, {
+        shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
+      })
+    const isURL = (str) => { return str.match(/^((https?):\/\/)?([w|W]{3}\.)+[a-zA-Z0-9\-\.]{3,}\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/);};
     return (
         <Box
             as="section"
@@ -46,33 +47,33 @@ export const FeaturedArticles = ({ features }) => {
                     spacing="12"
                     mb="10"
                 >
-                    {features?.map((feature) => {
+                    {data.items?.map((feature) => {
                         const link = `/post/${feature.href}`
                         return (
-                            <Link href={link}>
+                            <Link href={link} key={feature.href} style={{textDecoration: 'inherit'}}>
                                 <LinkBox
                                     as="article"
                                     bg={{
                                         sm: mode('white', 'gray.700'),
-                                    }}
-                                    shadow={{
+                                      }}
+                                      shadow={{
                                         sm: 'base',
-                                    }}
-                                    rounded={{
+                                      }}
+                                      rounded={{
                                         sm: 'md',
-                                    }}
-                                    overflow="hidden"
-                                    transition="all 0.2s"
-                                    _hover={{
+                                      }}
+                                      overflow="hidden"
+                                      transition="all 0.2s"
+                                      _hover={{
                                         shadow: {
-                                            sm: 'lg',
+                                          sm: 'lg',
                                         },
-                                    }}
+                                      }}
                                 >
 
                                     <Flex direction="column">
 
-                                        <Img height="180" width="100" quality={100} objectFit="cover" alt={feature.title} src={feature.image} />
+                                        {feature?.image && <FeaturedImage height="180px" width="100px" quality={60} objectFit="cover" alt={feature?.title} src={feature?.image} />}
                                         <Flex
                                             direction="column"
                                             px={{
@@ -86,15 +87,16 @@ export const FeaturedArticles = ({ features }) => {
                                                 fontSize="xs"
                                                 fontWeight="semibold"
                                                 mb="2"
+                                                textDecoration="none"
                                                 color="gray.500"
                                             >
-                                                {feature.category}
+                                                {feature?.category}
                                             </Text>
                                             <Heading as="h3" size="sm" mb="2" lineHeight="base">
-                                                <LinkOverlay href={feature.href}>{feature.title}</LinkOverlay>
+                                                <Text>{feature?.title}</Text>
                                             </Heading>
                                             <Text noOfLines={2} mb="8" color={mode('gray.600', 'gray.400')}>
-                                                {feature.description}
+                                                {feature?.description}
                                             </Text>
 
                                             <Flex
@@ -106,7 +108,7 @@ export const FeaturedArticles = ({ features }) => {
                                                 <Text>
                                                     By{' '}
                                                     <Box textDecor="underline">
-                                                        {feature.author}
+                                                        {feature?.author}
                                                     </Box>
                                                 </Text>
                                             </Flex>

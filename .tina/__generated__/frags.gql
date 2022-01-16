@@ -1,5 +1,33 @@
 fragment PageParts on Page {
-  body
+  blocks {
+    __typename
+    ... on PageBlocksHero {
+      heading
+      subheading
+      description
+      image
+    }
+    ... on PageBlocksFeatures {
+      items {
+        __typename
+        image
+        title
+        author
+        category
+        description
+        href
+      }
+    }
+    ... on PageBlocksContent {
+      items {
+        __typename
+        image
+        name
+        description
+        href
+      }
+    }
+  }
 }
 
 fragment PostParts on Post {

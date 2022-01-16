@@ -1,4 +1,11 @@
 {
+  "version": {
+    "fullVersion": "0.59.3",
+    "major": "0",
+    "minor": "59",
+    "patch": "3"
+  },
+  "meta": {},
   "collections": [
     {
       "label": "Page Content",
@@ -6,48 +13,48 @@
       "path": "content/page",
       "fields": [
         {
-          "name": "body",
-          "label": "Main Content",
-          "type": "rich-text",
-          "isBody": true,
+          "type": "object",
+          "list": true,
+          "name": "blocks",
+          "label": "Sections",
           "templates": [
             {
-              "name": "Hero",
+              "name": "hero",
               "label": "Hero",
               "fields": [
                 {
                   "type": "string",
-                  "name": "heading",
                   "label": "Heading",
+                  "name": "heading",
                   "namespace": [
                     "page",
-                    "body",
-                    "Hero",
+                    "blocks",
+                    "hero",
                     "heading"
                   ]
                 },
                 {
                   "type": "string",
+                  "label": "Subeheading",
                   "name": "subheading",
-                  "label": "Subheading",
                   "namespace": [
                     "page",
-                    "body",
-                    "Hero",
+                    "blocks",
+                    "hero",
                     "subheading"
                   ]
                 },
                 {
                   "type": "string",
-                  "name": "description",
                   "label": "Description",
+                  "name": "description",
                   "ui": {
                     "component": "textarea"
                   },
                   "namespace": [
                     "page",
-                    "body",
-                    "Hero",
+                    "blocks",
+                    "hero",
                     "description"
                   ]
                 },
@@ -57,37 +64,37 @@
                   "label": "Hero Image",
                   "namespace": [
                     "page",
-                    "body",
-                    "Hero",
+                    "blocks",
+                    "hero",
                     "image"
                   ]
                 }
               ],
               "namespace": [
                 "page",
-                "body",
-                "Hero"
+                "blocks",
+                "hero"
               ]
             },
             {
-              "name": "FeatureSection",
-              "label": "Feature",
+              "name": "features",
+              "label": "Features",
               "fields": [
                 {
                   "type": "object",
-                  "name": "featureList",
-                  "label": "Feature List",
+                  "label": "Feature Items",
+                  "name": "items",
                   "list": true,
                   "fields": [
                     {
                       "name": "image",
                       "label": "Feature Image",
-                      "type": "string",
+                      "type": "image",
                       "namespace": [
                         "page",
-                        "body",
-                        "FeatureSection",
-                        "featureList",
+                        "blocks",
+                        "features",
+                        "items",
                         "image"
                       ]
                     },
@@ -97,9 +104,9 @@
                       "type": "string",
                       "namespace": [
                         "page",
-                        "body",
-                        "FeatureSection",
-                        "featureList",
+                        "blocks",
+                        "features",
+                        "items",
                         "title"
                       ]
                     },
@@ -109,9 +116,9 @@
                       "type": "string",
                       "namespace": [
                         "page",
-                        "body",
-                        "FeatureSection",
-                        "featureList",
+                        "blocks",
+                        "features",
+                        "items",
                         "author"
                       ]
                     },
@@ -121,9 +128,9 @@
                       "name": "category",
                       "namespace": [
                         "page",
-                        "body",
-                        "FeatureSection",
-                        "featureList",
+                        "blocks",
+                        "features",
+                        "items",
                         "category"
                       ]
                     },
@@ -136,9 +143,9 @@
                       },
                       "namespace": [
                         "page",
-                        "body",
-                        "FeatureSection",
-                        "featureList",
+                        "blocks",
+                        "features",
+                        "items",
                         "description"
                       ]
                     },
@@ -148,31 +155,107 @@
                       "type": "string",
                       "namespace": [
                         "page",
-                        "body",
-                        "FeatureSection",
-                        "featureList",
+                        "blocks",
+                        "features",
+                        "items",
                         "href"
                       ]
                     }
                   ],
                   "namespace": [
                     "page",
-                    "body",
-                    "FeatureSection",
-                    "featureList"
+                    "blocks",
+                    "features",
+                    "items"
                   ]
                 }
               ],
               "namespace": [
                 "page",
-                "body",
-                "FeatureSection"
+                "blocks",
+                "features"
+              ]
+            },
+            {
+              "name": "content",
+              "label": "Content Section",
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Content Items",
+                  "name": "items",
+                  "list": true,
+                  "fields": [
+                    {
+                      "name": "image",
+                      "label": "Content Image",
+                      "type": "image",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "content",
+                        "items",
+                        "image"
+                      ]
+                    },
+                    {
+                      "name": "name",
+                      "label": "Content Name",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "content",
+                        "items",
+                        "name"
+                      ]
+                    },
+                    {
+                      "name": "description",
+                      "label": "Description",
+                      "type": "string",
+                      "ui": {
+                        "component": "textarea"
+                      },
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "content",
+                        "items",
+                        "description"
+                      ]
+                    },
+                    {
+                      "name": "href",
+                      "label": "Link",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "content",
+                        "items",
+                        "href"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "content",
+                    "items"
+                  ]
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "content"
               ]
             }
           ],
           "namespace": [
             "page",
-            "body"
+            "blocks"
           ]
         }
       ],
@@ -286,6 +369,5 @@
         "post"
       ]
     }
-  ],
-  "namespace": []
+  ]
 }

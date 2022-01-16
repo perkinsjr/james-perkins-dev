@@ -1,18 +1,21 @@
 import {
     Box,
     Heading,
-    Img,
     Stack,
     Text,
     useColorModeValue as mode,
+    chakra
   } from '@chakra-ui/react'
 
+import Image from 'next/image'
 
-
- export const Hero = (props) => {
-    const { title, subtitle, description, image } = props;
+ export const Hero = ({data}) => {
+  const CoverImg = chakra(Image, {
+    shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
+  })
+    const { heading, subheading, description, image } = data;
     return(
-<Box as="section" bg={mode('gray.50', 'gray.800')} pt="16" pb="24">
+<Box as="section" bg={mode('gray.50', 'gray.800')} pt={{base:"0", md: "2", lg: "16"}} pb="24">
       <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
         <Stack
           direction={{ base: 'column', lg: 'row' }}
@@ -30,23 +33,26 @@ import {
               fontWeight="extrabold"
               letterSpacing="tight"
             >
-              {title}
+              {heading}
             </Heading>
-            <Text color={mode('gray.600', 'gray.400')} fontSize="sm" fontWeight="light">{subtitle}</Text>
+            <Text color={mode('gray.600', 'gray.400')} fontSize="sm" fontWeight="light">{subheading}</Text>
             <Text color={mode('gray.600', 'gray.400')} mt="4" fontSize="lg" fontWeight="medium">
               {description}
             </Text>
           </Box>
-          <Box pos="relative" w={{ base: 'full', lg: '560px' }} h={{ base: 'auto', lg: '360px' }}>
-            <Img
-              w="full"
+          <Box pos="relative" w={{ base: 'full',md:'560px', lg: '560px' }} h={{ base: 'auto', md:'360px', lg: '360px' }}>
+            <Box >
+            <CoverImg
+              zIndex={1}
+              width="560px"
+              height="360px"
+              quality={80}
               pos="relative"
-              zIndex="1"
-              h={{ lg: '100%' }}
               objectFit="cover"
               src={image}
-              alt={title}
+              alt={heading}
             />
+            </Box>
             <Box
               pos="absolute"
               w="100%"

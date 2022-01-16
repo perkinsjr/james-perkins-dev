@@ -17,17 +17,14 @@
     "createDocument": "create",
     "updateDocument": "update"
   },
-  "PostsDocument": {
-    "type": "PostsDocument",
-    "resolveType": "collectionDocument",
-    "collection": "posts",
-    "createPostsDocument": "create",
-    "updatePostsDocument": "update"
-  },
-  "PostsConnection": {
-    "type": "PostsConnection",
-    "resolveType": "collectionDocumentList",
-    "collection": "posts"
+  "PageBlocks": {
+    "type": "PageBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "hero": "PageBlocksHero",
+      "features": "PageBlocksFeatures",
+      "content": "PageBlocksContent"
+    }
   },
   "PageDocument": {
     "type": "PageDocument",

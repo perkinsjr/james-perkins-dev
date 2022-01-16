@@ -15,12 +15,12 @@ import {
   import { NavListItem } from './NavListItem'
   const links = [
     {
-      label: 'Showcase',
-      href: '#',
+      label: 'Home',
+      href: '/',
     },
     {
-      label: 'Reviews',
-      href: '#',
+      label: 'Blog',
+      href: '/post',
     },
     {
       label: 'Features',

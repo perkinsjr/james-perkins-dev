@@ -12,7 +12,6 @@ export default createMediaHandler({
   api_key: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
   api_secret: process.env.CLOUDINARY_API_SECRET,
   authorized: async (req, _res) => {
-    console.log(process.env.NEXT_PUBLIC_USE_LOCAL_CLIENT)
     if (process.env.NEXT_PUBLIC_USE_LOCAL_CLIENT === "1") {
       return true;
     }

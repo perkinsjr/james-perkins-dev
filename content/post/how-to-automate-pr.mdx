@@ -43,11 +43,11 @@ GitHub Actions are very powerful and flexible and allow you to run all sorts of 
 
 ### Creating your GitHub action
 
-Create a file in your project called .github/workflows/scheduler.yml we will use this to create our actions.
+Create a file in your project called `.github/workflows/scheduler.ym`we will use this to create our actions.
 
 There are quite a few options for GitHub actions but I actually like a prebuilt version called [merge-schedule-action](https://github.com/gr2m/merge-schedule-action) takes a few different arguments and uses the date to schedule your PR:
 
-```
+```javascript
 name: Merge Schedule
 on:
   pull_request:
@@ -72,7 +72,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-So let us breakdown what is happening here we give it a name Merge Schedule that triggers on pull requests that are opened, edited, synchronize. We then check every hour via a cronjob using 0 \* \* \* \* and then we run a job called merge\_schedule. The steps are the most important here, we tell it to use gr2m/merge-schedule-action@v1 and tell it the merge method to use and what timezone we should be using in the example we are using America/Los\_Angeles
+So let us breakdown what is happening here we give it a name Merge Schedule that triggers on pull requests that are opened, edited, synchronize. We then check every hour via a cronjob using `0 \* \* \* \*` and then we run a job called `merge\_schedule`. The steps are the most important here, we tell it to use gr2m/merge-schedule-action@v1 and tell it the merge method to use and what timezone we should be using in the example we are using America/Los\_Angeles
 
-Now we have created the Action when you create a Pull Request you need to add /schedule YYYY-MM-DD to your Pull Request description. At this point the Action will check all PRs until the date matches and deploy the code, if you need precise deployments you can use /schedule 2019-12-31T00:00:00.000Z.
-
+Now we have created the Action when you create a Pull Request you need to add /schedule YYYY-MM-DD to your Pull Request description. At this point the Action will check all PRs until the date matches and deploy the code, if you need precise deployments you can use `/schedule 2019-12-31T00:00:00.000Z.`

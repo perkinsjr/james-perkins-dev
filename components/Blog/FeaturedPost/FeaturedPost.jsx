@@ -8,13 +8,13 @@ import {
     useColorModeValue as mode,
   } from '@chakra-ui/react'
 
-  import Image from 'next/image'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export const FeaturedPost = ({props, href}) => {
     const { title, description, image, author, category } = props
     return (
-      <Link href={href}>
+      <Link href={href} passHref>
       <LinkBox
         as="article"
         bg={{
@@ -69,9 +69,9 @@ export const FeaturedPost = ({props, href}) => {
               color={mode('gray.600', 'gray.400')}
             >
               <Text>
-                By{' '}
-                <Box textDecor="underline">
-                  {author}
+                
+                <Box fontWeight={"bold"}>
+                 By {author}
                 </Box>
               </Text>
             </Flex>
