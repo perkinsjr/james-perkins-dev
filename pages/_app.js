@@ -15,7 +15,7 @@ const App = ({ Component, pageProps }) => {
           <TinaCMS
             branch="main"
             clientId={NEXT_PUBLIC_TINA_CLIENT_ID}
-            isLocalClient={true}
+            isLocalClient={false}
             mediaStore={async () => {
               const pack = await import("next-tinacms-cloudinary");
               return pack.TinaCloudCloudinaryMediaStore;
