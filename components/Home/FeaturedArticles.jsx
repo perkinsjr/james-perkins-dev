@@ -85,11 +85,10 @@ export const FeaturedArticles = ({ data }) => {
                                                 casing="uppercase"
                                                 letterSpacing="wider"
                                                 fontSize="xs"
-                                                color={mode('gray.600', 'gray.400')}
+                                                color={mode('gray.800', 'gray.400')}
                                                 fontWeight="semibold"
                                                 mb="2"
                                                 textDecoration="none"
-                                                color="gray.500"
                                             >
                                                 {feature?.category}
                                             </Text>
