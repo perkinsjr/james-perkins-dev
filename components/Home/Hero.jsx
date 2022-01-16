@@ -46,7 +46,7 @@ import Image from 'next/image'
               zIndex={1}
               width="560px"
               height="360px"
-              quality={80}
+              quality={70}
               pos="relative"
               objectFit="cover"
               src={image}
