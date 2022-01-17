@@ -3,17 +3,17 @@ import { Layout } from '../../components/Layout/Layout'
 import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import {CodeBlock} from '../../components/Blog/CodeBlock';
 import { CustomLink } from '../../components/Blog/CustomLink';
-import { Box, Heading, Code, chakra} from "@chakra-ui/react";
+import { Box, Heading, Code, chakra,  useColorModeValue as mode} from "@chakra-ui/react";
 import Image from "next/image"
 export default function Slug(props) {
   
   const components = {
     h1: (props) =>  <Heading as="h1" fontSize="6xl" my={2} {...props} />,
-    h2: (props) => <Heading as="h2" fontSize="5xl" my={2} {...props} />,
-    h3: (props) => <Heading as="h3" fontSize="4xl" my={2} {...props} />,
-    h4: (props) => <Heading as="h4" fontSize="3xl" my={2} {...props} />,
-    h5: (props) => <Heading as="h5" fontSize="2xl" my={2} {...props} />,
-    h6: (props) => <Heading as="h6" fontSize="xl" my={2} {...props} />,
+    h2: (props) => <Heading as="h2" color={mode('purple.600', 'purple.300')} fontSize="5xl" my={2} {...props} />,
+    h3: (props) => <Heading as="h3" color="RGB(113, 90, 255)" fontSize="4xl" my={2} {...props} />,
+    h4: (props) => <Heading as="h4" color={mode('purple.600', 'purple.300')}fontSize="3xl" my={2} {...props} />,
+    h5: (props) => <Heading as="h5" color={mode('purple.600', 'purple.300')}fontSize="2xl" my={2} {...props} />,
+    h6: (props) => <Heading as="h6" color={mode('purple.600', 'purple.300')}fontSize="xl" my={2} {...props} />,
     li: (props) => <Box as="li" fontSize="md" my={2} mx={4} {...props} />,
     ul: (props) => <Box as="ul" fontSize="md" my={2} mx={4} {...props} />,
     ol: (props) => <Box as="ol" fontSize="md" my={2} mx={4} {...props} />,
@@ -38,10 +38,15 @@ export default function Slug(props) {
     return (
       <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}  >
         <article>
-          <Heading as="h1" size="3xl" textAlign="center" my={8}>
+          <Heading as="h1" color="RGB(113, 90, 255)" size="3xl" textAlign="center" my={8}>
             {props.data.getPostDocument.data.title}
           </Heading>
+          
           <TinaMarkdown content={props.data.getPostDocument.data.body} components={components} />
+          <Box my={8}>
+            
+          
+          </Box>
         </article>
       </Box>
     )
