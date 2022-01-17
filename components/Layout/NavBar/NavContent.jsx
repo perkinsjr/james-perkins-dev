@@ -5,34 +5,34 @@ import {
   Stack,
   StackDivider,
   useColorModeValue,
-  useDisclosure,
-} from '@chakra-ui/react'
-import * as React from 'react'
-import { HiOutlineMenu, HiX } from 'react-icons/hi'
-import { NavLink } from './NavLink'
-import { NavList } from './NavList'
-import { NavListItem } from './NavListItem'
+  useDisclosure
+} from '@chakra-ui/react';
+import * as React from 'react';
+import { HiOutlineMenu, HiX } from 'react-icons/hi';
+import { NavLink } from './NavLink';
+import { NavList } from './NavList';
+import { NavListItem } from './NavListItem';
 const links = [
   {
     label: 'Home',
-    href: '/',
+    href: '/'
   },
   {
     label: 'Blog',
-    href: '/post',
+    href: '/post'
   },
   {
-    label: 'Features',
-    href: '#',
+    label: 'YouTube',
+    href: 'https://youtube.com/c/learntocodewithjames'
   },
   {
-    label: 'Resources',
-    href: '#',
-  },
-]
-  
-const MobileNavContent = (props) => {
-  const { isOpen, onToggle } = useDisclosure()
+    label: 'Twitch',
+    href: 'https://twitch.tv/jamesperkins'
+  }
+];
+
+const MobileNavContent = props => {
+  const { isOpen, onToggle } = useDisclosure();
   return (
     <Box {...props} zIndex="10000">
       <Center
@@ -51,7 +51,10 @@ const MobileNavContent = (props) => {
         top="64px"
         animate={isOpen ? 'enter' : 'exit'}
       >
-        <Stack spacing="0" divider={<StackDivider borderColor="whiteAlpha.200" />}>
+        <Stack
+          spacing="0"
+          divider={<StackDivider borderColor="whiteAlpha.200" />}
+        >
           {links.map((link, index) => (
             <NavListItem key={index}>
               <NavLink.Mobile href={link.href}>{link.label}</NavLink.Mobile>
@@ -60,22 +63,22 @@ const MobileNavContent = (props) => {
         </Stack>
       </NavList>
     </Box>
-  )
-}
-  
-const DesktopNavContent = (props) => {
+  );
+};
+
+const DesktopNavContent = props => {
   return (
-    <HStack spacing="8" mx="8"align="stretch" {...props}>
+    <HStack spacing="8" mx="8" align="stretch" {...props}>
       {links.map((link, index) => (
         <NavLink.Desktop key={index} href={link.href}>
           {link.label}
         </NavLink.Desktop>
       ))}
     </HStack>
-  )
-}
-  
+  );
+};
+
 export const NavContent = {
   Mobile: MobileNavContent,
-  Desktop: DesktopNavContent,
-}
+  Desktop: DesktopNavContent
+};
