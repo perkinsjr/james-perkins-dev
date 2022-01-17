@@ -13,8 +13,7 @@ blocks:
           https://res.cloudinary.com/dub20ptvt/image/upload/v1642358877/James-Perkins-Site/f7npx7sui25sut3jou0o.webp
         name: Youtube
         description: >+
-          Youtube is where most of my content is created. I provide tutorials on
-          everything from Auth to Testing all in the Jamstack. 
+          Youtube is where most of my content is created. I provide tutorials on the Jamstack, you can find anything from Authentication to Full application development.
 
         href: 'https://youtube.com/c/learntocodewithjames'
       - image: >-
@@ -56,7 +55,6 @@ blocks:
         category: Tutorials
         description: >-
           This is where I teach you how to do some things with Tailwind CSS. Or
-          something similar. 
+          something similar.
     _template: features
 ---
-
