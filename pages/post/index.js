@@ -1,7 +1,7 @@
 import { staticRequest } from 'tinacms'
 import { Layout } from '../../components/Layout/Layout'
 import { FeaturedPost } from '../../components/Blog/FeaturedPost/FeaturedPost'
-import {Heading, SimpleGrid, Box, useColorModeValue as mode} from "@chakra-ui/react"
+import {Heading, SimpleGrid, Box} from "@chakra-ui/react"
 export default function BlogPosts(props) {
   const postsList = props.getPostList.edges
   return (
