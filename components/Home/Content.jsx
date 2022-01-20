@@ -20,7 +20,7 @@ export const Content = ({data}) => {
         <Box flex="1" maxW={{ lg: '5xl' }} mb={12} mx="auto">
           <Heading
             as="h1"
-            size="3xl"
+            size="xl"
             color={mode('purple.600', 'purple.700')}
             mt="8"
             textAlign="center"

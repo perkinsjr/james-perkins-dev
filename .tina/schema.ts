@@ -168,14 +168,14 @@ export default defineSchema({
           type: "string",
           label: "Category",
           name: "category",
-          options: ["tutorial", "thoughts", "productivity"],
+          options: ["tutorials", "thoughts", "productivity","podcast"],
           list: true
         },
         {
           type: "string",
           label: "Tags",
           name: "tags",
-          options: ["nextjs", "javascript", "devops", "productivity"],
+          options: ["nextjs", "javascript", "devops","tailwind","thoughts", "productivity","devrel"],
           list: true
         },
         {

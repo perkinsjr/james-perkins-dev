@@ -18,7 +18,7 @@ export const FeaturedArticles = ({ data }) => {
   return (
     <Box
       as="section"
-      bg={mode('gray.50', 'gray.800')}
+      bg={mode('white', 'gray.800')}
       py={{
         base: '10',
         sm: '10',
@@ -35,7 +35,7 @@ export const FeaturedArticles = ({ data }) => {
           md: '8',
         }}
       >
-        <Heading size="xl" mb="8" fontWeight="extrabold">
+        <Heading color="RGB(113, 90, 255)" size="xl" mb="8" fontWeight="extrabold">
                     Featured Articles
         </Heading>
         <SimpleGrid
@@ -66,6 +66,7 @@ export const FeaturedArticles = ({ data }) => {
                   _hover={{
                     shadow: {
                       sm: 'lg',
+                      lg: "dark-lg"
                     },
                   }}
                 >

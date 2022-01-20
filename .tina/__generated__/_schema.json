@@ -318,9 +318,10 @@
           "label": "Category",
           "name": "category",
           "options": [
-            "tutorial",
+            "tutorials",
             "thoughts",
-            "productivity"
+            "productivity",
+            "podcast"
           ],
           "list": true,
           "namespace": [
@@ -336,7 +337,10 @@
             "nextjs",
             "javascript",
             "devops",
-            "productivity"
+            "tailwind",
+            "thoughts",
+            "productivity",
+            "devrel"
           ],
           "list": true,
           "namespace": [

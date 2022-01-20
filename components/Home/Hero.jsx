@@ -15,7 +15,7 @@ export const Hero = ({data}) => {
   })
   const { heading, subheading, description, image } = data;
   return(
-    <Box as="section" bg={mode('gray.50', 'gray.800')} pt={{base:"0", md: "2", lg: "16"}} pb="24">
+    <Box as="section" bg={mode('white', 'gray.800')} pt={{base:"0", md: "2", lg: "16"}} pb="24">
       <Box maxW={{ base: 'xl', md: '7xl' }} mx="auto" px={{ base: '6', md: '8' }}>
         <Stack
           direction={{ base: 'column', lg: 'row' }}

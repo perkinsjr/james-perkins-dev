@@ -7,6 +7,7 @@ import {
   Box,
   Heading,
   Code,
+  Text,
   chakra,
   useColorModeValue as mode,
   Divider
@@ -28,7 +29,7 @@ export default function Slug(props) {
     h3: props => (
       <Heading
         as="h3"
-        color="RGB(113, 90, 255)"
+        color={mode('purple.600', 'purple.300')}
         fontSize="4xl"
         my={2}
         {...props}
@@ -61,9 +62,9 @@ export default function Slug(props) {
         {...props}
       />
     ),
-    li: props => <Box as="li" fontSize="md" my={2} mx={4} {...props} />,
-    ul: props => <Box as="ul" fontSize="md" my={2} mx={4} {...props} />,
-    ol: props => <Box as="ol" fontSize="md" my={2} mx={4} {...props} />,
+    li: props => <Box as="li" fontSize="xl" my={2} mx={4} {...props} />,
+    ul: props => <Box as="ul" fontSize="xl" my={2} mx={4} {...props} />,
+    ol: props => <Box as="ol" fontSize="xl" my={2} mx={4} {...props} />,
     code_block: props => {
       return <CodeBlock language={props.lang}>{props.children}</CodeBlock>;
     },
@@ -89,6 +90,9 @@ export default function Slug(props) {
     },
     code: props => {
       return <Code colorScheme="purple">{props.children}</Code>;
+    },
+    p: props => {
+      return <Text fontSize="xl" my={2} {...props}/>
     }
   };
   if (props.data && props.data.getPostDocument?.data) {
