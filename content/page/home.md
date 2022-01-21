@@ -47,7 +47,7 @@ blocks:
             some New Year’s resolutions for yourself. Possibly learning a new language,
             skill or improving on the foundation that you have. What a better way to kick
             off the year then we with a crash course!
-        href: /clerk-firebase/
+        href: clerk-firebase/
       - image: >-
           https://res.cloudinary.com/dub20ptvt/image/upload/v1633284008/force-page-reload_rqi48d.webp
         title: Force Next.js Page Reloads
