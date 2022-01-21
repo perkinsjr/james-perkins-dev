@@ -37,28 +37,39 @@ blocks:
     _template: content
   - items:
       - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1628455828/Developers_Hangout_Update_kwfwf3.webp
-        title: Developers Hangout Update
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1641492754/Recipe%20App/xoghdmempyhjadpiogfz.png
+        title: Learn how to use Firebase & Clerk.dev (CRUD)
         author: James Perkins
-        category: Developers Hangout
+        category: Tutorial
         description: >-
-          We have been running developers hangout for the past month. I thought
-          it would be cool to give you an update.
-        href: /post/test
+          Here we are, the new year is upon us, and if you are like me, you have
+          set
+            some New Year’s resolutions for yourself. Possibly learning a new language,
+            skill or improving on the foundation that you have. What a better way to kick
+            off the year then we with a crash course!
+        href: clerk-firebase/
       - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1633284008/force-page-reload_rqi48d.webp
-        title: Force Next.js Page Reloads
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642773038/Blog%20Posts/szsc0zjxgvl11lbghhyc.png
+        title: Dealing with Date objects in Next data fetching
         author: James Perkins
         category: tutorials
-        description: 'Forcing a page reload might be required sometimes, so I teach you are.'
+        description: >-
+          When working with Data objects in ServerSideProps or StaticProps
+          Next.js doesn't like it because they don't serailize it for
+          performance. So you are on your own to handle it.
+        href: next-date-type-data-fetching
       - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1635377217/Tailwind_uryoth.webp
-        title: A title
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642771477/Blog%20Posts/ap0llteoc9vvmetmpjxq.png
+        title: How I automate Productivity using Session and AppleScript
         author: James Perkins
         category: Tutorials
         description: >-
-          This is where I teach you how to do some things with Tailwind CSS. Or
-          something similar.
+          I have to focus on important tasks throughout the day and I find I can
+          get
+            distracted easily, as a YouTube and Dev Advocate there are plenty of excuses
+            to open Twitter, TikTok or YouTube. I use Session and AppleScript to automate
+            this
+        href: how-i-automate-productivity
     _template: features
 ---
 
