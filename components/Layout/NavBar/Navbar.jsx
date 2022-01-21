@@ -25,7 +25,7 @@ export const Navbar = () => (
           justify="space-between"
           height="100%"
         >
-          <Box as="a" href="#" rel="home">
+          <Box as="a" href="/" rel="home">
             <Text h="6" fontSize="1.5rem" fontWeight="bold" color={useColorModeValue('primary.900', 'primary.200')}>James Perkins</Text>
           </Box>
           <NavContent.Desktop
