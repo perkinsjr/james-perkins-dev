@@ -32,6 +32,8 @@
     "@tinacms/cli": "latest",
     "eslint": "7",
     "eslint-config-next": "12.0.3",
-    "husky": "^7.0.4"
+    "globby": "11.0.1",
+    "husky": "^7.0.4",
+    "raw-loader": "^4.0.2"
   }
 }

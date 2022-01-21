@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { LikeCounter } from '../../components/Blog/Lyket';
+import { Seo } from '../../components/SEO';
 export default function Slug(props) {
   const components = {
     h1: props => <Heading as="h1" fontSize="6xl" my={2} {...props} />,
@@ -80,10 +81,9 @@ export default function Slug(props) {
         <BlogImg
           mx="auto"
           src={props.url}
-          height="540"
-          width="960"
+          height="1920"
+          width="1080"
           alt={props.alt}
-          layout="fill"
           quality="50"
         />
       );
@@ -92,33 +92,36 @@ export default function Slug(props) {
       return <Code colorScheme="purple">{props.children}</Code>;
     },
     p: props => {
-      return <Text fontSize="xl" my={2} {...props}/>
+      return <Text fontSize="xl" my={2} {...props} />
     }
   };
   if (props.data && props.data.getPostDocument?.data) {
     return (
-      <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
-        <article>
-          <Heading
-            as="h1"
-            color="RGB(113, 90, 255)"
-            size="3xl"
-            textAlign="center"
-            my={8}
-          >
-            {props.data.getPostDocument.data.title}
-          </Heading>
+      <>
+        <Seo title={props.data.getPostDocument.data.title} description={props.data.getPostDocument.data.description} image={props.data.getPostDocument.data.image} />
+        <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
+          <article>
+            <Heading
+              as="h1"
+              color="RGB(113, 90, 255)"
+              size="3xl"
+              textAlign="center"
+              my={8}
+            >
+              {props.data.getPostDocument.data.title}
+            </Heading>
 
-          <TinaMarkdown
-            content={props.data.getPostDocument.data.body}
-            components={components}
-          />
-          <Divider my={8} />
-          <Box my={8}>
-            <LikeCounter slug={props.variables.relativePath} />
-          </Box>
-        </article>
-      </Box>
+            <TinaMarkdown
+              content={props.data.getPostDocument.data.body}
+              components={components}
+            />
+            <Divider my={8} />
+            <Box my={8}>
+              <LikeCounter slug={props.variables.relativePath} />
+            </Box>
+          </article>
+        </Box>
+      </>
     );
   }
   return (

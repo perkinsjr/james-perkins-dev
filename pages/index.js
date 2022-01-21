@@ -4,9 +4,11 @@ import { FeaturedArticles } from "../components/Home/FeaturedArticles"
 import { staticRequest } from 'tinacms';
 import { Fragment } from 'react';
 import { Content } from '../components/Home/Content';
+import { Seo } from '../components/SEO';
 export default function Home(props) {
   return (
     <Layout>
+      <Seo title="Home | James Perkins" description="Home page for James Perkins" image="https://res.cloudinary.com/dub20ptvt/image/upload/v1642782664/sgbjmezsorrnhqtwnibg.png"/>
       {props.data.getPageDocument.data.blocks
         ? props.data.getPageDocument.data.blocks.map(function (block, i) {
           switch (block.__typename) {
