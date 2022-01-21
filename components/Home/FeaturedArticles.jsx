@@ -120,7 +120,7 @@ export const FeaturedArticles = ({ data }) => {
           })}
 
         </SimpleGrid>
-        <Link fontSize="xl" fontWeight="bold" color={mode('purple.600', 'purple.400')}>
+        <Link href='/post' fontSize="xl" fontWeight="bold" color={mode('purple.600', 'purple.400')}>
           <span>View all articles</span>
           <Box as={ArrowForwardIcon} display="inline-block" ms="2" />
         </Link>
