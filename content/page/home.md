@@ -49,11 +49,15 @@ blocks:
             off the year then we with a crash course!
         href: clerk-firebase/
       - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1633284008/force-page-reload_rqi48d.webp
-        title: Force Next.js Page Reloads
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642773038/Blog%20Posts/szsc0zjxgvl11lbghhyc.png
+        title: Dealing with Date objects in Next data fetching
         author: James Perkins
         category: tutorials
-        description: 'Forcing a page reload might be required sometimes, so I teach you are.'
+        description: >-
+          When working with Data objects in ServerSideProps or StaticProps
+          Next.js doesn't like it because they don't serailize it for
+          performance. So you are on your own to handle it.
+        href: next-date-type-data-fetching
       - image: >-
           https://res.cloudinary.com/dub20ptvt/image/upload/v1635377217/Tailwind_uryoth.webp
         title: A title
