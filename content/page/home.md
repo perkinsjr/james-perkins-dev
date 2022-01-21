@@ -59,13 +59,17 @@ blocks:
           performance. So you are on your own to handle it.
         href: next-date-type-data-fetching
       - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1635377217/Tailwind_uryoth.webp
-        title: A title
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642771477/Blog%20Posts/ap0llteoc9vvmetmpjxq.png
+        title: How I automate Productivity using Session and AppleScript
         author: James Perkins
         category: Tutorials
         description: >-
-          This is where I teach you how to do some things with Tailwind CSS. Or
-          something similar.
+          I have to focus on important tasks throughout the day and I find I can
+          get
+            distracted easily, as a YouTube and Dev Advocate there are plenty of excuses
+            to open Twitter, TikTok or YouTube. I use Session and AppleScript to automate
+            this
+        href: how-i-automate-productivity
     _template: features
 ---
 
