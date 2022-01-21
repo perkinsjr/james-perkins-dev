@@ -175,7 +175,7 @@ export default defineSchema({
           type: "string",
           label: "Tags",
           name: "tags",
-          options: ["nextjs", "javascript", "devops","tailwind","thoughts", "productivity","devrel"],
+          options: ["nextjs", "javascript", "devops","tailwind","thoughts", "productivity","devrel","astro"],
           list: true
         },
         {

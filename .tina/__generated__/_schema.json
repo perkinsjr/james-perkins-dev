@@ -340,7 +340,8 @@
             "tailwind",
             "thoughts",
             "productivity",
-            "devrel"
+            "devrel",
+            "astro"
           ],
           "list": true,
           "namespace": [

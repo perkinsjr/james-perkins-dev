@@ -4,6 +4,7 @@ import atomOneDark from "react-syntax-highlighter/dist/cjs/styles/prism/material
 import {useTheme, Flex, Box, Text,useClipboard,IconButton,Icon} from "@chakra-ui/react";
 import {CopyIcon,CheckIcon} from "@chakra-ui/icons";
 export const CodeBlock = ({ children, language }) => {
+
   const theme = useTheme();
   const CopyButton = ({ codeString }) => {
     const { hasCopied, onCopy } = useClipboard(codeString);
