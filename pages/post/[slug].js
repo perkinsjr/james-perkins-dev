@@ -14,7 +14,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { LikeCounter } from '../../components/Blog/Lyket';
-import { Seo } from '../../components/SEO';
+import { Seo } from '../../components/Seo';
 export default function Slug(props) {
   const components = {
     h1: props => <Heading as="h1" fontSize="6xl" my={2} {...props} />,

@@ -1,6 +1,6 @@
 import { staticRequest } from 'tinacms'
 import { Layout } from '../../components/Layout/Layout'
-import { Seo } from '../../components/SEO'
+import { Seo } from '../../components/Seo'
 import { FeaturedPost } from '../../components/Blog/FeaturedPost/FeaturedPost'
 import { Heading, SimpleGrid, Box } from "@chakra-ui/react"
 export default function BlogPosts(props) {

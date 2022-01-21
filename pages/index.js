@@ -4,7 +4,7 @@ import { FeaturedArticles } from "../components/Home/FeaturedArticles"
 import { staticRequest } from 'tinacms';
 import { Fragment } from 'react';
 import { Content } from '../components/Home/Content';
-import { Seo } from '../components/SEO';
+import { Seo } from '../components/Seo';
 export default function Home(props) {
   return (
     <Layout>
