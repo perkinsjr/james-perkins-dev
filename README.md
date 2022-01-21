@@ -1,24 +1,19 @@
-This is a [Tina CMS](https://tina.io/) project.
-## Getting Started
+This is the homepage for James Perkins
 
-First, run the development server:
+## What tech stack?
 
-```bash
-npm run dev
-# or
-yarn dev
+- [TinaCMS](https://tina.io)
+- [ChakraUI](https://chakra-ui.com/)
+- [Next.js](https://nextjs.org/)
+
+### How to use it?
+
+If for some reason you wanted to develop something, 
+
 ```
+1. Checkout the code
+2. yarn 
+3. change isLocalClient={true} in _app.js
+4. yarn dev
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Learn More
-
-To learn more about Tina, take a look at the following resources:
-
-- [Tina Docs](https://tina.io/docs)
-- [Getting starter guide](https://tina.io/guides/tina-cloud/starter/overview/) 
-
-
-You can check out [Tina Github repository](https://github.com/tinacms/tinacms) - your feedback and contributions are welcome!
-
-## [Deploy on Vercel](https://tina.io/guides/tina-cloud/add-tinacms-to-existing-site/deployment/)
+```
