@@ -138,6 +138,7 @@ export default defineSchema({
       label: 'Blog Posts',
       name: 'post',
       path: 'content/post',
+      format: "mdx",
       fields: [
         {
           type: "string",

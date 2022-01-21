@@ -23,6 +23,34 @@ const App = ({ Component, pageProps }) => {
                 const pack = await import('next-tinacms-cloudinary');
                 return pack.TinaCloudCloudinaryMediaStore;
               }}
+              cmsCallback={(cms) => {
+                /**
+                 * Enables experimental branch switcher
+                 */
+                cms.flags.set("branch-switcher", true);
+  
+                /**
+                 * Enables `tina-admin` specific features in the Tina Sidebar
+                 */
+                cms.flags.set("tina-admin", false);
+              }}
+              documentCreatorCallback={{
+                /**
+                 * After a new document is created, redirect to its location
+                 */
+                onNewDocument: ({ collection: { slug }, breadcrumbs }) => {
+                  const relativeUrl = `/${slug}/${breadcrumbs.join("/")}`;
+                  return (window.location.href = relativeUrl);
+                },
+                /**
+                 * Only allows documents to be created to the `Blog Posts` Collection
+                 */
+                filterCollections: (options) => {
+                  return options.filter(
+                    (option) => option.label === "Blog Posts"
+                  );
+                },
+              }}
               {...pageProps}
             >
               {livePageProps => <Component {...livePageProps} />}
