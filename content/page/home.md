@@ -37,14 +37,17 @@ blocks:
     _template: content
   - items:
       - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1628455828/Developers_Hangout_Update_kwfwf3.webp
-        title: Developers Hangout Update
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1641492754/Recipe%20App/xoghdmempyhjadpiogfz.png
+        title: Learn how to use Firebase & Clerk.dev (CRUD)
         author: James Perkins
-        category: Developers Hangout
+        category: Tutorial
         description: >-
-          We have been running developers hangout for the past month. I thought
-          it would be cool to give you an update.
-        href: /post/test
+          Here we are, the new year is upon us, and if you are like me, you have
+          set
+            some New Year’s resolutions for yourself. Possibly learning a new language,
+            skill or improving on the foundation that you have. What a better way to kick
+            off the year then we with a crash course!
+        href: /clerk-firebase/
       - image: >-
           https://res.cloudinary.com/dub20ptvt/image/upload/v1633284008/force-page-reload_rqi48d.webp
         title: Force Next.js Page Reloads
