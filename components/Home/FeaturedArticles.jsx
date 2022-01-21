@@ -73,7 +73,7 @@ export const FeaturedArticles = ({ data }) => {
 
                   <Flex direction="column">
 
-                    {feature?.image && <FeaturedImage height="180px" width="100px" quality={60} objectFit="cover" alt={feature?.title} src={feature?.image} />}
+                    {feature?.image && <FeaturedImage height="200" width="250" quality={100} objectFit="fit" alt={feature?.title} src={feature?.image} />}
                     <Flex
                       direction="column"
                       px={{
