@@ -168,7 +168,7 @@ export default defineSchema({
           type: "string",
           label: "Category",
           name: "category",
-          options: ["tutorials", "thoughts", "productivity","podcast"],
+          options: ["tutorials", "thoughts", "productivity","podcast","roll your tweet"],
           list: true
         },
         {
