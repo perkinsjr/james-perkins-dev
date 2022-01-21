@@ -13,7 +13,9 @@ blocks:
           https://res.cloudinary.com/dub20ptvt/image/upload/v1642358877/James-Perkins-Site/f7npx7sui25sut3jou0o.webp
         name: Youtube
         description: >+
-          Youtube is where most of my content is created. I provide tutorials on the Jamstack, you can find anything from Authentication to Full application development.
+          Youtube is where most of my content is created. I provide tutorials on
+          the Jamstack, you can find anything from Authentication to Full
+          application development.
 
         href: 'https://youtube.com/c/learntocodewithjames'
       - image: >-
@@ -28,8 +30,9 @@ blocks:
           https://res.cloudinary.com/dub20ptvt/image/upload/v1642359295/James-Perkins-Site/m6gkg8rhlyu36cguz5us.webp
         name: 'Twitch '
         description: >-
-          I use Twitch to cover fun and exciting content. Sometimes we work on
-          projects, other times we check out new open-source projects.
+          I use Twitch to cover fun and exciting content. Tuesdays is always a
+          new topic, Wednesday are where I work on SaaS projects and Thursday is
+          where you can find me showing off Tina.
         href: 'https://twitch.tv/jamesperkins'
     _template: content
   - items:
@@ -58,3 +61,4 @@ blocks:
           something similar.
     _template: features
 ---
+
