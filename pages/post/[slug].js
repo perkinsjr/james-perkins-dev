@@ -81,10 +81,11 @@ export default function Slug(props) {
         <BlogImg
           mx="auto"
           src={props.url}
-          height="1920"
+          height="500"
           width="1080"
           alt={props.alt}
-          quality="50"
+          objectFit='contain'
+          quality="70"
         />
       );
     },

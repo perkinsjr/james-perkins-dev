@@ -37,7 +37,7 @@ export const FeaturedPost = ({props, href}) => {
         
         <Flex direction="column">
         
-          <Image height="180" width="100" quality={100} objectFit="cover" alt={title} src={image} />
+          <Image height="200" width="250" quality={100} objectFit="fit" alt={title} src={image} />
           <Flex
             direction="column"
             px={{
