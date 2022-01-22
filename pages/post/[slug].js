@@ -94,7 +94,7 @@ export default function Slug(props) {
       );
     },
     code: props => {
-      return <Code colorScheme="purple">{props.children}</Code>;
+      return <Code colorScheme="purple" fontSize="xl" my={2}>{props.children}</Code>;
     },
     p: props => {
       return <Text fontSize="xl" my={2} {...props} />
