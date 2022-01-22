@@ -1,7 +1,8 @@
 ---
 title: Dealing with Date objects in Next data fetching
 date: '2021-11-10T00:00:00.000Z'
-image: 'https://res.cloudinary.com/dub20ptvt/image/upload/v1642773038/Blog%20Posts/szsc0zjxgvl11lbghhyc.webp'
+image: >-
+  https://res.cloudinary.com/dub20ptvt/image/upload/v1642773038/Blog%20Posts/szsc0zjxgvl11lbghhyc.webp
 author: James Perkins
 authorTwitter: james_r_perkins
 category:
@@ -9,14 +10,16 @@ category:
 tags:
   - nextjs
 description: >-
-  When working with Data objects in ServerSideProps or StaticProps Next.js doesn't like it because they don't serailize it for performance. So you are on your own to handle it.
+  When working with Data objects in ServerSideProps or StaticProps Next.js
+  doesn't like it because they don't serailize it for performance. So you are on
+  your own to handle it.
 ---
 
-I have been working on some changes to Roll Your Tweet which includes moving from Fauna to PlanetScale and Prisma. This isn't a "this is better than that" situation it's actually a decision that I had be toying with for a while as I wanted to add some changes to the DB to make it easier to track from my side. 
+I have been working on some changes to Roll Your Tweet which includes moving from Fauna to PlanetScale and Prisma. This isn't a "this is better than that" situation it's actually a decision that I had be toying with for a while as I wanted to add some changes to the DB to make it easier to track from my side.
 
-## The issue 
+## The issue
 
-One of the improvements I am making is robust timestamps of sign ups, when working with Prisma it returns a beautiful timestamp which Next doesn't like and you get this error message: 
+One of the improvements I am making is robust timestamps of sign ups, when working with Prisma it returns a beautiful timestamp which Next doesn't like and you get this error message:
 
 ```bash
 Error: Error serializing `.user.subscription_end_date` returned from `getServerSideProps` in "/".    
@@ -24,6 +27,8 @@ Reason: `object` ("[object Date]") cannot be serialized as JSON. Please only ret
 ```
 
 The reason behind this is performant based, Next has made the decision to not handle date objects and the developer should. This in my opinion is a valid choice and allows the performance to be on the developer not on them. This happens when you use `getStaticProps` or `getServerSideProps`.
+
+<newsletter/>
 
 ## My Solution
 
@@ -34,7 +39,9 @@ I decided to install superjson and babel-plugin-superjson-next which takes care 
 ```bash
 yarn add babel-plugin-superjson-next superjson
 ```
+
 Then create a .babelrc file with the following in it :
+
 ```json
 {
 
