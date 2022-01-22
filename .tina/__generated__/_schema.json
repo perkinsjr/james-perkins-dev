@@ -365,7 +365,18 @@
           "label": "Blog Post Body",
           "name": "body",
           "isBody": true,
-          "templates": [],
+          "templates": [
+            {
+              "name": "newsletter",
+              "label": "Newsletter",
+              "fields": [],
+              "namespace": [
+                "post",
+                "body",
+                "newsletter"
+              ]
+            }
+          ],
           "namespace": [
             "post",
             "body"
