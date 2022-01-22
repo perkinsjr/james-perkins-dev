@@ -190,6 +190,11 @@ export default defineSchema({
           name: 'body',
           isBody: true,
           templates: [
+            {
+              name: 'newsletter',
+              label: 'Newsletter',
+              fields: [],
+            },
           ]
         },
       ],

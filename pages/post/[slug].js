@@ -15,6 +15,7 @@ import {
 import Image from 'next/image';
 import { LikeCounter } from '../../components/Blog/Lyket';
 import { Seo } from '../../components/Seo';
+import { Newsletter } from '../../components/Blog/Newsletter';
 export default function Slug(props) {
   const components = {
     h1: props => <Heading as="h1" fontSize="6xl" my={2} {...props} />,
@@ -72,6 +73,9 @@ export default function Slug(props) {
     a: props => {
       return <CustomLink href={props.href}>{props.children}</CustomLink>;
     },
+    newsletter:() => {
+      return <Newsletter />;
+    },
     img: props => {
       const BlogImg = chakra(Image, {
         shouldForwardProp: prop =>
@@ -120,6 +124,7 @@ export default function Slug(props) {
             <Box my={8}>
               <LikeCounter slug={props.variables.relativePath} />
             </Box>
+            <Divider my={8} />
           </article>
         </Box>
       </>
