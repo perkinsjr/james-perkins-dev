@@ -59,17 +59,14 @@ blocks:
           performance. So you are on your own to handle it.
         href: next-date-type-data-fetching
       - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1642771477/Blog%20Posts/ap0llteoc9vvmetmpjxq.png
-        title: How I automate Productivity using Session and AppleScript
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642876501/Blog%20Posts/z0j5vihc4i6ty2b9tc4z.png
+        title: How to add claps to your blog
         author: James Perkins
         category: Tutorials
         description: >-
-          I have to focus on important tasks throughout the day and I find I can
-          get
-            distracted easily, as a YouTube and Dev Advocate there are plenty of excuses
-            to open Twitter, TikTok or YouTube. I use Session and AppleScript to automate
-            this
-        href: how-i-automate-productivity
+          Interactions are a content creators favorite thing, it allows you to
+          know if your content is providing value.
+        href: add-interactions-to-your-blog
     _template: features
 ---
 
