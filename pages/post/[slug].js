@@ -16,6 +16,7 @@ import Image from 'next/image';
 import { LikeCounter } from '../../components/Blog/Lyket';
 import { Seo } from '../../components/Seo';
 import { Newsletter } from '../../components/Blog/Newsletter';
+import { VideoPlayer } from '../../components/Blog/VideoPlayer';
 export default function Slug(props) {
   const components = {
     h1: props => <Heading as="h1" fontSize="6xl" my={2} {...props} />,
@@ -75,6 +76,11 @@ export default function Slug(props) {
     },
     newsletter:() => {
       return <Newsletter />;
+    },
+    youtube: props => {
+      return (
+        <VideoPlayer url={props.url}/>
+      );
     },
     img: props => {
       const BlogImg = chakra(Image, {

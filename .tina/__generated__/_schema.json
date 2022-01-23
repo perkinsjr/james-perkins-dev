@@ -375,6 +375,28 @@
                 "body",
                 "newsletter"
               ]
+            },
+            {
+              "name": "youtube",
+              "label": "Youtube Video",
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Youtube video URL",
+                  "name": "url",
+                  "namespace": [
+                    "post",
+                    "body",
+                    "youtube",
+                    "url"
+                  ]
+                }
+              ],
+              "namespace": [
+                "post",
+                "body",
+                "youtube"
+              ]
             }
           ],
           "namespace": [

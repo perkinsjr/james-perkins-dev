@@ -195,6 +195,17 @@ export default defineSchema({
               label: 'Newsletter',
               fields: [],
             },
+            {
+              name: 'youtube',
+              label: 'Youtube Video',
+              fields: [
+                {
+                  type: "string",
+                  label: "Youtube video URL",
+                  name: "url",
+                },
+              ],
+            },
           ]
         },
       ],

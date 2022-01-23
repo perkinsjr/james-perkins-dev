@@ -1,6 +1,6 @@
 module.exports = {
     images: {
-      domains: ['res.cloudinary.com','images.unsplash.com','res.craft.do','cdn.hashnode.com'],
+      domains: ['res.cloudinary.com','images.unsplash.com','res.craft.do','img.youtube.com','cdn.hashnode.com'],
     },
     webpack: function (config, { isServer }) {
       if (isServer) {

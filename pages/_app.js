@@ -3,7 +3,7 @@ import { TinaEditProvider } from 'tinacms/dist/edit-state';
 import { ChakraProvider } from '@chakra-ui/react';
 import { Navbar } from '../components/Layout/NavBar/Navbar';
 import { Provider as LyketProvider } from '@lyket/react';
-
+import "../utils/video-player.css";
 const TinaCMS = dynamic(() => import('tinacms'), { ssr: false });
 
 const NEXT_PUBLIC_TINA_CLIENT_ID = process.env.NEXT_PUBLIC_TINA_CLIENT_ID;
@@ -18,7 +18,7 @@ const App = ({ Component, pageProps }) => {
             <TinaCMS
               branch="main"
               clientId={NEXT_PUBLIC_TINA_CLIENT_ID}
-              isLocalClient={false}
+              isLocalClient={true}
               mediaStore={async () => {
                 const pack = await import('next-tinacms-cloudinary');
                 return pack.TinaCloudCloudinaryMediaStore;
