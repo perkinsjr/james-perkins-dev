@@ -18,7 +18,7 @@ const App = ({ Component, pageProps }) => {
             <TinaCMS
               branch="main"
               clientId={NEXT_PUBLIC_TINA_CLIENT_ID}
-              isLocalClient={true}
+              isLocalClient={false}
               mediaStore={async () => {
                 const pack = await import('next-tinacms-cloudinary');
                 return pack.TinaCloudCloudinaryMediaStore;
@@ -32,7 +32,7 @@ const App = ({ Component, pageProps }) => {
                 /**
                  * Enables `tina-admin` specific features in the Tina Sidebar
                  */
-                cms.flags.set("tina-admin", false);
+                cms.flags.set("tina-admin", true);
               }}
               documentCreatorCallback={{
                 /**
