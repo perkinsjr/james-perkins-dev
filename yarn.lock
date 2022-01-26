@@ -10527,9 +10527,9 @@ timers-browserify@2.0.12:
     setimmediate "^1.0.4"
 
 tinacms@latest:
-  version "0.65.0"
-  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.65.0.tgz#3052674cdac84d89cb7a982fb6982a9ee689fe06"
-  integrity sha512-xrmx5GGCyDzzYOd7v7tZZRPpCNj1FnNPjHYdVaZW0REivXtE2sHPlaPsRAQrioDx/1u6KRIXyjOkjjXDEVGPeA==
+  version "0.65.2"
+  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.65.2.tgz#893d05d3804553493c10df65c38cb2f0b48ced8b"
+  integrity sha512-8n05Qj0qJ0WcrGWwEZRGcJauEQQqFd2nFL6r3kfhEYL1rkc0pXvpjpVmAkhnbhYecnMEhSSCppVxh4JII5hnlA==
   dependencies:
     "@headlessui/react" "^1.4.1"
     "@heroicons/react" "^1.0.4"
