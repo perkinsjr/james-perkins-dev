@@ -1,10 +1,8 @@
 ---
 blocks:
-  - heading: James Perkins
-    subheading: Developer Advocate
-    description: >-
-      Helping developers understand the Jamstack, and how it can be used to
-      build a faster web.
+  - heading: Your Name Here!
+    subheading: YOUR TITLE
+    description: 'Easy to edit, fun to make. MDX + NEXT + TINA'
     image: >-
       https://res.cloudinary.com/dub20ptvt/image/upload/v1627759692/me-and-tina_hgq79d.webp
     _template: hero
