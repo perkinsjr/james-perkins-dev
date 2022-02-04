@@ -2197,10 +2197,10 @@
   resolved "https://registry.yarnpkg.com/@tinacms/sharedctx/-/sharedctx-0.1.0.tgz#1ca290ac96f394362d07b625164a30b85194cc97"
   integrity sha512-iorVcydqFDsjDp/PMaN4y0kF15qTTfHDd00fUN3wgW9h2fOmCu3o0KjC4yjrDyLnCdA0pHivpbPvOg3kLmCXog==
 
-"@tinacms/toolkit@0.56.9":
-  version "0.56.9"
-  resolved "https://registry.yarnpkg.com/@tinacms/toolkit/-/toolkit-0.56.9.tgz#bcdcd786ad04b547fc7d37c9cfb5cc50aa35629a"
-  integrity sha512-yLuAzPJLW8EJVaBjTyNj57C2Bq+9HP9QXD9hBouX8i6nzQh+nWZxRxGtySQRTeEGi6SEM4b+8INwDjLF2oA3ig==
+"@tinacms/toolkit@0.56.11":
+  version "0.56.11"
+  resolved "https://registry.yarnpkg.com/@tinacms/toolkit/-/toolkit-0.56.11.tgz#e7e9ba1e96c1a143ca6c2e39cd0e090a52e88ffd"
+  integrity sha512-PFjei3ePmh0/sDJ7GndauS3AQ7w+LrVqxG/GfvGlgcejo9JqVOMBPotN/OPZ0zl0q49cAUuOMbdjwrCA7/btPA==
   dependencies:
     "@headlessui/react" "^1.4.2"
     "@sambego/storybook-styles" "^1.0.0"
@@ -10527,14 +10527,14 @@ timers-browserify@2.0.12:
     setimmediate "^1.0.4"
 
 tinacms@latest:
-  version "0.65.2"
-  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.65.2.tgz#893d05d3804553493c10df65c38cb2f0b48ced8b"
-  integrity sha512-8n05Qj0qJ0WcrGWwEZRGcJauEQQqFd2nFL6r3kfhEYL1rkc0pXvpjpVmAkhnbhYecnMEhSSCppVxh4JII5hnlA==
+  version "0.66.1"
+  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.66.1.tgz#c97037a226049b0318aedf51cbc509d36377cbbe"
+  integrity sha512-whvfigegn92gUyClCjsO1rijIaSQmj3maUXG5WF8KW1QdUa3kkJ0N+ClYbprZ+ZlAPX8nOjVqEgTfo33ZfvEoQ==
   dependencies:
     "@headlessui/react" "^1.4.1"
     "@heroicons/react" "^1.0.4"
     "@tinacms/sharedctx" "0.1.0"
-    "@tinacms/toolkit" "0.56.9"
+    "@tinacms/toolkit" "0.56.11"
     crypto-js "^4.0.0"
     final-form "4.20.1"
     graphql "^15.1.0"
