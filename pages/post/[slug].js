@@ -17,7 +17,32 @@ import { LikeCounter } from '../../components/Blog/Lyket';
 import { Seo } from '../../components/Seo';
 import { Newsletter } from '../../components/Blog/Newsletter';
 import { VideoPlayer } from '../../components/Blog/VideoPlayer';
+import { useTina } from 'tinacms/dist/edit-state'
+
+const query = `query getPost($relativePath: String!) {
+  getPostDocument(relativePath: $relativePath) {
+    data {
+      title
+      date
+      image
+      author
+      authorTwitter
+      category
+      tags
+      description
+      body
+    }
+  }
+}
+`;
+
 export default function Slug(props) {
+  const { data } = useTina({
+    query,
+    variables: props.variables,
+    data: props.data,
+  });
+
   const components = {
     h1: props => <Heading as="h1" fontSize="6xl" my={2} {...props} />,
     h2: props => (
@@ -106,10 +131,10 @@ export default function Slug(props) {
       return <Text fontSize="xl" my={2} {...props} />
     }
   };
-  if (props.data && props.data.getPostDocument?.data) {
+  if (data && data.getPostDocument?.data) {
     return (
       <>
-        <Seo title={props.data.getPostDocument.data.title} description={props.data.getPostDocument.data.description} image={props.data.getPostDocument.data.image} />
+        <Seo title={data.getPostDocument.data.title} description={data.getPostDocument.data.description} image={data.getPostDocument.data.image} />
         <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
           <article>
             <Heading
@@ -119,11 +144,11 @@ export default function Slug(props) {
               textAlign="center"
               my={8}
             >
-              {props.data.getPostDocument.data.title}
+              {data.getPostDocument.data.title}
             </Heading>
 
             <TinaMarkdown
-              content={props.data.getPostDocument.data.body}
+              content={data.getPostDocument.data.body}
               components={components}
             />
             <Divider my={8} />
@@ -168,33 +193,35 @@ export const getStaticPaths = async () => {
   };
 };
 export const getStaticProps = async ctx => {
-  const query = `query getPost($relativePath: String!) {
-    getPostDocument(relativePath: $relativePath) {
-      data {
-        title
-      	date
-     	 image
-      	author
-      	authorTwitter
-      	category
-      	tags
-      	description
-      	body
-      }
-    }
-  }
-  `;
+  
   const variables = {
     relativePath: ctx.params.slug + '.mdx'
   };
   let data = {};
+  let error = false;
   try {
     data = await staticRequest({
       query,
       variables
     });
   } catch (error) {
-    // swallow errors related to document creation
+    error = true
+  }
+
+  if(error){
+    const tinaToken = process.env.TINA_READ_TOKEN
+    data = await fetch(`https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`, {
+      method: 'POST',
+      body: JSON.stringify({query, variables}),
+      headers: {
+        'Content-Type': 'application/json',
+        "X-API-KEY": tinaToken
+    }});
+    if(!data){
+      return{
+        notFound: true,
+      }
+    }
   }
 
   return {

@@ -5,12 +5,54 @@ import { staticRequest } from 'tinacms';
 import { Fragment } from 'react';
 import { Content } from '../components/Home/Content';
 import { Seo } from '../components/Seo';
+import { useTina } from 'tinacms/dist/edit-state'
+
+const query = `query {
+  getPageDocument(relativePath: "home.md") {
+    data {
+      blocks {
+        __typename
+        ... on PageBlocksHero {
+          heading
+          subheading
+          description
+          image
+        }
+        ... on PageBlocksFeatures {
+          items {
+            image
+            title
+            author
+            category
+            description
+            href
+          }
+        }
+        ... on PageBlocksContent {
+          items {
+            image
+            name
+            description
+            href
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
 export default function Home(props) {
+  const { data } = useTina({
+    query,
+    variables: {},
+    data: props.data,
+  })
   return (
     <Layout>
       <Seo title="Home | James Perkins" description="Home page for James Perkins" image="https://res.cloudinary.com/dub20ptvt/image/upload/v1642782664/sgbjmezsorrnhqtwnibg.png"/>
-      {props.data.getPageDocument.data.blocks
-        ? props.data.getPageDocument.data.blocks.map(function (block, i) {
+      {data?.getPageDocument?.data?.blocks
+        ? data?.getPageDocument?.data?.blocks.map(function (block, i) {
           switch (block.__typename) {
           case "PageBlocksHero":
             return (
@@ -35,51 +77,16 @@ export default function Home(props) {
           }
         })
         : null}
-      {!props.data.getPageDocument.data.blocks && <h1>Loading...</h1>}
+      {!data?.getPageDocument.data.blocks && <h1>Loading...</h1>}
     </Layout>
   )
 }
 
 export const getStaticProps = async () => {
-  const query = `query getPage($relativePath: String!) {
-    getPageDocument(relativePath: $relativePath) {
-      data{
-        blocks{
-          __typename
-          ... on PageBlocksHero{
-            heading
-            subheading
-            description
-            image
-          }
-        ... on PageBlocksFeatures{
-          items{
-              image
-              title
-              author
-              category
-              description
-              href
-          }
-        }
-        ... on PageBlocksContent{
-          items{
-            image
-            name
-            description
-            href
-          }
-        }
-      }
-      }
-  }
-}
-`;
+  
 
-  const variables = {
-    relativePath: 'home.md',
-  }
-  let data = {}
+  const variables = {}
+  let data = null
   try {
     data = await staticRequest({
       query,
