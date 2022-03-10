@@ -17,10 +17,35 @@ import { LikeCounter } from '../../components/Blog/Lyket';
 import { Seo } from '../../components/Seo';
 import { Newsletter } from '../../components/Blog/Newsletter';
 import { VideoPlayer } from '../../components/Blog/VideoPlayer';
+import { useTina } from 'tinacms/dist/edit-state';
+
+const query = `query getPost($relativePath: String!) {
+  getPostDocument(relativePath: $relativePath) {
+    data {
+      title
+      date
+      image
+      author
+      authorTwitter
+      category
+      tags
+      description
+      body
+    }
+  }
+}
+`;
+
 export default function Slug(props) {
+  const { data } = useTina({
+    query,
+    variables: props.variables,
+    data: props.data
+  });
+
   const components = {
-    h1: props => <Heading as="h1" fontSize="6xl" my={2} {...props} />,
-    h2: props => (
+    h1: (props) => <Heading as="h1" fontSize="6xl" my={2} {...props} />,
+    h2: (props) => (
       <Heading
         as="h2"
         color={mode('purple.600', 'purple.300')}
@@ -29,7 +54,7 @@ export default function Slug(props) {
         {...props}
       />
     ),
-    h3: props => (
+    h3: (props) => (
       <Heading
         as="h3"
         color={mode('purple.600', 'purple.300')}
@@ -38,7 +63,7 @@ export default function Slug(props) {
         {...props}
       />
     ),
-    h4: props => (
+    h4: (props) => (
       <Heading
         as="h4"
         color={mode('purple.600', 'purple.300')}
@@ -47,7 +72,7 @@ export default function Slug(props) {
         {...props}
       />
     ),
-    h5: props => (
+    h5: (props) => (
       <Heading
         as="h5"
         color={mode('purple.600', 'purple.300')}
@@ -56,7 +81,7 @@ export default function Slug(props) {
         {...props}
       />
     ),
-    h6: props => (
+    h6: (props) => (
       <Heading
         as="h6"
         color={mode('purple.600', 'purple.300')}
@@ -65,26 +90,24 @@ export default function Slug(props) {
         {...props}
       />
     ),
-    li: props => <Box as="li" fontSize="xl" my={2} mx={4} {...props} />,
-    ul: props => <Box as="ul" fontSize="xl" my={2} mx={4} {...props} />,
-    ol: props => <Box as="ol" fontSize="xl" my={2} mx={4} {...props} />,
-    code_block: props => {
+    li: (props) => <Box as="li" fontSize="xl" my={2} mx={4} {...props} />,
+    ul: (props) => <Box as="ul" fontSize="xl" my={2} mx={4} {...props} />,
+    ol: (props) => <Box as="ol" fontSize="xl" my={2} mx={4} {...props} />,
+    code_block: (props) => {
       return <CodeBlock language={props.lang}>{props.children}</CodeBlock>;
     },
-    a: props => {
+    a: (props) => {
       return <CustomLink href={props.href}>{props.children}</CustomLink>;
     },
-    newsletter:() => {
+    newsletter: () => {
       return <Newsletter />;
     },
-    youtube: props => {
-      return (
-        <VideoPlayer url={props.url}/>
-      );
+    youtube: (props) => {
+      return <VideoPlayer url={props.url} />;
     },
-    img: props => {
+    img: (props) => {
       const BlogImg = chakra(Image, {
-        shouldForwardProp: prop =>
+        shouldForwardProp: (prop) =>
           ['height', 'width', 'quality', 'src', 'alt'].includes(prop)
       });
       return (
@@ -94,22 +117,30 @@ export default function Slug(props) {
           height="500"
           width="1080"
           alt={props.alt}
-          objectFit='contain'
+          objectFit="contain"
           quality="70"
         />
       );
     },
-    code: props => {
-      return <Code colorScheme="purple" fontSize="xl" my={2}>{props.children}</Code>;
+    code: (props) => {
+      return (
+        <Code colorScheme="purple" fontSize="xl" my={2}>
+          {props.children}
+        </Code>
+      );
     },
-    p: props => {
-      return <Text fontSize="xl" my={2} {...props} />
+    p: (props) => {
+      return <Text fontSize="xl" my={2} {...props} />;
     }
   };
-  if (props.data && props.data.getPostDocument?.data) {
+  if (data && data.getPostDocument?.data) {
     return (
       <>
-        <Seo title={props.data.getPostDocument.data.title} description={props.data.getPostDocument.data.description} image={props.data.getPostDocument.data.image} />
+        <Seo
+          title={data.getPostDocument.data.title}
+          description={data.getPostDocument.data.description}
+          image={data.getPostDocument.data.image}
+        />
         <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
           <article>
             <Heading
@@ -117,13 +148,12 @@ export default function Slug(props) {
               color="RGB(113, 90, 255)"
               size="3xl"
               textAlign="center"
-              my={8}
-            >
-              {props.data.getPostDocument.data.title}
+              my={8}>
+              {data.getPostDocument.data.title}
             </Heading>
 
             <TinaMarkdown
-              content={props.data.getPostDocument.data.body}
+              content={data.getPostDocument.data.body}
               components={components}
             />
             <Divider my={8} />
@@ -158,7 +188,7 @@ export const getStaticPaths = async () => {
       }`,
     variables: {}
   });
-  const paths = tinaProps.getPostList.edges.map(x => {
+  const paths = tinaProps.getPostList.edges.map((x) => {
     return { params: { slug: x.node.sys.filename } };
   });
 
@@ -167,34 +197,39 @@ export const getStaticPaths = async () => {
     fallback: 'blocking'
   };
 };
-export const getStaticProps = async ctx => {
-  const query = `query getPost($relativePath: String!) {
-    getPostDocument(relativePath: $relativePath) {
-      data {
-        title
-      	date
-     	 image
-      	author
-      	authorTwitter
-      	category
-      	tags
-      	description
-      	body
-      }
-    }
-  }
-  `;
+export const getStaticProps = async (ctx) => {
   const variables = {
     relativePath: ctx.params.slug + '.mdx'
   };
   let data = {};
+  let error = false;
   try {
     data = await staticRequest({
       query,
       variables
     });
   } catch (error) {
-    // swallow errors related to document creation
+    error = true;
+  }
+
+  if (error) {
+    const tinaToken = process.env.TINA_READ_TOKEN;
+    data = await fetch(
+      `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`,
+      {
+        method: 'POST',
+        body: JSON.stringify({ query, variables }),
+        headers: {
+          'Content-Type': 'application/json',
+          'X-API-KEY': tinaToken
+        }
+      }
+    );
+    if (!data) {
+      return {
+        notFound: true
+      };
+    }
   }
 
   return {
