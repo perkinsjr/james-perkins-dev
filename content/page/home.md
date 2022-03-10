@@ -10,33 +10,6 @@ blocks:
     _template: hero
   - items:
       - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1642358877/James-Perkins-Site/f7npx7sui25sut3jou0o.webp
-        name: Youtube
-        description: >+
-          Youtube is where most of my content is created. I provide tutorials on
-          the Jamstack, you can find anything from Authentication to Full
-          application development.
-
-        href: 'https://youtube.com/c/learntocodewithjames'
-      - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1642359207/James-Perkins-Site/rhst206klpfbpogmcrzq.webp
-        name: Developers Hangout Podcast
-        description: >-
-          The podcast isn't like most podcasts. I interview people in tech from
-          developers to CEOs. Except instead of talking about work, we talk
-          about what we do outside out of work!
-        href: 'https://developershangoutpodcast.com'
-      - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1642359295/James-Perkins-Site/m6gkg8rhlyu36cguz5us.webp
-        name: 'Twitch '
-        description: >-
-          I use Twitch to cover fun and exciting content. Tuesdays is always a
-          new topic, Wednesday are where I work on SaaS projects and Thursday is
-          where you can find me showing off Tina.
-        href: 'https://twitch.tv/jamesperkins'
-    _template: content
-  - items:
-      - image: >-
           https://res.cloudinary.com/dub20ptvt/image/upload/v1641492754/Recipe%20App/xoghdmempyhjadpiogfz.png
         title: Learn how to use Firebase & Clerk.dev (CRUD)
         author: James Perkins
@@ -68,5 +41,32 @@ blocks:
           know if your content is providing value.
         href: add-interactions-to-your-blog
     _template: features
+  - items:
+      - image: >-
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642358877/James-Perkins-Site/f7npx7sui25sut3jou0o.webp
+        name: Youtube
+        description: >+
+          Youtube is where most of my content is created. I provide tutorials on
+          the Jamstack, you can find anything from Authentication to Full
+          application development.
+
+        href: 'https://youtube.com/c/learntocodewithjames'
+      - image: >-
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642359207/James-Perkins-Site/rhst206klpfbpogmcrzq.webp
+        name: Developers Hangout Podcast
+        description: >-
+          The podcast isn't like most podcasts. I interview people in tech from
+          developers to CEOs. Except instead of talking about work, we talk
+          about what we do outside out of work!
+        href: 'https://developershangoutpodcast.com'
+      - image: >-
+          https://res.cloudinary.com/dub20ptvt/image/upload/v1642359295/James-Perkins-Site/m6gkg8rhlyu36cguz5us.webp
+        name: 'Twitch '
+        description: >-
+          I use Twitch to cover fun and exciting content. Tuesdays is always a
+          new topic, Wednesday are where I work on SaaS projects and Thursday is
+          where you can find me showing off Tina.
+        href: 'https://twitch.tv/jamesperkins'
+    _template: content
 ---
 
