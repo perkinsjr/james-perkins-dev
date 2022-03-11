@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "yarn tinacms server:start -c \"next dev\"",
     "build": "yarn tinacms server:start -c \"next build\"",
-    "start": "yarn tinacms server:start -c \"next start\"",
+    "start": "yarn tinacms server:start -c \"next start\" --experimentalData",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,md,mdx}\"",
     "prepare": "husky install",
