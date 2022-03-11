@@ -202,36 +202,14 @@ export const getStaticProps = async (ctx) => {
     relativePath: ctx.params.slug + '.mdx'
   };
   let data = {};
-  let error = false;
   try {
     data = await staticRequest({
       query,
       variables
     });
   } catch (error) {
-    error = true;
+    // gulp them
   }
-
-  if (error) {
-    const tinaToken = process.env.TINA_READ_TOKEN;
-    data = await fetch(
-      `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`,
-      {
-        method: 'POST',
-        body: JSON.stringify({ query, variables }),
-        headers: {
-          'Content-Type': 'application/json',
-          'X-API-KEY': tinaToken
-        }
-      }
-    );
-    if (!data) {
-      return {
-        notFound: true
-      };
-    }
-  }
-
   return {
     props: {
       data,
