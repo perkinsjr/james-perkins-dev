@@ -31,7 +31,7 @@
     "react-player": "^2.9.0",
     "react-syntax-highlighter": "^15.4.5",
     "styled-components": "^5.3.3",
-    "tinacms": "^0.66.8"
+    "tinacms": "^0.66.9"
   },
   "devDependencies": {
     "@tinacms/cli": "^0.60.8",
