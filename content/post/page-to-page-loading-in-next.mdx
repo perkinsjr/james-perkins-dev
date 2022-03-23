@@ -54,8 +54,6 @@ function Loading() {
 
 ### What is happening?
 
-Now you have an example to look at, let us talk about what we are doing to make a loading function. First we are setting a state of `loading` as a boolean. This allows you to easily swap between it is and is not loading, we are then using `useEffect` to power the checks. The useEffect here has two functions one to handle the starting and one to handle when it is finished, we then use the router.events mentioned above to decide what function should run. If we are starting, it should run handleStart which sets loading to true. Otherwise it's finished and we should set loading to false. 
+Now you have an example to look at, let us talk about what we are doing to make a loading function. First we are setting a state of `loading` as a boolean. This allows you to easily swap between it is and is not loading, we are then using `useEffect` to power the checks. The `useEffect` here has two functions one to handle the starting and one to handle when it is finished, we then use the `router.events` mentioned above to decide what function should run. If we are starting, it should run handleStart which sets loading to true. Otherwise it's finished and we should set loading to false. 
 
-Finally we have a conditonal renderer that only shows if it is indeed loading. 
-
-Then 
+Finally we have a conditonal renderer that only shows if it is indeed loading.
