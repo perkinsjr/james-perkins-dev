@@ -6,13 +6,18 @@ import {
   LinkOverlay,
   Text,
   useColorModeValue as mode,
-} from '@chakra-ui/react'
+  chakra,
+} from "@chakra-ui/react";
 
-import Image from 'next/image'
+import Image from "next/image";
 import Link from 'next/link'
 
 export const FeaturedPost = ({props, href}) => {
   const { title, description, image, author, category } = props
+  const FeaturedImage = chakra(Image, {
+    shouldForwardProp: (prop) =>
+      ["width", "height", "src", "alt"].includes(prop),
+  });
   return (
     <Link href={href} passHref>
       <LinkBox
@@ -37,7 +42,14 @@ export const FeaturedPost = ({props, href}) => {
         
         <Flex direction="column">
         
-          <Image height="200" width="250" quality={100} objectFit="fit" alt={title} src={image} />
+          <FeaturedImage
+              height="200"
+              width="250"
+              quality={100}
+              objectFit="cover"
+              alt={title}
+              src={image}
+            />
           <Flex
             direction="column"
             px={{
