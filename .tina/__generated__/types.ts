@@ -56,11 +56,12 @@ export type Document = {
 
 /** A relay-compliant pagination connection */
 export type Connection = {
-  totalCount: Scalars['Int'];
+  totalCount: Scalars['Float'];
 };
 
 export type Query = {
   __typename?: 'Query';
+  getOptimizedQuery?: Maybe<Scalars['String']>;
   getCollection: Collection;
   getCollections: Array<Collection>;
   node: Node;
@@ -71,6 +72,11 @@ export type Query = {
   getPageList: PageConnection;
   getPostDocument: PostDocument;
   getPostList: PostConnection;
+};
+
+
+export type QueryGetOptimizedQueryArgs = {
+  queryString: Scalars['String'];
 };
 
 
@@ -93,8 +99,8 @@ export type QueryGetDocumentArgs = {
 export type QueryGetDocumentListArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
 };
 
 
@@ -106,8 +112,8 @@ export type QueryGetPageDocumentArgs = {
 export type QueryGetPageListArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
 };
 
 
@@ -119,8 +125,8 @@ export type QueryGetPostDocumentArgs = {
 export type QueryGetPostListArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
 };
 
 export type DocumentConnectionEdges = {
@@ -132,7 +138,7 @@ export type DocumentConnectionEdges = {
 export type DocumentConnection = Connection & {
   __typename?: 'DocumentConnection';
   pageInfo?: Maybe<PageInfo>;
-  totalCount: Scalars['Int'];
+  totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<DocumentConnectionEdges>>>;
 };
 
@@ -153,8 +159,8 @@ export type Collection = {
 export type CollectionDocumentsArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
-  first?: InputMaybe<Scalars['Int']>;
-  last?: InputMaybe<Scalars['Int']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
 };
 
 export type DocumentNode = PageDocument | PostDocument;
@@ -221,7 +227,7 @@ export type PageConnectionEdges = {
 export type PageConnection = Connection & {
   __typename?: 'PageConnection';
   pageInfo?: Maybe<PageInfo>;
-  totalCount: Scalars['Int'];
+  totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<PageConnectionEdges>>>;
 };
 
@@ -257,7 +263,7 @@ export type PostConnectionEdges = {
 export type PostConnection = Connection & {
   __typename?: 'PostConnection';
   pageInfo?: Maybe<PageInfo>;
-  totalCount: Scalars['Int'];
+  totalCount: Scalars['Float'];
   edges?: Maybe<Array<Maybe<PostConnectionEdges>>>;
 };
 
@@ -375,33 +381,33 @@ export type PostMutation = {
   body?: InputMaybe<Scalars['JSON']>;
 };
 
-export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null | undefined, subheading?: string | null | undefined, description?: string | null | undefined, image?: string | null | undefined } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', image?: string | null | undefined, title?: string | null | undefined, author?: string | null | undefined, category?: string | null | undefined, description?: string | null | undefined, href?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null | undefined, name?: string | null | undefined, description?: string | null | undefined, href?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined };
+export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', image?: string | null, title?: string | null, author?: string | null, category?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | null> | null };
 
-export type PostPartsFragment = { __typename?: 'Post', title?: string | null | undefined, date?: string | null | undefined, image?: string | null | undefined, author?: string | null | undefined, authorTwitter?: string | null | undefined, category?: Array<string | null | undefined> | null | undefined, tags?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined, body?: any | null | undefined };
+export type PostPartsFragment = { __typename?: 'Post', title?: string | null, date?: string | null, image?: string | null, author?: string | null, authorTwitter?: string | null, category?: Array<string | null> | null, tags?: Array<string | null> | null, description?: string | null, body?: any | null };
 
 export type GetPageDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type GetPageDocumentQuery = { __typename?: 'Query', getPageDocument: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null | undefined, subheading?: string | null | undefined, description?: string | null | undefined, image?: string | null | undefined } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', image?: string | null | undefined, title?: string | null | undefined, author?: string | null | undefined, category?: string | null | undefined, description?: string | null | undefined, href?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null | undefined, name?: string | null | undefined, description?: string | null | undefined, href?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } };
+export type GetPageDocumentQuery = { __typename?: 'Query', getPageDocument: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', image?: string | null, title?: string | null, author?: string | null, category?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | null> | null } } };
 
 export type GetPageListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPageListQuery = { __typename?: 'Query', getPageList: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null | undefined, subheading?: string | null | undefined, description?: string | null | undefined, image?: string | null | undefined } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', image?: string | null | undefined, title?: string | null | undefined, author?: string | null | undefined, category?: string | null | undefined, description?: string | null | undefined, href?: string | null | undefined } | null | undefined> | null | undefined } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null | undefined, name?: string | null | undefined, description?: string | null | undefined, href?: string | null | undefined } | null | undefined> | null | undefined } | null | undefined> | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
+export type GetPageListQuery = { __typename?: 'Query', getPageList: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', image?: string | null, title?: string | null, author?: string | null, category?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | null> | null } } | null } | null> | null } };
 
 export type GetPostDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type GetPostDocumentQuery = { __typename?: 'Query', getPostDocument: { __typename?: 'PostDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Post', title?: string | null | undefined, date?: string | null | undefined, image?: string | null | undefined, author?: string | null | undefined, authorTwitter?: string | null | undefined, category?: Array<string | null | undefined> | null | undefined, tags?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined, body?: any | null | undefined } } };
+export type GetPostDocumentQuery = { __typename?: 'Query', getPostDocument: { __typename?: 'PostDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Post', title?: string | null, date?: string | null, image?: string | null, author?: string | null, authorTwitter?: string | null, category?: Array<string | null> | null, tags?: Array<string | null> | null, description?: string | null, body?: any | null } } };
 
 export type GetPostListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPostListQuery = { __typename?: 'Query', getPostList: { __typename?: 'PostConnection', totalCount: number, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'PostDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Post', title?: string | null | undefined, date?: string | null | undefined, image?: string | null | undefined, author?: string | null | undefined, authorTwitter?: string | null | undefined, category?: Array<string | null | undefined> | null | undefined, tags?: Array<string | null | undefined> | null | undefined, description?: string | null | undefined, body?: any | null | undefined } } | null | undefined } | null | undefined> | null | undefined } };
+export type GetPostListQuery = { __typename?: 'Query', getPostList: { __typename?: 'PostConnection', totalCount: number, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'PostDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Post', title?: string | null, date?: string | null, image?: string | null, author?: string | null, authorTwitter?: string | null, category?: Array<string | null> | null, tags?: Array<string | null> | null, description?: string | null, body?: any | null } } | null } | null> | null } };
 
 export const PagePartsFragmentDoc = gql`
     fragment PageParts on Page {
