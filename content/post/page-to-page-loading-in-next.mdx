@@ -15,7 +15,7 @@ I am a huge advocate of minimalist websites, I don't hate heavily overly designe
 
 ## Handling loading through next/router&#x20;
 
-One great feature of `next``/router` is the ability to tap into the events that happen during a route change. This means you can use these to handle loading. So what are the events we need? We need route change events&#x20;
+One great feature of `next/router` is the ability to tap into the events that happen during a route change. This means you can use these to handle loading. So what are the events we need? We need route change events&#x20;
 
 ```javascript
 routeChangeStart
@@ -56,4 +56,4 @@ function Loading() {
 
 Now you have an example to look at, let us talk about what we are doing to make a loading function. First we are setting a state of `loading` as a boolean. This allows you to easily swap between it is and is not loading, we are then using `useEffect` to power the checks. The `useEffect` here has two functions one to handle the starting and one to handle when it is finished, we then use the `router.events` mentioned above to decide what function should run. If we are starting, it should run handleStart which sets loading to true. Otherwise it's finished and we should set loading to false.
 
-Finally we have a conditonal renderer that only shows if it is indeed loading.
+Finally we have a conditional renderer that only shows if it is indeed loading.
