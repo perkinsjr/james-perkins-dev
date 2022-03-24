@@ -5,11 +5,11 @@ image: 'https://res.cloudinary.com/dub20ptvt/image/upload/v1642704336/Blog%20Pos
 author: James Perkins
 authorTwitter: james_r_perkins
 category:
-  - thoughts
+    - thoughts
 tags:
-  - thoughts
+    - thoughts
 description: >-
- Supercharge your Astro blog with open source comments
+    Supercharge your Astro blog with open source comments
 ---
 
 Astro is a powerful, it allows you to ship less JavaScript which means fast sites. One thing I noticed is a lot of Astro blogs don't seem to have comments, so lets fix that!
@@ -18,9 +18,9 @@ Astro is a powerful, it allows you to ship less JavaScript which means fast site
 
 Utterances A lightweight comments widget built on GitHub issues. It allows you to use GitHub issues for blog comments, these are the three main reason I chose Utterances:
 
-- It's Open Source
-- You own the data
-- No tracking, no ads, always free.
+-   It's Open Source
+-   You own the data
+-   No tracking, no ads, always free.
 
 ### How to setup Utterance
 
@@ -28,12 +28,12 @@ Utterance uses a single script to handle loading comments and allowing people to
 
 ```javascript
 <script
-  src="https://utteranc.es/client.js"
-  repo="[ENTER REPO HERE]"
-  issue-term="pathname"
-  theme="preferred-color-scheme"
-  crossorigin="anonymous"
-  async
+    src="https://utteranc.es/client.js"
+    repo="[ENTER REPO HERE]"
+    issue-term="pathname"
+    theme="preferred-color-scheme"
+    crossorigin="anonymous"
+    async
 ></script>
 ```
 
@@ -74,15 +74,15 @@ In my specific Astro application I have an astro component called `prose.astro` 
 
 ```html
 <article class="prose">
-  <slot />
+    <slot />
 </article>
 
 <style>
-  .prose {
-    @apply max-w-none
+    .prose {
+        @apply max-w-none
         /* Size Modifiers: https://github.com/tailwindlabs/tailwindcss-typography#size-modifiers */
         /* Color Themes: https://github.com/tailwindlabs/tailwindcss-typography#color-modifiers */;
-  }
+    }
 </style>
 ```
 
@@ -92,16 +92,16 @@ So to add in the comments we just import the component at the top and then add t
 import Comments from "./Comments.svelte" ---
 
 <article class="prose">
-  <slot />
-  <Comments client:load />
+    <slot />
+    <Comments client:load />
 </article>
 
 <style>
-  .prose {
-    @apply max-w-none
+    .prose {
+        @apply max-w-none
         /* Size Modifiers: https://github.com/tailwindlabs/tailwindcss-typography#size-modifiers */
         /* Color Themes: https://github.com/tailwindlabs/tailwindcss-typography#color-modifiers */;
-  }
+    }
 </style>
 ```
 

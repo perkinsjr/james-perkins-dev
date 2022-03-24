@@ -5,11 +5,11 @@ image: 'https://res.cloudinary.com/dub20ptvt/image/upload/v1618489775/faunadb_ff
 author: James Perkins
 authorTwitter: james_r_perkins
 category:
-  - tutorials
+    - tutorials
 tags:
-  - nextjs
+    - nextjs
 description: >-
- Welcome to my latest blog post, which is a crash course on NextJS and Fauna, in this blog post I am going to show you how to Create a Database, Read from that database and finally update the collection.
+    Welcome to my latest blog post, which is a crash course on NextJS and Fauna, in this blog post I am going to show you how to Create a Database, Read from that database and finally update the collection.
 ---
 
 ### The Setup
@@ -32,7 +32,7 @@ Once the pre-population has occurred remove everything inside your `/pages/index
 
 ```javascript
 export default function Home() {
-  return <div></div>;
+    return <div></div>;
 }
 ```
 
@@ -82,7 +82,7 @@ First we will start by importing faunadb, our secret and the faunadb client whic
 
 ```javascript
 // import faunadb from node
-const faunadb = require("faunadb");
+const faunadb = require('faunadb');
 
 // use our secret
 
@@ -99,7 +99,7 @@ A serverless function starts the same way each time `module.exports = async (req
 
 ```javascript
 // import faunadb from node
-const faunadb = require("faunadb");
+const faunadb = require('faunadb');
 
 // use our secret
 
@@ -119,7 +119,7 @@ Using fauna is probably different than other databases you have interacted with 
 
 ```javascript
 // import faunadb from node
-const faunadb = require("faunadb");
+const faunadb = require('faunadb');
 
 // use our secret
 
@@ -132,26 +132,26 @@ const q = faunadb.query;
 const client = new faunadb.Client({ secret });
 
 module.exports = async (req, res) => {
-  try {
-    const dbs = await client.query(
-      q.Map(
-        // iterate each item in result
-        q.Paginate(
-          // make paginatable
-          q.Match(
-            // query index
-            q.Index("all_customers") // specify source
-          )
-        ),
-        (ref) => q.Get(ref) // lookup each result by its reference
-      )
-    );
-    // ok
-    res.status(200).json(dbs.data);
-  } catch (e) {
-    // something went wrong
-    res.status(500).json({ error: e.message });
-  }
+    try {
+        const dbs = await client.query(
+            q.Map(
+                // iterate each item in result
+                q.Paginate(
+                    // make paginatable
+                    q.Match(
+                        // query index
+                        q.Index('all_customers') // specify source
+                    )
+                ),
+                (ref) => q.Get(ref) // lookup each result by its reference
+            )
+        );
+        // ok
+        res.status(200).json(dbs.data);
+    } catch (e) {
+        // something went wrong
+        res.status(500).json({ error: e.message });
+    }
 };
 ```
 
@@ -159,15 +159,15 @@ Inside the try we are creating a constant called dbs which makes a request using
 
 ```javascript
 q.Map(
-  // iterate each item in result
-  q.Paginate(
-    // make paginatable
-    q.Match(
-      // query index
-      q.Index("all_customers") // specify source
-    )
-  ),
-  (ref) => q.Get(ref) // lookup each result by its reference
+    // iterate each item in result
+    q.Paginate(
+        // make paginatable
+        q.Match(
+            // query index
+            q.Index('all_customers') // specify source
+        )
+    ),
+    (ref) => q.Get(ref) // lookup each result by its reference
 );
 ```
 
@@ -180,14 +180,14 @@ Then the `(ref) => q.Get(ref)` looks up each result by the referenced above. Fin
 Now we have a serverless function we should test it out before creating any UI code, inside your `/pages/index.js` we are going to add some state and use the useEffect. So at the top import in `import { useEffect, useState } from "react";` and then we can start creating our request.
 
 ```javascript
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  useEffect(() => {}, []);
+    useEffect(() => {}, []);
 
-  return <div></div>;
+    return <div></div>;
 }
 ```
 
@@ -199,31 +199,31 @@ NextJS is built for serverless functions, and we can create an async function to
 
 ```javascript
 async function getCustomerData() {
-  const res = await fetch("/api/customerData");
-  const newData = await res.json();
-  setData(newData);
+    const res = await fetch('/api/customerData');
+    const newData = await res.json();
+    setData(newData);
 }
 ```
 
 This async function makes a request to our api, then updates the state to contain the customer information. Now we are finally ready to make this request! Go ahead and add `getCustomerData()` to the useEffect and we can test, to make sure you are all in the same below here is our current code.
 
 ```javascript
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export default function Home() {
-  const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  async function getCustomerData() {
-    const res = await fetch("/api/customerData");
-    const newData = await res.json();
-    setData(newData);
-  }
+    async function getCustomerData() {
+        const res = await fetch('/api/customerData');
+        const newData = await res.json();
+        setData(newData);
+    }
 
-  useEffect(() => {
-    getCustomerData();
-  }, []);
+    useEffect(() => {
+        getCustomerData();
+    }, []);
 
-  return <div></div>;
+    return <div></div>;
 }
 ```
 
@@ -248,15 +248,15 @@ npm install @chakra-ui/core @emotion/core @emotion/styled emotion-theming
 Then inside your `_app.js` we are going to wrap it in a ThemeProvider and CSS Reset, this will cause it to reset default CSS styling, and allow us to use all the great features of ChakraUI. Your `_app.js` file by the end should look like this:
 
 ```javascript
-import { ThemeProvider, CSSReset } from "@chakra-ui/core";
+import { ThemeProvider, CSSReset } from '@chakra-ui/core';
 
 function MyApp({ Component, pageProps }) {
-  return (
-    <ThemeProvider>
-      <CSSReset />
-      <Component {...pageProps} />
-    </ThemeProvider>
-  );
+    return (
+        <ThemeProvider>
+            <CSSReset />
+            <Component {...pageProps} />
+        </ThemeProvider>
+    );
 }
 
 export default MyApp;
@@ -386,10 +386,10 @@ First we need to import some ChakraUI components, specifically Divider, Stack, T
 ```javascript
 // components/TableRow.js
 
-import { Divider, Stack, Text, Box } from "@chakra-ui/core";
+import { Divider, Stack, Text, Box } from '@chakra-ui/core';
 
 export default function TableRow({}) {
-  return <div></div>;
+    return <div></div>;
 }
 ```
 
@@ -424,42 +424,37 @@ Now we have props to play with lets create our UI, now each one of the elements 
 So when we get finished we out CustomerData component it will look like the following:
 
 ```javascript
-import { Divider, Stack, Text, Box } from "@chakra-ui/core";
+import { Divider, Stack, Text, Box } from '@chakra-ui/core';
 
-export default function CustomerData({
-  creditCard,
-  firstName,
-  lastName,
-  telephone,
-}) {
-  return (
-    <Box>
-      <Stack isInline>
+export default function CustomerData({ creditCard, firstName, lastName, telephone }) {
+    return (
         <Box>
-          <Text fontsize="lg" my={4} mx={4}>
-            {firstName} {lastName}
-          </Text>
+            <Stack isInline>
+                <Box>
+                    <Text fontsize="lg" my={4} mx={4}>
+                        {firstName} {lastName}
+                    </Text>
+                </Box>
+            </Stack>
+            <Divider border="4px" />
+            <Stack isInline>
+                <Box>
+                    <Text fontsize="lg" my={4} mx={4}>
+                        {telephone}
+                    </Text>
+                </Box>
+            </Stack>
+            <Divider border="4px" />
+            <Stack isInline>
+                <Box>
+                    <Text fontsize="lg" my={4} mx={4}>
+                        {creditCard}
+                    </Text>
+                </Box>
+            </Stack>
+            <Divider border="4px" />
         </Box>
-      </Stack>
-      <Divider border="4px" />
-      <Stack isInline>
-        <Box>
-          <Text fontsize="lg" my={4} mx={4}>
-            {telephone}
-          </Text>
-        </Box>
-      </Stack>
-      <Divider border="4px" />
-      <Stack isInline>
-        <Box>
-          <Text fontsize="lg" my={4} mx={4}>
-            {creditCard}
-          </Text>
-        </Box>
-      </Stack>
-      <Divider border="4px" />
-    </Box>
-  );
+    );
 }
 ```
 
@@ -472,95 +467,95 @@ Then in between the Stack and Flex we created we are going to map over our data,
 ```javascript
 // if data has a length
 {
-  data.length > 0 ? (
-    // then we can map over the data.
-    data.map((d) => (
-      //for each one lets return our customerData
-      <CustomerData
-        key={d.data.telephone}
-        creditCard={d.data.creditCard.number}
-        firstName={d.data.firstName}
-        lastName={d.data.lastName}
-        telephone={d.data.telephone}
-      />
-    ))
-  ) : (
-    // if there is no data return the loading screen.
-    <>
-      <Text>Loading</Text>
-    </>
-  );
+    data.length > 0 ? (
+        // then we can map over the data.
+        data.map((d) => (
+            //for each one lets return our customerData
+            <CustomerData
+                key={d.data.telephone}
+                creditCard={d.data.creditCard.number}
+                firstName={d.data.firstName}
+                lastName={d.data.lastName}
+                telephone={d.data.telephone}
+            />
+        ))
+    ) : (
+        // if there is no data return the loading screen.
+        <>
+            <Text>Loading</Text>
+        </>
+    );
 }
 ```
 
 Your index.js should look like this:
 
 ```javascript
-import { useEffect, useState } from "react";
-import CustomerData from "../components/CustomerData";
+import { useEffect, useState } from 'react';
+import CustomerData from '../components/CustomerData';
 import {
-  Heading,
-  Flex,
-  Stack,
-  Box,
-  Button,
-  Text,
-  Input,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  Radio,
-} from "@chakra-ui/core";
+    Heading,
+    Flex,
+    Stack,
+    Box,
+    Button,
+    Text,
+    Input,
+    FormControl,
+    FormLabel,
+    RadioGroup,
+    Radio
+} from '@chakra-ui/core';
 export default function Home() {
-  const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  async function getData() {
-    const res = await fetch("/api/getCustomers");
-    const newData = await res.json();
-    setData(newData);
-  }
+    async function getData() {
+        const res = await fetch('/api/getCustomers');
+        const newData = await res.json();
+        setData(newData);
+    }
 
-  useEffect(() => {
-    getData();
-  }, []);
-  return (
-    <Box>
-      <Heading as="h1" my={2} textAlign="center">
-        NextJS, FaunaDB and Servrless
-      </Heading>
-      <Heading as="h3" my={2} textAlign="center">
-        Customer data
-      </Heading>
-      <Flex mt={12} align="center" justify="center">
-        <Stack>
-          <Heading mb={6} as="h4">
-            Name:
-          </Heading>
-          <Heading mb={6} as="h4">
-            Phone:
-          </Heading>
-          <Heading mb={6} as="h4">
-            Credit Card:
-          </Heading>
-        </Stack>
-        {data.length > 0 ? (
-          data.map((d) => (
-            <CustomerData
-              key={d.data.telephone}
-              creditCard={d.data.creditCard.number}
-              firstName={d.data.firstName}
-              lastName={d.data.lastName}
-              telephone={d.data.telephone}
-            />
-          ))
-        ) : (
-          <>
-            <Text>Loading</Text>
-          </>
-        )}
-      </Flex>
-    </Box>
-  );
+    useEffect(() => {
+        getData();
+    }, []);
+    return (
+        <Box>
+            <Heading as="h1" my={2} textAlign="center">
+                NextJS, FaunaDB and Servrless
+            </Heading>
+            <Heading as="h3" my={2} textAlign="center">
+                Customer data
+            </Heading>
+            <Flex mt={12} align="center" justify="center">
+                <Stack>
+                    <Heading mb={6} as="h4">
+                        Name:
+                    </Heading>
+                    <Heading mb={6} as="h4">
+                        Phone:
+                    </Heading>
+                    <Heading mb={6} as="h4">
+                        Credit Card:
+                    </Heading>
+                </Stack>
+                {data.length > 0 ? (
+                    data.map((d) => (
+                        <CustomerData
+                            key={d.data.telephone}
+                            creditCard={d.data.creditCard.number}
+                            firstName={d.data.firstName}
+                            lastName={d.data.lastName}
+                            telephone={d.data.telephone}
+                        />
+                    ))
+                ) : (
+                    <>
+                        <Text>Loading</Text>
+                    </>
+                )}
+            </Flex>
+        </Box>
+    );
 }
 ```
 
@@ -583,7 +578,7 @@ The newCustomer serverless function is going to take in the body of the request,
 Go ahead and create a new folder in your api directory called `newCustomer` and inside that folder create an `index.js`, below is the starter code that looks exactly the same as your previous one:
 
 ```javascript
-const faunadb = require("faunadb");
+const faunadb = require('faunadb');
 
 const secret = process.env.FAUNADB_SECRET_KEY;
 const q = faunadb.query;
@@ -628,11 +623,11 @@ module.exports = async (req, res) => {
 
 Now all we have to do is add our data, now if you look at your collection in the database it has the following fields:
 
-- firstName
-- secondName
-- address object
-- phone number
-- credit card object.
+-   firstName
+-   secondName
+-   address object
+-   phone number
+-   credit card object.
 
 So we can add all of those by using the data object, using the formData that we will come from the body as part of the request:
 
@@ -657,39 +652,39 @@ So we can add all of those by using the data object, using the formData that we 
 When we put this all together we get the following serverless function:
 
 ```javascript
-const faunadb = require("faunadb");
+const faunadb = require('faunadb');
 
 const secret = process.env.FAUNADB_SECRET_KEY;
 const q = faunadb.query;
 const client = new faunadb.Client({ secret });
 
 module.exports = async (req, res) => {
-  const formData = req.body.data;
+    const formData = req.body.data;
 
-  try {
-    const dbs = await client.query(
-      q.Create(q.Collection("customers"), {
-        data: {
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          address: {
-            street: formData.streetAddress,
-            city: formData.city,
-            state: formData.state,
-            zipCode: formData.zipCode,
-          },
-          telephone: formData.phoneNumber,
-          creditCard: {
-            network: formData.cardType,
-            number: formData.cardNumber,
-          },
-        },
-      })
-    );
-    res.status(200).json(dbs.data);
-  } catch (e) {
-    res.status(500).json({ error: e.message });
-  }
+    try {
+        const dbs = await client.query(
+            q.Create(q.Collection('customers'), {
+                data: {
+                    firstName: formData.firstName,
+                    lastName: formData.lastName,
+                    address: {
+                        street: formData.streetAddress,
+                        city: formData.city,
+                        state: formData.state,
+                        zipCode: formData.zipCode
+                    },
+                    telephone: formData.phoneNumber,
+                    creditCard: {
+                        network: formData.cardType,
+                        number: formData.cardNumber
+                    }
+                }
+            })
+        );
+        res.status(200).json(dbs.data);
+    } catch (e) {
+        res.status(500).json({ error: e.message });
+    }
 };
 ```
 
@@ -700,77 +695,77 @@ With this new serverless function we can now update our database using a custome
 Underneath the closing Flex tag add another Heading and then another Flex with align and justify center attached. Then create a form tag, so your code should now look like
 
 ```javascript
-import { useEffect, useState } from "react";
-import CustomerData from "../components/CustomerData";
+import { useEffect, useState } from 'react';
+import CustomerData from '../components/CustomerData';
 import {
-  Heading,
-  Flex,
-  Stack,
-  Box,
-  Button,
-  Text,
-  Input,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  Radio,
-} from "@chakra-ui/core";
+    Heading,
+    Flex,
+    Stack,
+    Box,
+    Button,
+    Text,
+    Input,
+    FormControl,
+    FormLabel,
+    RadioGroup,
+    Radio
+} from '@chakra-ui/core';
 export default function Home() {
-  const [data, setData] = useState([]);
+    const [data, setData] = useState([]);
 
-  async function getData() {
-    const res = await fetch("/api/getCustomers");
-    const newData = await res.json();
-    setData(newData);
-  }
+    async function getData() {
+        const res = await fetch('/api/getCustomers');
+        const newData = await res.json();
+        setData(newData);
+    }
 
-  useEffect(() => {
-    getData();
-  }, []);
-  return (
-    <Box>
-      <Heading as="h1" my={2} textAlign="center">
-        NextJS, FaunaDB and Servrless
-      </Heading>
-      <Heading as="h3" my={2} textAlign="center">
-        Customer data
-      </Heading>
-      <Flex mt={12} align="center" justify="center">
-        <Stack>
-          <Heading mb={6} as="h4">
-            Name:
-          </Heading>
-          <Heading mb={6} as="h4">
-            Phone:
-          </Heading>
-          <Heading mb={6} as="h4">
-            Credit Card:
-          </Heading>
-        </Stack>
-        {data.length > 0 ? (
-          data.map((d) => (
-            <CustomerData
-              key={d.data.telephone}
-              creditCard={d.data.creditCard.number}
-              firstName={d.data.firstName}
-              lastName={d.data.lastName}
-              telephone={d.data.telephone}
-            />
-          ))
-        ) : (
-          <>
-            <Text>Loading</Text>
-          </>
-        )}
-      </Flex>
-      <Heading as="h4" mt={6} textAlign="center">
-        Add a new customer
-      </Heading>
-      <Flex mt={12} align="center" justify="center">
-        <form></form>
-      </Flex>
-    </Box>
-  );
+    useEffect(() => {
+        getData();
+    }, []);
+    return (
+        <Box>
+            <Heading as="h1" my={2} textAlign="center">
+                NextJS, FaunaDB and Servrless
+            </Heading>
+            <Heading as="h3" my={2} textAlign="center">
+                Customer data
+            </Heading>
+            <Flex mt={12} align="center" justify="center">
+                <Stack>
+                    <Heading mb={6} as="h4">
+                        Name:
+                    </Heading>
+                    <Heading mb={6} as="h4">
+                        Phone:
+                    </Heading>
+                    <Heading mb={6} as="h4">
+                        Credit Card:
+                    </Heading>
+                </Stack>
+                {data.length > 0 ? (
+                    data.map((d) => (
+                        <CustomerData
+                            key={d.data.telephone}
+                            creditCard={d.data.creditCard.number}
+                            firstName={d.data.firstName}
+                            lastName={d.data.lastName}
+                            telephone={d.data.telephone}
+                        />
+                    ))
+                ) : (
+                    <>
+                        <Text>Loading</Text>
+                    </>
+                )}
+            </Flex>
+            <Heading as="h4" mt={6} textAlign="center">
+                Add a new customer
+            </Heading>
+            <Flex mt={12} align="center" justify="center">
+                <form></form>
+            </Flex>
+        </Box>
+    );
 }
 ```
 
@@ -848,20 +843,15 @@ ChakraUI has a Radio Group that will line up and keep your radio buttons togethe
 
 ```javascript
 <RadioGroup name="cardType" my={4} spacing={8} isInline>
-  <Radio onChange={handleChange} name="Visa" value="Visa" label="Visa">
-    Visa
-  </Radio>
-  <Radio
-    onChange={handleChange}
-    name="Mastercard"
-    value="Mastercard"
-    label="Mastercard"
-  >
-    Mastercard
-  </Radio>
-  <Radio onChange={handleChange} name="Amex" value="Amex" label="Amex">
-    American Express
-  </Radio>
+    <Radio onChange={handleChange} name="Visa" value="Visa" label="Visa">
+        Visa
+    </Radio>
+    <Radio onChange={handleChange} name="Mastercard" value="Mastercard" label="Mastercard">
+        Mastercard
+    </Radio>
+    <Radio onChange={handleChange} name="Amex" value="Amex" label="Amex">
+        American Express
+    </Radio>
 </RadioGroup>
 ```
 
@@ -893,73 +883,48 @@ The full form should now look like this
 
 ```javascript
 <form onSubmit={handleSubmit} method="post">
-  <FormControl>
-    <FormLabel htmlFor="firstName">First Name</FormLabel>
-    <Input
-      type="text"
-      name="firstName"
-      id="firstName"
-      onChange={handleChange}
-    />
-    <FormLabel htmlFor="lastName">Last Name</FormLabel>
-    <Input type="text" name="lastName" id="lastName" onChange={handleChange} />
-    <FormLabel htmlFor="streetAddress">Street Address</FormLabel>
-    <Input
-      type="text"
-      name="streetAddress"
-      id="streetAddress"
-      onChange={handleChange}
-    />
-    <Stack isInline mt={2}>
-      <FormLabel htmlFor="city">City</FormLabel>
-      <Input type="text" name="city" id="city" onChange={handleChange} />
-      <FormLabel htmlFor="zipcode">zipcode</FormLabel>
-      <Input type="text" name="zipcode" id="zipcode" onChange={handleChange} />
-      <FormLabel htmlFor="state">State</FormLabel>
-      <Input type="text" name="state" id="state" onChange={handleChange} />
-    </Stack>
-    <FormLabel htmlFor="phoneNumber">Phone Number</FormLabel>
-    <Input
-      type="text"
-      name="phoneNumber"
-      id="phoneNumber"
-      onChange={handleChange}
-    />
-    <RadioGroup name="cardType" my={4} spacing={8} isInline>
-      <Radio onChange={handleChange} name="Visa" value="Visa" label="Visa">
-        Visa
-      </Radio>
-      <Radio
-        onChange={handleChange}
-        name="Mastercard"
-        value="Mastercard"
-        label="Mastercard"
-      >
-        Mastercard
-      </Radio>
-      <Radio onChange={handleChange} name="Amex" value="Amex" label="Amex">
-        American Express
-      </Radio>
-    </RadioGroup>
-    <FormLabel htmlFor="cardNumber">Card Number</FormLabel>
-    <Input
-      type="number"
-      name="cardNumber"
-      id="cardNumber"
-      onChange={handleChange}
-    />
-    <Button
-      type="submit"
-      my={8}
-      ml="20%"
-      width="50%"
-      size="md"
-      border="2px"
-      borderColor="green.500"
-    >
-      Add Customer
-    </Button>
-  </FormControl>
+    <FormControl>
+        <FormLabel htmlFor="firstName">First Name</FormLabel>
+        <Input type="text" name="firstName" id="firstName" onChange={handleChange} />
+        <FormLabel htmlFor="lastName">Last Name</FormLabel>
+        <Input type="text" name="lastName" id="lastName" onChange={handleChange} />
+        <FormLabel htmlFor="streetAddress">Street Address</FormLabel>
+        <Input type="text" name="streetAddress" id="streetAddress" onChange={handleChange} />
+        <Stack isInline mt={2}>
+            <FormLabel htmlFor="city">City</FormLabel>
+            <Input type="text" name="city" id="city" onChange={handleChange} />
+            <FormLabel htmlFor="zipcode">zipcode</FormLabel>
+            <Input type="text" name="zipcode" id="zipcode" onChange={handleChange} />
+            <FormLabel htmlFor="state">State</FormLabel>
+            <Input type="text" name="state" id="state" onChange={handleChange} />
+        </Stack>
+        <FormLabel htmlFor="phoneNumber">Phone Number</FormLabel>
+        <Input type="text" name="phoneNumber" id="phoneNumber" onChange={handleChange} />
+        <RadioGroup name="cardType" my={4} spacing={8} isInline>
+            <Radio onChange={handleChange} name="Visa" value="Visa" label="Visa">
+                Visa
+            </Radio>
+            <Radio onChange={handleChange} name="Mastercard" value="Mastercard" label="Mastercard">
+                Mastercard
+            </Radio>
+            <Radio onChange={handleChange} name="Amex" value="Amex" label="Amex">
+                American Express
+            </Radio>
+        </RadioGroup>
+        <FormLabel htmlFor="cardNumber">Card Number</FormLabel>
+        <Input type="number" name="cardNumber" id="cardNumber" onChange={handleChange} />
+        <Button
+            type="submit"
+            my={8}
+            ml="20%"
+            width="50%"
+            size="md"
+            border="2px"
+            borderColor="green.500"
+        >
+            Add Customer
+        </Button>
+    </FormControl>
 </form>
 ```
 
@@ -969,15 +934,15 @@ Our form is complete but we need some state to handle the input and also some in
 
 ```javascript
 const initialFormData = Object.freeze({
-  firstName: "",
-  lastName: "",
-  streetAddress: "",
-  city: "",
-  state: "",
-  zipCode: "",
-  phoneNumber: "",
-  cardType: "",
-  cardNumber: null,
+    firstName: '',
+    lastName: '',
+    streetAddress: '',
+    city: '',
+    state: '',
+    zipCode: '',
+    phoneNumber: '',
+    cardType: '',
+    cardNumber: null
 });
 ```
 
@@ -991,10 +956,10 @@ The handleChange that we attached to our forms will update our object values bas
 
 ```javascript
 const handleChange = (e) => {
-  updateFormData({
-    ...formData,
-    [e.target.name]: e.target.value,
-  });
+    updateFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+    });
 };
 ```
 
@@ -1006,9 +971,9 @@ Our onSubmit will take the formData and submit it our API, but first lets create
 
 ```javascript
 const requestOptions = {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ data: formData }),
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ data: formData })
 };
 ```
 
@@ -1016,217 +981,192 @@ Now we've added a requestOptions variable, we can create a addCustomer function 
 
 ```javascript
 async function addCustomer() {
-  await fetch("api/newCustomer", requestOptions)
-    .then(() => getData())
-    .catch((e) => console.log(e));
+    await fetch('api/newCustomer', requestOptions)
+        .then(() => getData())
+        .catch((e) => console.log(e));
 }
 ```
 
 Our Form is complete your full `index.js` should look like below:
 
 ```javascript
-import { useEffect, useState } from "react";
-import CustomerData from "../components/CustomerData";
+import { useEffect, useState } from 'react';
+import CustomerData from '../components/CustomerData';
 import {
-  Heading,
-  Flex,
-  Stack,
-  Box,
-  Button,
-  Text,
-  Input,
-  FormControl,
-  FormLabel,
-  RadioGroup,
-  Radio,
-} from "@chakra-ui/core";
+    Heading,
+    Flex,
+    Stack,
+    Box,
+    Button,
+    Text,
+    Input,
+    FormControl,
+    FormLabel,
+    RadioGroup,
+    Radio
+} from '@chakra-ui/core';
 export default function Home() {
-  const initialFormData = Object.freeze({
-    firstName: "",
-    lastName: "",
-    streetAddress: "",
-    city: "",
-    state: "",
-    zipCode: "",
-    phoneNumber: "",
-    cardType: "",
-    cardNumber: null,
-  });
-
-  const [data, setData] = useState([]);
-  const [formData, updateFormData] = useState({});
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ data: formData }),
-  };
-  async function getData() {
-    const res = await fetch("/api/getCustomers");
-    const newData = await res.json();
-    setData(newData);
-  }
-  async function addCustomer() {
-    await fetch("api/newCustomer", requestOptions)
-      .then(() => getData())
-      .catch((e) => console.log(e));
-  }
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const handleChange = (e) => {
-    updateFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
+    const initialFormData = Object.freeze({
+        firstName: '',
+        lastName: '',
+        streetAddress: '',
+        city: '',
+        state: '',
+        zipCode: '',
+        phoneNumber: '',
+        cardType: '',
+        cardNumber: null
     });
-  };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    addCustomer();
-  };
-  return (
-    <Box>
-      <Heading as="h1" my={2} textAlign="center">
-        NextJS, FaunaDB and Servrless
-      </Heading>
-      <Heading as="h3" my={2} textAlign="center">
-        Customer data
-      </Heading>
-      <Flex mt={12} align="center" justify="center">
-        <Stack>
-          <Heading mb={6} as="h4">
-            Name:
-          </Heading>
-          <Heading mb={6} as="h4">
-            Phone:
-          </Heading>
-          <Heading mb={6} as="h4">
-            Credit Card:
-          </Heading>
-        </Stack>
-        {data.length > 0 ? (
-          data.map((d) => (
-            <CustomerData
-              key={d.data.telephone}
-              creditCard={d.data.creditCard.number}
-              firstName={d.data.firstName}
-              lastName={d.data.lastName}
-              telephone={d.data.telephone}
-            />
-          ))
-        ) : (
-          <>
-            <Text>Loading</Text>
-          </>
-        )}
-      </Flex>
-      <Heading as="h4" mt={6} textAlign="center">
-        Add a new customer
-      </Heading>
-      <Flex mt={12} align="center" justify="center">
-        <form onSubmit={handleSubmit} method="post">
-          <FormControl>
-            <FormLabel htmlFor="firstName">First Name</FormLabel>
-            <Input
-              type="text"
-              name="firstName"
-              id="firstName"
-              onChange={handleChange}
-            />
-            <FormLabel htmlFor="lastName">Last Name</FormLabel>
-            <Input
-              type="text"
-              name="lastName"
-              id="lastName"
-              onChange={handleChange}
-            />
-            <FormLabel htmlFor="streetAddress">Street Address</FormLabel>
-            <Input
-              type="text"
-              name="streetAddress"
-              id="streetAddress"
-              onChange={handleChange}
-            />
-            <Stack isInline mt={2}>
-              <FormLabel htmlFor="city">City</FormLabel>
-              <Input
-                type="text"
-                name="city"
-                id="city"
-                onChange={handleChange}
-              />
-              <FormLabel htmlFor="zipcode">zipcode</FormLabel>
-              <Input
-                type="text"
-                name="zipcode"
-                id="zipcode"
-                onChange={handleChange}
-              />
-              <FormLabel htmlFor="state">State</FormLabel>
-              <Input
-                type="text"
-                name="state"
-                id="state"
-                onChange={handleChange}
-              />
-            </Stack>
-            <FormLabel htmlFor="phoneNumber">Phone Number</FormLabel>
-            <Input
-              type="text"
-              name="phoneNumber"
-              id="phoneNumber"
-              onChange={handleChange}
-            />
-            <RadioGroup name="cardType" my={4} spacing={8} isInline>
-              <Radio
-                onChange={handleChange}
-                name="Visa"
-                value="Visa"
-                label="Visa"
-              >
-                Visa
-              </Radio>
-              <Radio
-                onChange={handleChange}
-                name="Mastercard"
-                value="Mastercard"
-                label="Mastercard"
-              >
-                Mastercard
-              </Radio>
-              <Radio
-                onChange={handleChange}
-                name="Amex"
-                value="Amex"
-                label="Amex"
-              >
-                American Express
-              </Radio>
-            </RadioGroup>
-            <FormLabel htmlFor="cardNumber">Card Number</FormLabel>
-            <Input
-              type="number"
-              name="cardNumber"
-              id="cardNumber"
-              onChange={handleChange}
-            />
-            <Button
-              type="submit"
-              my={8}
-              ml="20%"
-              width="50%"
-              size="md"
-              border="2px"
-              borderColor="green.500"
-            >
-              Add Customer
-            </Button>
-          </FormControl>
-        </form>
-      </Flex>
-    </Box>
-  );
+    const [data, setData] = useState([]);
+    const [formData, updateFormData] = useState({});
+    const requestOptions = {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ data: formData })
+    };
+    async function getData() {
+        const res = await fetch('/api/getCustomers');
+        const newData = await res.json();
+        setData(newData);
+    }
+    async function addCustomer() {
+        await fetch('api/newCustomer', requestOptions)
+            .then(() => getData())
+            .catch((e) => console.log(e));
+    }
+    useEffect(() => {
+        getData();
+    }, []);
+
+    const handleChange = (e) => {
+        updateFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addCustomer();
+    };
+    return (
+        <Box>
+            <Heading as="h1" my={2} textAlign="center">
+                NextJS, FaunaDB and Servrless
+            </Heading>
+            <Heading as="h3" my={2} textAlign="center">
+                Customer data
+            </Heading>
+            <Flex mt={12} align="center" justify="center">
+                <Stack>
+                    <Heading mb={6} as="h4">
+                        Name:
+                    </Heading>
+                    <Heading mb={6} as="h4">
+                        Phone:
+                    </Heading>
+                    <Heading mb={6} as="h4">
+                        Credit Card:
+                    </Heading>
+                </Stack>
+                {data.length > 0 ? (
+                    data.map((d) => (
+                        <CustomerData
+                            key={d.data.telephone}
+                            creditCard={d.data.creditCard.number}
+                            firstName={d.data.firstName}
+                            lastName={d.data.lastName}
+                            telephone={d.data.telephone}
+                        />
+                    ))
+                ) : (
+                    <>
+                        <Text>Loading</Text>
+                    </>
+                )}
+            </Flex>
+            <Heading as="h4" mt={6} textAlign="center">
+                Add a new customer
+            </Heading>
+            <Flex mt={12} align="center" justify="center">
+                <form onSubmit={handleSubmit} method="post">
+                    <FormControl>
+                        <FormLabel htmlFor="firstName">First Name</FormLabel>
+                        <Input
+                            type="text"
+                            name="firstName"
+                            id="firstName"
+                            onChange={handleChange}
+                        />
+                        <FormLabel htmlFor="lastName">Last Name</FormLabel>
+                        <Input type="text" name="lastName" id="lastName" onChange={handleChange} />
+                        <FormLabel htmlFor="streetAddress">Street Address</FormLabel>
+                        <Input
+                            type="text"
+                            name="streetAddress"
+                            id="streetAddress"
+                            onChange={handleChange}
+                        />
+                        <Stack isInline mt={2}>
+                            <FormLabel htmlFor="city">City</FormLabel>
+                            <Input type="text" name="city" id="city" onChange={handleChange} />
+                            <FormLabel htmlFor="zipcode">zipcode</FormLabel>
+                            <Input
+                                type="text"
+                                name="zipcode"
+                                id="zipcode"
+                                onChange={handleChange}
+                            />
+                            <FormLabel htmlFor="state">State</FormLabel>
+                            <Input type="text" name="state" id="state" onChange={handleChange} />
+                        </Stack>
+                        <FormLabel htmlFor="phoneNumber">Phone Number</FormLabel>
+                        <Input
+                            type="text"
+                            name="phoneNumber"
+                            id="phoneNumber"
+                            onChange={handleChange}
+                        />
+                        <RadioGroup name="cardType" my={4} spacing={8} isInline>
+                            <Radio onChange={handleChange} name="Visa" value="Visa" label="Visa">
+                                Visa
+                            </Radio>
+                            <Radio
+                                onChange={handleChange}
+                                name="Mastercard"
+                                value="Mastercard"
+                                label="Mastercard"
+                            >
+                                Mastercard
+                            </Radio>
+                            <Radio onChange={handleChange} name="Amex" value="Amex" label="Amex">
+                                American Express
+                            </Radio>
+                        </RadioGroup>
+                        <FormLabel htmlFor="cardNumber">Card Number</FormLabel>
+                        <Input
+                            type="number"
+                            name="cardNumber"
+                            id="cardNumber"
+                            onChange={handleChange}
+                        />
+                        <Button
+                            type="submit"
+                            my={8}
+                            ml="20%"
+                            width="50%"
+                            size="md"
+                            border="2px"
+                            borderColor="green.500"
+                        >
+                            Add Customer
+                        </Button>
+                    </FormControl>
+                </form>
+            </Flex>
+        </Box>
+    );
 }
 ```
 

@@ -5,11 +5,11 @@ image: 'https://res.cloudinary.com/dub20ptvt/image/upload/v1618778953/feature_fl
 author: James Perkins
 authorTwitter: james_r_perkins
 category:
-  - thoughts
+    - thoughts
 tags:
-  - javascript
+    - javascript
 description: >-
- When coding people tend to use flag parameters to drive their functions, without considering that they absolutely suck! They cause more trouble when a you write complex functions or a codebase that is large in nature, because the readability is just terrible let me explain
+    When coding people tend to use flag parameters to drive their functions, without considering that they absolutely suck! They cause more trouble when a you write complex functions or a codebase that is large in nature, because the readability is just terrible let me explain
 ---
 
 When coding people tend to use flag parameters to drive their functions, without considering that they absolutely suck! They cause more trouble when a you write complex functions or a codebase that is large in nature, because the readability is just terrible let me explain.
@@ -20,11 +20,11 @@ A flag parameter is a Boolean that drives a function, for example:
 
 ```js
 function register(user, isAdmin) {
-  if (isAdmin) {
-    // give admin privs
-  } else {
-    //Give standard privs
-  }
+    if (isAdmin) {
+        // give admin privs
+    } else {
+        //Give standard privs
+    }
 }
 
 register(user, true);
@@ -42,11 +42,11 @@ The first option create two functions that separate the flag, so taking above we
 
 ```js
 function registerAdmin(user) {
-  // do admin privs
+    // do admin privs
 }
 
 function registerUser(user) {
-  // give standard pribs
+    // give standard pribs
 }
 
 registerAdmin(user);

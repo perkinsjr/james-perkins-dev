@@ -4,13 +4,13 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { CodeBlock } from '../../components/Blog/CodeBlock';
 import { CustomLink } from '../../components/Blog/CustomLink';
 import {
-  Box,
-  Heading,
-  Code,
-  Text,
-  chakra,
-  useColorModeValue as mode,
-  Divider
+    Box,
+    Heading,
+    Code,
+    Text,
+    chakra,
+    useColorModeValue as mode,
+    Divider
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { LikeCounter } from '../../components/Blog/Lyket';
@@ -37,145 +37,146 @@ const query = `query getPost($relativePath: String!) {
 `;
 
 export default function Slug(props) {
-  const { data } = useTina({
-    query,
-    variables: props.variables,
-    data: props.data
-  });
+    const { data } = useTina({
+        query,
+        variables: props.variables,
+        data: props.data
+    });
 
-  const components = {
-    h1: (props) => <Heading as="h1" fontSize="6xl" my={2} {...props} />,
-    h2: (props) => (
-      <Heading
-        as="h2"
-        color={mode('purple.600', 'purple.300')}
-        fontSize="5xl"
-        my={2}
-        {...props}
-      />
-    ),
-    h3: (props) => (
-      <Heading
-        as="h3"
-        color={mode('purple.600', 'purple.300')}
-        fontSize="4xl"
-        my={2}
-        {...props}
-      />
-    ),
-    h4: (props) => (
-      <Heading
-        as="h4"
-        color={mode('purple.600', 'purple.300')}
-        fontSize="3xl"
-        my={2}
-        {...props}
-      />
-    ),
-    h5: (props) => (
-      <Heading
-        as="h5"
-        color={mode('purple.600', 'purple.300')}
-        fontSize="2xl"
-        my={2}
-        {...props}
-      />
-    ),
-    h6: (props) => (
-      <Heading
-        as="h6"
-        color={mode('purple.600', 'purple.300')}
-        fontSize="xl"
-        my={2}
-        {...props}
-      />
-    ),
-    li: (props) => <Box as="li" fontSize="xl" my={2} mx={4} {...props} />,
-    ul: (props) => <Box as="ul" fontSize="xl" my={2} mx={4} {...props} />,
-    ol: (props) => <Box as="ol" fontSize="xl" my={2} mx={4} {...props} />,
-    code_block: (props) => {
-      return <CodeBlock language={props.lang}>{props.children}</CodeBlock>;
-    },
-    a: (props) => {
-      return <CustomLink href={props.href}>{props.children}</CustomLink>;
-    },
-    newsletter: () => {
-      return <Newsletter />;
-    },
-    youtube: (props) => {
-      return <VideoPlayer url={props.url} />;
-    },
-    img: (props) => {
-      const BlogImg = chakra(Image, {
-        shouldForwardProp: (prop) =>
-          ['height', 'width', 'quality', 'src', 'alt'].includes(prop)
-      });
-      return (
-        <BlogImg
-          mx="auto"
-          src={props.url}
-          height="500"
-          width="1080"
-          alt={props.alt}
-          objectFit="contain"
-          quality="70"
-        />
-      );
-    },
-    code: (props) => {
-      return (
-        <Code colorScheme="purple" fontSize="xl" my={2}>
-          {props.children}
-        </Code>
-      );
-    },
-    p: (props) => {
-      return <Text fontSize="xl" my={2} {...props} />;
-    }
-  };
-  if (data && data.getPostDocument?.data) {
-    return (
-      <>
-        <Seo
-          title={data.getPostDocument.data.title}
-          description={data.getPostDocument.data.description}
-          image={data.getPostDocument.data.image}
-        />
-        <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
-          <article>
+    const components = {
+        h1: (props) => <Heading as="h1" fontSize="6xl" my={2} {...props} />,
+        h2: (props) => (
             <Heading
-              as="h1"
-              color="RGB(113, 90, 255)"
-              size="3xl"
-              textAlign="center"
-              my={8}>
-              {data.getPostDocument.data.title}
-            </Heading>
-
-            <TinaMarkdown
-              content={data.getPostDocument.data.body}
-              components={components}
+                as="h2"
+                color={mode('purple.600', 'purple.300')}
+                fontSize="5xl"
+                my={2}
+                {...props}
             />
-            <Divider my={8} />
-            <Box my={8}>
-              <LikeCounter slug={props.variables.relativePath} />
-            </Box>
-            <Divider my={8} />
-          </article>
-        </Box>
-      </>
+        ),
+        h3: (props) => (
+            <Heading
+                as="h3"
+                color={mode('purple.600', 'purple.300')}
+                fontSize="4xl"
+                my={2}
+                {...props}
+            />
+        ),
+        h4: (props) => (
+            <Heading
+                as="h4"
+                color={mode('purple.600', 'purple.300')}
+                fontSize="3xl"
+                my={2}
+                {...props}
+            />
+        ),
+        h5: (props) => (
+            <Heading
+                as="h5"
+                color={mode('purple.600', 'purple.300')}
+                fontSize="2xl"
+                my={2}
+                {...props}
+            />
+        ),
+        h6: (props) => (
+            <Heading
+                as="h6"
+                color={mode('purple.600', 'purple.300')}
+                fontSize="xl"
+                my={2}
+                {...props}
+            />
+        ),
+        li: (props) => <Box as="li" fontSize="xl" my={2} mx={4} {...props} />,
+        ul: (props) => <Box as="ul" fontSize="xl" my={2} mx={4} {...props} />,
+        ol: (props) => <Box as="ol" fontSize="xl" my={2} mx={4} {...props} />,
+        code_block: (props) => {
+            return <CodeBlock language={props.lang}>{props.children}</CodeBlock>;
+        },
+        a: (props) => {
+            return <CustomLink href={props.href}>{props.children}</CustomLink>;
+        },
+        newsletter: () => {
+            return <Newsletter />;
+        },
+        youtube: (props) => {
+            return <VideoPlayer url={props.url} />;
+        },
+        img: (props) => {
+            const BlogImg = chakra(Image, {
+                shouldForwardProp: (prop) =>
+                    ['height', 'width', 'quality', 'src', 'alt'].includes(prop)
+            });
+            return (
+                <BlogImg
+                    mx="auto"
+                    src={props.url}
+                    height="500"
+                    width="1080"
+                    alt={props.alt}
+                    objectFit="contain"
+                    quality="70"
+                />
+            );
+        },
+        code: (props) => {
+            return (
+                <Code colorScheme="purple" fontSize="xl" my={2}>
+                    {props.children}
+                </Code>
+            );
+        },
+        p: (props) => {
+            return <Text fontSize="xl" my={2} {...props} />;
+        }
+    };
+    if (data && data.getPostDocument?.data) {
+        return (
+            <>
+                <Seo
+                    title={data.getPostDocument.data.title}
+                    description={data.getPostDocument.data.description}
+                    image={data.getPostDocument.data.image}
+                />
+                <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
+                    <article>
+                        <Heading
+                            as="h1"
+                            color="RGB(113, 90, 255)"
+                            size="3xl"
+                            textAlign="center"
+                            my={8}
+                        >
+                            {data.getPostDocument.data.title}
+                        </Heading>
+
+                        <TinaMarkdown
+                            content={data.getPostDocument.data.body}
+                            components={components}
+                        />
+                        <Divider my={8} />
+                        <Box my={8}>
+                            <LikeCounter slug={props.variables.relativePath} />
+                        </Box>
+                        <Divider my={8} />
+                    </article>
+                </Box>
+            </>
+        );
+    }
+    return (
+        <Layout>
+            <h1>Loading...</h1>
+        </Layout>
     );
-  }
-  return (
-    <Layout>
-      <h1>Loading...</h1>
-    </Layout>
-  );
 }
 
 export const getStaticPaths = async () => {
-  const tinaProps = await staticRequest({
-    query: `{
+    const tinaProps = await staticRequest({
+        query: `{
         getPostList{
           edges {
             node {
@@ -186,57 +187,57 @@ export const getStaticPaths = async () => {
           }
         }
       }`,
-    variables: {}
-  });
-  const paths = tinaProps.getPostList.edges.map((x) => {
-    return { params: { slug: x.node.sys.filename } };
-  });
+        variables: {}
+    });
+    const paths = tinaProps.getPostList.edges.map((x) => {
+        return { params: { slug: x.node.sys.filename } };
+    });
 
-  return {
-    paths,
-    fallback: 'blocking'
-  };
+    return {
+        paths,
+        fallback: 'blocking'
+    };
 };
 export const getStaticProps = async (ctx) => {
-  const variables = {
-    relativePath: ctx.params.slug + '.mdx'
-  };
-  let data = {};
-  let error = false;
-  try {
-    data = await staticRequest({
-      query,
-      variables
-    });
-  } catch (error) {
-    error = true;
-    // gulp them
-  }
+    const variables = {
+        relativePath: ctx.params.slug + '.mdx'
+    };
+    let data = {};
+    let error = false;
+    try {
+        data = await staticRequest({
+            query,
+            variables
+        });
+    } catch (error) {
+        error = true;
+        // gulp them
+    }
 
-  if (error) {
-    const tinaToken = process.env.TINA_READ_TOKEN;
-    data = await fetch(
-      `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`,
-      {
-        method: 'POST',
-        body: JSON.stringify({ query, variables }),
-        headers: {
-          'Content-Type': 'application/json',
-          'X-API-KEY': tinaToken
+    if (error) {
+        const tinaToken = process.env.TINA_READ_TOKEN;
+        data = await fetch(
+            `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`,
+            {
+                method: 'POST',
+                body: JSON.stringify({ query, variables }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-API-KEY': tinaToken
+                }
+            }
+        );
+        if (!data) {
+            return {
+                notFound: true
+            };
         }
-      }
-    );
-    if (!data) {
-      return {
-        notFound: true
-      };
     }
-  }
-  return {
-    props: {
-      data,
-      query,
-      variables
-    }
-  };
+    return {
+        props: {
+            data,
+            query,
+            variables
+        }
+    };
 };

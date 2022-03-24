@@ -5,11 +5,11 @@ image: 'https://res.cloudinary.com/dub20ptvt/image/upload/v1642704429/Blog%20Pos
 author: James Perkins
 authorTwitter: james_r_perkins
 category:
-  - tutorials
+    - tutorials
 tags:
-  - nextjs
+    - nextjs
 description: >-
-  Comments are important to a blog, people love to engage but I did not want to pay for a service, or invade my readers with ads or tracking.
+    Comments are important to a blog, people love to engage but I did not want to pay for a service, or invade my readers with ads or tracking.
 ---
 
 Comments are important to a blog, people love to engage but I did not want to pay for a service, or invade my readers with ads or tracking everything they do. I want to improve the quality of the blog and comments felt like the right direction, allowing people to commment and let me know how they felt about each post.
@@ -34,26 +34,26 @@ Below is the hook code:
 ```javascript
 import { useEffect } from 'react';
 
-export const useUtterances = commentNodeId => {
-  useEffect(() => {
-    const scriptParentNode = document.getElementById(commentNodeId);
-    if (!scriptParentNode) return;
-    const script = document.createElement('script');
-    script.src = 'https://utteranc.es/client.js';
-    script.async = true;
-    script.setAttribute('repo', 'REPO_NAME');
-    script.setAttribute('issue-term', 'pathname');
-    script.setAttribute('label', 'comment :speech_balloon:');
-    script.setAttribute('theme', 'github-light');
-    script.setAttribute('crossorigin', 'anonymous');
+export const useUtterances = (commentNodeId) => {
+    useEffect(() => {
+        const scriptParentNode = document.getElementById(commentNodeId);
+        if (!scriptParentNode) return;
+        const script = document.createElement('script');
+        script.src = 'https://utteranc.es/client.js';
+        script.async = true;
+        script.setAttribute('repo', 'REPO_NAME');
+        script.setAttribute('issue-term', 'pathname');
+        script.setAttribute('label', 'comment :speech_balloon:');
+        script.setAttribute('theme', 'github-light');
+        script.setAttribute('crossorigin', 'anonymous');
 
-    scriptParentNode.appendChild(script);
+        scriptParentNode.appendChild(script);
 
-    return () => {
-      // cleanup - remove the older script with previous theme
-      scriptParentNode.removeChild(scriptParentNode.firstChild);
-    };
-  }, [commentNodeId]);
+        return () => {
+            // cleanup - remove the older script with previous theme
+            scriptParentNode.removeChild(scriptParentNode.firstChild);
+        };
+    }, [commentNodeId]);
 };
 ```
 
@@ -67,8 +67,8 @@ import { useUtterances } from '../lib/useUtterances';
 const commentNodeId = 'comments';
 
 const Comments = () => {
-  useUtterances(commentNodeId);
-  return <div id={commentNodeId} />;
+    useUtterances(commentNodeId);
+    return <div id={commentNodeId} />;
 };
 
 export default Comments;

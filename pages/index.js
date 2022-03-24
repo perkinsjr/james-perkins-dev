@@ -1,11 +1,11 @@
-import { Layout } from '../components/Layout/Layout'
-import { Hero } from '../components/Home/Hero'
-import { FeaturedArticles } from "../components/Home/FeaturedArticles"
+import { Layout } from '../components/Layout/Layout';
+import { Hero } from '../components/Home/Hero';
+import { FeaturedArticles } from '../components/Home/FeaturedArticles';
 import { staticRequest } from 'tinacms';
 import { Fragment } from 'react';
 import { Content } from '../components/Home/Content';
 import { Seo } from '../components/Seo';
-import { useTina } from 'tinacms/dist/edit-state'
+import { useTina } from 'tinacms/dist/edit-state';
 
 const query = `query {
   getPageDocument(relativePath: "home.md") {
@@ -43,64 +43,66 @@ const query = `query {
 `;
 
 export default function Home(props) {
-  const { data } = useTina({
-    query,
-    variables: {},
-    data: props.data,
-  })
-  return (
-    <Layout>
-      <Seo title="Home | James Perkins" description="Home page for James Perkins" image="https://res.cloudinary.com/dub20ptvt/image/upload/v1642782664/sgbjmezsorrnhqtwnibg.png"/>
-      {data?.getPageDocument?.data?.blocks
-        ? data?.getPageDocument?.data?.blocks.map(function (block, i) {
-          switch (block.__typename) {
-          case "PageBlocksHero":
-            return (
-              <Fragment key={i + block.__typename}>
-                <Hero data={block} />
-              </Fragment>
-            );
-          case "PageBlocksFeatures":
-            return (
-              <Fragment key={i + block.__typename}>
-                <FeaturedArticles data={block} />
-              </Fragment>
-            );
-          case "PageBlocksContent":
-            return (
-              <Fragment key={i + block.__typename}>
-                <Content data={block} />
-              </Fragment>
-            );
-          default:
-            return null;
-          }
-        })
-        : null}
-      {!data?.getPageDocument.data.blocks && <h1>Loading...</h1>}
-    </Layout>
-  )
+    const { data } = useTina({
+        query,
+        variables: {},
+        data: props.data
+    });
+    return (
+        <Layout>
+            <Seo
+                title="Home | James Perkins"
+                description="Home page for James Perkins"
+                image="https://res.cloudinary.com/dub20ptvt/image/upload/v1642782664/sgbjmezsorrnhqtwnibg.png"
+            />
+            {data?.getPageDocument?.data?.blocks
+                ? data?.getPageDocument?.data?.blocks.map(function (block, i) {
+                      switch (block.__typename) {
+                          case 'PageBlocksHero':
+                              return (
+                                  <Fragment key={i + block.__typename}>
+                                      <Hero data={block} />
+                                  </Fragment>
+                              );
+                          case 'PageBlocksFeatures':
+                              return (
+                                  <Fragment key={i + block.__typename}>
+                                      <FeaturedArticles data={block} />
+                                  </Fragment>
+                              );
+                          case 'PageBlocksContent':
+                              return (
+                                  <Fragment key={i + block.__typename}>
+                                      <Content data={block} />
+                                  </Fragment>
+                              );
+                          default:
+                              return null;
+                      }
+                  })
+                : null}
+            {!data?.getPageDocument.data.blocks && <h1>Loading...</h1>}
+        </Layout>
+    );
 }
 
 export const getStaticProps = async () => {
-  
+    const variables = {};
+    let data = null;
+    try {
+        data = await staticRequest({
+            query,
+            variables
+        });
+    } catch (error) {
+        // swallow errors related to document creation
+    }
 
-  const variables = {}
-  let data = null
-  try {
-    data = await staticRequest({
-      query,
-      variables,
-    })
-  } catch (error) {
-    // swallow errors related to document creation
-  }
-
-  return {
-    props: {
-      data,
-      query,
-      variables,
-    },
-  }
-}
+    return {
+        props: {
+            data,
+            query,
+            variables
+        }
+    };
+};
