@@ -2,22 +2,14 @@ import { staticRequest } from 'tinacms';
 import { Layout } from '../../components/Layout/Layout';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { CustomLink } from '../../components/Blog/CustomLink';
-import {
-    Box,
-    Heading,
-    Code,
-    Text,
-    chakra,
-    useColorModeValue as mode,
-    Divider
-} from '@chakra-ui/react';
+import { Box, Heading, chakra, Divider } from '@chakra-ui/react';
 import Image from 'next/image';
 import { LikeCounter } from '../../components/Blog/Lyket';
 import { Seo } from '../../components/Seo';
 import { Newsletter } from '../../components/Blog/Newsletter';
 import { VideoPlayer } from '../../components/Blog/VideoPlayer';
 import { useTina } from 'tinacms/dist/edit-state';
-import { Prose } from '@nikolovlazar/chakra-ui-prose'
+import { Prose } from '@nikolovlazar/chakra-ui-prose';
 
 const query = `query getPost($relativePath: String!) {
   getPostDocument(relativePath: $relativePath) {
@@ -69,7 +61,7 @@ export default function Slug(props) {
                     quality="70"
                 />
             );
-        },
+        }
     };
     if (data && data.getPostDocument?.data) {
         return (
@@ -81,23 +73,19 @@ export default function Slug(props) {
                 />
                 <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
                     <article>
-                    <Prose>
-                        <Heading
-                            as="h1"
-                            textAlign="center"
-                            my={8}
-                        >
-                            {data.getPostDocument.data.title}
-                        </Heading>
-                        <TinaMarkdown
-                            content={data.getPostDocument.data.body}
-                            components={components}
-                        />
-                        <Divider/>
-                        <Box>
-                            <LikeCounter slug={props.variables.relativePath} />
-                        </Box>
-                        <Divider />
+                        <Prose>
+                            <Heading as="h1" textAlign="center" my={8}>
+                                {data.getPostDocument.data.title}
+                            </Heading>
+                            <TinaMarkdown
+                                content={data.getPostDocument.data.body}
+                                components={components}
+                            />
+                            <Divider />
+                            <Box>
+                                <LikeCounter slug={props.variables.relativePath} />
+                            </Box>
+                            <Divider />
                         </Prose>
                     </article>
                 </Box>

@@ -2,6 +2,5 @@
   "extends": ["next", "next/core-web-vitals"],
   "rules": {
     "no-unused-vars": "error",
-    "indent": ["warn", 2]
   }
 }
