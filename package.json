@@ -16,6 +16,7 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@lyket/react": "^1.4.8",
+    "@nikolovlazar/chakra-ui-prose": "^1.0.6",
     "@tinacms/auth": "^0.50.2",
     "chakra-ui-markdown-renderer": "^4.0.0",
     "eslint-config-prettier": "^8.5.0",

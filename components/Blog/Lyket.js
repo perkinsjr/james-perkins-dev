@@ -2,7 +2,7 @@ import { ClapButton } from '@lyket/react';
 import { Box, Heading, Flex, Text } from '@chakra-ui/react';
 export const LikeCounter = ({ slug }) => {
     return (
-        <Flex mx="auto" flexDirection="column" mb={4}>
+        <Flex mx="auto" flexDirection="column" >
             <Heading as="h4" textAlign="center">
                 Like this post?
             </Heading>
