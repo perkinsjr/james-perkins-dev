@@ -63,14 +63,13 @@ export const FeaturedPost = ({props, href}) => {
               fontSize="xs"
               fontWeight="semibold"
               mb="2"
-              color="gray.500"
-            >
+              color={mode('gray.600', 'gray.200')}>
               {category}
             </Text>
             <Heading as="h3" size="sm" mb="2" lineHeight="base">
               <LinkOverlay href={href}>{title}</LinkOverlay>
             </Heading>
-            <Text noOfLines={2} mb="8" color={mode('gray.600', 'gray.400')}>
+            <Text noOfLines={2} mb="8" color={mode('gray.600', 'gray.50')}>
               {description}
             </Text>
       
@@ -78,7 +77,7 @@ export const FeaturedPost = ({props, href}) => {
               align="baseline"
               justify="space-between"
               fontSize="sm"
-              color={mode('gray.600', 'gray.400')}
+              color={mode('gray.600', 'white')}
             >
               <Text>
                 

@@ -21,14 +21,14 @@ export const Content = ({data}) => {
           <Heading
             as="h1"
             size="xl"
-            color={mode('purple.600', 'purple.700')}
+            color={mode('purple.600', 'purple')}
             mt="8"
             textAlign="center"
             fontWeight="extrabold"
           >
                         James provides educational and entertaining content for developers.
           </Heading>
-          <Text textAlign="center" color={mode('gray.600', 'gray.900')} mt="4" fontSize="lg" fontWeight="medium">
+          <Text textAlign="center" color={mode('gray.600', 'black')} mt="4" fontSize="lg" fontWeight="medium">
                         James teaches web development with a focus on JavaScript and the Jamstack. He specializes in video content, live coding and simplifying topics into relatable content.
           </Text>
         </Box>
@@ -72,7 +72,7 @@ export const Content = ({data}) => {
                       </Text>
                     </Box>
                   </Flex>
-                  <Text color={mode('gray.600', 'gray.400')}>{item?.description}</Text>
+                  <Text color={mode('gray.600', 'white')}>{item?.description}</Text>
                 </Box></Link>
             )
           })}

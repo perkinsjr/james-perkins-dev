@@ -35,8 +35,8 @@ export const Hero = ({data}) => {
             >
               {heading}
             </Heading>
-            <Text color={mode('gray.600', 'gray.400')} fontSize="sm" fontWeight="light">{subheading}</Text>
-            <Text color={mode('gray.600', 'gray.400')} mt="4" fontSize="lg" fontWeight="medium">
+            <Text color={mode('gray.600', 'white')} fontSize="sm" fontWeight="light">{subheading}</Text>
+            <Text color={mode('gray.600', 'white')} mt="4" fontSize="lg" fontWeight="medium">
               {description}
             </Text>
           </Box>
@@ -46,7 +46,7 @@ export const Hero = ({data}) => {
                 zIndex={1}
                 width="560px"
                 height="360px"
-                quality={70}
+                quality={100}
                 pos="relative"
                 objectFit="cover"
                 src={image}

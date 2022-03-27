@@ -8,6 +8,7 @@ import { LikeCounter } from '../../components/Blog/Lyket';
 import { Seo } from '../../components/Seo';
 import { Newsletter } from '../../components/Blog/Newsletter';
 import { VideoPlayer } from '../../components/Blog/VideoPlayer';
+import { CodeBlock } from '../../components/Blog/CustomCodeBlock';
 import { useTina } from 'tinacms/dist/edit-state';
 import { Prose } from '@nikolovlazar/chakra-ui-prose';
 
@@ -45,6 +46,9 @@ export default function Slug(props) {
         youtube: (props) => {
             return <VideoPlayer url={props.url} />;
         },
+        code_block: props => {
+            return <CodeBlock language={props.lang}>{props.children}</CodeBlock>;
+          },
         img: (props) => {
             const BlogImg = chakra(Image, {
                 shouldForwardProp: (prop) =>
@@ -81,11 +85,9 @@ export default function Slug(props) {
                                 content={data.getPostDocument.data.body}
                                 components={components}
                             />
-                            <Divider />
                             <Box>
                                 <LikeCounter slug={props.variables.relativePath} />
                             </Box>
-                            <Divider />
                         </Prose>
                     </article>
                 </Box>

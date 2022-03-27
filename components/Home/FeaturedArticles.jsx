@@ -35,7 +35,7 @@ export const FeaturedArticles = ({ data }) => {
           md: '8',
         }}
       >
-        <Heading color="RGB(113, 90, 255)" size="xl" mb="8" fontWeight="extrabold">
+        <Heading color="purple.400" size="xl" mb="8" fontWeight="extrabold">
                     Featured Articles
         </Heading>
         <SimpleGrid
@@ -85,7 +85,7 @@ export const FeaturedArticles = ({ data }) => {
                         casing="uppercase"
                         letterSpacing="wider"
                         fontSize="xs"
-                        color={mode('gray.800', 'gray.400')}
+                        color={mode('gray.800', 'gray.200')}
                         fontWeight="semibold"
                         mb="2"
                         textDecoration="none"
@@ -95,7 +95,7 @@ export const FeaturedArticles = ({ data }) => {
                       <Heading as="h3" size="sm" mb="2" lineHeight="base">
                         <Text>{feature?.title}</Text>
                       </Heading>
-                      <Text noOfLines={2} mb="8" color={mode('gray.600', 'gray.400')}>
+                      <Text noOfLines={2} mb="8" color={mode('gray.600', 'gray.50')}>
                         {feature?.description}
                       </Text>
 
@@ -103,7 +103,7 @@ export const FeaturedArticles = ({ data }) => {
                         align="baseline"
                         justify="space-between"
                         fontSize="sm"
-                        color={mode('gray.600', 'gray.400')}
+                        color={mode('gray.600', 'gray.300')}
                       >
                         <Text>
                                                     By{' '}
