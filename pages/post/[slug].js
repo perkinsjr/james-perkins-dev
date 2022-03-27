@@ -2,7 +2,7 @@ import { staticRequest } from 'tinacms';
 import { Layout } from '../../components/Layout/Layout';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { CustomLink } from '../../components/Blog/CustomLink';
-import { Box, Heading, chakra, Divider } from '@chakra-ui/react';
+import { Box, Heading, chakra } from '@chakra-ui/react';
 import Image from 'next/image';
 import { LikeCounter } from '../../components/Blog/Lyket';
 import { Seo } from '../../components/Seo';
