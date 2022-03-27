@@ -11,6 +11,7 @@ import { VideoPlayer } from '../../components/Blog/VideoPlayer';
 import { CodeBlock } from '../../components/Blog/CustomCodeBlock';
 import { useTina } from 'tinacms/dist/edit-state';
 import { Prose } from '@nikolovlazar/chakra-ui-prose';
+import FourOhFour from '../404';
 
 const query = `query getPost($relativePath: String!) {
   getPostDocument(relativePath: $relativePath) {
@@ -46,9 +47,9 @@ export default function Slug(props) {
         youtube: (props) => {
             return <VideoPlayer url={props.url} />;
         },
-        code_block: props => {
+        code_block: (props) => {
             return <CodeBlock language={props.lang}>{props.children}</CodeBlock>;
-          },
+        },
         img: (props) => {
             const BlogImg = chakra(Image, {
                 shouldForwardProp: (prop) =>
@@ -93,6 +94,9 @@ export default function Slug(props) {
                 </Box>
             </>
         );
+    }
+    if (props.notFound && props.notFound === true) {
+        return <FourOhFour />;
     }
     return (
         <Layout>
@@ -156,7 +160,9 @@ export const getStaticProps = async (ctx) => {
         );
         if (!data) {
             return {
-                notFound: true
+                props: {
+                    notFound: true
+                }
             };
         }
     }
