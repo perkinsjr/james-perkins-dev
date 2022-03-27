@@ -84,12 +84,12 @@ export default function Home(props) {
                                       <Content data={block} />
                                   </Fragment>
                               );
-                            case 'PageBlocksVideo':
-                                return (
-                                    <Fragment key={i + block.__typename}>
-                                        <FeaturedVideos videos={block} />
-                                    </Fragment>
-                                );
+                          case 'PageBlocksVideo':
+                              return (
+                                  <Fragment key={i + block.__typename}>
+                                      <FeaturedVideos videos={block} />
+                                  </Fragment>
+                              );
                           default:
                               return null;
                       }
