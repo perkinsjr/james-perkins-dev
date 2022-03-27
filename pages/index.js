@@ -6,6 +6,7 @@ import { Fragment } from 'react';
 import { Content } from '../components/Home/Content';
 import { Seo } from '../components/Seo';
 import { useTina } from 'tinacms/dist/edit-state';
+import FeaturedVideos from '../components/Home/FeaturedVideos';
 
 const query = `query {
   getPageDocument(relativePath: "home.md") {
@@ -35,6 +36,13 @@ const query = `query {
             description
             href
           }
+        }
+        ... on PageBlocksVideo {
+            items{
+                title
+                description
+                url
+            }
         }
       }
     }
@@ -76,6 +84,12 @@ export default function Home(props) {
                                       <Content data={block} />
                                   </Fragment>
                               );
+                            case 'PageBlocksVideo':
+                                return (
+                                    <Fragment key={i + block.__typename}>
+                                        <FeaturedVideos videos={block} />
+                                    </Fragment>
+                                );
                           default:
                               return null;
                       }

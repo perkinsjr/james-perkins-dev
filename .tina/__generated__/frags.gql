@@ -27,6 +27,14 @@ fragment PageParts on Page {
         href
       }
     }
+    ... on PageBlocksVideo {
+      items {
+        __typename
+        title
+        description
+        url
+      }
+    }
   }
 }
 

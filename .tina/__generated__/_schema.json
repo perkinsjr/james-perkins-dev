@@ -251,6 +251,70 @@
                 "blocks",
                 "content"
               ]
+            },
+            {
+              "name": "video",
+              "label": "Video Section",
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Video Items",
+                  "name": "items",
+                  "list": true,
+                  "fields": [
+                    {
+                      "name": "title",
+                      "label": "Video Title",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "video",
+                        "items",
+                        "title"
+                      ]
+                    },
+                    {
+                      "name": "description",
+                      "label": "Description",
+                      "type": "string",
+                      "ui": {
+                        "component": "textarea"
+                      },
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "video",
+                        "items",
+                        "description"
+                      ]
+                    },
+                    {
+                      "name": "url",
+                      "label": "Video URL",
+                      "type": "string",
+                      "namespace": [
+                        "page",
+                        "blocks",
+                        "video",
+                        "items",
+                        "url"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "page",
+                    "blocks",
+                    "video",
+                    "items"
+                  ]
+                }
+              ],
+              "namespace": [
+                "page",
+                "blocks",
+                "video"
+              ]
             }
           ],
           "namespace": [

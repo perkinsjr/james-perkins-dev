@@ -119,6 +119,39 @@ const featureSection : TinaTemplate = {
   ],
 }
 
+const videoSection : TinaTemplate = {
+  name: 'video',
+  label: 'Video Section',
+  fields: [
+    {
+      type: 'object',
+      label: 'Video Items',
+      name: 'items',
+      list: true,
+      fields: [
+            {
+              name: "title",
+              label: "Video Title",
+              type: "string",
+            },
+            {
+              name: "description",
+              label: "Description",
+              type: "string",
+              ui: {
+                component: "textarea",
+              },
+            },
+            {
+              name: "url",
+              label: "Video URL",
+              type: "string",
+            },
+          ],
+    },
+  ]
+};
+
 export default defineSchema({
   collections: [
     {
@@ -131,7 +164,7 @@ export default defineSchema({
           list: true,
           name: 'blocks',
           label: 'Sections',
-          templates: [heroBlock, featureSection,contentSection],
+          templates: [heroBlock, featureSection,contentSection,videoSection],
         },
       ],
     },

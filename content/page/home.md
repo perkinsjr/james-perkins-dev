@@ -67,5 +67,32 @@ blocks:
           where you can find me showing off Tina.
         href: 'https://twitch.tv/jamesperkins'
     _template: content
+  - items:
+      - title: Bye bye Chakra UI and Tailwind CSS
+        description: >-
+          I am a power user of Chakra UI but lately I have been checking out a
+          new framework that is even better. This video covers all of this and
+          more! 
+        url: 'https://www.youtube.com/watch?v=g6VJMPpZlgI&t=87s'
+      - title: 'Intro to Framer Motion '
+        description: >-
+          This video takes you through the basics of Framer Motion. I show you a
+          few different uses and how to put them all together to create
+          beautiful motion in your applications. 
+        url: 'https://www.youtube.com/watch?v=kvrsL1G8tvg'
+      - title: Create coding profiles using Visual Studio Code
+        description: >
+          This video shows you how to create multiple Visual Studio Code
+          profiles.  I use this daily as it allows me to create content on
+          multiple platforms, and also have a completely separate one for
+          everything else. 
+        url: 'https://www.youtube.com/watch?v=L8f-AVBl418'
+      - title: Get Paid with Paddle + Next.js
+        description: >
+          Want to learn how to use Paddle and Next.js? This video shows you
+          everything you need to know, including webhooks, checkout and so much
+          more! 
+        url: 'https://www.youtube.com/watch?v=r7uf_u7tI7k&t=9'
+    _template: video
 ---
 

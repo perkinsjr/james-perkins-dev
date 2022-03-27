@@ -111,7 +111,17 @@ type PageBlocksContent {
   items: [PageBlocksContentItems]
 }
 
-union PageBlocks = PageBlocksHero | PageBlocksFeatures | PageBlocksContent
+type PageBlocksVideoItems {
+  title: String
+  description: String
+  url: String
+}
+
+type PageBlocksVideo {
+  items: [PageBlocksVideoItems]
+}
+
+union PageBlocks = PageBlocksHero | PageBlocksFeatures | PageBlocksContent | PageBlocksVideo
 
 type Page {
   blocks: [PageBlocks]
@@ -215,10 +225,21 @@ input PageBlocksContentMutation {
   items: [PageBlocksContentItemsMutation]
 }
 
+input PageBlocksVideoItemsMutation {
+  title: String
+  description: String
+  url: String
+}
+
+input PageBlocksVideoMutation {
+  items: [PageBlocksVideoItemsMutation]
+}
+
 input PageBlocksMutation {
   hero: PageBlocksHeroMutation
   features: PageBlocksFeaturesMutation
   content: PageBlocksContentMutation
+  video: PageBlocksVideoMutation
 }
 
 input PageMutation {

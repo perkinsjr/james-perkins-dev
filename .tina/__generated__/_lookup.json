@@ -23,7 +23,8 @@
     "typeMap": {
       "hero": "PageBlocksHero",
       "features": "PageBlocksFeatures",
-      "content": "PageBlocksContent"
+      "content": "PageBlocksContent",
+      "video": "PageBlocksVideo"
     }
   },
   "PageDocument": {
