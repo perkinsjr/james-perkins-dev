@@ -147,6 +147,7 @@ export const getStaticProps = async (ctx) => {
 
     if (error) {
         const tinaToken = process.env.TINA_READ_TOKEN;
+        const branch = 'main';
         data = await fetch(
             `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`,
             {
