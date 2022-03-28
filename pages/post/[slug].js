@@ -144,6 +144,10 @@ export const getStaticProps = async (ctx) => {
         error = true;
         // gulp them
     }
+  
+   if (!data) {
+    error = true;
+    }
 
     if (error) {
         const tinaToken = process.env.TINA_READ_TOKEN;
@@ -159,11 +163,11 @@ export const getStaticProps = async (ctx) => {
                 }
             }
         );
-        if(!data){
-          return {
-            notFound: true,
-          }
-        }
+      if (!data) {
+      return {
+        notFound: true,
+      };
+    }
     }
     return {
         props: {
