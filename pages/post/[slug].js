@@ -159,12 +159,10 @@ export const getStaticProps = async (ctx) => {
                 }
             }
         );
-        if (!data) {
-            return {
-                props: {
-                    notFound: true
-                }
-            };
+        if(!data){
+          return {
+            notFound: true,
+          }
         }
     }
     return {
