@@ -80,40 +80,12 @@ const featureSection : TinaTemplate = {
       name: 'items',
       list: true,
       fields: [
-            {
-              name: "image",
-              label: "Feature Image",
-              type: "image",
-            },
-            {
-              name: "title",
-              label: "Feature Title",
-              type: "string",
-            },
-            {
-              name: "author",
-              label: "Author",
-              type: "string",
-            },
-            
-            {
-              type: "string",
-              label: "Category",
-              name: "category",
-            },
-            {
-              name: "description",
-              label: "Description",
-              type: "string",
-              ui: {
-                component: "textarea",
-              },
-            },
-            {
-              name: "href",
-              label: "Link",
-              type: "string",
-            },
+        {
+          label: "Article",
+          name: "article",
+          type: "reference",
+          collections: ["post"],
+        }
           ],
     },
   ],

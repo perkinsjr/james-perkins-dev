@@ -87,78 +87,18 @@
                   "list": true,
                   "fields": [
                     {
-                      "name": "image",
-                      "label": "Feature Image",
-                      "type": "image",
+                      "label": "Article",
+                      "name": "article",
+                      "type": "reference",
+                      "collections": [
+                        "post"
+                      ],
                       "namespace": [
                         "page",
                         "blocks",
                         "features",
                         "items",
-                        "image"
-                      ]
-                    },
-                    {
-                      "name": "title",
-                      "label": "Feature Title",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "features",
-                        "items",
-                        "title"
-                      ]
-                    },
-                    {
-                      "name": "author",
-                      "label": "Author",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "features",
-                        "items",
-                        "author"
-                      ]
-                    },
-                    {
-                      "type": "string",
-                      "label": "Category",
-                      "name": "category",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "features",
-                        "items",
-                        "category"
-                      ]
-                    },
-                    {
-                      "name": "description",
-                      "label": "Description",
-                      "type": "string",
-                      "ui": {
-                        "component": "textarea"
-                      },
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "features",
-                        "items",
-                        "description"
-                      ]
-                    },
-                    {
-                      "name": "href",
-                      "label": "Link",
-                      "type": "string",
-                      "namespace": [
-                        "page",
-                        "blocks",
-                        "features",
-                        "items",
-                        "href"
+                        "article"
                       ]
                     }
                   ],

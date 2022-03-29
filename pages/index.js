@@ -9,45 +9,52 @@ import { useTina } from 'tinacms/dist/edit-state';
 import FeaturedVideos from '../components/Home/FeaturedVideos';
 
 const query = `query {
-  getPageDocument(relativePath: "home.md") {
-    data {
-      blocks {
-        __typename
-        ... on PageBlocksHero {
-          heading
-          subheading
-          description
-          image
-        }
-        ... on PageBlocksFeatures {
-          items {
-            image
-            title
-            author
-            category
+    getPageDocument(relativePath: "home.md") {
+      data {
+        blocks {
+          __typename
+          ... on PageBlocksHero {
+            heading
+            subheading
             description
-            href
-          }
-        }
-        ... on PageBlocksContent {
-          items {
             image
-            name
-            description
-            href
           }
-        }
-        ... on PageBlocksVideo {
-            items{
-                title
-                description
-                url
+          ... on PageBlocksFeatures {
+            items {
+              article {
+                  ... on PostDocument{
+                  data{
+                    title
+                    image
+                    category
+                    description
+                  }
+                    sys{
+                      filename
+                    }
+                  }
+              }
+                  }
             }
+          ... on PageBlocksContent {
+            items {
+              image
+              name
+              description
+              href
+            }
+          }
+          ... on PageBlocksVideo {
+              items{
+                  title
+                  description
+                  url
+              }
+          }
         }
       }
     }
   }
-}
 `;
 
 export default function Home(props) {
@@ -65,35 +72,35 @@ export default function Home(props) {
             />
             {data?.getPageDocument?.data?.blocks
                 ? data?.getPageDocument?.data?.blocks.map(function (block, i) {
-                      switch (block.__typename) {
-                          case 'PageBlocksHero':
-                              return (
-                                  <Fragment key={i + block.__typename}>
-                                      <Hero data={block} />
-                                  </Fragment>
-                              );
-                          case 'PageBlocksFeatures':
-                              return (
-                                  <Fragment key={i + block.__typename}>
-                                      <FeaturedArticles data={block} />
-                                  </Fragment>
-                              );
-                          case 'PageBlocksContent':
-                              return (
-                                  <Fragment key={i + block.__typename}>
-                                      <Content data={block} />
-                                  </Fragment>
-                              );
-                          case 'PageBlocksVideo':
-                              return (
-                                  <Fragment key={i + block.__typename}>
-                                      <FeaturedVideos videos={block} />
-                                  </Fragment>
-                              );
-                          default:
-                              return null;
-                      }
-                  })
+                    switch (block.__typename) {
+                        case 'PageBlocksHero':
+                            return (
+                                <Fragment key={i + block.__typename}>
+                                    <Hero data={block} />
+                                </Fragment>
+                            );
+                        case 'PageBlocksFeatures':
+                            return (
+                                <Fragment key={i + block.__typename}>
+                                    <FeaturedArticles data={block} />
+                                </Fragment>
+                            );
+                        case 'PageBlocksContent':
+                            return (
+                                <Fragment key={i + block.__typename}>
+                                    <Content data={block} />
+                                </Fragment>
+                            );
+                        case 'PageBlocksVideo':
+                            return (
+                                <Fragment key={i + block.__typename}>
+                                    <FeaturedVideos videos={block} />
+                                </Fragment>
+                            );
+                        default:
+                            return null;
+                    }
+                })
                 : null}
             {!data?.getPageDocument.data.blocks && <h1>Loading...</h1>}
         </Layout>

@@ -87,13 +87,10 @@ type PageBlocksHero {
   image: String
 }
 
+union PageBlocksFeaturesItemsArticleDocument = PostDocument
+
 type PageBlocksFeaturesItems {
-  image: String
-  title: String
-  author: String
-  category: String
-  description: String
-  href: String
+  article: PageBlocksFeaturesItemsArticleDocument
 }
 
 type PageBlocksFeatures {
@@ -202,12 +199,7 @@ input PageBlocksHeroMutation {
 }
 
 input PageBlocksFeaturesItemsMutation {
-  image: String
-  title: String
-  author: String
-  category: String
-  description: String
-  href: String
+  article: String
 }
 
 input PageBlocksFeaturesMutation {

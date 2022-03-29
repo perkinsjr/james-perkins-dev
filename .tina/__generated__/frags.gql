@@ -10,12 +10,11 @@ fragment PageParts on Page {
     ... on PageBlocksFeatures {
       items {
         __typename
-        image
-        title
-        author
-        category
-        description
-        href
+        article {
+          ... on Document {
+            id
+          }
+        }
       }
     }
     ... on PageBlocksContent {

@@ -173,14 +173,11 @@ export type PageBlocksHero = {
   image?: Maybe<Scalars['String']>;
 };
 
+export type PageBlocksFeaturesItemsArticleDocument = PostDocument;
+
 export type PageBlocksFeaturesItems = {
   __typename?: 'PageBlocksFeaturesItems';
-  image?: Maybe<Scalars['String']>;
-  title?: Maybe<Scalars['String']>;
-  author?: Maybe<Scalars['String']>;
-  category?: Maybe<Scalars['String']>;
-  description?: Maybe<Scalars['String']>;
-  href?: Maybe<Scalars['String']>;
+  article?: Maybe<PageBlocksFeaturesItemsArticleDocument>;
 };
 
 export type PageBlocksFeatures = {
@@ -348,12 +345,7 @@ export type PageBlocksHeroMutation = {
 };
 
 export type PageBlocksFeaturesItemsMutation = {
-  image?: InputMaybe<Scalars['String']>;
-  title?: InputMaybe<Scalars['String']>;
-  author?: InputMaybe<Scalars['String']>;
-  category?: InputMaybe<Scalars['String']>;
-  description?: InputMaybe<Scalars['String']>;
-  href?: InputMaybe<Scalars['String']>;
+  article?: InputMaybe<Scalars['String']>;
 };
 
 export type PageBlocksFeaturesMutation = {
@@ -404,7 +396,7 @@ export type PostMutation = {
   body?: InputMaybe<Scalars['JSON']>;
 };
 
-export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', image?: string | null, title?: string | null, author?: string | null, category?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null };
+export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', article?: { __typename?: 'PostDocument', id: string } | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null };
 
 export type PostPartsFragment = { __typename?: 'Post', title?: string | null, date?: string | null, image?: string | null, author?: string | null, authorTwitter?: string | null, category?: Array<string | null> | null, tags?: Array<string | null> | null, description?: string | null, body?: any | null };
 
@@ -413,12 +405,12 @@ export type GetPageDocumentQueryVariables = Exact<{
 }>;
 
 
-export type GetPageDocumentQuery = { __typename?: 'Query', getPageDocument: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', image?: string | null, title?: string | null, author?: string | null, category?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null } } };
+export type GetPageDocumentQuery = { __typename?: 'Query', getPageDocument: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', article?: { __typename?: 'PostDocument', id: string } | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null } } };
 
 export type GetPageListQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetPageListQuery = { __typename?: 'Query', getPageList: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', image?: string | null, title?: string | null, author?: string | null, category?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null } } | null } | null> | null } };
+export type GetPageListQuery = { __typename?: 'Query', getPageList: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'PageDocument', id: string, sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, data: { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', article?: { __typename?: 'PostDocument', id: string } | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null } } | null } | null> | null } };
 
 export type GetPostDocumentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -445,12 +437,11 @@ export const PagePartsFragmentDoc = gql`
     ... on PageBlocksFeatures {
       items {
         __typename
-        image
-        title
-        author
-        category
-        description
-        href
+        article {
+          ... on Document {
+            id
+          }
+        }
       }
     }
     ... on PageBlocksContent {

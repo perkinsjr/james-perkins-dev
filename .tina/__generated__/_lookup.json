@@ -17,6 +17,12 @@
     "createDocument": "create",
     "updateDocument": "update"
   },
+  "PageBlocksFeaturesItemsArticleDocument": {
+    "type": "PageBlocksFeaturesItemsArticleDocument",
+    "resolveType": "multiCollectionDocument",
+    "createDocument": "create",
+    "updateDocument": "update"
+  },
   "PageBlocks": {
     "type": "PageBlocks",
     "resolveType": "unionData",

@@ -7,11 +7,13 @@ import {
   SimpleGrid,
   Text,
   useColorModeValue as mode,
-  chakra
+  chakra,
+  systemProps
 } from '@chakra-ui/react'
 import Image from 'next/image';
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 export const FeaturedArticles = ({ data }) => {
+  console.log(data)
   const FeaturedImage = chakra(Image, {
     shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
   })
@@ -47,9 +49,9 @@ export const FeaturedArticles = ({ data }) => {
           mb="10"
         >
           {data.items?.map((feature) => {
-            const link = `/post/${feature.href}`
+            const link = `/post/${feature?.article?.sys?.filename}`
             return (
-              <Link href={link} key={feature.href} style={{textDecoration: 'inherit'}}>
+              <Link href={link} key={feature?.article?.sys?.filename} style={{textDecoration: 'inherit'}}>
                 <LinkBox
                   as="article"
                   bg={{
@@ -73,7 +75,7 @@ export const FeaturedArticles = ({ data }) => {
 
                   <Flex direction="column">
 
-                    {feature?.image && <FeaturedImage height="200" width="250" quality={100} objectFit="cover" alt={feature?.title} src={feature?.image} />}
+                    {feature?.article?.data?.image && <FeaturedImage height="200" width="250" quality={100} objectFit="cover" alt={feature.article?.data?.title} src={feature.article?.data?.image} />}
                     <Flex
                       direction="column"
                       px={{
@@ -90,28 +92,14 @@ export const FeaturedArticles = ({ data }) => {
                         mb="2"
                         textDecoration="none"
                       >
-                        {feature?.category}
+                        {feature.article?.data?.category}
                       </Text>
                       <Heading as="h3" size="sm" mb="2" lineHeight="base">
-                        <Text>{feature?.title}</Text>
+                        <Text>{feature.article?.data?.title}</Text>
                       </Heading>
                       <Text noOfLines={2} mb="8" color={mode('gray.600', 'gray.50')}>
-                        {feature?.description}
+                        {feature.article?.data?.description}
                       </Text>
-
-                      <Flex
-                        align="baseline"
-                        justify="space-between"
-                        fontSize="sm"
-                        color={mode('gray.600', 'gray.300')}
-                      >
-                        <Text>
-                                                    By{' '}
-                          <Box textDecor="underline">
-                            {feature?.author}
-                          </Box>
-                        </Text>
-                      </Flex>
                     </Flex>
                   </Flex>
                 </LinkBox>
