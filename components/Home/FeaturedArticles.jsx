@@ -8,7 +8,6 @@ import {
   Text,
   useColorModeValue as mode,
   chakra,
-  systemProps
 } from '@chakra-ui/react'
 import Image from 'next/image';
 import { ArrowForwardIcon } from '@chakra-ui/icons'
