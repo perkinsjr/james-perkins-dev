@@ -133,7 +133,7 @@ export const getStaticProps = async (ctx) => {
     const variables = {
         relativePath: ctx.params.slug + '.mdx'
     };
-    let data = {};
+    let data;
     let error = false;
     try {
         data = await staticRequest({
@@ -144,9 +144,14 @@ export const getStaticProps = async (ctx) => {
         error = true;
         // gulp them
     }
+  
+   if (!data) {
+    error = true;
+    }
 
     if (error) {
         const tinaToken = process.env.TINA_READ_TOKEN;
+        const branch = 'main';
         data = await fetch(
             `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`,
             {
@@ -158,13 +163,11 @@ export const getStaticProps = async (ctx) => {
                 }
             }
         );
-        if (!data) {
-            return {
-                props: {
-                    notFound: true
-                }
-            };
-        }
+      if (!data) {
+      return {
+        notFound: true,
+      };
+    }
     }
     return {
         props: {
