@@ -47,12 +47,11 @@ blocks:
           new framework that is even better. This video covers all of this and
           more!
         url: 'https://www.youtube.com/watch?v=g6VJMPpZlgI&t=87s'
-      - title: 'Intro to Framer Motion '
+      - title: Page to Page loading transitions with Next.js
         description: >-
-          This video takes you through the basics of Framer Motion. I show you a
-          few different uses and how to put them all together to create
-          beautiful motion in your applications.
-        url: 'https://www.youtube.com/watch?v=kvrsL1G8tvg'
+          Have you ever wanted page to page transitions when using next.js? This
+          video takes you through having a loader whenever your route changes.
+        url: 'https://www.youtube.com/watch?v=2Tj6lcfJytA'
       - title: Create coding profiles using Visual Studio Code
         description: >
           This video shows you how to create multiple Visual Studio Code
