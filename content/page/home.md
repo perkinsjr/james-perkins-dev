@@ -9,7 +9,7 @@ blocks:
       https://res.cloudinary.com/dub20ptvt/image/upload/v1627759692/me-and-tina_hgq79d.webp
     _template: hero
   - items:
-      - article: content/post/chakra-prose.mdx
+      - article: content/post/page-reload-with-ssr.mdx
       - article: content/post/add-interactions-to-your-blog.mdx
       - article: content/post/clerk-firebase.mdx
     _template: features
