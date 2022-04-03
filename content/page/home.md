@@ -14,33 +14,6 @@ blocks:
       - article: content/post/clerk-firebase.mdx
     _template: features
   - items:
-      - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1642358877/James-Perkins-Site/f7npx7sui25sut3jou0o.webp
-        name: Youtube
-        description: >+
-          Youtube is where most of my content is created. I provide tutorials on
-          the Jamstack, you can find anything from Authentication to Full
-          application development.
-
-        href: 'https://youtube.com/c/learntocodewithjames'
-      - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1642359207/James-Perkins-Site/rhst206klpfbpogmcrzq.webp
-        name: Developers Hangout Podcast
-        description: >-
-          The podcast isn't like most podcasts. I interview people in tech from
-          developers to CEOs. Except instead of talking about work, we talk
-          about what we do outside out of work!
-        href: 'https://developershangoutpodcast.com'
-      - image: >-
-          https://res.cloudinary.com/dub20ptvt/image/upload/v1642359295/James-Perkins-Site/m6gkg8rhlyu36cguz5us.webp
-        name: 'Twitch '
-        description: >-
-          I use Twitch to cover fun and exciting content. Tuesdays is always a
-          new topic, Wednesday are where I work on SaaS projects and Thursday is
-          where you can find me showing off Tina.
-        href: 'https://twitch.tv/jamesperkins'
-    _template: content
-  - items:
       - title: Bye bye Chakra UI and Tailwind CSS
         description: >-
           I am a power user of Chakra UI but lately I have been checking out a
