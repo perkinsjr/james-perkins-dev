@@ -1,8 +1,16 @@
 import { staticRequest } from 'tinacms';
 import { Layout } from '../../components/Layout/Layout';
 import { Seo } from '../../components/Seo';
-import { FeaturedPost } from '../../components/Blog/FeaturedPost/FeaturedPost';
-import { Heading, SimpleGrid, Box } from '@chakra-ui/react';
+import {
+    Heading,
+    Text,
+    VStack,
+Box,
+Container,
+    List,
+    ListItem,
+  } from "@chakra-ui/react";
+import {BlogPostCard} from '../../components/Blog/BlogCard';
 export default function BlogPosts(props) {
     const postsList = props.getPostList.edges;
     const sortedPosts = postsList.sort((a, b) => {
@@ -15,20 +23,28 @@ export default function BlogPosts(props) {
                 description="All Blog Posts"
                 image="https://res.cloudinary.com/dub20ptvt/image/upload/v1642782664/sgbjmezsorrnhqtwnibg.png"
             />
-            <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
-                <Heading as="h1" textAlign="center" fontSize="3xl" m={2}>
+            <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>  
+            <Container>          
+            <VStack as="section" w="full" spacing={6} mb={4}>
+           
+            <Heading as="h1" textAlign="center" fontSize="3xl" m={2}>
                     All Posts
                 </Heading>
-                <SimpleGrid columns={[1, null, 3]} spacing="40px" mt={4}>
-                    {sortedPosts.map((post) => (
-                        <FeaturedPost
-                            key={post.node.id}
-                            href={`/post/${post.node.sys.filename}`}
-                            props={post.node.data}
-                        />
-                    ))}
-                </SimpleGrid>
-            </Box>
+        <Text textAlign="center" fontSize="md" mb={[4,2]}>
+          I’ve written a
+          total of {sortedPosts.length} articles.
+        </Text>
+      </VStack>
+      <List w="full" spacing={4}>
+        {sortedPosts.map((post) => (
+          <ListItem key={post.node.sys.filename}>
+            <BlogPostCard {...post.node} />
+          </ListItem>
+        ))}
+      </List>
+      </Container>
+      </Box>
+      
         </Layout>
     );
 }

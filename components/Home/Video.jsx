@@ -10,13 +10,16 @@ import {
   LinkOverlay,
   Flex,
   Icon,
+  chakra,
 } from "@chakra-ui/react";
 import Image from "next/image";
 import { HiPlay } from "react-icons/hi";
 
 const VideoCard = ({ title, description, url }) => {
     const [videoId, setVideoId] = useState("");
-  
+    const VideoImage = chakra(Image, {
+      shouldForwardProp: (prop) => ['layout', 'src', 'alt'].includes(prop),
+    })
     useEffect(() => {
       const queryParams = url?.split("?")[1];
       const params = new URLSearchParams(queryParams);
@@ -62,7 +65,7 @@ const VideoCard = ({ title, description, url }) => {
                   />
                 </Flex>
               </LinkOverlay>
-              <Image
+              <VideoImage
                 alt={`Thumbnail of ${title}`}
                 src={`https://img.youtube.com/vi/${videoId}/hqdefault.jpg`}
                 fallbackSrc={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`}
