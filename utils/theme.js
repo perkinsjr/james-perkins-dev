@@ -12,16 +12,21 @@ const theme = extendTheme(
     { config },
     withProse({
         baseStyle: {
+            p:{
+                fontSize: '1.125rem',
+                lineHeight: '1.5',
+            },
             code: {
                 bgColor: 'purple.500',
                 padding: '0.25rem',
-                fontSize: '1rem',
+                fontSize: '1.125rem',
+                borderRadius: '0.25rem',
                 fontWeight: 'normal',
                 color: 'white',
                 '&::before, &::after': {
                     content: '""'
                 }
-            }
+            },
         }
     })
 );

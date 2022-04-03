@@ -70,19 +70,11 @@ export default function YourPage(props) {
 
 ### How does this work?&#xA;
 
-When describing SSR the second path we talked about how Next.js returns a JSON when you use Next `Link` through a client side transition. This is exactly what we are doing by using `router.replace` we are telling Next.js to **perform a client side transition. **
+When describing SSR the second path we talked about how Next.js returns a JSON when you use Next `Link` through a client side transition. This is exactly what we are doing by using `router.replace` we are telling Next.js to *perform a client side transition. *
 
 
 
-> If you are wondering what 
->
-> `router.replace`
->
->  does, it does the exact same thing as 
->
-> `route.push`
->
->  except it doesn't add history to the stack. This means if the user hits the back button it will perform as expected
->
+> If you are wondering what `router.replace` does, it does the exact same thing as `route.push` except it doesn't add history to the stack. This means if the user hits the back button it will perform as expected
+
 
 This means that when this client side transition happens, `getServerSideProps` fires and the JSON returns with the latest information from your database or API.
