@@ -12,7 +12,6 @@ import {
 import Image from 'next/image';
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 export const FeaturedArticles = ({ data }) => {
-  console.log(data)
   const FeaturedImage = chakra(Image, {
     shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
   })
