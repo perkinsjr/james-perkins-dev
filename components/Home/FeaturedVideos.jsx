@@ -1,4 +1,4 @@
-import { Heading, SimpleGrid, GridItem, Box, useColorModeValue as mode, chakra } from "@chakra-ui/react";
+import { Heading, SimpleGrid, GridItem, Box, useColorModeValue as mode } from "@chakra-ui/react";
 import VideoCard from "./Video";
 
 
