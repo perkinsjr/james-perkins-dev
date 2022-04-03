@@ -14,7 +14,8 @@ const theme = extendTheme(
         baseStyle: {
             code: {
                 bgColor: 'purple.500',
-                padding: '0.35rem',
+                padding: '0.25rem',
+                fontWeight: 'normal',
                 color: 'white',
                 '&::before, &::after': {
                     content: '""'
