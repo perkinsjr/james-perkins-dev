@@ -2,7 +2,7 @@
 title: How to reload an SSR page
 date: '2022-04-02T04:00:00.000Z'
 image: >-
-  https://res.cloudinary.com/dub20ptvt/image/upload/v1649001789/Blog%20Posts/qozo6rvrhqhokayjbeum.png
+  https://res.cloudinary.com/dub20ptvt/image/upload/v1649076312/remia9bqtmmcp8yyuvbo.png
 author: James Perkins
 authorTwitter: james_r_perkins
 category:
@@ -15,8 +15,6 @@ description: >-
 ---
 
 When using SSR you might need to update the data that has been served because a user has done something, such as updating a database or subscribed to your product.
-
-
 
 This poses a problem, Next.js doesn't have a feature like `refetchprops` but if the team over at Vercel want to implement it... I am all for it. One solution would be just to hard refresh the page, but that feels almost an anti pattern.&#x20;
 
@@ -32,12 +30,9 @@ When we think of Server Side Rendering we have a two flows in mind and it usuall
 
 Or&#x20;
 
-
 *   The User is already on your site, and they click a Next `Link` to navigate to the server-rendered page.
 *   Next.js calls your `getServerSideProps` method on the server but instead of generating an HTML file as in scenario one. It sends the data as JSON instead.
-*   React uses that data as the props when rendering the new page, in-browser.
-
-    This is what I love about Next.js , two different scenarios handled slightly differently to increase performance and the user is none the wiser.
+*   React uses that data as the props when rendering the new page, in-browser.This is what I love about Next.js , two different scenarios handled slightly differently to increase performance and the user is none the wiser.
 
 ## The solution
 
@@ -64,17 +59,12 @@ export default function YourPage(props) {
 }
 ```
 
-
-
 <newsletter/>
 
 ### How does this work?&#xA;
 
-When describing SSR the second path we talked about how Next.js returns a JSON when you use Next `Link` through a client side transition. This is exactly what we are doing by using `router.replace` we are telling Next.js to *perform a client side transition. *
-
-
+When describing SSR the second path we talked about how Next.js returns a JSON when you use Next `Link` through a client side transition. This is exactly what we are doing by using `router.replace` we are telling Next.js to \*perform a client side transition. \*
 
 > If you are wondering what `router.replace` does, it does the exact same thing as `route.push` except it doesn't add history to the stack. This means if the user hits the back button it will perform as expected
-
 
 This means that when this client side transition happens, `getServerSideProps` fires and the JSON returns with the latest information from your database or API.
