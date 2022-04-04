@@ -25,8 +25,7 @@ const query = `query {
                   ... on PostDocument{
                   data{
                     title
-                    image
-                    category
+                    date
                     description
                   }
                     sys{
