@@ -1,24 +1,17 @@
 import {
   Box,
-  Flex,
   Heading,
-  LinkBox,
   List,
   ListItem,
   Link,
-  SimpleGrid,
-  Text,
   useColorModeValue as mode,
-  chakra,
 } from '@chakra-ui/react'
-import Image from 'next/image';
+
 import { ArrowForwardIcon } from '@chakra-ui/icons'
 import {BlogPostCard} from "../Blog/BlogCard";
-import { HiOutlineArrowCircleDown } from 'react-icons/hi';
+
 export const FeaturedArticles = ({ data }) => {
-  const FeaturedImage = chakra(Image, {
-    shouldForwardProp: (prop) => ['width', 'height', 'src', 'alt'].includes(prop),
-  })
+  
   return (
     <Box
     as="section"
