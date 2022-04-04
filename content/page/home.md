@@ -9,11 +9,6 @@ blocks:
       https://res.cloudinary.com/dub20ptvt/image/upload/v1627759692/me-and-tina_hgq79d.webp
     _template: hero
   - items:
-      - article: content/post/page-reload-with-ssr.mdx
-      - article: content/post/add-interactions-to-your-blog.mdx
-      - article: content/post/clerk-firebase.mdx
-    _template: features
-  - items:
       - title: Bye bye Chakra UI and Tailwind CSS
         description: >-
           I am a power user of Chakra UI but lately I have been checking out a
@@ -39,5 +34,10 @@ blocks:
           more!
         url: 'https://www.youtube.com/watch?v=r7uf_u7tI7k&t=9'
     _template: video
+  - items:
+      - article: content/post/page-reload-with-ssr.mdx
+      - article: content/post/add-interactions-to-your-blog.mdx
+      - article: content/post/clerk-firebase.mdx
+    _template: features
 ---
 
