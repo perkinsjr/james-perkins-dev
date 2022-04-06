@@ -10339,10 +10339,10 @@ throttle-debounce@^3.0.1:
   resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-3.0.1.tgz#32f94d84dfa894f786c9a1f290e7a645b6a19abb"
   integrity sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==
 
-tinacms@^0.66.9:
-  version "0.66.10"
-  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.66.10.tgz#8ac30142f6accf43af98e6c7c4055cee0ed50851"
-  integrity sha512-jxn6p0nLlz9ZkhUdm7x1kmszZnEd4FjSCYashcS9SeAsh1bX4UkQkHQZ3NximtopveZuSb6DpSmzKCB6+FOnXg==
+tinacms@^0.67.0:
+  version "0.67.0"
+  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.67.0.tgz#c7bc63b76e85cdb19e4c08f4e18752f07a30122e"
+  integrity sha512-AtGszSsmmewVeWG39kHHN/9qWicBQ63sRMT5pUoWzdp6FAvqaRytj04Itgo0smqSI8TuNQlmMthzLzQOUhv+0g==
   dependencies:
     "@graphql-tools/relay-operation-optimizer" "^6.4.1"
     "@headlessui/react" "^1.4.1"
