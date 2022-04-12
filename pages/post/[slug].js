@@ -79,7 +79,7 @@ export default function Slug(props) {
                 />
                 <Head>
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7749176258283680"
-     crossorigin="anonymous"></script>
+     crossOrigin="anonymous"></script>
                 </Head>
                 <Box maxWidth="1100px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
                     <article>
