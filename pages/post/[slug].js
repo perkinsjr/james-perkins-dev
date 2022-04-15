@@ -198,6 +198,7 @@ export const getStaticProps = async (ctx) => {
             jamCommentsApiKey: process.env.JAM_COMMENTS_API_KEY,
             jamCommentsDomain: process.env.JAM_COMMENTS_DOMAIN,
             comments,
-        }
+        },
+        revalidate: 10
     };
 };
