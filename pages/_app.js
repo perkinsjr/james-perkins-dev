@@ -12,7 +12,7 @@ const App = ({ Component, pageProps }) => {
                 <Tina>
                     <Navbar />
                     <Component {...pageProps} />
-                    <Footer/>
+                    <Footer />
                 </Tina>
             </ChakraProvider>
         </LyketProvider>

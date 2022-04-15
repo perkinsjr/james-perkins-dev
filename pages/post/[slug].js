@@ -12,7 +12,7 @@ import { useTina } from 'tinacms/dist/edit-state';
 import { Prose } from '@nikolovlazar/chakra-ui-prose';
 import Head from 'next/head';
 import FourOhFour from '../404';
-import { JamComments } from "@jam-comments/next";
+import { JamComments } from '@jam-comments/next';
 
 const query = `query getPost($relativePath: String!) {
   getPostDocument(relativePath: $relativePath) {
@@ -96,9 +96,9 @@ export default function Slug(props) {
                                     components={components}
                                 />
                                 <JamComments
-                                comments={props.comments}
-                                domain={props.jamCommentsDomain}
-                                apiKey={props.jamCommentsApiKey}
+                                    comments={props.comments}
+                                    domain={props.jamCommentsDomain}
+                                    apiKey={props.jamCommentsApiKey}
                                 />
                             </Prose>
                         </Container>
@@ -142,18 +142,18 @@ export const getStaticPaths = async () => {
     };
 };
 export const getStaticProps = async (ctx) => {
-    const { fetchByPath } = require("@jam-comments/next");
+    const { fetchByPath } = require('@jam-comments/next');
 
     const variables = {
         relativePath: ctx.params.slug + '.mdx'
     };
 
-  // Retrieve all comments already made on this post.
-  const comments = await fetchByPath({
-    domain: process.env.JAM_COMMENTS_DOMAIN,
-    apiKey: process.env.JAM_COMMENTS_API_KEY,
-    path: `/post/${ctx.params.slug}`
-  });
+    // Retrieve all comments already made on this post.
+    const comments = await fetchByPath({
+        domain: process.env.JAM_COMMENTS_DOMAIN,
+        apiKey: process.env.JAM_COMMENTS_API_KEY,
+        path: `/post/${ctx.params.slug}`
+    });
     let data;
     let error = false;
     try {
@@ -197,7 +197,7 @@ export const getStaticProps = async (ctx) => {
             variables,
             jamCommentsApiKey: process.env.JAM_COMMENTS_API_KEY,
             jamCommentsDomain: process.env.JAM_COMMENTS_DOMAIN,
-            comments,
-        },
+            comments
+        }
     };
 };
