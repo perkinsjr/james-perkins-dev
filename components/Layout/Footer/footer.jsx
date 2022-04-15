@@ -35,10 +35,12 @@ export default function Footer() {
                     <Stack align={'center'}>
                         <Link href={'/'}>Home</Link>
                         <Link href={'/post'}>Blog</Link>
-                        <Link href={'https://plausible.io/jamesperkins.dev'}>Analytics</Link>
+                        <Link target="_blank" href={'https://plausible.io/jamesperkins.dev'}>Analytics</Link>
                     </Stack>
                     <Stack align={'center'}>
                         <Link href={'mailto:contactme@jamesperkins.dev'}>Contact Me</Link>
+                        <Link target="_blank" href={'https://youtube.com/c/learntocodewithjames'}>YouTube</Link>
+                        <Link target="_blank" href={'https://twitch.tv/jamesperkins'}>Twitch</Link>
                     </Stack>
                     <Stack align={'center'}>
                         <Link target="_blank" href={'https://twitter.com/james_r_perkins'}>
