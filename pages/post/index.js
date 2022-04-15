@@ -29,7 +29,6 @@ export default function BlogPosts(props) {
         const query = event.currentTarget.value;
 
         const filteredPosts = postsList.filter((post) => {
-            console.log(post.node.data);
             return post.node.data.description?.toLowerCase().includes(query.toLowerCase());
         });
 
