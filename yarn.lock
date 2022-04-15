@@ -1579,6 +1579,43 @@
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.3.tgz#e45e384e4b8ec16bce2fd903af78450f6bf7ec98"
   integrity sha512-ZXRY4jNvVgSVQ8DL3LTcakaAtXwTVUxE81hslsyD2AtoXW/wVob10HkOJ1X/pAlcI7D+2YoZKg5do8G/w6RYgA==
 
+"@jam-comments/next@^0.0.35":
+  version "0.0.35"
+  resolved "https://registry.yarnpkg.com/@jam-comments/next/-/next-0.0.35.tgz#789e1c422eae4171e0c3ae0fa0d1290bc681075d"
+  integrity sha512-5fGhwX+6FTzrjDkZk3zvM0zXzfnB2dl6fCbgNLckVFahZTbq7vdFIbT76ai9w5pleSonvee+/D5yqPVtU7mjAw==
+  dependencies:
+    "@jam-comments/react" "^0.0.38"
+    "@jam-comments/styles" "^0.0.19"
+    "@jam-comments/utilities" "^0.1.16"
+    graphql-quest "^1.0.4"
+
+"@jam-comments/react@^0.0.38":
+  version "0.0.38"
+  resolved "https://registry.yarnpkg.com/@jam-comments/react/-/react-0.0.38.tgz#341ade7c126e703ffa8a4dbd043c82e91bde64e7"
+  integrity sha512-gjZ/pwofbmeeEMj/+kylEXx4fpcRTbTJ3EGYygcVRNT+3GKNNYgnQdmpT5KUplAl39NZTC+xsQ+na4MzLHOqXA==
+  dependencies:
+    "@jam-comments/styles" "^0.0.19"
+    "@jam-comments/utilities" "^0.1.16"
+    graphql-quest "^1.0.2"
+    react "^17.0.2"
+    react-dom "^17.0.2"
+
+"@jam-comments/styles@^0.0.19":
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/@jam-comments/styles/-/styles-0.0.19.tgz#5478ba665467f2cb476909176aa7d43273e745ed"
+  integrity sha512-gnIkGD7QX1i6PnniwyeXyFuiDaowfdCEWbw8Dp6vjwUMqOzcoaOgCWo1YevO0hN+YQN09PmDSrKDlM5F6TajlQ==
+
+"@jam-comments/utilities@^0.1.16":
+  version "0.1.16"
+  resolved "https://registry.yarnpkg.com/@jam-comments/utilities/-/utilities-0.1.16.tgz#3c7e03bd2465700154d59408a1edfb6bc4aa3e69"
+  integrity sha512-GmheefqJ7fsK4G7I34EVV6N8reIh0UblKY2V5efAGUudn6RNygNvPiOloBvwAqBka22aRIGOvhiFectuz88HIQ==
+  dependencies:
+    chalk "^4.1.0"
+    graphql-quest "^1.0.2"
+    node-fetch "^2.6.1"
+    shuffle-array "^1.0.1"
+    url-parse "^1.5.3"
+
 "@jest/transform@^26.6.2":
   version "26.6.2"
   resolved "https://registry.yarnpkg.com/@jest/transform/-/transform-26.6.2.tgz#5ac57c5fa1ad17b2aae83e73e45813894dcf2e4b"
@@ -4470,7 +4507,7 @@ chalk@^2.0.0, chalk@^2.4.2:
     escape-string-regexp "^1.0.5"
     supports-color "^5.3.0"
 
-chalk@^4.0.0:
+chalk@^4.0.0, chalk@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-4.1.2.tgz#aac4e2b7734a740867aeb16bf02aad556a1e7a01"
   integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
@@ -6254,6 +6291,11 @@ graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.4:
   version "4.2.10"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.10.tgz#147d3a006da4ca3ce14728c7aefc287c367d7a6c"
   integrity sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==
+
+graphql-quest@^1.0.2, graphql-quest@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/graphql-quest/-/graphql-quest-1.0.4.tgz#990147c2975b9668cf2f991f69318c3d4699ac08"
+  integrity sha512-5yarnFuSBX54pwR8VykASwSz1PrmROr9Xr0tFK70TLWIMSwCIY82c2XYViZzPbN6aioKtnx8Ig1NUfEaQZkqSQ==
 
 graphql-tag@^2.11.0, graphql-tag@^2.12.3:
   version "2.12.6"
@@ -8965,6 +9007,11 @@ querystring@0.2.0:
   resolved "https://registry.yarnpkg.com/querystring/-/querystring-0.2.0.tgz#b209849203bb25df820da756e747005878521620"
   integrity sha1-sgmEkgO7Jd+CDadW50cAWHhSFiA=
 
+querystringify@^2.1.1:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.2.0.tgz#3345941b4153cb9d082d8eee4cda2016a9aef7f6"
+  integrity sha512-FIqgj2EUvTa7R50u0rGsyTftzjYmv/a3hO345bZNrqabNqjtgiDMgmo4mkUjd+nzU5oF3dClKqFIPUKybUyqoQ==
+
 queue-microtask@^1.2.2, queue-microtask@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
@@ -9076,7 +9123,7 @@ react-dnd@^14.0.2:
     fast-deep-equal "^3.1.3"
     hoist-non-react-statics "^3.3.2"
 
-react-dom@17.0.2:
+react-dom@17.0.2, react-dom@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -9269,7 +9316,7 @@ react-use@^17.1.1:
     ts-easing "^0.2.0"
     tslib "^2.1.0"
 
-react@17.0.2:
+react@17.0.2, react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
@@ -9541,6 +9588,11 @@ require-main-filename@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-2.0.0.tgz#d0b329ecc7cc0f61649f62215be69af54aa8989b"
   integrity sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
+
+requires-port@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+  integrity sha1-kl0mAdOaxIXgkc8NpcbmlNw9yv8=
 
 resize-observer-polyfill@^1.5.1:
   version "1.5.1"
@@ -9828,6 +9880,11 @@ shebang-regex@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
+
+shuffle-array@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/shuffle-array/-/shuffle-array-1.0.1.tgz#c4ff3cfe74d16f93730592301b25e6577b12898b"
+  integrity sha1-xP88/nTRb5NzBZIwGyXmV3sSiYs=
 
 side-channel@^1.0.4:
   version "1.0.4"
@@ -10796,6 +10853,14 @@ urix@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/urix/-/urix-0.1.0.tgz#da937f7a62e21fec1fd18d49b35c2935067a6c72"
   integrity sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
+
+url-parse@^1.5.3:
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/url-parse/-/url-parse-1.5.10.tgz#9d3c2f736c1d75dd3bd2be507dcc111f1e2ea9c1"
+  integrity sha512-WypcfiRhfeUP9vvF0j6rw0J3hrWrw6iZv3+22h6iRMJ/8z1Tj6XfLP4DsUix5MhMPnXpiHDoKyoZ/bdCkwBCiQ==
+  dependencies:
+    querystringify "^2.1.1"
+    requires-port "^1.0.0"
 
 url-pattern@^1.0.3:
   version "1.0.3"
