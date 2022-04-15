@@ -15,11 +15,12 @@ blocks:
           new framework that is even better. This video covers all of this and
           more!
         url: 'https://www.youtube.com/watch?v=g6VJMPpZlgI&t=87s'
-      - title: Page to Page loading transitions with Next.js
-        description: >-
-          Have you ever wanted page to page transitions when using next.js? This
-          video takes you through having a loader whenever your route changes.
-        url: 'https://www.youtube.com/watch?v=2Tj6lcfJytA'
+      - title: How to reload SSR Powered Pages
+        description: >
+          Using SSR is one of my favorite features of Next.js but sometimes your
+          data is updated outside of your application or even in it and the SSR
+          data is stale. Lets fix that.
+        url: 'https://www.youtube.com/watch?v=MbUJdMXbaNc'
       - title: Create coding profiles using Visual Studio Code
         description: >
           This video shows you how to create multiple Visual Studio Code
