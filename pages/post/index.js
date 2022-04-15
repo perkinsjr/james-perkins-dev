@@ -90,7 +90,6 @@ export const getStaticProps = async () => {
               authorTwitter
               category
               image
-              body
             }
             sys {
               filename
