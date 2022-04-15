@@ -3,148 +3,139 @@
     <url>
         <loc>https://jamesperkins.dev/404</loc>
     </url>
-
-    <url>
-        <loc>https://jamesperkins.dev/admin</loc>
-    </url>
-
     <url>
         <loc>https://jamesperkins.dev</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/add-interactions-to-your-blog</loc>
+        <loc>https://jamesperkins.dev/post/add-interactions-to-your-blog</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/adding-comments-to-the-blog</loc>
+        <loc>https://jamesperkins.dev/post/adding-comments-to-the-blog</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/chakra-prose</loc>
+        <loc>https://jamesperkins.dev/post/chakra-prose</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/clerk-firebase</loc>
+        <loc>https://jamesperkins.dev/post/clerk-firebase</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/create-content-to-solidify-your-knowledge</loc>
+        <loc>https://jamesperkins.dev/post/create-content-to-solidify-your-knowledge</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/daisyui-make-tailwind-components-with-ease</loc>
+        <loc>https://jamesperkins.dev/post/daisyui-make-tailwind-components-with-ease</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/dev-rel-what-do-we-do</loc>
+        <loc>https://jamesperkins.dev/post/dev-rel-what-do-we-do</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/developers-hangout-update</loc>
+        <loc>https://jamesperkins.dev/post/developers-hangout-update</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/embracing-typescript</loc>
+        <loc>https://jamesperkins.dev/post/embracing-typescript</loc>
     </url>
 
     <url>
-        <loc
-            >https://jamesperkins.devcontent/post/five-reasons-why-you-should-cross-post-content</loc
-        >
+        <loc>https://jamesperkins.dev/post/five-reasons-why-you-should-cross-post-content</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/force-reload-next-</loc>
+        <loc>https://jamesperkins.dev/post/force-reload-next-</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/how-i-automate-productivity</loc>
+        <loc>https://jamesperkins.dev/post/how-i-automate-productivity</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/how-i-setup-next-projects</loc>
+        <loc>https://jamesperkins.dev/post/how-i-setup-next-projects</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/how-to-automate-pr</loc>
+        <loc>https://jamesperkins.dev/post/how-to-automate-pr</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/i-treat-debugging-as-a-murder-mystery</loc>
+        <loc>https://jamesperkins.dev/post/i-treat-debugging-as-a-murder-mystery</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/increase-your-development-productivity</loc>
+        <loc>https://jamesperkins.dev/post/increase-your-development-productivity</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/my-experience-with-netlify</loc>
+        <loc>https://jamesperkins.dev/post/my-experience-with-netlify</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/next-date-type--fetching</loc>
+        <loc>https://jamesperkins.dev/post/next-date-type-data-fetching</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/next-link-open-new-tab</loc>
+        <loc>https://jamesperkins.dev/post/next-link-open-new-tab</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/nextjs-faunadb-crash-course</loc>
+        <loc>https://jamesperkins.dev/post/nextjs-faunadb-crash-course</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/page-reload-with-ssr</loc>
+        <loc>https://jamesperkins.dev/post/page-reload-with-ssr</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/page-to-page-loading-in-next</loc>
+        <loc>https://jamesperkins.dev/post/page-to-page-loading-in-next</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/pick-a-language-and-do-something</loc>
+        <loc>https://jamesperkins.dev/post/pick-a-language-and-do-something</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/roll-your-tweet-is-live</loc>
+        <loc>https://jamesperkins.dev/post/roll-your-tweet-is-live</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/should-you-recycle-content</loc>
+        <loc>https://jamesperkins.dev/post/should-you-recycle-content</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/ssg-vs-srr</loc>
+        <loc>https://jamesperkins.dev/post/ssg-vs-srr</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/supercharge-your-astro-blog</loc>
+        <loc>https://jamesperkins.dev/post/supercharge-your-astro-blog</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/the-trials-of-portable-code</loc>
+        <loc>https://jamesperkins.dev/post/the-trials-of-portable-code</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/tovala-oven-makes-sense</loc>
+        <loc>https://jamesperkins.dev/post/tovala-oven-makes-sense</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/using-next-image-with-chakra</loc>
+        <loc>https://jamesperkins.dev/post/using-next-image-with-chakra</loc>
     </url>
 
     <url>
-        <loc
-            >https://jamesperkins.devcontent/post/what-i-learnt-in-30-days-with-roll-your-tweet</loc
-        >
+        <loc>https://jamesperkins.dev/post/what-i-learnt-in-30-days-with-roll-your-tweet</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/why-flag-parameters-suck</loc>
+        <loc>https://jamesperkins.dev/post/why-flag-parameters-suck</loc>
     </url>
 
     <url>
-        <loc>https://jamesperkins.devcontent/post/why-i-created-developers-hangout-podcast</loc>
+        <loc>https://jamesperkins.dev/post/why-i-created-developers-hangout-podcast</loc>
     </url>
 </urlset>
