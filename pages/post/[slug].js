@@ -2,7 +2,7 @@ import { staticRequest } from 'tinacms';
 import { Layout } from '../../components/Layout/Layout';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { CustomLink } from '../../components/Blog/CustomLink';
-import { Box, Heading, chakra,Container } from '@chakra-ui/react';
+import { Box, Heading, chakra, Container } from '@chakra-ui/react';
 import Image from 'next/image';
 import { LikeCounter } from '../../components/Blog/Lyket';
 import { Seo } from '../../components/Seo';
@@ -77,24 +77,26 @@ export default function Slug(props) {
                     description={data.getPostDocument.data.description}
                     image={data.getPostDocument.data.image}
                 />
-                <Script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7749176258283680"
-     crossOrigin="anonymous"/>
+                <Script
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7749176258283680"
+                    crossOrigin="anonymous"
+                />
                 <Box maxWidth="1100px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
                     <article>
-                    <Container maxW='container.md'>
-                        <Prose>
-                            <Heading as="h1" textAlign="center" my={8}>
-                                {data.getPostDocument.data.title}
-                            </Heading>
-                            <TinaMarkdown
-                                content={data.getPostDocument.data.body}
-                                components={components}
-                            />
-                            <Box>
-                                <LikeCounter slug={props.variables.relativePath} />
-                            </Box>
-                        </Prose>
-                    </Container>
+                        <Container maxW="container.md">
+                            <Prose>
+                                <Heading as="h1" textAlign="center" my={8}>
+                                    {data.getPostDocument.data.title}
+                                </Heading>
+                                <TinaMarkdown
+                                    content={data.getPostDocument.data.body}
+                                    components={components}
+                                />
+                                <Box>
+                                    <LikeCounter slug={props.variables.relativePath} />
+                                </Box>
+                            </Prose>
+                        </Container>
                     </article>
                 </Box>
             </>
@@ -149,9 +151,9 @@ export const getStaticProps = async (ctx) => {
         error = true;
         // gulp them
     }
-  
-   if (!data) {
-    error = true;
+
+    if (!data) {
+        error = true;
     }
 
     if (error) {
@@ -168,11 +170,11 @@ export const getStaticProps = async (ctx) => {
                 }
             }
         );
-      if (!data) {
-      return {
-        notFound: true,
-      };
-    }
+        if (!data) {
+            return {
+                notFound: true
+            };
+        }
     }
     return {
         props: {

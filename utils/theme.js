@@ -12,14 +12,14 @@ const theme = extendTheme(
     { config },
     withProse({
         baseStyle: {
-            p:{
+            p: {
                 fontSize: '1.125rem',
-                lineHeight: '1.5',
+                lineHeight: '1.5'
             },
-            a:{
+            a: {
                 color: '#483d8b',
                 fontWeight: 'bold',
-                textDecoration: 'underline',
+                textDecoration: 'underline'
             },
             code: {
                 bgColor: 'purple.500',
@@ -31,7 +31,7 @@ const theme = extendTheme(
                 '&::before, &::after': {
                     content: '""'
                 }
-            },
+            }
         }
     })
 );
