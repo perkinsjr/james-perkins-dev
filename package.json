@@ -1,13 +1,12 @@
 {
-  "name": "starter-basic",
+  "name": "james-perkins-dev",
   "private": true,
   "scripts": {
     "dev": "yarn tinacms server:start -c \"next dev\"",
     "build": "yarn tinacms server:start -c \"next build\"",
     "start": "yarn tinacms server:start -c \"next start\" --experimentalData",
     "lint": "next lint",
-    "format": "prettier --write \"**/*.{js,md,mdx}\"",
-    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{js,jsx,md,mdx}\"",
     "pre-commit": "next lint --fix && git add -A ."
   },
   "dependencies": {
@@ -15,6 +14,7 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@jam-comments/next": "^0.0.35",
     "@lyket/react": "^1.4.8",
     "@nikolovlazar/chakra-ui-prose": "^1.0.6",
     "@tinacms/auth": "^0.50.2",
@@ -40,7 +40,6 @@
     "eslint": "7",
     "eslint-config-next": "12.0.3",
     "globby": "11.0.1",
-    "husky": "^7.0.4",
     "raw-loader": "^4.0.2"
   }
 }

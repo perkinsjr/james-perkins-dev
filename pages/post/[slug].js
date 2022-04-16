@@ -4,7 +4,6 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { CustomLink } from '../../components/Blog/CustomLink';
 import { Box, Heading, chakra, Container } from '@chakra-ui/react';
 import Image from 'next/image';
-import { LikeCounter } from '../../components/Blog/Lyket';
 import { Seo } from '../../components/Seo';
 import { Newsletter } from '../../components/Blog/Newsletter';
 import { VideoPlayer } from '../../components/Blog/VideoPlayer';
@@ -13,6 +12,7 @@ import { useTina } from 'tinacms/dist/edit-state';
 import { Prose } from '@nikolovlazar/chakra-ui-prose';
 import Script from 'next/script';
 import FourOhFour from '../404';
+import { JamComments } from '@jam-comments/next';
 
 const query = `query getPost($relativePath: String!) {
   getPostDocument(relativePath: $relativePath) {
@@ -92,9 +92,11 @@ export default function Slug(props) {
                                     content={data.getPostDocument.data.body}
                                     components={components}
                                 />
-                                <Box>
-                                    <LikeCounter slug={props.variables.relativePath} />
-                                </Box>
+                                <JamComments
+                                    comments={props.comments}
+                                    domain={props.jamCommentsDomain}
+                                    apiKey={props.jamCommentsApiKey}
+                                />
                             </Prose>
                         </Container>
                     </article>
@@ -137,9 +139,18 @@ export const getStaticPaths = async () => {
     };
 };
 export const getStaticProps = async (ctx) => {
+    const { fetchByPath } = require('@jam-comments/next');
+
     const variables = {
         relativePath: ctx.params.slug + '.mdx'
     };
+
+    // Retrieve all comments already made on this post.
+    const comments = await fetchByPath({
+        domain: process.env.JAM_COMMENTS_DOMAIN,
+        apiKey: process.env.JAM_COMMENTS_API_KEY,
+        path: `/post/${ctx.params.slug}`
+    });
     let data;
     let error = false;
     try {
@@ -180,7 +191,10 @@ export const getStaticProps = async (ctx) => {
         props: {
             data,
             query,
-            variables
+            variables,
+            jamCommentsApiKey: process.env.JAM_COMMENTS_API_KEY,
+            jamCommentsDomain: process.env.JAM_COMMENTS_DOMAIN,
+            comments
         }
     };
 };

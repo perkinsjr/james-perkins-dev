@@ -1,13 +1,39 @@
 import { staticRequest } from 'tinacms';
+import { useState } from 'react';
 import { Layout } from '../../components/Layout/Layout';
 import { Seo } from '../../components/Seo';
-import { Heading, Text, VStack, Box, Container, List, ListItem } from '@chakra-ui/react';
+import {
+    Heading,
+    InputGroup,
+    Input,
+    InputLeftElement,
+    Text,
+    Icon,
+    VStack,
+    Box,
+    Container,
+    List,
+    ListItem
+} from '@chakra-ui/react';
+import { HiOutlineSearch } from 'react-icons/hi';
 import { BlogPostCard } from '../../components/Blog/BlogCard';
 export default function BlogPosts(props) {
     const postsList = props.getPostList.edges;
     const sortedPosts = postsList.sort((a, b) => {
         return new Date(b.node.data.date) - new Date(a.node.data.date);
     });
+    const [displayPosts, setDisplayPosts] = useState(sortedPosts);
+
+    const onSearch = (event) => {
+        const query = event.currentTarget.value;
+
+        const filteredPosts = postsList.filter((post) => {
+            return post.node.data.description?.toLowerCase().includes(query.toLowerCase());
+        });
+
+        setDisplayPosts(filteredPosts);
+    };
+
     return (
         <Layout>
             <Seo
@@ -24,9 +50,19 @@ export default function BlogPosts(props) {
                         <Text textAlign="center" fontSize="md" mb={[4, 2]}>
                             I’ve written a total of {sortedPosts.length} articles.
                         </Text>
+                        <InputGroup>
+                            <InputLeftElement pointerEvents="none">
+                                <Icon as={HiOutlineSearch} color="gray.400" />
+                            </InputLeftElement>
+                            <Input
+                                onChange={onSearch}
+                                placeholder="Search blog posts"
+                                variant="filled"
+                            />
+                        </InputGroup>
                     </VStack>
                     <List w="full" spacing={4}>
-                        {sortedPosts.map((post) => (
+                        {displayPosts.map((post) => (
                             <ListItem key={post.node.sys.filename}>
                                 <BlogPostCard {...post.node} />
                             </ListItem>

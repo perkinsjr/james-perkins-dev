@@ -15,11 +15,12 @@ blocks:
                 new framework that is even better. This video covers all of this and
                 more!
             url: 'https://www.youtube.com/watch?v=g6VJMPpZlgI&t=87s'
-          - title: Page to Page loading transitions with Next.js
-            description: >-
-                Have you ever wanted page to page transitions when using next.js? This
-                video takes you through having a loader whenever your route changes.
-            url: 'https://www.youtube.com/watch?v=2Tj6lcfJytA'
+          - title: How to reload SSR Powered Pages
+            description: >
+                Using SSR is one of my favorite features of Next.js but sometimes your
+                data is updated outside of your application or even in it and the SSR
+                data is stale. Lets fix that.
+            url: 'https://www.youtube.com/watch?v=MbUJdMXbaNc'
           - title: Create coding profiles using Visual Studio Code
             description: >
                 This video shows you how to create multiple Visual Studio Code
@@ -27,12 +28,12 @@ blocks:
                 multiple platforms, and also have a completely separate one for
                 everything else.
             url: 'https://www.youtube.com/watch?v=L8f-AVBl418'
-          - title: Get Paid with Paddle + Next.js
+          - title: 'THIS TERMINAL IS FROM THE FUTURE '
             description: >
-                Want to learn how to use Paddle and Next.js? This video shows you
-                everything you need to know, including webhooks, checkout and so much
-                more!
-            url: 'https://www.youtube.com/watch?v=r7uf_u7tI7k&t=9'
+                Warp Terminal has finally been released to public beta! It's probably
+                the best experience that I use from a terminal. I use it everyday at
+                work and on my MBP air!
+            url: 'https://www.youtube.com/watch?v=wDuo5IlYlaQ&t=25s'
       _template: video
     - items:
           - article: content/post/page-reload-with-ssr.mdx
