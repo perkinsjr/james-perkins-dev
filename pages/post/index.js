@@ -16,7 +16,6 @@ import {
     ListItem
 } from '@chakra-ui/react';
 import { HiOutlineSearch } from 'react-icons/hi';
-
 import { BlogPostCard } from '../../components/Blog/BlogCard';
 export default function BlogPosts(props) {
     const postsList = props.getPostList.edges;
