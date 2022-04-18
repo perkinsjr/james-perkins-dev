@@ -2,7 +2,7 @@ import { staticRequest } from 'tinacms';
 import { useState } from 'react';
 import { Layout } from '../../components/Layout/Layout';
 import { Seo } from '../../components/Seo';
-import Carbon from "react-carbon";
+import Carbon from 'react-carbon';
 import {
     Flex,
     Heading,
@@ -19,7 +19,6 @@ import {
 } from '@chakra-ui/react';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { BlogPostCard } from '../../components/Blog/BlogCard';
-import Script from 'next/script';
 export default function BlogPosts(props) {
     const postsList = props.getPostList.edges;
     const sortedPosts = postsList.sort((a, b) => {
@@ -71,12 +70,10 @@ export default function BlogPosts(props) {
                             </ListItem>
                         ))}
                     </List>
-                    
                 </Container>
-                
             </Box>
             <Flex width="100%" justifyContent="center" alignContent="center" mx="auto">
-                            <Carbon name="carbon-blog-index" placement="wwwjamesperkinsdev" serve="CEAD4K77" />
+                <Carbon name="carbon-blog-index" placement="wwwjamesperkinsdev" serve="CEAD4K77" />
             </Flex>
         </Layout>
     );
