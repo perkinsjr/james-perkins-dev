@@ -26,7 +26,7 @@ export const CustomLink = ({ children, href }) => {
                 w: '0'
             }}
             href={href}
-            target={href.includes('http') ? '_blank' : '_self'}
+            target={href?.includes('http') ? '_blank' : '_self'}
         >
             {children}
         </Link>

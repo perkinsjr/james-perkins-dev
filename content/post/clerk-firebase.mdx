@@ -2,7 +2,7 @@
 title: Learn how to use Firebase & Clerk.dev (CRUD)
 date: '2022-01-06T00:00:00.000Z'
 image: >-
-    https://res.cloudinary.com/dub20ptvt/image/upload/v1641492754/Recipe%20App/xoghdmempyhjadpiogfz.png
+    https://res.cloudinary.com/dub20ptvt/image/upload/v1641492754/Recipe%20App/xoghdmempyhjadpiogfz.webp
 author: James Perkins
 authorTwitter: james_r_perkins
 category:
@@ -37,11 +37,11 @@ Here is what it looks like:
 
 To begin with you will need to signup for a firebase account, once you have signed up, you will need to create a new project. From the Dashboard select Add project. Then Give your project a name. Lets call it Recipe-app
 
-![Start A Project](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493001/Blog%20Posts/Clerk%20firebase%20crash%20course/vxcfsbsusqo44ldpkpva.png)
+![Start A Project](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493001/Blog%20Posts/Clerk%20firebase%20crash%20course/vxcfsbsusqo44ldpkpva.webp)
 
 Then select whether you want your project to have Analytics from Google and then hit Create project. Once your project is setup you will see the following screen:
 
-![Dashboard](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493001/Blog%20Posts/Clerk%20firebase%20crash%20course/zzmruhnrmzs7dl4t75eg.png)
+![Dashboard](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493001/Blog%20Posts/Clerk%20firebase%20crash%20course/zzmruhnrmzs7dl4t75eg.webp)
 
 ### Adding Authentication
 
@@ -52,15 +52,15 @@ We need to add authentication to our project so that Clerk and Firebase can talk
 
 After that it will be enabled so that Clerk and Firebase can talk to each other.
 
-![Authentication Enabling](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/exiknnwzyuabqas3slyi.png)
+![Authentication Enabling](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/exiknnwzyuabqas3slyi.webp)
 
 ### Adding Firestore Database
 
 Now we need to add Firestore as our Database this is where we are going to store all our delicious recipes. To add firestore to our project:
 
 1.  Select Firestore Database from the left hand menu
-2.  Click the Create database button![Create Databases](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493003/Blog%20Posts/Clerk%20firebase%20crash%20course/px0ss0eq3v5ujtycrnfn.png)
-3.  Select Start in test mode for now, we will update our rules in just a second to allow only authenticated users to edit our database.![Test Mode Image](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/a4vz3hxeulvysqhxxho4.png)
+2.  Click the Create database button![Create Databases](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493003/Blog%20Posts/Clerk%20firebase%20crash%20course/px0ss0eq3v5ujtycrnfn.webp)
+3.  Select Start in test mode for now, we will update our rules in just a second to allow only authenticated users to edit our database.![Test Mode Image](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/a4vz3hxeulvysqhxxho4.webp)
 4.  Select the appropriate Firestore location for you. Note this cannot be changed later so make sure you double check. _The Default_ is fine in most cases. Then click Enable.
 
 Now that our Database has been provisioned we want to do insert a single Item into the database and set our rules to protect us. Let us start by creating a collection and insert an item into the database.
@@ -68,7 +68,7 @@ Now that our Database has been provisioned we want to do insert a single Item in
 ### Insert Data
 
 1.  From the Cloud Firestore Data tab (The one you landed on after provising.
-2.  Select Start Collection, and give it the id of “recipes”![Insert Collection](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/oi12jtbidzmv4t3d1wxv.png)
+2.  Select Start Collection, and give it the id of “recipes”![Insert Collection](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/oi12jtbidzmv4t3d1wxv.webp)
 3.  On the next screen you will insert all of the data, below is the data in an Object, you will want to select auto generate for the Document ID. Each field is a string.
 
 ```json
@@ -86,7 +86,7 @@ Now that our Database has been provisioned we want to do insert a single Item in
 }
 ```
 
-![Document inserted](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/fjejssoloacyaf6yko3w.png)
+![Document inserted](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/fjejssoloacyaf6yko3w.webp)
 
 ### Rules
 
@@ -136,7 +136,7 @@ service cloud.firestore {
 
 Now we have setup our database we need a Service Account for Clerk to use, from the side bar select the cog wheel and then project settings.
 
-![Service Account Image](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493001/Blog%20Posts/Clerk%20firebase%20crash%20course/lqtgpkbh7rvz2ooh1p11.png)
+![Service Account Image](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493001/Blog%20Posts/Clerk%20firebase%20crash%20course/lqtgpkbh7rvz2ooh1p11.webp)
 
 This will bring you to a screen with many different settings, we want to select Service Accounts and then click the button `generate new private key` and in the pop up select Generate key.
 
@@ -153,13 +153,13 @@ This will create a JSON that contains secrets we can use for Clerk, this file ha
 
 Once you have signed up for account you will arrive at the Applications page, click add application. Give your application a new, I chose “Recipe App” and remove the social logins. Click Add Application Button.
 
-![Creating a new project](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493001/Blog%20Posts/Clerk%20firebase%20crash%20course/owemu6dwhrv3quwbtys7.png)
+![Creating a new project](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493001/Blog%20Posts/Clerk%20firebase%20crash%20course/owemu6dwhrv3quwbtys7.webp)
 
 ### Integration Setup.
 
 To setup the integration with firebase you will need to select `Integrations` on the side bar which will drop you into a page with all their offerings. We going to select firebase toggle which will bring up the following Modal:
 
-![Adding Firebase](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/dax4u09phxwtjwmzb2of.png)
+![Adding Firebase](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493002/Blog%20Posts/Clerk%20firebase%20crash%20course/dax4u09phxwtjwmzb2of.webp)
 
 That JSON you downloaded from firebase can be uploaded here via the Upload JSON button. Once that is down hit Apply changes. We are now setup to get Firebase + Clerk together.
 
@@ -167,7 +167,7 @@ That JSON you downloaded from firebase can be uploaded here via the Upload JSON 
 
 In this post we are using the provided hosted components that makes authentication and user management easy to implement. Select the Home nav on the left hand side and you will see quick reference. Make sure you copy the Frontend API key as we will need this for our Next.js application.
 
-![Frontend API](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493003/Blog%20Posts/Clerk%20firebase%20crash%20course/ns7qa4saf5wl90oqqlb2.png)
+![Frontend API](https://res.cloudinary.com/dub20ptvt/image/upload/v1641493003/Blog%20Posts/Clerk%20firebase%20crash%20course/ns7qa4saf5wl90oqqlb2.webp)
 
 ## Working with our Next.js application.
 
