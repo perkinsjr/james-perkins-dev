@@ -10,6 +10,7 @@ import {
     Img
 } from '@chakra-ui/react';
 
+import { CustomLink } from '../../Blog/CustomLink';
 const Logo = () => {
     return (
         <Img
@@ -29,38 +30,36 @@ export default function Footer() {
             justifyContent="center"
             alignContent="center"
             direction="column"
+            mt={2}
         >
             <Container as={Stack} maxW={'6xl'} py={10}>
                 <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8}>
-                    <Stack align={'center'}>
-                        <Link href={'/'}>Home</Link>
-                        <Link href={'/post'}>Blog</Link>
-                        <Link target="_blank" href={'https://plausible.io/jamesperkins.dev'}>
+                    <Stack align={'center'}spacing={4}>
+                        <CustomLink href={'/'}>Home</CustomLink>
+                        <CustomLink href={'/post'}>Blog</CustomLink>
+                        <CustomLink href={'https://plausible.io/jamesperkins.dev'}>
                             Analytics
-                        </Link>
+                        </CustomLink>
                     </Stack>
-                    <Stack align={'center'}>
-                        <Link href={'mailto:contactme@jamesperkins.dev'}>Contact Me</Link>
-                        <Link target="_blank" href={'https://youtube.com/c/learntocodewithjames'}>
+                    <Stack align={'center'}spacing={4}>
+                        <CustomLink href={'mailto:contactme@jamesperkins.dev'}>Contact Me</CustomLink>
+                        <CustomLink href={'https://youtube.com/c/learntocodewithjames'}>
                             YouTube
-                        </Link>
-                        <Link target="_blank" href={'https://twitch.tv/jamesperkins'}>
+                        </CustomLink>
+                        <CustomLink href={'https://twitch.tv/jamesperkins'}>
                             Twitch
-                        </Link>
+                        </CustomLink>
                     </Stack>
-                    <Stack align={'center'}>
-                        <Link target="_blank" href={'https://twitter.com/james_r_perkins'}>
+                    <Stack align={'center'} spacing={4}>
+                        <CustomLink href={'https://twitter.com/james_r_perkins'}>
                             Twitter
-                        </Link>
-                        <Link target="_blank" href={'https://instagram.com/james_r_perkins'}>
-                            Instagram
-                        </Link>
-                        <Link target="_blank" href={'https://www.polywork.com/jamesperkins/'}>
+                        </CustomLink>
+                        <CustomLink href={'https://www.polywork.com/jamesperkins/'}>
                             Polywork
-                        </Link>
-                        <Link target="_blank" href={'https://www.github.com/perkinsjr/'}>
+                        </CustomLink>
+                        <CustomLink  href={'https://www.github.com/perkinsjr/'}>
                             Github
-                        </Link>
+                        </CustomLink>
                     </Stack>
                 </SimpleGrid>
             </Container>
@@ -86,6 +85,9 @@ export default function Footer() {
                 </Flex>
                 <Text pt={6} fontSize={'sm'} textAlign={'center'}>
                     © 2022 James Perkins. All rights reserved
+                </Text>
+                <Text pt={6} fontSize={'sm'} textAlign={'center'}>
+                    Powered by <CustomLink href={'https://www.tina.io'}>TinaCMS</CustomLink>
                 </Text>
             </Box>
         </Flex>
