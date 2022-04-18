@@ -1,7 +1,6 @@
 import {
     Box,
     Container,
-    Link,
     SimpleGrid,
     Stack,
     Text,
@@ -34,21 +33,21 @@ export default function Footer() {
         >
             <Container as={Stack} maxW={'6xl'} py={10}>
                 <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8}>
-                    <Stack align={'center'}spacing={4}>
+                    <Stack align={'center'} spacing={4}>
                         <CustomLink href={'/'}>Home</CustomLink>
                         <CustomLink href={'/post'}>Blog</CustomLink>
                         <CustomLink href={'https://plausible.io/jamesperkins.dev'}>
                             Analytics
                         </CustomLink>
                     </Stack>
-                    <Stack align={'center'}spacing={4}>
-                        <CustomLink href={'mailto:contactme@jamesperkins.dev'}>Contact Me</CustomLink>
+                    <Stack align={'center'} spacing={4}>
+                        <CustomLink href={'mailto:contactme@jamesperkins.dev'}>
+                            Contact Me
+                        </CustomLink>
                         <CustomLink href={'https://youtube.com/c/learntocodewithjames'}>
                             YouTube
                         </CustomLink>
-                        <CustomLink href={'https://twitch.tv/jamesperkins'}>
-                            Twitch
-                        </CustomLink>
+                        <CustomLink href={'https://twitch.tv/jamesperkins'}>Twitch</CustomLink>
                     </Stack>
                     <Stack align={'center'} spacing={4}>
                         <CustomLink href={'https://twitter.com/james_r_perkins'}>
@@ -57,9 +56,7 @@ export default function Footer() {
                         <CustomLink href={'https://www.polywork.com/jamesperkins/'}>
                             Polywork
                         </CustomLink>
-                        <CustomLink  href={'https://www.github.com/perkinsjr/'}>
-                            Github
-                        </CustomLink>
+                        <CustomLink href={'https://www.github.com/perkinsjr/'}>Github</CustomLink>
                     </Stack>
                 </SimpleGrid>
             </Container>
