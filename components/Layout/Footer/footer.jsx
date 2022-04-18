@@ -87,7 +87,7 @@ export default function Footer() {
                     © 2022 James Perkins. All rights reserved
                 </Text>
                 <Text pt={6} fontSize={'sm'} textAlign={'center'}>
-                    Powered by <CustomLink href={'https://www.tina.io'}>TinaCMS</CustomLink>
+                    Powered by <CustomLink href={'https://tina.io/'}>TinaCMS</CustomLink>
                 </Text>
             </Box>
         </Flex>
