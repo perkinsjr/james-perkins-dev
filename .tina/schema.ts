@@ -212,6 +212,11 @@ export default defineSchema({
                 },
               ],
             },
+            {
+              name: 'carbon',
+              label: 'Carbon Ads',
+              fields: [],
+            }
           ]
         },
       ],

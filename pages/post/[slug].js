@@ -2,7 +2,7 @@ import { staticRequest } from 'tinacms';
 import { Layout } from '../../components/Layout/Layout';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { CustomLink } from '../../components/Blog/CustomLink';
-import { Box, Heading, chakra, Container } from '@chakra-ui/react';
+import { Box, Heading, chakra, Container ,Flex} from '@chakra-ui/react';
 import Image from 'next/image';
 import { Seo } from '../../components/Seo';
 import { Newsletter } from '../../components/Blog/Newsletter';
@@ -12,7 +12,7 @@ import { useTina } from 'tinacms/dist/edit-state';
 import { Prose } from '@nikolovlazar/chakra-ui-prose';
 import FourOhFour from '../404';
 import { JamComments } from '@jam-comments/next';
-
+import { CarbonAd } from '../../components/Blog/CarbonAd';
 const query = `query getPost($relativePath: String!) {
   getPostDocument(relativePath: $relativePath) {
     data {
@@ -49,6 +49,9 @@ export default function Slug(props) {
         },
         code_block: (props) => {
             return <CodeBlock language={props.lang}>{props.children}</CodeBlock>;
+        },
+        carbon: () => {
+            return <CarbonAd />;
         },
         img: (props) => {
             const BlogImg = chakra(Image, {
@@ -93,6 +96,7 @@ export default function Slug(props) {
                                     apiKey={props.jamCommentsApiKey}
                                 />
                             </Prose>
+                            <CarbonAd/>
                         </Container>
                     </article>
                 </Box>

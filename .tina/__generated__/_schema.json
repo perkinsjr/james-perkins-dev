@@ -401,6 +401,16 @@
                 "body",
                 "youtube"
               ]
+            },
+            {
+              "name": "carbon",
+              "label": "Carbon Ads",
+              "fields": [],
+              "namespace": [
+                "post",
+                "body",
+                "carbon"
+              ]
             }
           ],
           "namespace": [

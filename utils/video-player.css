@@ -8,3 +8,55 @@
     top: 0;
     left: 0;
   }
+
+  #carbonads {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", Helvetica, Arial, sans-serif!important;
+  }
+  #carbonads {
+    display: inline-flex!important;
+    background-color: background-light!important;
+    border: 1!important;
+    border-color: layout-border!important;
+    box-shadow: none!important;
+  }
+  #carbonads a {
+    color: inherit!important;
+    text-decoration: none!important;
+  }
+  #carbonads a:hover {
+    color: inherit!important;
+  }
+  #carbonads span {
+    position: relative!important;
+    display: block!important;
+    overflow: hidden!important;
+  }
+  #carbonads .carbon-wrap {
+    display: flex!important;
+  }
+  .carbon-img {
+    display: block!important;
+    margin: 0!important;
+    line-height: 1!important;
+  }
+  .carbon-img img {
+    display: block!important;
+  }
+  .carbon-text {
+    font-size: 13px!important;
+    padding: 10px!important;
+    line-height: 1.5!important;
+    text-align: left!important;
+  }
+  .carbon-poweredby {
+    display: block!important;
+    padding: 8px 10px!important;
+    background: repeating-linear-gradient(-45deg, transparent, transparent 5px, hsla(0, 0%, 0%, .025) 5px, hsla(0, 0%, 0%, .025) 10px) hsla(203, 11%, 95%, .4)!important;
+    text-align: center!important;
+    text-transform: uppercase!important;
+    letter-spacing: .5px!important;
+    font-weight: 600!important;
+    font-size: 9px!important;
+    line-height: 1!important;
+  }
