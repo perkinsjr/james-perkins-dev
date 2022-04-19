@@ -42,8 +42,9 @@ export default function BlogPosts(props) {
                 description="All Blog Posts"
                 image="https://res.cloudinary.com/dub20ptvt/image/upload/v1642782664/sgbjmezsorrnhqtwnibg.png"
             />
-            <CarbonAd name={'carbon-index-upper'} />
+
             <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
+                <CarbonAd name={'carbon-index-upper'} />
                 <Container>
                     <VStack as="section" w="full" spacing={6} mb={4}>
                         <Heading as="h1" textAlign="center" fontSize="3xl" m={2}>
