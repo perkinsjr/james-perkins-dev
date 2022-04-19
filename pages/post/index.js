@@ -2,9 +2,7 @@ import { staticRequest } from 'tinacms';
 import { useState } from 'react';
 import { Layout } from '../../components/Layout/Layout';
 import { Seo } from '../../components/Seo';
-import Carbon from 'react-carbon';
 import {
-    Flex,
     Heading,
     InputGroup,
     Input,
@@ -19,6 +17,7 @@ import {
 } from '@chakra-ui/react';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { BlogPostCard } from '../../components/Blog/BlogCard';
+import { CarbonAd } from '../../components/Blog/CarbonAd';
 export default function BlogPosts(props) {
     const postsList = props.getPostList.edges;
     const sortedPosts = postsList.sort((a, b) => {
@@ -43,6 +42,7 @@ export default function BlogPosts(props) {
                 description="All Blog Posts"
                 image="https://res.cloudinary.com/dub20ptvt/image/upload/v1642782664/sgbjmezsorrnhqtwnibg.png"
             />
+            <CarbonAd name={'carbon-index-upper'} />
             <Box maxWidth="1080px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
                 <Container>
                     <VStack as="section" w="full" spacing={6} mb={4}>
@@ -72,9 +72,6 @@ export default function BlogPosts(props) {
                     </List>
                 </Container>
             </Box>
-            <Flex width="100%" justifyContent="center" alignContent="center" mx="auto">
-                <Carbon name="carbon-blog-index" placement="wwwjamesperkinsdev" serve="CEAD4K77" />
-            </Flex>
         </Layout>
     );
 }

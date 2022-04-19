@@ -86,17 +86,18 @@ export default function Slug(props) {
                                 <Heading as="h1" textAlign="center" my={8}>
                                     {data.getPostDocument.data.title}
                                 </Heading>
+                                <CarbonAd name={'carbon-slug-lower'} />
                                 <TinaMarkdown
                                     content={data.getPostDocument.data.body}
                                     components={components}
                                 />
+
                                 <JamComments
                                     comments={props.comments}
                                     domain={props.jamCommentsDomain}
                                     apiKey={props.jamCommentsApiKey}
                                 />
                             </Prose>
-                            <CarbonAd />
                         </Container>
                     </article>
                 </Box>
