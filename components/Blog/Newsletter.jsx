@@ -71,6 +71,7 @@ export const Newsletter = () => {
                         <InputGroup w="full">
                             <Input
                                 disabled={form.state === 'loading'}
+                                required
                                 name="email"
                                 placeholder="email@example.com"
                                 type="email"
