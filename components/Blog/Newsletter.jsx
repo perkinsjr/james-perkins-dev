@@ -1,106 +1,105 @@
+import { useState } from 'react';
 import {
-    Box,
-    Button,
-    Heading,
+    chakra,
+    VStack,
+    InputGroup,
     Input,
-    Stack,
+    InputRightElement,
+    useColorModeValue,
+    Heading,
     Text,
-    useColorModeValue as mode
+    Icon,
+    IconButton
 } from '@chakra-ui/react';
-import * as React from 'react';
-import { EmailIcon } from '@chakra-ui/icons';
+import { HiOutlineMail } from 'react-icons/hi';
 
 export const Newsletter = () => {
+    const [form, setForm] = useState({ state: '' });
+
+    const subscribe = async (e) => {
+        e.preventDefault();
+        setForm({ state: 'loading' });
+
+        const res = await fetch('/api/subscribe', {
+            body: JSON.stringify({
+                email: e.currentTarget.elements['email'].value
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            method: 'POST'
+        });
+
+        const { error, message } = await res.json();
+        if (error) {
+            setForm({
+                state: 'error',
+                message: error
+            });
+            return;
+        }
+
+        setForm({
+            state: 'success',
+            message
+        });
+    };
+
     return (
-        <Box as="section" bg={mode('white', 'gray.700')} py="12">
-            <Box
-                id="revue-embed"
-                textAlign="center"
-                bg={mode('white', 'gray.800')}
-                shadow="lg"
-                maxW={{
-                    base: 'xl',
-                    md: '3xl'
-                }}
-                mx="auto"
-                px={{
-                    base: '6',
-                    md: '8'
-                }}
-                py="4"
-                rounded="lg"
-            >
-                <Box maxW="md" mx="auto">
-                    <Text
-                        color={mode('green.600', 'green.400')}
-                        fontWeight="bold"
-                        fontSize="sm"
-                        letterSpacing="wide"
+        <VStack
+            alignItems="center"
+            w="full"
+            border="1px solid"
+            p={{ base: 2, md: 2 }}
+            bg={useColorModeValue('gray.50', 'gray.700')}
+            rounded="md"
+            mt={8}
+            spacing={3}
+        >
+            <Heading size="md">Subscribe to my newsletter</Heading>
+            <Text textAlign="center">
+                Get emails when I post new articles, new courses and videos and much more!
+            </Text>
+            {form.state !== 'success' && form.state !== 'error' && (
+                <>
+                    <chakra.form
+                        name="subscribe-form"
+                        target="_blank"
+                        w="full"
+                        onSubmit={subscribe}
                     >
-                        100+ PEOPLE ALREADY JOINED ❤️️
-                    </Text>
-                    <Heading mt="4" fontWeight="extrabold">
-                        Like this post? Subscribe to the Newsletter
-                    </Heading>
-                    <Box mt="6">
-                        <form
-                            action="https://www.getrevue.co/profile/james_r_perkins/add_subscriber"
-                            method="post"
-                            id="revue-form"
-                            name="revue-form"
-                            target="_blank"
-                        >
-                            <Stack className="revue-form-group">
-                                <Input
-                                    aria-label="Enter your email"
-                                    placeholder="Enter your email to join"
-                                    name="member[email]"
-                                    id="member_email"
-                                    rounded="base"
-                                    required
-                                />
-                                <Button
-                                    type="submit"
-                                    value="Subscribe"
-                                    name="member[subscribe]"
-                                    id="member_submit"
-                                    w="full"
-                                    colorScheme="purple"
-                                    size="lg"
-                                    textTransform="uppercase"
-                                    fontSize="sm"
-                                    fontWeight="bold"
-                                >
-                                    Join now
-                                </Button>
-                            </Stack>
-                        </form>
-                        <Text color={mode('gray.600', 'gray.400')} fontSize="sm" mt="5">
-                            <Box
-                                aria-hidden
-                                as={EmailIcon}
-                                display="inline-block"
-                                marginEnd="2"
-                                fontSize="lg"
-                                color={mode('green.600', 'green.400')}
+                        <InputGroup w="full">
+                            <Input
+                                disabled={form.state === 'loading'}
+                                name="email"
+                                placeholder="email@example.com"
+                                type="email"
+                                variant="filled"
                             />
-                            No spams. We&apos;re only send you relevant content
-                        </Text>
-                        <Text color={mode('gray.600', 'gray.400')} fontSize="sm" mt="5">
-                            By subscribing, you agree with Revue&apos;s{' '}
-                            <Box as="a" target="_blank" href="https://www.getrevue.co/terms">
-                                terms of service
-                            </Box>
-                        </Text>
-                        <Text color={mode('gray.600', 'gray.400')} fontSize="sm" mt="5">
-                            and{' '}
-                            <Box as="a" target="_blank" href="https://www.getrevue.co/privacy">
-                                Privacy Policy
-                            </Box>
-                        </Text>
-                    </Box>
-                </Box>
-            </Box>
-        </Box>
+                            <InputRightElement>
+                                <IconButton
+                                    aria-label="Subscribe"
+                                    icon={<Icon as={HiOutlineMail} />}
+                                    isLoading={form.state === 'loading'}
+                                    name="subscribe"
+                                    size="sm"
+                                    type="submit"
+                                />
+                            </InputRightElement>
+                        </InputGroup>
+                    </chakra.form>
+                </>
+            )}
+            {form.state === 'success' && (
+                <Text color="green.500" size="sm">
+                    {form.message}
+                </Text>
+            )}
+            {form.state === 'error' && (
+                <Text color="red.500" size="sm">
+                    {form.message} 😕
+                </Text>
+            )}
+        </VStack>
     );
 };
