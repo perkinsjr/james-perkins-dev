@@ -2302,10 +2302,10 @@
   resolved "https://registry.yarnpkg.com/@tinacms/auth/-/auth-0.50.2.tgz#d44998aac125a68d96d097e49ff84d1c1ff7a7c2"
   integrity sha512-5oBWtkXG8vu/W9txQrcIb7r2GC6XlgpPsO2EKdjGF4gTWZVlwah73OHqL/QogZWIbZ/4znPL1QkZVwGZuYURiw==
 
-"@tinacms/cli@^0.60.11":
-  version "0.60.11"
-  resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-0.60.11.tgz#ca4acbc3697ce546b79665b423910eb6e9321b33"
-  integrity sha512-y8TOCvVCsWOjWMB6eztVxlWnEfFoziI/MGLnhJ06Wzt8fVVlXR68s0KIbpcT8LzB8KHhOhKs/Ns8nRmjSHM04g==
+"@tinacms/cli@^0.60.12":
+  version "0.60.12"
+  resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-0.60.12.tgz#51cf87e172a86211d00fe0200898cdd75fb1cc4c"
+  integrity sha512-1XD4OpKMUR6MdD3npD9yG0DW30tZwTVeK3Pc0KoiSE21xZzcD0VT+YBUcvSjRCqwAuBwstjdIUEdQ7OGzO/O+Q==
   dependencies:
     "@graphql-codegen/core" "^2.1.0"
     "@graphql-codegen/plugin-helpers" latest
@@ -2315,15 +2315,16 @@
     "@graphql-codegen/visitor-plugin-common" "^2.4.0"
     "@graphql-tools/graphql-file-loader" "^7.2.0"
     "@graphql-tools/load" "^7.3.2"
-    "@tinacms/datalayer" "0.1.0"
-    "@tinacms/graphql" "0.59.10"
-    "@tinacms/metrics" "0.0.2"
+    "@tinacms/datalayer" "0.1.1"
+    "@tinacms/graphql" "0.59.11"
+    "@tinacms/metrics" "0.0.3"
+    "@tinacms/schema-tools" "0.0.3"
     "@yarnpkg/esbuild-plugin-pnp" "^2.0.1-rc.3"
     add "^2.0.6"
     ajv "^6.12.3"
     altair-express-middleware "4.0.6"
     auto-bind "^4.0.0"
-    axios "0.19.0"
+    axios "0.21.2"
     body-parser "^1.19.0"
     chalk "^2.4.2"
     chokidar "^3.5.1"
@@ -2345,10 +2346,10 @@
     yarn "^1.22.17"
     yup "^0.32.9"
 
-"@tinacms/datalayer@0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@tinacms/datalayer/-/datalayer-0.1.0.tgz#f851ddea69331cbba429877a8a6807cd9791fac1"
-  integrity sha512-iqW+2z0rEZDBgkPmITLTdiuBpDLU9XAivAvKqKZBjcFaXJ5IX/P6db1Sn/0Iy16Y/gznLnCjuEu846CFaKxb6A==
+"@tinacms/datalayer@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@tinacms/datalayer/-/datalayer-0.1.1.tgz#b68ca33b91f2759852353b6fad68a8eb4cf6d806"
+  integrity sha512-RDe1b8LqiJm2ztv2Cw8fM3kIVwQDf6bjJNnkKTu+5dM1M6CA86XXfXMhmtwnBGI/4QVlGLnF8eoYDK5Gva4DmA==
   dependencies:
     "@octokit/auth-app" "^2.6.0"
     "@octokit/graphql" "^4.5.6"
@@ -2369,13 +2370,13 @@
     prettier "^2.2.1"
     yup "^0.32.9"
 
-"@tinacms/graphql@0.59.10":
-  version "0.59.10"
-  resolved "https://registry.yarnpkg.com/@tinacms/graphql/-/graphql-0.59.10.tgz#df71f98e61e10122d1db274e2a54189fac2256a1"
-  integrity sha512-A+/Pksvf7CyOxC9Q4STzkaB1dd5gCsx1cifUHuzVH0md3lHn4Ky+/dNns8/OVDRYA0p5o1l4407xiyo7+nMJ7Q==
+"@tinacms/graphql@0.59.11":
+  version "0.59.11"
+  resolved "https://registry.yarnpkg.com/@tinacms/graphql/-/graphql-0.59.11.tgz#bf30609d4e83f4560ef439c0606953dbf04bcf4d"
+  integrity sha512-pJeO52s5ffjsDdGNQHvwQBzledf6mnyYCrIshw/PsFhIZzaURQxNFYJU/x4QSPU+NmVKm63QMiTVIS6qIrjrbw==
   dependencies:
     "@graphql-tools/relay-operation-optimizer" "^6.4.1"
-    "@tinacms/datalayer" "0.1.0"
+    "@tinacms/datalayer" "0.1.1"
     body-parser "^1.19.0"
     cors "^2.8.5"
     dataloader "^2.0.0"
@@ -2417,12 +2418,19 @@
     ws "^7.3.1"
     yup "^0.32.9"
 
-"@tinacms/metrics@0.0.2":
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/@tinacms/metrics/-/metrics-0.0.2.tgz#35cb24aaa735f9c4a392155ffd96565d1590b32e"
-  integrity sha512-b+6U15msj1rxWQwUelF2tSxf7cwPAH/3GF6pVowgSUTk0ycru+tUTGHu2Po90EW/+twcYGC2OL/ISgkqgtzFTQ==
+"@tinacms/metrics@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@tinacms/metrics/-/metrics-0.0.3.tgz#aa97344f54c27a0f06559e1e715e94a5e622c388"
+  integrity sha512-qopRyLvkbNuHuZGHdXsJ6M1DxtB65aecDIf8s8XZP9l6NfEfmWPC4/1uMYgG4PtTLgRymprM0l51XLqneq+5Ng==
   dependencies:
     isomorphic-fetch "^3.0.0"
+
+"@tinacms/schema-tools@0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@tinacms/schema-tools/-/schema-tools-0.0.3.tgz#8d2887e75b44b7d00dccbe2c2e28021568246c88"
+  integrity sha512-PGE1WxfJkiBDJK7/m3MIqWIAVaS17R7rnGN1nWWuatkaHz93eJNqFMAnAQzpTTB91cgRYF1NaJS60Z5UQZN5HA==
+  dependencies:
+    zod "^3.14.3"
 
 "@tinacms/schema-tools@0.0.3":
   version "0.0.3"
@@ -4191,13 +4199,12 @@ axe-core@^4.3.5:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.4.1.tgz#7dbdc25989298f9ad006645cd396782443757413"
   integrity sha512-gd1kmb21kwNuWr6BQz8fv6GNECPBnUasepcoLbekws23NVBLODdsClRZ+bQ8+9Uomf3Sm3+Vwn0oYG9NvwnJCw==
 
-axios@0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.0.tgz#8e09bff3d9122e133f7b8101c8fbdd00ed3d2ab8"
-  integrity sha512-1uvKqKQta3KBxIz14F2v06AEHZ/dIoeKfbTRkK1E5oqjDnuEerLmYTgJB5AiQZHJcljpg1TuRzdjDR06qNk0DQ==
+axios@0.21.2:
+  version "0.21.2"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.2.tgz#21297d5084b2aeeb422f5d38e7be4fbb82239017"
+  integrity sha512-87otirqUw3e8CzHTMO+/9kh/FSgXt/eVDvipijwDtEuwbkySWZ9SBm6VEubmJ/kLKEoLQV/POhxXFb66bfekfg==
   dependencies:
-    follow-redirects "1.5.10"
-    is-buffer "^2.0.2"
+    follow-redirects "^1.14.0"
 
 axobject-query@^2.2.0:
   version "2.2.0"
@@ -5303,13 +5310,6 @@ debug@4, debug@^4.0.0, debug@^4.0.1, debug@^4.1.0, debug@^4.1.1, debug@^4.3.1, d
   integrity sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==
   dependencies:
     ms "2.1.2"
-
-debug@=3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
-  dependencies:
-    ms "2.0.0"
 
 debug@^3.2.7:
   version "3.2.7"
@@ -6444,12 +6444,10 @@ focus-lock@^0.9.1:
   dependencies:
     tslib "^2.0.3"
 
-follow-redirects@1.5.10:
-  version "1.5.10"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.5.10.tgz#7b7a9f9aea2fdff36786a94ff643ed07f4ff5e2a"
-  integrity sha512-0V5l4Cizzvqt5D44aTXbFZz+FtyXV1vrDN6qrelxtfYQKW0KO0W2T/hkE8xvGa/540LkZlkaUjO4ailYTFtHVQ==
-  dependencies:
-    debug "=3.1.0"
+follow-redirects@^1.14.0:
+  version "1.14.9"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.9.tgz#dd4ea157de7bfaf9ea9b3fbd85aa16951f78d8d7"
+  integrity sha512-MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w==
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -7276,7 +7274,7 @@ is-buffer@^1.1.5:
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-1.1.6.tgz#efaa2ea9daa0d7ab2ea13a97b2b8ad51fefbe8be"
   integrity sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w==
 
-is-buffer@^2.0.0, is-buffer@^2.0.2, is-buffer@^2.0.5:
+is-buffer@^2.0.0, is-buffer@^2.0.5:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.5.tgz#ebc252e400d22ff8d77fa09888821a24a658c191"
   integrity sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==
