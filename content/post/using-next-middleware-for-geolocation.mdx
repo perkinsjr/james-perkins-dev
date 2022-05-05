@@ -65,7 +65,9 @@ export const getServerSideProps = ({ query }) => ({
 
 ```
 
-Finally we can use it on the page, however, we want by passing the props to the page:
+<newsletter/>
+
+Finally, we can use it on the page, however, we want by passing the props to the page:
 
 ```javascript
 import Head from 'next/head'
@@ -105,4 +107,7 @@ export default function Home(props) {
 
 ```
 
-Now you can handle whatever you need knowing the geolocation.
+Now you can handle whatever you need knowing the geolocation.\
+
+
+> One thing to note, geolocation made not be available so just be cautious, that is why we have a back up plan of `US`
