@@ -48,9 +48,20 @@ type Query {
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
   page(relativePath: String): Page!
-  pageConnection(before: String, after: String, first: Float, last: Float, sort: String): PageConnection!
+  pageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PageFilter): PageConnection!
+  category(relativePath: String): Category!
+  categoryConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CategoryFilter): CategoryConnection!
+  author(relativePath: String): Author!
+  authorConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AuthorFilter): AuthorConnection!
   post(relativePath: String): Post!
-  postConnection(before: String, after: String, first: Float, last: Float, sort: String): PostConnection!
+  postConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostFilter): PostConnection!
+}
+
+input DocumentFilter {
+  page: PageFilter
+  category: CategoryFilter
+  author: AuthorFilter
+  post: PostFilter
 }
 
 type DocumentConnectionEdges {
@@ -73,10 +84,10 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
 }
 
-union DocumentNode = Page | Post
+union DocumentNode = Page | Category | Author | Post
 
 type PageBlocksHero {
   heading: String
@@ -125,6 +136,71 @@ type Page implements Node & Document {
   _values: JSON!
 }
 
+input StringFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input ImageFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PageBlocksHeroFilter {
+  heading: StringFilter
+  subheading: StringFilter
+  description: StringFilter
+  image: ImageFilter
+}
+
+input PageBlocksFeaturesItemsArticleFilter {
+  post: PostFilter
+}
+
+input PageBlocksFeaturesItemsFilter {
+  article: PageBlocksFeaturesItemsArticleFilter
+}
+
+input PageBlocksFeaturesFilter {
+  items: PageBlocksFeaturesItemsFilter
+}
+
+input PageBlocksContentItemsFilter {
+  image: ImageFilter
+  name: StringFilter
+  description: StringFilter
+  href: StringFilter
+}
+
+input PageBlocksContentFilter {
+  items: PageBlocksContentItemsFilter
+}
+
+input PageBlocksVideoItemsFilter {
+  title: StringFilter
+  description: StringFilter
+  url: StringFilter
+}
+
+input PageBlocksVideoFilter {
+  items: PageBlocksVideoItemsFilter
+}
+
+input PageBlocksFilter {
+  hero: PageBlocksHeroFilter
+  features: PageBlocksFeaturesFilter
+  content: PageBlocksContentFilter
+  video: PageBlocksVideoFilter
+}
+
+input PageFilter {
+  blocks: PageBlocksFilter
+}
+
 type PageConnectionEdges {
   cursor: String!
   node: Page
@@ -136,19 +212,152 @@ type PageConnection implements Connection {
   edges: [PageConnectionEdges]
 }
 
+union CategoryRelatedCategory = Category
+
+type CategoryRelated {
+  category: CategoryRelatedCategory
+}
+
+type Category implements Node & Document {
+  title: String
+  related: [CategoryRelated]
+  description: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input CategoryRelatedCategoryFilter {
+  category: CategoryFilter
+}
+
+input CategoryRelatedFilter {
+  category: CategoryRelatedCategoryFilter
+}
+
+input CategoryFilter {
+  title: StringFilter
+  related: CategoryRelatedFilter
+  description: StringFilter
+}
+
+type CategoryConnectionEdges {
+  cursor: String!
+  node: Category
+}
+
+type CategoryConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [CategoryConnectionEdges]
+}
+
+type Author implements Node & Document {
+  title: String
+  email: String
+  name: String
+  twitter: String
+  github: String
+  linkedin: String
+  bio: String
+  image: String
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input AuthorFilter {
+  title: StringFilter
+  email: StringFilter
+  name: StringFilter
+  twitter: StringFilter
+  github: StringFilter
+  linkedin: StringFilter
+  bio: StringFilter
+  image: ImageFilter
+}
+
+type AuthorConnectionEdges {
+  cursor: String!
+  node: Author
+}
+
+type AuthorConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [AuthorConnectionEdges]
+}
+
+union PostAuthorsAuthor = Author
+
+type PostAuthors {
+  author: PostAuthorsAuthor
+}
+
+union PostCategoriesCategory = Category
+
+type PostCategories {
+  category: PostCategoriesCategory
+}
+
 type Post implements Node & Document {
   title: String
   date: String
   image: String
-  author: String
-  authorTwitter: String
-  category: [String]
-  tags: [String]
+  authors: [PostAuthors]
+  categories: [PostCategories]
   description: String
   body: JSON
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input PostAuthorsAuthorFilter {
+  author: AuthorFilter
+}
+
+input PostAuthorsFilter {
+  author: PostAuthorsAuthorFilter
+}
+
+input PostCategoriesCategoryFilter {
+  category: CategoryFilter
+}
+
+input PostCategoriesFilter {
+  category: PostCategoriesCategoryFilter
+}
+
+input PostBodyNewsletterFilter {
+  title: StringFilter
+}
+
+input PostBodyYoutubeFilter {
+  url: StringFilter
+}
+
+input PostBodyFilter {
+  newsletter: PostBodyNewsletterFilter
+  youtube: PostBodyYoutubeFilter
+}
+
+input PostFilter {
+  title: StringFilter
+  date: DatetimeFilter
+  image: ImageFilter
+  authors: PostAuthorsFilter
+  categories: PostCategoriesFilter
+  description: StringFilter
+  body: PostBodyFilter
 }
 
 type PostConnectionEdges {
@@ -169,12 +378,18 @@ type Mutation {
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePage(relativePath: String!, params: PageMutation!): Page!
   createPage(relativePath: String!, params: PageMutation!): Page!
+  updateCategory(relativePath: String!, params: CategoryMutation!): Category!
+  createCategory(relativePath: String!, params: CategoryMutation!): Category!
+  updateAuthor(relativePath: String!, params: AuthorMutation!): Author!
+  createAuthor(relativePath: String!, params: AuthorMutation!): Author!
   updatePost(relativePath: String!, params: PostMutation!): Post!
   createPost(relativePath: String!, params: PostMutation!): Post!
 }
 
 input DocumentMutation {
   page: PageMutation
+  category: CategoryMutation
+  author: AuthorMutation
   post: PostMutation
 }
 
@@ -225,14 +440,41 @@ input PageMutation {
   blocks: [PageBlocksMutation]
 }
 
+input CategoryRelatedMutation {
+  category: String
+}
+
+input CategoryMutation {
+  title: String
+  related: [CategoryRelatedMutation]
+  description: String
+}
+
+input AuthorMutation {
+  title: String
+  email: String
+  name: String
+  twitter: String
+  github: String
+  linkedin: String
+  bio: String
+  image: String
+}
+
+input PostAuthorsMutation {
+  author: String
+}
+
+input PostCategoriesMutation {
+  category: String
+}
+
 input PostMutation {
   title: String
   date: String
   image: String
-  author: String
-  authorTwitter: String
-  category: [String]
-  tags: [String]
+  authors: [PostAuthorsMutation]
+  categories: [PostCategoriesMutation]
   description: String
   body: JSON
 }

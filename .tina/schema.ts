@@ -1,7 +1,63 @@
 
 import { defineSchema, defineConfig } from "tinacms";
 import type { TinaTemplate } from "@tinacms/cli";
+import { TinaFieldInner } from "@tinacms/schema-tools";
 
+
+export const filenameToLabel = (filename: string) => {
+  return filename
+    .replace(/.md+$/, "")
+    .split(/[.\/]+/)
+    .pop()
+    .replace("-", " ");
+};
+
+export const categoriesReferenceField: TinaFieldInner<false> = {
+  type: "object",
+  label: "Categories",
+  name: "categories",
+  list: true,
+  ui: {
+    itemProps: (item) => {
+      return {
+        label: item.category
+          ? filenameToLabel(item.category)
+          : "No category selected",
+      };
+    },
+  },
+  fields: [
+    {
+      label: "Category",
+      name: "category",
+      type: "reference",
+      collections: ["category"],
+    },
+  ],
+};
+export const authorReferenceField: TinaFieldInner<false> = {
+  type: "object",
+  label: "Authors",
+  name: "authors",
+  list: true,
+  ui: {
+    itemProps: (item) => {
+      return {
+        label: item.author
+          ? filenameToLabel(item.author)
+          : "No author selected",
+      };
+    },
+  },
+  fields: [
+    {
+      label: "Author",
+      name: "author",
+      type: "reference",
+      collections: ["author"],
+    },
+  ],
+};
 const heroBlock : TinaTemplate = {
   name: 'hero',
   label: 'Hero',
@@ -140,6 +196,102 @@ const schema =  defineSchema({
         },
       ],
     },
+  {
+  label: "Category",
+  name: "category",
+  path: "content/data/categories",
+  format: "md",
+  fields: [
+    {
+      type: "string",
+      label: "Title",
+      name: "title",
+    },
+    {
+      type: "object",
+      label: "Related Categories",
+      name: "related",
+      list: true,
+      ui: {
+        itemProps: (item) => {
+          return {
+            label: item.category
+              ? filenameToLabel(item.category)
+              : "No category selected",
+          };
+        },
+      },
+      fields: [
+        {
+          label: "Category",
+          name: "category",
+          type: "reference",
+          collections: ["category"],
+        },
+      ],
+    },
+    
+    {
+      type: "string",
+      label: "Description",
+      name: "description",
+      ui: {
+        component: "textarea",
+      },
+    },
+  ],
+},
+{
+label: "Author",
+name: "author",
+path: "content/data/authors",
+format: "md",
+fields: [
+  {
+    type: "string",
+    label: "Title",
+    name: "title",
+  },
+  {
+    type: "string",
+    label: "Email",
+    name: "email",
+  },
+  {
+    type: "string",
+    label: "Name",
+    name: "name",
+  },
+  {
+    type: "string",
+    label: "Twitter",
+    name: "twitter",
+  },
+  {
+    type: "string",
+    label: "Github",
+    name: "github",
+  },
+  {
+    type: "string",
+    label: "LinkedIn",
+    name: "linkedin",
+  },
+  {
+    type: "string",
+    label: "Bio",
+    name: "bio",
+    ui: {
+      component: "textarea",
+    },
+  },
+  {
+    type: "image",
+    label: "Image",
+    name: "image",
+  },
+],
+},
     {
       label: 'Blog Posts',
       name: 'post',
@@ -161,40 +313,8 @@ const schema =  defineSchema({
           label: "Cover Image",
           name: "image",
         },
-        {
-          type: "string",
-          label: "Author",
-          name: "author",
-          ui:{
-            defaultValue: "James Perkins"
-          }
-        },
-        {
-          type: "string",
-          label: "Author Twitter Handle",
-          name: "authorTwitter",
-          ui:{
-            defaultValue: "james_r_perkins"
-          }
-        },
-        {
-          type: "string",
-          label: "Category",
-          name: "category",
-          list: true,
-          ui:{
-            component: "tags",
-          }
-        },
-        {
-          type: "string",
-          label: "Tags",
-          name: "tags",
-          list: true,
-          ui:{
-            component: "tags",
-          }
-        },
+        authorReferenceField,
+        categoriesReferenceField,
         {
           type: "string",
           label: "Description",
@@ -209,7 +329,16 @@ const schema =  defineSchema({
             {
               name: 'newsletter',
               label: 'Newsletter',
-              fields: [],
+              fields: [
+                {
+                  type: 'string',
+                  label: 'Title',
+                  name: 'title',
+                  ui:{
+                    defaultValue: 'Newsletter',
+                  }
+                },
+              ]
             },
             {
               name: 'youtube',
@@ -222,11 +351,6 @@ const schema =  defineSchema({
                 },
               ],
             },
-            {
-              name: 'carbon',
-              label: 'Carbon Ads',
-              fields: [],
-            }
           ]
         },
       ],
@@ -266,6 +390,9 @@ export const tinaConfig = defineConfig({
           }
           return undefined;
         }
+        if (["page"].includes(collection.name)) {
+          return undefined
+        }
         return `/${collection.name}/${document._sys.filename}`;
       });
       cms.plugins.add(RouteMapping);
@@ -275,3 +402,5 @@ export const tinaConfig = defineConfig({
   },
 });
 export default schema;
+
+

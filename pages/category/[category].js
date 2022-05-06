@@ -18,7 +18,7 @@ import {
 import { HiOutlineSearch } from 'react-icons/hi';
 import { BlogPostCard } from '../../components/Blog/BlogCard';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
-export default function BlogPosts(props) {
+export default function BlogPostsPerCategory(props) {
     const postsList = props.postConnection.edges;
     const sortedPosts = postsList.sort((a, b) => {
         return new Date(b.node.date) - new Date(a.node.date);
@@ -36,8 +36,8 @@ export default function BlogPosts(props) {
     return (
         <Layout>
             <Seo
-                title="Blog Posts | James Perkins"
-                description="All Blog Posts"
+                title="Blog Posts By Category | James Perkins"
+                description="Blog Posts By Category"
                 image="https://res.cloudinary.com/dub20ptvt/image/upload/v1642782664/sgbjmezsorrnhqtwnibg.png"
             />
 
@@ -46,7 +46,7 @@ export default function BlogPosts(props) {
                 <Container>
                     <VStack as="section" w="full" spacing={6} mb={4}>
                         <Heading as="h1" textAlign="center" fontSize="3xl" m={2}>
-                            All Posts
+                            All Posts by Category: {props.category}
                         </Heading>
                         <Text textAlign="center" fontSize="md" mb={[4, 2]}>
                             I&apos;ve written a total of {sortedPosts.length} articles.
@@ -75,27 +75,51 @@ export default function BlogPosts(props) {
     );
 }
 
-export const getStaticProps = async () => {
+export const getStaticPaths = async () => {
     const tinaProps = await staticRequest({
-        query: `
-        {
-            postConnection {
-              edges {
-                node {
+        query: `{ categoryConnection{
+            edges{
+            node{
+               title
+              _sys {
+                filename
+              }
+            }
+          }
+        }
+      }`,
+        variables: {}
+    });
+    const paths = tinaProps.categoryConnection.edges.map((x) => {
+        return { params: { category: x.node.title } };
+    });
+
+    return {
+        paths,
+        fallback: 'blocking'
+    };
+};
+
+export const getStaticProps = async (ctx) => {
+    const category = ctx.params.category;
+    const tinaProps = await staticRequest({
+        query: `query getPostsByCategory($category: String){
+            postConnection(filter: {categories:{category: {category:{title: {eq:$category}}}}}){
+              edges{
+                node{
                   id
-                  title
-                  date                
                   description
-                  _sys {
-                    filename
+                  title
+                  date
+                  _sys{
+                     filename
                   }
                 }
               }
             }
           }`,
-        variables: {}
+        variables: {category: category}
     });
-
     return {
         props: {
             ...tinaProps

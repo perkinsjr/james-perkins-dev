@@ -2,7 +2,7 @@
   "name": "james-perkins-dev",
   "private": true,
   "scripts": {
-    "dev": "yarn tinacms server:start -c \"next dev\"",
+    "dev": "yarn tinacms server:start -c \"next dev\" --experimentalData",
     "build": "yarn tinacms server:start -c \"next build\"",
     "start": "yarn tinacms server:start -c \"next start\" --experimentalData",
     "lint": "next lint",

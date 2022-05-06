@@ -223,6 +223,10 @@ const NAV_ITEMS = [
         href: '/post'
     },
     {
+        label: 'Categories',
+        href: '/category'
+    },
+    {
         label: 'YouTube',
         href: 'https://www.youtube.com/c/learntocodewithjames'
     },
