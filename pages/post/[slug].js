@@ -155,12 +155,12 @@ export const getStaticProps = async (ctx) => {
         relativePath: ctx.params.slug + '.mdx'
     };
 
-    // Retrieve all comments already made on this post.
     const comments = await fetchByPath({
         domain: process.env.JAM_COMMENTS_DOMAIN,
         apiKey: process.env.JAM_COMMENTS_API_KEY,
         path: `/post/${ctx.params.slug}`
     });
+
     let data;
     let error = false;
     try {
@@ -170,7 +170,6 @@ export const getStaticProps = async (ctx) => {
         });
     } catch (error) {
         error = true;
-        // gulp them
     }
 
     if (!data) {
