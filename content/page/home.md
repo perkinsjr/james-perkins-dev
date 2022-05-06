@@ -9,7 +9,7 @@ blocks:
       https://res.cloudinary.com/dub20ptvt/image/upload/v1627759692/me-and-tina_hgq79d.webp
     _template: hero
   - items:
-      - article: content/post/page-reload-with-ssr.mdx
+      - article: content/post/using-next-middleware-for-geolocation.mdx
       - article: content/post/warp-review.mdx
       - article: content/post/clerk-firebase.mdx
     _template: features
