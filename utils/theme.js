@@ -16,13 +16,19 @@ const theme = extendTheme(
                 fontSize: '1.125rem',
                 lineHeight: '1.5'
             },
+            h1: {   
+                fontSize: '2.5rem',
+                fontWeight: 'bolder',
+                lineHeight: '1.5',
+                color: 'purple.500',
+            },
             a: {
                 color: '#483d8b',
                 fontWeight: 'bold',
                 textDecoration: 'underline'
             },
             code: {
-                bgColor: 'purple.500',
+                bgColor: 'purple.600',
                 padding: '0.25rem',
                 fontSize: '1.125rem',
                 borderRadius: '0.25rem',

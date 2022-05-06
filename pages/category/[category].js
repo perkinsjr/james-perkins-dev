@@ -122,7 +122,8 @@ export const getStaticProps = async (ctx) => {
     });
     return {
         props: {
-            ...tinaProps
+            ...tinaProps,
+            category: category
         }
     };
 };

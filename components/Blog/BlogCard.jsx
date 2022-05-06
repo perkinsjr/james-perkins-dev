@@ -28,7 +28,7 @@ const BlogPostCard = (props) => {
                 transitionTimingFunction="ease-out"
             >
                 <VStack alignItems="flex-start">
-                    <Link href={`post/${props._sys.filename}`} passHref>
+                    <Link href={`/post/${props._sys.filename}`} passHref>
                         <LinkOverlay>
                             <Heading size="md">{props.title}</Heading>
                         </LinkOverlay>
