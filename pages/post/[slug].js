@@ -8,6 +8,7 @@ import { Seo } from '../../components/Seo';
 import { Newsletter } from '../../components/Blog/Newsletter';
 import { VideoPlayer } from '../../components/Blog/VideoPlayer';
 import { CodeBlock } from '../../components/Blog/CustomCodeBlock';
+import { Author } from '../../components/Blog/Author/Author';
 import { useTina } from 'tinacms/dist/edit-state';
 import { Prose } from '@nikolovlazar/chakra-ui-prose';
 import FourOhFour from '../404';
@@ -26,6 +27,8 @@ const query = `query getPost($relativePath: String!) {
                       bio
                       image
                       twitter
+                      github
+                      linkedin
                 }
             }
         }
@@ -117,6 +120,7 @@ export default function Slug(props) {
                                 
                                 <TinaMarkdown content={data.post.body} components={components} />
                                 </Prose>
+                                <Author author={data.post.authors[0].author} />
                                 <JamComments
                                     comments={props.comments}
                                     domain={props.jamCommentsDomain}
