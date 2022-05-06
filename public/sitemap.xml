@@ -85,6 +85,10 @@
     </url>
 
     <url>
+        <loc>https://jamesperkins.dev/post/next-font-optimization</loc>
+    </url>
+
+    <url>
         <loc>https://jamesperkins.dev/post/next-link-open-new-tab</loc>
     </url>
 
@@ -130,6 +134,10 @@
 
     <url>
         <loc>https://jamesperkins.dev/post/using-next-image-with-chakra</loc>
+    </url>
+
+    <url>
+        <loc>https://jamesperkins.dev/post/using-next-middleware-for-geolocation</loc>
     </url>
 
     <url>
