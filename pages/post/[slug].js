@@ -98,18 +98,16 @@ export default function Slug(props) {
                                     {data.post.title}
                                 </Heading>
                                 <CarbonAd name={'carbon-slug-lower'} />
-                                <HStack spacing={4}>
+                                <HStack spacing={4} mt={[8, 0]}>
                                     {data.post.categories.map((x) => (
                                         <LinkBox key={x.category.title}>
                                         <Link key={x.category.title} href={`/category/${x.category.title}`} passHref>
-                                        <LinkOverlay>
+                                        <LinkOverlay >
                                         <Tag
                                             size="lg"
-                                            
-                                            variant="solid"
-                                            colorScheme="purple"
-                                        >
-                                            {x.category.title}
+                                            variant="subtle"
+                                            colorScheme="purple">
+                                            # {x.category.title}
                                         </Tag>
                                         </LinkOverlay>
                                         </Link>
