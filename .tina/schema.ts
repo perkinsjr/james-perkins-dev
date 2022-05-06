@@ -165,25 +165,35 @@ const schema =  defineSchema({
           type: "string",
           label: "Author",
           name: "author",
+          ui:{
+            defaultValue: "James Perkins"
+          }
         },
         {
           type: "string",
           label: "Author Twitter Handle",
           name: "authorTwitter",
+          ui:{
+            defaultValue: "james_r_perkins"
+          }
         },
         {
           type: "string",
           label: "Category",
           name: "category",
-          options: ["tutorials", "thoughts", "productivity","podcast","roll your tweet"],
-          list: true
+          list: true,
+          ui:{
+            component: "tags",
+          }
         },
         {
           type: "string",
           label: "Tags",
           name: "tags",
-          options: ["nextjs", "javascript", "devops","tailwind","thoughts", "productivity","devrel","astro"],
-          list: true
+          list: true,
+          ui:{
+            component: "tags",
+          }
         },
         {
           type: "string",
@@ -251,12 +261,12 @@ export const tinaConfig = defineConfig({
     import("tinacms").then(({ RouteMappingPlugin }) => {
       const RouteMapping = new RouteMappingPlugin((collection, document) => {
         if (["page"].includes(collection.name)) {
-          if (document.sys.filename === "home") {
+          if (document._sys.filename === "home") {
             return `/`;
           }
           return undefined;
         }
-        return `/${collection.name}/${document.sys.filename}`;
+        return `/${collection.name}/${document._sys.filename}`;
       });
       cms.plugins.add(RouteMapping);
       
