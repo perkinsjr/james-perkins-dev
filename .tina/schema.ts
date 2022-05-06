@@ -124,7 +124,7 @@ const videoSection : TinaTemplate = {
   ]
 };
 
-export default defineSchema({
+const schema =  defineSchema({
   collections: [
     {
       label: 'Page Content',
@@ -240,35 +240,28 @@ const apiURL =
 
 export const tinaConfig = defineConfig({
   apiURL,
+  schema,
   mediaStore: async () => {
     const pack = await import('next-tinacms-cloudinary');
     return pack.TinaCloudCloudinaryMediaStore;
   },
   cmsCallback: (cms) => {
-    //  add your CMS callback code here (if you want)
+    cms.flags.set('branch-switcher', true);
 
-    // The Route Mapper
-    /**
-     * 1. Import `tinacms` and `RouteMappingPlugin`
-     **/
     import("tinacms").then(({ RouteMappingPlugin }) => {
-      /**
-       * 2. Define the `RouteMappingPlugin` see https://tina.io/docs/tinacms-context/#the-routemappingplugin for more details
-       **/
       const RouteMapping = new RouteMappingPlugin((collection, document) => {
         if (["page"].includes(collection.name)) {
           if (document.sys.filename === "home") {
             return `/`;
           }
-          return undefined
+          return undefined;
         }
         return `/${collection.name}/${document.sys.filename}`;
       });
-      /**
-       * 3. Add the `RouteMappingPlugin` to the `cms`.
-       **/
       cms.plugins.add(RouteMapping);
-      cms.flags.set('branch-switcher', true)
+      
     });
+    return cms;
   },
 });
+export default schema;

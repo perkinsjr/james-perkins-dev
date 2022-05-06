@@ -19,19 +19,17 @@ import { HiOutlineSearch } from 'react-icons/hi';
 import { BlogPostCard } from '../../components/Blog/BlogCard';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
 export default function BlogPosts(props) {
-    const postsList = props.getPostList.edges;
+    const postsList = props.postConnection.edges;
     const sortedPosts = postsList.sort((a, b) => {
-        return new Date(b.node.data.date) - new Date(a.node.data.date);
+        return new Date(b.node.date) - new Date(a.node.date);
     });
     const [displayPosts, setDisplayPosts] = useState(sortedPosts);
 
     const onSearch = (event) => {
         const query = event.currentTarget.value;
-
         const filteredPosts = postsList.filter((post) => {
             return post.node.data.description?.toLowerCase().includes(query.toLowerCase());
         });
-
         setDisplayPosts(filteredPosts);
     };
 
@@ -51,7 +49,7 @@ export default function BlogPosts(props) {
                             All Posts
                         </Heading>
                         <Text textAlign="center" fontSize="md" mb={[4, 2]}>
-                            I’ve written a total of {sortedPosts.length} articles.
+                            I&apos;ve written a total of {sortedPosts.length} articles.
                         </Text>
                         <InputGroup>
                             <InputLeftElement pointerEvents="none">
@@ -66,7 +64,7 @@ export default function BlogPosts(props) {
                     </VStack>
                     <List w="full" spacing={4}>
                         {displayPosts.map((post) => (
-                            <ListItem key={post.node.sys.filename}>
+                            <ListItem key={post.node._sys.filename}>
                                 <BlogPostCard {...post.node} />
                             </ListItem>
                         ))}
@@ -79,12 +77,11 @@ export default function BlogPosts(props) {
 
 export const getStaticProps = async () => {
     const tinaProps = await staticRequest({
-        query: `{
-      getPostList{
-        edges {
-          node {
+        query: `
+            { postConnection{
+                edges{
+                node{
             id
-            data{
               title
               date
               description
@@ -92,8 +89,7 @@ export const getStaticProps = async () => {
               authorTwitter
               category
               image
-            }
-            sys {
+            _sys {
               filename
             }
           }

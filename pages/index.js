@@ -9,51 +9,47 @@ import { useTina } from 'tinacms/dist/edit-state';
 import FeaturedVideos from '../components/Home/FeaturedVideos';
 
 const query = `query {
-    getPageDocument(relativePath: "home.md") {
-      data {
-        blocks {
-          __typename
-          ... on PageBlocksHero {
-            heading
-            subheading
-            description
+    page(relativePath: "home.md"){
+      blocks {
+        __typename
+        ... on PageBlocksHero {
+          heading
+          subheading
+          description
+          image
+        }
+        ... on PageBlocksFeatures {
+          items {
+            article {
+              ... on Post {
+                title
+                date
+                description
+                _sys {
+                  filename
+                }
+              }
+            }
+          }
+        }
+        ... on PageBlocksContent {
+          items {
             image
+            name
+            description
+            href
           }
-          ... on PageBlocksFeatures {
-            items {
-              article {
-                  ... on PostDocument{
-                  data{
-                    title
-                    date
-                    description
-                  }
-                    sys{
-                      filename
-                    }
-                  }
-              }
-                  }
-            }
-          ... on PageBlocksContent {
-            items {
-              image
-              name
-              description
-              href
-            }
-          }
-          ... on PageBlocksVideo {
-              items{
-                  title
-                  description
-                  url
-              }
+        }
+        ... on PageBlocksVideo {
+          items {
+            title
+            description
+            url
           }
         }
       }
     }
-  }
+  }  
 `;
 
 export default function Home(props) {
@@ -69,8 +65,8 @@ export default function Home(props) {
                 description="Home page for James Perkins"
                 image="https://res.cloudinary.com/dub20ptvt/image/upload/v1642782664/sgbjmezsorrnhqtwnibg.png"
             />
-            {data?.getPageDocument?.data?.blocks
-                ? data?.getPageDocument?.data?.blocks.map(function (block, i) {
+            {data?.page?.blocks
+                ? data?.page?.blocks.map(function (block, i) {
                       switch (block.__typename) {
                           case 'PageBlocksHero':
                               return (
@@ -101,7 +97,7 @@ export default function Home(props) {
                       }
                   })
                 : null}
-            {!data?.getPageDocument.data.blocks && <h1>Loading...</h1>}
+            {!data?.page.blocks && <h1>Loading...</h1>}
         </Layout>
     );
 }

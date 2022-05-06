@@ -14,8 +14,7 @@ import FourOhFour from '../404';
 import { JamComments } from '@jam-comments/next';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
 const query = `query getPost($relativePath: String!) {
-  getPostDocument(relativePath: $relativePath) {
-    data {
+  post(relativePath: $relativePath) {
       title
       date
       image
@@ -25,7 +24,6 @@ const query = `query getPost($relativePath: String!) {
       tags
       description
       body
-    }
   }
 }
 `;
@@ -71,24 +69,24 @@ export default function Slug(props) {
             );
         }
     };
-    if (data && data.getPostDocument?.data) {
+    if (data && data.post) {
         return (
             <>
                 <Seo
-                    title={data.getPostDocument.data.title}
-                    description={data.getPostDocument.data.description}
-                    image={data.getPostDocument.data.image}
+                    title={data.post.title}
+                    description={data.post.description}
+                    image={data.post.image}
                 />
                 <Box maxWidth="1100px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
                     <article>
                         <Container maxW="container.md">
                             <Prose>
                                 <Heading as="h1" textAlign="center" my={8}>
-                                    {data.getPostDocument.data.title}
+                                    {data.post.title}
                                 </Heading>
                                 <CarbonAd name={'carbon-slug-lower'} />
                                 <TinaMarkdown
-                                    content={data.getPostDocument.data.body}
+                                    content={data.post.body}
                                     components={components}
                                 />
 
@@ -116,11 +114,10 @@ export default function Slug(props) {
 
 export const getStaticPaths = async () => {
     const tinaProps = await staticRequest({
-        query: `{
-        getPostList{
-          edges {
-            node {
-              sys {
+        query: `{ postConnection{
+            edges{
+            node{
+              _sys {
                 filename
               }
             }
@@ -129,8 +126,8 @@ export const getStaticPaths = async () => {
       }`,
         variables: {}
     });
-    const paths = tinaProps.getPostList.edges.map((x) => {
-        return { params: { slug: x.node.sys.filename } };
+    const paths = tinaProps.postConnection.edges.map((x) => {
+        return { params: { slug: x.node._sys.filename } };
     });
 
     return {

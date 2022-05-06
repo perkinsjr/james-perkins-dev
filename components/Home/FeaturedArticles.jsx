@@ -30,7 +30,7 @@ export const FeaturedArticles = ({ data }) => {
                 <List w="full" spacing={4} mb={4}>
                     {data.items?.map((feature) => {
                         return (
-                            <ListItem key={feature.article.sys.filename} my={{ base: 0, sm: 4 }}>
+                            <ListItem key={feature.article._sys.filename} my={{ base: 0, sm: 4 }}>
                                 <BlogPostCard {...feature.article} />
                             </ListItem>
                         );

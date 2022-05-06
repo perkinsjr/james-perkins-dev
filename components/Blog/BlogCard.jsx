@@ -28,9 +28,9 @@ const BlogPostCard = (props) => {
                 transitionTimingFunction="ease-out"
             >
                 <VStack alignItems="flex-start">
-                    <Link href={`post/${props.sys.filename}`} passHref>
+                    <Link href={`post/${props._sys.filename}`} passHref>
                         <LinkOverlay>
-                            <Heading size="md">{props.data.title}</Heading>
+                            <Heading size="md">{props.title}</Heading>
                         </LinkOverlay>
                     </Link>
                     <HStack
@@ -41,12 +41,12 @@ const BlogPostCard = (props) => {
                         }
                     >
                         <Text color="gray.500" fontSize="sm">
-                            {new Date(props.data.date).toLocaleDateString()}
+                            {new Date(props.date).toLocaleDateString()}
                         </Text>
                     </HStack>
                 </VStack>
                 <Text color="gray.500" fontSize="sm">
-                    {props.data.description}
+                    {props.description}
                 </Text>
             </VStack>
         </LinkBox>
