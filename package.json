@@ -2,8 +2,8 @@
   "name": "james-perkins-dev",
   "private": true,
   "scripts": {
-    "dev": "yarn tinacms server:start -c \"next dev\"",
-    "build": "yarn tinacms server:start -c \"next build\"",
+    "dev": "yarn tinacms server:start -c \"next dev\" --experimentalData",
+    "build": "yarn tinacms server:start -c \"next build\" --experimentalData",
     "start": "yarn tinacms server:start -c \"next start\" --experimentalData",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,md,mdx}\"",

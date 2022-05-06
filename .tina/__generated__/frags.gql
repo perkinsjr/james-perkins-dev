@@ -37,14 +37,50 @@ fragment PageParts on Page {
   }
 }
 
+fragment CategoryParts on Category {
+  title
+  related {
+    __typename
+    category {
+      ... on Document {
+        id
+      }
+    }
+  }
+  description
+}
+
+fragment AuthorParts on Author {
+  title
+  email
+  name
+  twitter
+  github
+  linkedin
+  bio
+  image
+}
+
 fragment PostParts on Post {
   title
   date
   image
-  author
-  authorTwitter
-  category
-  tags
+  authors {
+    __typename
+    author {
+      ... on Document {
+        id
+      }
+    }
+  }
+  categories {
+    __typename
+    category {
+      ... on Document {
+        id
+      }
+    }
+  }
   description
   body
 }

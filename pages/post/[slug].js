@@ -14,18 +14,31 @@ import FourOhFour from '../404';
 import { JamComments } from '@jam-comments/next';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
 const query = `query getPost($relativePath: String!) {
-  post(relativePath: $relativePath) {
-      title
-      date
-      image
-      author
-      authorTwitter
-      category
-      tags
-      description
-      body
+    post(relativePath: $relativePath) {
+        title
+        date
+        image
+        authors{
+            author{
+                ... on Author {
+                      name
+                      bio
+                      image
+                      twitter
+                }
+            }
+        }
+        categories {
+          category {
+            ... on Category {
+              title
+            }
+          }
+        }
+        description
+        body
+    }
   }
-}
 `;
 
 export default function Slug(props) {
@@ -81,7 +94,7 @@ export default function Slug(props) {
                     <article>
                         <Container maxW="container.md">
                             <Prose>
-                                <Heading as="h1" textAlign="center" my={8}>
+                                <Heading color="purple.400" as="h1" textAlign="center" my={8}>
                                     {data.post.title}
                                 </Heading>
                                 <CarbonAd name={'carbon-slug-lower'} />
