@@ -17,9 +17,6 @@ const theme = extendTheme(
                 lineHeight: '1.5'
             },
             h1: {   
-                fontSize: '2.5rem',
-                fontWeight: 'bolder',
-                lineHeight: '1.5',
                 color: 'purple.500',
             },
             a: {
