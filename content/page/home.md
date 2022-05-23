@@ -14,6 +14,15 @@ blocks:
       - article: content/post/clerk-firebase.mdx
     _template: features
   - items:
+      - title: The Dark Side of Product Hunt... (But It's Still Legit)
+        description: >-
+          I launched my product on Product Hunt, and the experience was great...
+          Except there is a dark side to Product Hunt that no one is talking
+          bout. 
+
+
+          This video talks about the Dark Side. 
+        url: 'https://www.youtube.com/watch?v=Dpda0s0Yz_8&t=299s'
       - title: Bye bye Chakra UI and Tailwind CSS
         description: >-
           I am a power user of Chakra UI but lately I have been checking out a
@@ -27,15 +36,6 @@ blocks:
           multiple platforms, and also have a completely separate one for
           everything else.
         url: 'https://www.youtube.com/watch?v=L8f-AVBl418'
-      - title: The Dark Side of Product Hunt... (But It's Still Legit)
-        description: >-
-          I launched my product on Product Hunt, and the experience was great...
-          Except there is a dark side to Product Hunt that no one is talking
-          bout. 
-
-
-          This video talks about the Dark Side. 
-        url: 'https://www.youtube.com/watch?v=Dpda0s0Yz_8&t=299s'
       - title: 'THIS TERMINAL IS FROM THE FUTURE '
         description: >
           Warp Terminal has finally been released to public beta! It's probably
