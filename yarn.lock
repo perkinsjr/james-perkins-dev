@@ -2036,39 +2036,6 @@
     "@react-types/shared" "^3.12.0"
     clsx "^1.1.1"
 
-"@react-hook/debounce@^3.0.0":
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/@react-hook/debounce/-/debounce-3.0.0.tgz#9eea8b5d81d4cb67cd72dd8657b3ff724afc7cad"
-  integrity sha512-ir/kPrSfAzY12Gre0sOHkZ2rkEmM4fS5M5zFxCi4BnCeXh2nvx9Ujd+U4IGpKCuPA+EQD0pg1eK2NGLvfWejag==
-  dependencies:
-    "@react-hook/latest" "^1.0.2"
-
-"@react-hook/event@^1.2.1":
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/@react-hook/event/-/event-1.2.6.tgz#52f91578add934acc1203328ca09ab14fc7ee58e"
-  integrity sha512-JUL5IluaOdn5w5Afpe/puPa1rj8X6udMlQ9dt4hvMuKmTrBS1Ya6sb4sVgvfe2eU4yDuOfAhik8xhbcCekbg9Q==
-
-"@react-hook/latest@^1.0.2":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@react-hook/latest/-/latest-1.0.3.tgz#c2d1d0b0af8b69ec6e2b3a2412ba0768ac82db80"
-  integrity sha512-dy6duzl+JnAZcDbNTfmaP3xHiKtbXYOaz3G51MGVljh548Y8MWzTr+PHLOfvpypEVW9zwvl+VyKjbWKEVbV1Rg==
-
-"@react-hook/throttle@^2.2.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@react-hook/throttle/-/throttle-2.2.0.tgz#d0402714a06e1ba0bc1da1fdf5c3c5cd0e08d45a"
-  integrity sha512-LJ5eg+yMV8lXtqK3lR+OtOZ2WH/EfWvuiEEu0M3bhR7dZRfTyEJKxH1oK9uyBxiXPtWXiQggWbZirMCXam51tg==
-  dependencies:
-    "@react-hook/latest" "^1.0.2"
-
-"@react-hook/window-size@^3.0.7":
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/@react-hook/window-size/-/window-size-3.0.7.tgz#00d176e7a8eb55814e161eae34aae20afbcbe35d"
-  integrity sha512-bK5ed/jN+cxy0s1jt2CelCnUt7jZRseUvPQ22ZJkUl/QDOsD+7CA/6wcqC3c0QweM/fPBRP6uI56TJ48SnlVww==
-  dependencies:
-    "@react-hook/debounce" "^3.0.0"
-    "@react-hook/event" "^1.2.1"
-    "@react-hook/throttle" "^2.2.0"
-
 "@react-stately/collections@^3.3.2", "@react-stately/collections@^3.3.8":
   version "3.3.8"
   resolved "https://registry.yarnpkg.com/@react-stately/collections/-/collections-3.3.8.tgz#f0f9def181fab8b2551dfe0c0fc59760fa6eaf05"
@@ -2288,10 +2255,10 @@
   resolved "https://registry.yarnpkg.com/@tinacms/sharedctx/-/sharedctx-0.1.1.tgz#8ca3446348b87653095a4a3bda797ddaa65d4d38"
   integrity sha512-+23d5EWdj34p/fYTYn+R2QOt8hn5qqirH7/o2cWYhY1ywCi/gZbCjzRXyi7PxBMh4fH1lFZuO5zseZrIWgmodA==
 
-"@tinacms/toolkit@0.0.0-2022423155836":
-  version "0.0.0-2022423155836"
-  resolved "https://registry.yarnpkg.com/@tinacms/toolkit/-/toolkit-0.0.0-2022423155836.tgz#e3b23be4c1e27f9b59960b57d02730339d4a0684"
-  integrity sha512-rnBx2pmPwq3ta/EVJyRxNoRJm9ILNuSFfOrsAIB9XaB6slDnz1y73UlXPEbfLUlPwzYlJR/4MnR98E5+gVUmdA==
+"@tinacms/toolkit@0.56.28":
+  version "0.56.28"
+  resolved "https://registry.yarnpkg.com/@tinacms/toolkit/-/toolkit-0.56.28.tgz#5ee93c877679efa4d20dd389793125922ef948bf"
+  integrity sha512-vTPw16dXCBl3ZHImj9YN3nS1Jir/7OeolDaUFeerp+Ntb2aLxsX4eV34SaJ+hm+565GJxLS7H6Oz2yVF4tQdXg==
   dependencies:
     "@floating-ui/dom" "^0.1.7"
     "@floating-ui/react-dom" "^0.3.3"
@@ -2299,7 +2266,6 @@
     "@heroicons/react" "^1.0.5"
     "@react-aria/i18n" "^3.3.4"
     "@react-aria/listbox" "3.3.0"
-    "@react-hook/window-size" "^3.0.7"
     "@react-types/combobox" "^3.2.0"
     "@react-types/shared" "^3.10.0"
     "@sambego/storybook-styles" "^1.0.0"
@@ -10328,18 +10294,17 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
-tinacms@0.0.0-2022423155836:
-  version "0.0.0-2022423155836"
-  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.0.0-2022423155836.tgz#17484b7cb8e7c48adcccc6e92d481459beb260f9"
-  integrity sha512-7xDLw491kUKK1FG3AhSfNUX/hnZ9ihXAwDyOSh95LDwr+pNc/uL4CB0COz8BH/CmEptMbAjuZBD8LlJuQoM+3g==
+tinacms@0.68.5:
+  version "0.68.5"
+  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.68.5.tgz#9b62ad324ffb6adb96a214980229e01b1054ce21"
+  integrity sha512-P5QZah1w+Jv7oFw/H0qlNMugTraqFnJ7Qx+/Zvi/VeLlBv9HOUhaPqFAvzO6EeseOl1NwqVs7UWMflzaJtR52A==
   dependencies:
     "@graphql-tools/relay-operation-optimizer" "^6.4.1"
     "@headlessui/react" "^1.5.0"
     "@heroicons/react" "^1.0.4"
-    "@react-hook/window-size" "^3.0.7"
     "@tinacms/schema-tools" "0.0.4"
     "@tinacms/sharedctx" "0.1.1"
-    "@tinacms/toolkit" "0.0.0-2022423155836"
+    "@tinacms/toolkit" "0.56.28"
     crypto-js "^4.0.0"
     fetch-ponyfill "^7.1.0"
     final-form "4.20.1"
