@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "yarn tinacms server:start -c \"next dev\" --experimentalData",
     "build": "yarn tinacms server:start -c \"next build\" --experimentalData",
-    "start": "yarn tinacms server:start -c \"next start\" --experimentalData",
+    "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"**/*.{js,jsx,md,mdx}\"",
     "pre-commit": "next lint --fix && git add -A ."
