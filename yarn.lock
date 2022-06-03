@@ -2282,10 +2282,10 @@
   resolved "https://registry.yarnpkg.com/@tinacms/sharedctx/-/sharedctx-0.1.1.tgz#8ca3446348b87653095a4a3bda797ddaa65d4d38"
   integrity sha512-+23d5EWdj34p/fYTYn+R2QOt8hn5qqirH7/o2cWYhY1ywCi/gZbCjzRXyi7PxBMh4fH1lFZuO5zseZrIWgmodA==
 
-"@tinacms/toolkit@0.56.29":
-  version "0.56.29"
-  resolved "https://registry.yarnpkg.com/@tinacms/toolkit/-/toolkit-0.56.29.tgz#d6b2bd176df027ecc20c2b4029c5464fd71e7b5e"
-  integrity sha512-R+Rft+CJf5OFr4ON6nGisRVZcaEDl3qkV24B6e+1y18sz9GX+XJsVIsjHkNz743QgrKv0Cge3+jArUKYcXUkwQ==
+"@tinacms/toolkit@0.56.30":
+  version "0.56.30"
+  resolved "https://registry.yarnpkg.com/@tinacms/toolkit/-/toolkit-0.56.30.tgz#08343545f9728e7f792c9f3e3e37b53555623abf"
+  integrity sha512-Mw92olT2w2PlGIrcv9D1ls6ppDLwAen0p8oCC1UHYY/z8VJqA74Bq50YgX0Kvt7oelXXqdza3p1K0gninJVMbg==
   dependencies:
     "@floating-ui/dom" "^0.1.7"
     "@floating-ui/react-dom" "^0.3.3"
@@ -10322,10 +10322,10 @@ timers-browserify@^2.0.4:
   dependencies:
     setimmediate "^1.0.4"
 
-tinacms@0.68.6:
-  version "0.68.6"
-  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.68.6.tgz#28562558280ce651433ec3b0ba1679b9b0218aa7"
-  integrity sha512-dB1sGYrdm6hmC4Br54PjswyBSOc2Wjlsih9STfrPZ1g86/z87EcNujlo/Rj9RTZZhZ6tAyFMCmLI9gMJBgU3TQ==
+tinacms@0.68.7:
+  version "0.68.7"
+  resolved "https://registry.yarnpkg.com/tinacms/-/tinacms-0.68.7.tgz#29da85085e4830b38c090b3284d9f35927273972"
+  integrity sha512-hTQfZ+fTW7U+v+/5gsd26Rul+TUu1zrB+scQ/v4iYszl0DG2DrC6iegvKB51COat4Ic6sNn4LOcYHQMvSVbEGw==
   dependencies:
     "@graphql-tools/relay-operation-optimizer" "^6.4.1"
     "@headlessui/react" "^1.5.0"
@@ -10333,7 +10333,7 @@ tinacms@0.68.6:
     "@react-hook/window-size" "^3.0.7"
     "@tinacms/schema-tools" "0.0.4"
     "@tinacms/sharedctx" "0.1.1"
-    "@tinacms/toolkit" "0.56.29"
+    "@tinacms/toolkit" "0.56.30"
     crypto-js "^4.0.0"
     fetch-ponyfill "^7.1.0"
     final-form "4.20.1"
