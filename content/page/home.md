@@ -39,7 +39,7 @@ blocks:
         url: 'https://www.youtube.com/watch?v=wDuo5IlYlaQ&t=25s'
     _template: video
   - items:
-      - article: content/post/using-next-middleware-for-geolocation.mdx
+      - article: content/post/supercharge-your-astro-blog.mdx
       - article: content/post/warp-review.mdx
       - article: content/post/clerk-firebase.mdx
     _template: features
