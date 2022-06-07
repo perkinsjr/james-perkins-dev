@@ -79,7 +79,7 @@ export const getStaticProps = async () => {
     const tinaProps = await staticRequest({
         query: `
         {
-            postConnection {
+            postConnection(first: 100) {
               edges {
                 node {
                   id
