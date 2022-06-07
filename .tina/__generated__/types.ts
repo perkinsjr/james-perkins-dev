@@ -116,6 +116,7 @@ export type QueryPageConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<PageFilter>;
 };
 
 
@@ -130,6 +131,7 @@ export type QueryCategoryConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<CategoryFilter>;
 };
 
 
@@ -144,6 +146,7 @@ export type QueryAuthorConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<AuthorFilter>;
 };
 
 
@@ -158,6 +161,14 @@ export type QueryPostConnectionArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<PostFilter>;
+};
+
+export type DocumentFilter = {
+  page?: InputMaybe<PageFilter>;
+  category?: InputMaybe<CategoryFilter>;
+  author?: InputMaybe<AuthorFilter>;
+  post?: InputMaybe<PostFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -193,6 +204,7 @@ export type CollectionDocumentsArgs = {
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<DocumentFilter>;
 };
 
 export type DocumentNode = Page | Category | Author | Post;
@@ -252,6 +264,71 @@ export type Page = Node & Document & {
   _values: Scalars['JSON'];
 };
 
+export type StringFilter = {
+  startsWith?: InputMaybe<Scalars['String']>;
+  eq?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type ImageFilter = {
+  startsWith?: InputMaybe<Scalars['String']>;
+  eq?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PageBlocksHeroFilter = {
+  heading?: InputMaybe<StringFilter>;
+  subheading?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
+};
+
+export type PageBlocksFeaturesItemsArticleFilter = {
+  post?: InputMaybe<PostFilter>;
+};
+
+export type PageBlocksFeaturesItemsFilter = {
+  article?: InputMaybe<PageBlocksFeaturesItemsArticleFilter>;
+};
+
+export type PageBlocksFeaturesFilter = {
+  items?: InputMaybe<PageBlocksFeaturesItemsFilter>;
+};
+
+export type PageBlocksContentItemsFilter = {
+  image?: InputMaybe<ImageFilter>;
+  name?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  href?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksContentFilter = {
+  items?: InputMaybe<PageBlocksContentItemsFilter>;
+};
+
+export type PageBlocksVideoItemsFilter = {
+  title?: InputMaybe<StringFilter>;
+  description?: InputMaybe<StringFilter>;
+  url?: InputMaybe<StringFilter>;
+};
+
+export type PageBlocksVideoFilter = {
+  items?: InputMaybe<PageBlocksVideoItemsFilter>;
+};
+
+export type PageBlocksFilter = {
+  hero?: InputMaybe<PageBlocksHeroFilter>;
+  features?: InputMaybe<PageBlocksFeaturesFilter>;
+  content?: InputMaybe<PageBlocksContentFilter>;
+  video?: InputMaybe<PageBlocksVideoFilter>;
+};
+
+export type PageFilter = {
+  blocks?: InputMaybe<PageBlocksFilter>;
+};
+
 export type PageConnectionEdges = {
   __typename?: 'PageConnectionEdges';
   cursor: Scalars['String'];
@@ -282,6 +359,20 @@ export type Category = Node & Document & {
   _values: Scalars['JSON'];
 };
 
+export type CategoryRelatedCategoryFilter = {
+  category?: InputMaybe<CategoryFilter>;
+};
+
+export type CategoryRelatedFilter = {
+  category?: InputMaybe<CategoryRelatedCategoryFilter>;
+};
+
+export type CategoryFilter = {
+  title?: InputMaybe<StringFilter>;
+  related?: InputMaybe<CategoryRelatedFilter>;
+  description?: InputMaybe<StringFilter>;
+};
+
 export type CategoryConnectionEdges = {
   __typename?: 'CategoryConnectionEdges';
   cursor: Scalars['String'];
@@ -308,6 +399,17 @@ export type Author = Node & Document & {
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
+};
+
+export type AuthorFilter = {
+  title?: InputMaybe<StringFilter>;
+  email?: InputMaybe<StringFilter>;
+  name?: InputMaybe<StringFilter>;
+  twitter?: InputMaybe<StringFilter>;
+  github?: InputMaybe<StringFilter>;
+  linkedin?: InputMaybe<StringFilter>;
+  bio?: InputMaybe<StringFilter>;
+  image?: InputMaybe<ImageFilter>;
 };
 
 export type AuthorConnectionEdges = {
@@ -349,6 +451,53 @@ export type Post = Node & Document & {
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
+};
+
+export type DatetimeFilter = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  eq?: InputMaybe<Scalars['String']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+  in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+};
+
+export type PostAuthorsAuthorFilter = {
+  author?: InputMaybe<AuthorFilter>;
+};
+
+export type PostAuthorsFilter = {
+  author?: InputMaybe<PostAuthorsAuthorFilter>;
+};
+
+export type PostCategoriesCategoryFilter = {
+  category?: InputMaybe<CategoryFilter>;
+};
+
+export type PostCategoriesFilter = {
+  category?: InputMaybe<PostCategoriesCategoryFilter>;
+};
+
+export type PostBodyNewsletterFilter = {
+  title?: InputMaybe<StringFilter>;
+};
+
+export type PostBodyYoutubeFilter = {
+  url?: InputMaybe<StringFilter>;
+};
+
+export type PostBodyFilter = {
+  newsletter?: InputMaybe<PostBodyNewsletterFilter>;
+  youtube?: InputMaybe<PostBodyYoutubeFilter>;
+};
+
+export type PostFilter = {
+  title?: InputMaybe<StringFilter>;
+  date?: InputMaybe<DatetimeFilter>;
+  image?: InputMaybe<ImageFilter>;
+  authors?: InputMaybe<PostAuthorsFilter>;
+  categories?: InputMaybe<PostCategoriesFilter>;
+  description?: InputMaybe<StringFilter>;
+  body?: InputMaybe<PostBodyFilter>;
 };
 
 export type PostConnectionEdges = {

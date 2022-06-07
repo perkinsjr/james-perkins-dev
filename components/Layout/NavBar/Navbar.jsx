@@ -227,6 +227,10 @@ const NAV_ITEMS = [
         href: '/category'
     },
     {
+        label: 'Contact',
+        href: '/contact'
+    },
+    {
         label: 'YouTube',
         href: 'https://www.youtube.com/c/learntocodewithjames'
     },
