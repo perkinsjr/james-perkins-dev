@@ -9,23 +9,9 @@ blocks:
       https://res.cloudinary.com/dub20ptvt/image/upload/v1627759692/me-and-tina_hgq79d.webp
     _template: hero
   - items:
-      - article: content/post/using-next-middleware-for-geolocation.mdx
-      - article: content/post/warp-review.mdx
-      - article: content/post/clerk-firebase.mdx
-    _template: features
-  - items:
-      - title: The Dark Side of Product Hunt... (But It's Still Legit)
-        description: >-
-          I launched my product on Product Hunt, and the experience was great...
-          Except there is a dark side to Product Hunt that no one is talking
-          bout. 
-
-
-          This video talks about the Dark Side. 
-        url: 'https://www.youtube.com/watch?v=Dpda0s0Yz_8&t=299s'
       - title: Bye bye Chakra UI and Tailwind CSS
         description: >-
-          I am a power user of Chakra UI but lately I have been checking out a
+          I am a power user of Chakra UI but lately, I have been checking out a
           new framework that is even better. This video covers all of this and
           more!
         url: 'https://www.youtube.com/watch?v=g6VJMPpZlgI&t=87s'
@@ -36,6 +22,15 @@ blocks:
           multiple platforms, and also have a completely separate one for
           everything else.
         url: 'https://www.youtube.com/watch?v=L8f-AVBl418'
+      - title: "Build a Next.js theme switcher with cookies \U0001F36A"
+        description: >-
+          This video shows you how to add a cookie to hold on to whether the
+          user is using light or dark mode. 
+
+
+          This means when they come back to your site, they will have the same
+          mode.
+        url: 'https://www.youtube.com/watch?v=L-xq3B4X0Z8'
       - title: 'THIS TERMINAL IS FROM THE FUTURE '
         description: >
           Warp Terminal has finally been released to public beta! It's probably
@@ -43,5 +38,10 @@ blocks:
           work and on my MBP air!
         url: 'https://www.youtube.com/watch?v=wDuo5IlYlaQ&t=25s'
     _template: video
+  - items:
+      - article: content/post/supercharge-your-astro-blog.mdx
+      - article: content/post/warp-review.mdx
+      - article: content/post/clerk-firebase.mdx
+    _template: features
 ---
 
