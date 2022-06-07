@@ -144,16 +144,17 @@ export default function Slug(props) {
 
 export const getStaticPaths = async () => {
     const tinaProps = await staticRequest({
-        query: `{ postConnection{
-            edges{
-            node{
-              _sys {
-                filename
+        query: `{
+            postConnection(first: 100) {
+              edges {
+                node {
+                  _sys {
+                    filename
+                  }
+                }
               }
             }
-          }
-        }
-      }`,
+          }`,
         variables: {}
     });
     const paths = tinaProps.postConnection.edges.map((x) => {

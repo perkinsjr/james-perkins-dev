@@ -77,7 +77,7 @@ export default function BlogPostsPerCategory(props) {
 
 export const getStaticPaths = async () => {
     const tinaProps = await staticRequest({
-        query: `{ categoryConnection{
+        query: `{ categoryConnection(first: 100){
             edges{
             node{
                title

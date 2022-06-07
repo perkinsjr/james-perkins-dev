@@ -7,6 +7,7 @@ scalar JSON
 
 type SystemInfo {
   filename: String!
+  title: String
   basename: String!
   breadcrumbs(excludeExtension: Boolean): [String!]!
   path: String!
@@ -48,20 +49,13 @@ type Query {
   node(id: String): Node!
   document(collection: String, relativePath: String): DocumentNode!
   page(relativePath: String): Page!
-  pageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PageFilter): PageConnection!
+  pageConnection(before: String, after: String, first: Float, last: Float, sort: String): PageConnection!
   category(relativePath: String): Category!
-  categoryConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CategoryFilter): CategoryConnection!
+  categoryConnection(before: String, after: String, first: Float, last: Float, sort: String): CategoryConnection!
   author(relativePath: String): Author!
-  authorConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AuthorFilter): AuthorConnection!
+  authorConnection(before: String, after: String, first: Float, last: Float, sort: String): AuthorConnection!
   post(relativePath: String): Post!
-  postConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PostFilter): PostConnection!
-}
-
-input DocumentFilter {
-  page: PageFilter
-  category: CategoryFilter
-  author: AuthorFilter
-  post: PostFilter
+  postConnection(before: String, after: String, first: Float, last: Float, sort: String): PostConnection!
 }
 
 type DocumentConnectionEdges {
@@ -84,7 +78,7 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String): DocumentConnection!
 }
 
 union DocumentNode = Page | Category | Author | Post
@@ -136,71 +130,6 @@ type Page implements Node & Document {
   _values: JSON!
 }
 
-input StringFilter {
-  startsWith: String
-  eq: String
-  exists: Boolean
-  in: [String]
-}
-
-input ImageFilter {
-  startsWith: String
-  eq: String
-  exists: Boolean
-  in: [String]
-}
-
-input PageBlocksHeroFilter {
-  heading: StringFilter
-  subheading: StringFilter
-  description: StringFilter
-  image: ImageFilter
-}
-
-input PageBlocksFeaturesItemsArticleFilter {
-  post: PostFilter
-}
-
-input PageBlocksFeaturesItemsFilter {
-  article: PageBlocksFeaturesItemsArticleFilter
-}
-
-input PageBlocksFeaturesFilter {
-  items: PageBlocksFeaturesItemsFilter
-}
-
-input PageBlocksContentItemsFilter {
-  image: ImageFilter
-  name: StringFilter
-  description: StringFilter
-  href: StringFilter
-}
-
-input PageBlocksContentFilter {
-  items: PageBlocksContentItemsFilter
-}
-
-input PageBlocksVideoItemsFilter {
-  title: StringFilter
-  description: StringFilter
-  url: StringFilter
-}
-
-input PageBlocksVideoFilter {
-  items: PageBlocksVideoItemsFilter
-}
-
-input PageBlocksFilter {
-  hero: PageBlocksHeroFilter
-  features: PageBlocksFeaturesFilter
-  content: PageBlocksContentFilter
-  video: PageBlocksVideoFilter
-}
-
-input PageFilter {
-  blocks: PageBlocksFilter
-}
-
 type PageConnectionEdges {
   cursor: String!
   node: Page
@@ -227,20 +156,6 @@ type Category implements Node & Document {
   _values: JSON!
 }
 
-input CategoryRelatedCategoryFilter {
-  category: CategoryFilter
-}
-
-input CategoryRelatedFilter {
-  category: CategoryRelatedCategoryFilter
-}
-
-input CategoryFilter {
-  title: StringFilter
-  related: CategoryRelatedFilter
-  description: StringFilter
-}
-
 type CategoryConnectionEdges {
   cursor: String!
   node: Category
@@ -264,17 +179,6 @@ type Author implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input AuthorFilter {
-  title: StringFilter
-  email: StringFilter
-  name: StringFilter
-  twitter: StringFilter
-  github: StringFilter
-  linkedin: StringFilter
-  bio: StringFilter
-  image: ImageFilter
 }
 
 type AuthorConnectionEdges {
@@ -311,53 +215,6 @@ type Post implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input DatetimeFilter {
-  after: String
-  before: String
-  eq: String
-  exists: Boolean
-  in: [String]
-}
-
-input PostAuthorsAuthorFilter {
-  author: AuthorFilter
-}
-
-input PostAuthorsFilter {
-  author: PostAuthorsAuthorFilter
-}
-
-input PostCategoriesCategoryFilter {
-  category: CategoryFilter
-}
-
-input PostCategoriesFilter {
-  category: PostCategoriesCategoryFilter
-}
-
-input PostBodyNewsletterFilter {
-  title: StringFilter
-}
-
-input PostBodyYoutubeFilter {
-  url: StringFilter
-}
-
-input PostBodyFilter {
-  newsletter: PostBodyNewsletterFilter
-  youtube: PostBodyYoutubeFilter
-}
-
-input PostFilter {
-  title: StringFilter
-  date: DatetimeFilter
-  image: ImageFilter
-  authors: PostAuthorsFilter
-  categories: PostCategoriesFilter
-  description: StringFilter
-  body: PostBodyFilter
 }
 
 type PostConnectionEdges {
