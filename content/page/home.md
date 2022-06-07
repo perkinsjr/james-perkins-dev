@@ -22,15 +22,15 @@ blocks:
           multiple platforms, and also have a completely separate one for
           everything else.
         url: 'https://www.youtube.com/watch?v=L8f-AVBl418'
-      - title: The Dark Side of Product Hunt... (But It's Still Legit)
+      - title: "Build a Next.js theme switcher with cookies \U0001F36A"
         description: >-
-          I launched my product on Product Hunt, and the experience was great...
-          Except there is a dark side to Product Hunt that no one is talking
-          bout. 
+          This video shows you how to add a cookie to hold on to whether the
+          user is using light or dark mode. 
 
 
-          This video talks about the Dark Side. 
-        url: 'https://www.youtube.com/watch?v=Dpda0s0Yz_8&t=299s'
+          This means when they come back to your site, they will have the same
+          mode.
+        url: 'https://www.youtube.com/watch?v=L-xq3B4X0Z8'
       - title: 'THIS TERMINAL IS FROM THE FUTURE '
         description: >
           Warp Terminal has finally been released to public beta! It's probably
