@@ -67,7 +67,7 @@ export const ContactMe = () => {
                             id="email"
                             type="email"
                         />
-                        <FormHelperText>We'll never share your email.</FormHelperText>
+                        <FormHelperText>We&apos;ll never share your email.</FormHelperText>
                     </FormControl>
                     <FormControl isRequired>
                         <FormLabel htmlFor="name">Name</FormLabel>
