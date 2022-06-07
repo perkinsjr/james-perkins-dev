@@ -2146,10 +2146,10 @@
   resolved "https://registry.yarnpkg.com/@tinacms/auth/-/auth-0.50.2.tgz#d44998aac125a68d96d097e49ff84d1c1ff7a7c2"
   integrity sha512-5oBWtkXG8vu/W9txQrcIb7r2GC6XlgpPsO2EKdjGF4gTWZVlwah73OHqL/QogZWIbZ/4znPL1QkZVwGZuYURiw==
 
-"@tinacms/cli@^0.60.18":
-  version "0.60.18"
-  resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-0.60.18.tgz#aa9bbf48ca06657f3c1924e5693af9b8eb8d5189"
-  integrity sha512-ACuzMqscpAenlwgOUrz9haLO8LhEBq2gYf6gD8R+HT4MokT47jxOrpQbJYwAzN0sA1wFsw/Nm28L8YGqh2Hy4w==
+"@tinacms/cli@^0.60.20":
+  version "0.60.20"
+  resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-0.60.20.tgz#ec13d529c7121ca50e6d84d3f3bbdfacdf31e745"
+  integrity sha512-QdgtyomNcn4tS9QCMpMvy7dz5yjthkOoDiPZlx0s3X8XNEne/CzhIAht0Njn3cNHYfekt3HW42n5VYSFkNKvfA==
   dependencies:
     "@graphql-codegen/core" "^2.1.0"
     "@graphql-codegen/plugin-helpers" latest
@@ -2160,7 +2160,7 @@
     "@graphql-tools/graphql-file-loader" "^7.2.0"
     "@graphql-tools/load" "^7.3.2"
     "@tinacms/datalayer" "0.1.1"
-    "@tinacms/graphql" "0.60.3"
+    "@tinacms/graphql" "0.60.5"
     "@tinacms/metrics" "0.0.3"
     "@tinacms/schema-tools" "0.0.4"
     "@yarnpkg/esbuild-plugin-pnp" "^2.0.1-rc.3"
@@ -2174,6 +2174,7 @@
     chokidar "^3.5.1"
     commander "^9.0.0"
     cors "^2.8.5"
+    dotenv "^16.0.1"
     esbuild "^0.14.20"
     esm "3.2.25"
     express "^4.17.1"
@@ -2215,10 +2216,10 @@
     prettier "^2.2.1"
     yup "^0.32.9"
 
-"@tinacms/graphql@0.60.3":
-  version "0.60.3"
-  resolved "https://registry.yarnpkg.com/@tinacms/graphql/-/graphql-0.60.3.tgz#5d5ab8437eb10989501f5ccbc70381e25e301bb1"
-  integrity sha512-FZVSdUuLPpov7zodsCJmEKE7vAgne1GYhCtUhuPNUsDk8DpmOeR+FwIjW6uCnU6wQQVjYpD2ObZVvpAMVb+R2A==
+"@tinacms/graphql@0.60.5":
+  version "0.60.5"
+  resolved "https://registry.yarnpkg.com/@tinacms/graphql/-/graphql-0.60.5.tgz#c6d6b3464b8212784532a5ac3c5c822e2a7528e2"
+  integrity sha512-TBjyg7m6DMHKvkaEGfQcRQU/jMEtD19Q30pUlBA1JtPQCr23JSp/HY+8PwAomv3BiZYzuis459aa14dtoI75YA==
   dependencies:
     "@graphql-tools/relay-operation-optimizer" "^6.4.1"
     "@tinacms/datalayer" "0.1.1"
@@ -4682,6 +4683,11 @@ dot-case@^3.0.4:
   dependencies:
     no-case "^3.0.4"
     tslib "^2.0.3"
+
+dotenv@^16.0.1:
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.1.tgz#8f8f9d94876c35dac989876a5d3a82a267fdce1d"
+  integrity sha512-1K6hR6wtk2FviQ4kEiSjFiH5rpzEVi8WW0x96aztHVMhEspNpc4DVOUTEHtEva5VThQ8IaBX1Pe4gSzpVVUsKQ==
 
 downshift@6.1.7:
   version "6.1.7"
