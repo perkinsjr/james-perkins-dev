@@ -1,14 +1,16 @@
 query page($relativePath: String!) {
   page(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...PageParts
   }
 }
@@ -18,14 +20,16 @@ query pageConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...PageParts
       }
@@ -35,15 +39,17 @@ query pageConnection {
 
 query category($relativePath: String!) {
   category(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...CategoryParts
   }
 }
@@ -53,14 +59,16 @@ query categoryConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...CategoryParts
       }
@@ -70,15 +78,17 @@ query categoryConnection {
 
 query author($relativePath: String!) {
   author(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...AuthorParts
   }
 }
@@ -88,14 +98,16 @@ query authorConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...AuthorParts
       }
@@ -105,15 +117,17 @@ query authorConnection {
 
 query post($relativePath: String!) {
   post(relativePath: $relativePath) {
-    _sys {
-      filename
-      basename
-      breadcrumbs
-      path
-      relativePath
-      extension
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
     }
-    id
     ...PostParts
   }
 }
@@ -123,14 +137,16 @@ query postConnection {
     totalCount
     edges {
       node {
-        id
-        _sys {
-          filename
-          basename
-          breadcrumbs
-          path
-          relativePath
-          extension
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
         }
         ...PostParts
       }
