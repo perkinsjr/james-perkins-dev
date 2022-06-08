@@ -2,6 +2,7 @@ import {
     Box,
     Flex,
     Img,
+    Button,
     Text,
     IconButton,
     Stack,
@@ -12,13 +13,19 @@ import {
     PopoverTrigger,
     PopoverContent,
     useColorModeValue,
+    useColorMode,
     useDisclosure
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 export const Navbar = () => {
     const { isOpen, onToggle } = useDisclosure();
-
+    const { toggleColorMode } = useColorMode();
+    const LogoImage = useColorModeValue(
+        'https://res.cloudinary.com/dub20ptvt/image/upload/v1650064753/James-Perkins-Site/ivhqozvibrxkuxnc7e2h.png',
+        'https://res.cloudinary.com/dub20ptvt/image/upload/v1650064753/James-Perkins-Site/plmtmmgthuivy4s0ksvh.png'
+    );
     return (
         <Box>
             <Flex
@@ -45,11 +52,22 @@ export const Navbar = () => {
                     />
                 </Flex>
                 <Flex flex={{ base: 1 }} justify="center">
-                    <Img
-                        height="48px"
-                        width="48px"
-                        src="https://res.cloudinary.com/dub20ptvt/image/upload/v1650064753/James-Perkins-Site/plmtmmgthuivy4s0ksvh.png"
-                    />
+                    <Box
+                        as={motion.div}
+                        animate={{
+                            scale: [1, 2, 2, 1, 1],
+                            rotate: [0, 0, 270, 270, 0],
+                            borderRadius: ['20%', '20%', '50%', '50%', '20%']
+                        }}
+                    >
+                        <Img
+                            onClick={toggleColorMode}
+                            style={{ cursor: 'pointer' }}
+                            height="48px"
+                            width="48px"
+                            src={LogoImage}
+                        />
+                    </Box>
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
                     </Flex>
