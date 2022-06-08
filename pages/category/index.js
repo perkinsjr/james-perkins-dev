@@ -1,14 +1,7 @@
 import { staticRequest } from 'tinacms';
 import { Layout } from '../../components/Layout/Layout';
 import { Seo } from '../../components/Seo';
-import {
-    Heading,
-    VStack,
-    Box,
-    Container,
-    List,
-    ListItem
-} from '@chakra-ui/react';
+import { Heading, VStack, Box, Container, List, ListItem } from '@chakra-ui/react';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
 import { CategoryCard } from '../../components/Blog/CategoryCard';
 export default function Categories(props) {

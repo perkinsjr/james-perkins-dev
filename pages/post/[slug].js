@@ -2,7 +2,16 @@ import { staticRequest } from 'tinacms';
 import { Layout } from '../../components/Layout/Layout';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { CustomLink } from '../../components/Blog/CustomLink';
-import { Box, Heading, chakra, Container, HStack, Tag,LinkBox, LinkOverlay } from '@chakra-ui/react';
+import {
+    Box,
+    Heading,
+    chakra,
+    Container,
+    HStack,
+    Tag,
+    LinkBox,
+    LinkOverlay
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import { Seo } from '../../components/Seo';
 import { Newsletter } from '../../components/Blog/Newsletter';
@@ -96,7 +105,7 @@ export default function Slug(props) {
                 <Box maxWidth="1100px" width="100%" mx="auto" mt={[2, 4]} mb={4} px={4}>
                     <article>
                         <Container maxW="container.md">
-                        <Prose>
+                            <Prose>
                                 <Heading colorScheme="purple" as="h1" textAlign="center" my={8}>
                                     {data.post.title}
                                 </Heading>
@@ -104,28 +113,33 @@ export default function Slug(props) {
                                 <HStack spacing={4} mt={[8, 0]}>
                                     {data.post.categories.map((x) => (
                                         <LinkBox key={x.category.title}>
-                                        <Link key={x.category.title} href={`/category/${x.category.title}`} passHref>
-                                        <LinkOverlay >
-                                        <Tag
-                                            size="lg"
-                                            variant="subtle"
-                                            colorScheme="purple">
-                                            # {x.category.title}
-                                        </Tag>
-                                        </LinkOverlay>
-                                        </Link>
+                                            <Link
+                                                key={x.category.title}
+                                                href={`/category/${x.category.title}`}
+                                                passHref
+                                            >
+                                                <LinkOverlay>
+                                                    <Tag
+                                                        size="lg"
+                                                        variant="subtle"
+                                                        colorScheme="purple"
+                                                    >
+                                                        # {x.category.title}
+                                                    </Tag>
+                                                </LinkOverlay>
+                                            </Link>
                                         </LinkBox>
                                     ))}
                                 </HStack>
-                                
+
                                 <TinaMarkdown content={data.post.body} components={components} />
-                                </Prose>
-                                <Author author={data.post.authors[0].author} />
-                                <JamComments
-                                    comments={props.comments}
-                                    domain={props.jamCommentsDomain}
-                                    apiKey={props.jamCommentsApiKey}
-                                />
+                            </Prose>
+                            <Author author={data.post.authors[0].author} />
+                            <JamComments
+                                comments={props.comments}
+                                domain={props.jamCommentsDomain}
+                                apiKey={props.jamCommentsApiKey}
+                            />
                         </Container>
                     </article>
                 </Box>

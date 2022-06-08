@@ -118,7 +118,7 @@ export const getStaticProps = async (ctx) => {
               }
             }
           }`,
-        variables: {category: category}
+        variables: { category: category }
     });
     return {
         props: {

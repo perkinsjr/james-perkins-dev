@@ -30,7 +30,9 @@ const CategoryCard = (props) => {
                 <VStack alignItems="flex-start">
                     <Link href={`category/${props.title}`} passHref>
                         <LinkOverlay>
-                            <Heading size="md">{props.title.charAt(0).toUpperCase() + props.title.slice(1)}</Heading>
+                            <Heading size="md">
+                                {props.title.charAt(0).toUpperCase() + props.title.slice(1)}
+                            </Heading>
                         </LinkOverlay>
                     </Link>
                     <HStack
@@ -39,8 +41,7 @@ const CategoryCard = (props) => {
                                 •
                             </Text>
                         }
-                    >
-                    </HStack>
+                    ></HStack>
                 </VStack>
                 <Text color="gray.500" fontSize="sm">
                     {props.description}

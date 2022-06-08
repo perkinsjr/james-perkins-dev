@@ -2,7 +2,6 @@ import {
     Box,
     Flex,
     Img,
-    Button,
     Text,
     IconButton,
     Stack,

@@ -6,13 +6,13 @@ import theme from '../utils/theme';
 import Footer from '../components/Layout/Footer/footer.jsx';
 const App = ({ Component, pageProps }) => {
     return (
-            <ChakraProvider theme={theme}>
-                <Tina>
-                    <Navbar />
-                    <Component {...pageProps} />
-                    <Footer />
-                </Tina>
-            </ChakraProvider>
+        <ChakraProvider theme={theme}>
+            <Tina>
+                <Navbar />
+                <Component {...pageProps} />
+                <Footer />
+            </Tina>
+        </ChakraProvider>
     );
 };
 
