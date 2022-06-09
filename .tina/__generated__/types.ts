@@ -697,6 +697,18 @@ export type PostMutation = {
   body?: InputMaybe<Scalars['JSON']>;
 };
 
+export type PageQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type PageQueryQuery = { __typename?: 'Query', page: { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename?: 'PageBlocksFeaturesItems', article?: { __typename?: 'Post', title?: string | null, date?: string | null, description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string } } | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename?: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename?: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null } };
+
+export type GetPostQueryVariables = Exact<{
+  relativePath: Scalars['String'];
+}>;
+
+
+export type GetPostQuery = { __typename?: 'Query', post: { __typename?: 'Post', title?: string | null, date?: string | null, image?: string | null, description?: string | null, body?: any | null, authors?: Array<{ __typename?: 'PostAuthors', author?: { __typename?: 'Author', name?: string | null, bio?: string | null, image?: string | null, twitter?: string | null, github?: string | null, linkedin?: string | null } | null } | null> | null, categories?: Array<{ __typename?: 'PostCategories', category?: { __typename?: 'Category', title?: string | null } | null } | null> | null } };
+
 export type PagePartsFragment = { __typename?: 'Page', blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', article?: { __typename?: 'Post', id: string } | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null };
 
 export type CategoryPartsFragment = { __typename?: 'Category', title?: string | null, description?: string | null, related?: Array<{ __typename: 'CategoryRelated', category?: { __typename?: 'Category', id: string } | null } | null> | null };
@@ -712,7 +724,14 @@ export type PageQueryVariables = Exact<{
 
 export type PageQuery = { __typename?: 'Query', page: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', article?: { __typename?: 'Post', id: string } | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null } };
 
-export type PageConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+export type PageConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<PageFilter>;
+}>;
 
 
 export type PageConnectionQuery = { __typename?: 'Query', pageConnection: { __typename?: 'PageConnection', totalCount: number, edges?: Array<{ __typename?: 'PageConnectionEdges', node?: { __typename?: 'Page', id: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, blocks?: Array<{ __typename: 'PageBlocksHero', heading?: string | null, subheading?: string | null, description?: string | null, image?: string | null } | { __typename: 'PageBlocksFeatures', items?: Array<{ __typename: 'PageBlocksFeaturesItems', article?: { __typename?: 'Post', id: string } | null } | null> | null } | { __typename: 'PageBlocksContent', items?: Array<{ __typename: 'PageBlocksContentItems', image?: string | null, name?: string | null, description?: string | null, href?: string | null } | null> | null } | { __typename: 'PageBlocksVideo', items?: Array<{ __typename: 'PageBlocksVideoItems', title?: string | null, description?: string | null, url?: string | null } | null> | null } | null> | null } | null } | null> | null } };
@@ -724,7 +743,14 @@ export type CategoryQueryVariables = Exact<{
 
 export type CategoryQuery = { __typename?: 'Query', category: { __typename?: 'Category', id: string, title?: string | null, description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, related?: Array<{ __typename: 'CategoryRelated', category?: { __typename?: 'Category', id: string } | null } | null> | null } };
 
-export type CategoryConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+export type CategoryConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<CategoryFilter>;
+}>;
 
 
 export type CategoryConnectionQuery = { __typename?: 'Query', categoryConnection: { __typename?: 'CategoryConnection', totalCount: number, edges?: Array<{ __typename?: 'CategoryConnectionEdges', node?: { __typename?: 'Category', id: string, title?: string | null, description?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, related?: Array<{ __typename: 'CategoryRelated', category?: { __typename?: 'Category', id: string } | null } | null> | null } | null } | null> | null } };
@@ -736,7 +762,14 @@ export type AuthorQueryVariables = Exact<{
 
 export type AuthorQuery = { __typename?: 'Query', author: { __typename?: 'Author', id: string, title?: string | null, email?: string | null, name?: string | null, twitter?: string | null, github?: string | null, linkedin?: string | null, bio?: string | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
-export type AuthorConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+export type AuthorConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<AuthorFilter>;
+}>;
 
 
 export type AuthorConnectionQuery = { __typename?: 'Query', authorConnection: { __typename?: 'AuthorConnection', totalCount: number, edges?: Array<{ __typename?: 'AuthorConnectionEdges', node?: { __typename?: 'Author', id: string, title?: string | null, email?: string | null, name?: string | null, twitter?: string | null, github?: string | null, linkedin?: string | null, bio?: string | null, image?: string | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
@@ -748,7 +781,14 @@ export type PostQueryVariables = Exact<{
 
 export type PostQuery = { __typename?: 'Query', post: { __typename?: 'Post', id: string, title?: string | null, date?: string | null, image?: string | null, description?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, authors?: Array<{ __typename: 'PostAuthors', author?: { __typename?: 'Author', id: string } | null } | null> | null, categories?: Array<{ __typename: 'PostCategories', category?: { __typename?: 'Category', id: string } | null } | null> | null } };
 
-export type PostConnectionQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostConnectionQueryVariables = Exact<{
+  before?: InputMaybe<Scalars['String']>;
+  after?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Float']>;
+  last?: InputMaybe<Scalars['Float']>;
+  sort?: InputMaybe<Scalars['String']>;
+  filter?: InputMaybe<PostFilter>;
+}>;
 
 
 export type PostConnectionQuery = { __typename?: 'Query', postConnection: { __typename?: 'PostConnection', totalCount: number, edges?: Array<{ __typename?: 'PostConnectionEdges', node?: { __typename?: 'Post', id: string, title?: string | null, date?: string | null, image?: string | null, description?: string | null, body?: any | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, authors?: Array<{ __typename: 'PostAuthors', author?: { __typename?: 'Author', id: string } | null } | null> | null, categories?: Array<{ __typename: 'PostCategories', category?: { __typename?: 'Category', id: string } | null } | null> | null } | null } | null> | null } };
@@ -844,6 +884,80 @@ export const PostPartsFragmentDoc = gql`
   body
 }
     `;
+export const PageQueryDocument = gql`
+    query PageQuery {
+  page(relativePath: "home.md") {
+    blocks {
+      __typename
+      ... on PageBlocksHero {
+        heading
+        subheading
+        description
+        image
+      }
+      ... on PageBlocksFeatures {
+        items {
+          article {
+            ... on Post {
+              title
+              date
+              description
+              _sys {
+                filename
+              }
+            }
+          }
+        }
+      }
+      ... on PageBlocksContent {
+        items {
+          image
+          name
+          description
+          href
+        }
+      }
+      ... on PageBlocksVideo {
+        items {
+          title
+          description
+          url
+        }
+      }
+    }
+  }
+}
+    `;
+export const GetPostDocument = gql`
+    query getPost($relativePath: String!) {
+  post(relativePath: $relativePath) {
+    title
+    date
+    image
+    authors {
+      author {
+        ... on Author {
+          name
+          bio
+          image
+          twitter
+          github
+          linkedin
+        }
+      }
+    }
+    categories {
+      category {
+        ... on Category {
+          title
+        }
+      }
+    }
+    description
+    body
+  }
+}
+    `;
 export const PageDocument = gql`
     query page($relativePath: String!) {
   page(relativePath: $relativePath) {
@@ -863,8 +977,15 @@ export const PageDocument = gql`
 }
     ${PagePartsFragmentDoc}`;
 export const PageConnectionDocument = gql`
-    query pageConnection {
-  pageConnection {
+    query pageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PageFilter) {
+  pageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
@@ -904,8 +1025,15 @@ export const CategoryDocument = gql`
 }
     ${CategoryPartsFragmentDoc}`;
 export const CategoryConnectionDocument = gql`
-    query categoryConnection {
-  categoryConnection {
+    query categoryConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: CategoryFilter) {
+  categoryConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
@@ -945,8 +1073,15 @@ export const AuthorDocument = gql`
 }
     ${AuthorPartsFragmentDoc}`;
 export const AuthorConnectionDocument = gql`
-    query authorConnection {
-  authorConnection {
+    query authorConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AuthorFilter) {
+  authorConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
@@ -986,8 +1121,15 @@ export const PostDocument = gql`
 }
     ${PostPartsFragmentDoc}`;
 export const PostConnectionDocument = gql`
-    query postConnection {
-  postConnection {
+    query postConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PostFilter) {
+  postConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
     totalCount
     edges {
       node {
@@ -1011,7 +1153,13 @@ export const PostConnectionDocument = gql`
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
-      page(variables: PageQueryVariables, options?: C): Promise<{data: PageQuery, variables: PageQueryVariables, query: string}> {
+      PageQuery(variables?: PageQueryQueryVariables, options?: C): Promise<{data: PageQueryQuery, variables: PageQueryQueryVariables, query: string}> {
+        return requester<{data: PageQueryQuery, variables: PageQueryQueryVariables, query: string}, PageQueryQueryVariables>(PageQueryDocument, variables, options);
+      },
+    getPost(variables: GetPostQueryVariables, options?: C): Promise<{data: GetPostQuery, variables: GetPostQueryVariables, query: string}> {
+        return requester<{data: GetPostQuery, variables: GetPostQueryVariables, query: string}, GetPostQueryVariables>(GetPostDocument, variables, options);
+      },
+    page(variables: PageQueryVariables, options?: C): Promise<{data: PageQuery, variables: PageQueryVariables, query: string}> {
         return requester<{data: PageQuery, variables: PageQueryVariables, query: string}, PageQueryVariables>(PageDocument, variables, options);
       },
     pageConnection(variables?: PageConnectionQueryVariables, options?: C): Promise<{data: PageConnectionQuery, variables: PageConnectionQueryVariables, query: string}> {

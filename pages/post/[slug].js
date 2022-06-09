@@ -24,42 +24,15 @@ import FourOhFour from '../404';
 import { JamComments } from '@jam-comments/next';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
 import Link from 'next/link';
-const query = `query getPost($relativePath: String!) {
-    post(relativePath: $relativePath) {
-        title
-        date
-        image
-        authors{
-            author{
-                ... on Author {
-                      name
-                      bio
-                      image
-                      twitter
-                      github
-                      linkedin
-                }
-            }
-        }
-        categories {
-          category {
-            ... on Category {
-              title
-            }
-          }
-        }
-        description
-        body
-    }
-  }
-`;
+import { ExperimentalGetTinaClient } from '../../.tina/__generated__/types.ts';
 
 export default function Slug(props) {
     const { data } = useTina({
-        query,
+        query: props.query,
         variables: props.variables,
         data: props.data
     });
+    
     const components = {
         a: (props) => {
             return <CustomLink href={props.href}>{props.children}</CustomLink>;
@@ -157,21 +130,10 @@ export default function Slug(props) {
 }
 
 export const getStaticPaths = async () => {
-    const tinaProps = await staticRequest({
-        query: `{
-            postConnection(first: 100) {
-              edges {
-                node {
-                  _sys {
-                    filename
-                  }
-                }
-              }
-            }
-          }`,
-        variables: {}
-    });
-    const paths = tinaProps.postConnection.edges.map((x) => {
+    const client = ExperimentalGetTinaClient();
+    const tinaProps = await client.postConnection({ first: 100 });
+    console.log(tinaProps);
+    const paths = tinaProps.data.postConnection.edges.map((x) => {
         return { params: { slug: x.node._sys.filename } };
     });
 
@@ -182,57 +144,18 @@ export const getStaticPaths = async () => {
 };
 export const getStaticProps = async (ctx) => {
     const { fetchByPath } = require('@jam-comments/next');
-
-    const variables = {
+    const client = ExperimentalGetTinaClient();
+    const data = await client.getPost({
         relativePath: ctx.params.slug + '.mdx'
-    };
-
+    });
     const comments = await fetchByPath({
         domain: process.env.JAM_COMMENTS_DOMAIN,
         apiKey: process.env.JAM_COMMENTS_API_KEY,
         path: `/post/${ctx.params.slug}`
     });
-
-    let data;
-    let error = false;
-    try {
-        data = await staticRequest({
-            query,
-            variables
-        });
-    } catch (error) {
-        error = true;
-    }
-
-    if (!data) {
-        error = true;
-    }
-
-    if (error) {
-        const tinaToken = process.env.TINA_READ_TOKEN;
-        const branch = 'main';
-        data = await fetch(
-            `https://content.tinajs.io/content/${process.env.NEXT_PUBLIC_TINA_CLIENT_ID}/github/${branch}`,
-            {
-                method: 'POST',
-                body: JSON.stringify({ query, variables }),
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-API-KEY': tinaToken
-                }
-            }
-        );
-        if (!data) {
-            return {
-                notFound: true
-            };
-        }
-    }
     return {
         props: {
-            data,
-            query,
-            variables,
+            ...data,
             jamCommentsApiKey: process.env.JAM_COMMENTS_API_KEY,
             jamCommentsDomain: process.env.JAM_COMMENTS_DOMAIN,
             comments

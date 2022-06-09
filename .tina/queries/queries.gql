@@ -1,0 +1,71 @@
+query PageQuery {
+    page(relativePath: "home.md") {
+        blocks {
+            __typename
+            ... on PageBlocksHero {
+                heading
+                subheading
+                description
+                image
+            }
+            ... on PageBlocksFeatures {
+                items {
+                    article {
+                        ... on Post {
+                            title
+                            date
+                            description
+                            _sys {
+                                filename
+                            }
+                        }
+                    }
+                }
+            }
+            ... on PageBlocksContent {
+                items {
+                    image
+                    name
+                    description
+                    href
+                }
+            }
+            ... on PageBlocksVideo {
+                items {
+                    title
+                    description
+                    url
+                }
+            }
+        }
+    }
+}
+
+query getPost($relativePath: String!) {
+    post(relativePath: $relativePath) {
+        title
+        date
+        image
+        authors {
+            author {
+                ... on Author {
+                    name
+                    bio
+                    image
+                    twitter
+                    github
+                    linkedin
+                }
+            }
+        }
+        categories {
+            category {
+                ... on Category {
+                    title
+                }
+            }
+        }
+        description
+        body
+    }
+}

@@ -7,57 +7,15 @@ import { Content } from '../components/Home/Content';
 import { Seo } from '../components/Seo';
 import { useTina } from 'tinacms/dist/edit-state';
 import FeaturedVideos from '../components/Home/FeaturedVideos';
-
-const query = `query {
-    page(relativePath: "home.md"){
-      blocks {
-        __typename
-        ... on PageBlocksHero {
-          heading
-          subheading
-          description
-          image
-        }
-        ... on PageBlocksFeatures {
-          items {
-            article {
-              ... on Post {
-                title
-                date
-                description
-                _sys {
-                  filename
-                }
-              }
-            }
-          }
-        }
-        ... on PageBlocksContent {
-          items {
-            image
-            name
-            description
-            href
-          }
-        }
-        ... on PageBlocksVideo {
-          items {
-            title
-            description
-            url
-          }
-        }
-      }
-    }
-  }  
-`;
+import { ExperimentalGetTinaClient } from '../.tina/__generated__/types.ts';
 
 export default function Home(props) {
     const { data } = useTina({
-        query,
-        variables: {},
+        query: props.query,
+        variables: props.variables,
         data: props.data
     });
+    console.log(data.page.blocks[2].items[0].article);
     return (
         <Layout>
             <Seo
@@ -103,22 +61,11 @@ export default function Home(props) {
 }
 
 export const getStaticProps = async () => {
-    const variables = {};
-    let data = null;
-    try {
-        data = await staticRequest({
-            query,
-            variables
-        });
-    } catch (error) {
-        // swallow errors related to document creation
-    }
-
+    const client = ExperimentalGetTinaClient();
+    const data = await client.PageQuery({ relativePath: 'home.md' });
     return {
         props: {
-            data,
-            query,
-            variables
+            ...data
         }
     };
 };

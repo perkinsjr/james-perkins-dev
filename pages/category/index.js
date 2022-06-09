@@ -4,8 +4,9 @@ import { Seo } from '../../components/Seo';
 import { Heading, VStack, Box, Container, List, ListItem } from '@chakra-ui/react';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
 import { CategoryCard } from '../../components/Blog/CategoryCard';
+import { ExperimentalGetTinaClient } from '../../.tina/__generated__/types.ts';
 export default function Categories(props) {
-    const categoryList = props.categoryConnection.edges;
+    const categoryList = props.data.categoryConnection.edges;
     return (
         <Layout>
             <Seo
@@ -36,22 +37,8 @@ export default function Categories(props) {
 }
 
 export const getStaticProps = async () => {
-    const tinaProps = await staticRequest({
-        query: `{
-            categoryConnection{
-            edges{
-              node{
-                title
-                description
-                _sys{
-                    filename
-                }
-              }
-            }
-          }
-        }`,
-        variables: {}
-    });
+    const client = ExperimentalGetTinaClient();
+    const tinaProps = await client.categoryConnection({ first: 100 });
 
     return {
         props: {

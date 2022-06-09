@@ -34,10 +34,10 @@
     "react-player": "^2.9.0",
     "react-syntax-highlighter": "^15.4.5",
     "styled-components": "^5.3.3",
-    "tinacms": "0.68.8"
+    "tinacms": "^0.0.0-20225616143"
   },
   "devDependencies": {
-    "@tinacms/cli": "^0.60.20",
+    "@tinacms/cli": "^0.0.0-202259143352",
     "eslint": "7",
     "eslint-config-next": "12.0.3",
     "globby": "11.0.1",

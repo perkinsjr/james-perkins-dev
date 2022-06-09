@@ -18,12 +18,11 @@ import {
 import { HiOutlineSearch } from 'react-icons/hi';
 import { BlogPostCard } from '../../components/Blog/BlogCard';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
+import { ExperimentalGetTinaClient } from '../../.tina/__generated__/types.ts';
 export default function BlogPostsPerCategory(props) {
-    const postsList = props.postConnection.edges;
-    const sortedPosts = postsList.sort((a, b) => {
-        return new Date(b.node.date) - new Date(a.node.date);
-    });
-    const [displayPosts, setDisplayPosts] = useState(sortedPosts);
+    const postsList = props.data.postConnection.edges;
+
+    const [displayPosts, setDisplayPosts] = useState(postsList);
 
     const onSearch = (event) => {
         const query = event.currentTarget.value;
@@ -49,7 +48,7 @@ export default function BlogPostsPerCategory(props) {
                             All Posts by Category: {props.category}
                         </Heading>
                         <Text textAlign="center" fontSize="md" mb={[4, 2]}>
-                            I&apos;ve written a total of {sortedPosts.length} articles.
+                            I&apos;ve written a total of {displayPosts.length} articles.
                         </Text>
                         <InputGroup>
                             <InputLeftElement pointerEvents="none">
@@ -76,21 +75,9 @@ export default function BlogPostsPerCategory(props) {
 }
 
 export const getStaticPaths = async () => {
-    const tinaProps = await staticRequest({
-        query: `{ categoryConnection(first: 100){
-            edges{
-            node{
-               title
-              _sys {
-                filename
-              }
-            }
-          }
-        }
-      }`,
-        variables: {}
-    });
-    const paths = tinaProps.categoryConnection.edges.map((x) => {
+    const client = ExperimentalGetTinaClient();
+    const tinaProps = await client.categoryConnection({ first: 100 });
+    const paths = tinaProps.data.categoryConnection.edges.map((x) => {
         return { params: { category: x.node.title } };
     });
 
@@ -102,23 +89,10 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (ctx) => {
     const category = ctx.params.category;
-    const tinaProps = await staticRequest({
-        query: `query getPostsByCategory($category: String){
-            postConnection(filter: {categories:{category: {category:{title: {eq:$category}}}}}){
-              edges{
-                node{
-                  id
-                  description
-                  title
-                  date
-                  _sys{
-                     filename
-                  }
-                }
-              }
-            }
-          }`,
-        variables: { category: category }
+    const client = ExperimentalGetTinaClient();
+    const tinaProps = await client.postConnection({
+        filter: { categories: { category: { category: { title: { eq: category } } } } },
+        sort: 'date'
     });
     return {
         props: {
