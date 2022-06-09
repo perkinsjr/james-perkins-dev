@@ -15,7 +15,6 @@ export default function Home(props) {
         variables: props.variables,
         data: props.data
     });
-    console.log(data.page.blocks[2].items[0].article);
     return (
         <Layout>
             <Seo
