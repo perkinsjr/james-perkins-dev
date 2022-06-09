@@ -7,8 +7,14 @@ export const Comments = ({ comments, page }) => {
     return (
         <>
             <CommentBox page={page} />
-            {records.map((record) => {
-                return <Comment name={record.fields.name} comment={record.fields.comment} />;
+            {records.map((record, index) => {
+                return (
+                    <Comment
+                        key={index + record.fields.name}
+                        name={record.fields.name}
+                        comment={record.fields.comment}
+                    />
+                );
             })}
         </>
     );

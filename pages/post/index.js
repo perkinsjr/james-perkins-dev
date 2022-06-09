@@ -1,4 +1,3 @@
-import { staticRequest } from 'tinacms';
 import { useState } from 'react';
 import { Layout } from '../../components/Layout/Layout';
 import { Seo } from '../../components/Seo';

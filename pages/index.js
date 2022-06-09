@@ -1,7 +1,7 @@
 import { Layout } from '../components/Layout/Layout';
 import { Hero } from '../components/Home/Hero';
 import { FeaturedArticles } from '../components/Home/FeaturedArticles';
-import { staticRequest } from 'tinacms';
+
 import { Fragment } from 'react';
 import { Content } from '../components/Home/Content';
 import { Seo } from '../components/Seo';
