@@ -47,7 +47,6 @@ export default function Footer() {
                         <CustomLink href={'https://youtube.com/c/learntocodewithjames'}>
                             YouTube
                         </CustomLink>
-                        <CustomLink href={'https://twitch.tv/jamesperkins'}>Twitch</CustomLink>
                     </Stack>
                     <Stack align={'center'} spacing={4}>
                         <CustomLink href={'https://twitter.com/james_r_perkins'}>

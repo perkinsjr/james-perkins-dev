@@ -18,12 +18,11 @@ import {
 import { HiOutlineSearch } from 'react-icons/hi';
 import { BlogPostCard } from '../../components/Blog/BlogCard';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
+import { ExperimentalGetTinaClient } from '../../.tina/__generated__/types.ts';
 export default function BlogPosts(props) {
-    const postsList = props.postConnection.edges;
-    const sortedPosts = postsList.sort((a, b) => {
-        return new Date(b.node.date) - new Date(a.node.date);
-    });
-    const [displayPosts, setDisplayPosts] = useState(sortedPosts);
+    const postsList = props.data.postConnection.edges;
+
+    const [displayPosts, setDisplayPosts] = useState(postsList);
 
     const onSearch = (event) => {
         const query = event.currentTarget.value;
@@ -49,7 +48,7 @@ export default function BlogPosts(props) {
                             All Posts
                         </Heading>
                         <Text textAlign="center" fontSize="md" mb={[4, 2]}>
-                            I&apos;ve written a total of {sortedPosts.length} articles.
+                            I&apos;ve written a total of {displayPosts.length} articles.
                         </Text>
                         <InputGroup>
                             <InputLeftElement pointerEvents="none">
@@ -76,25 +75,8 @@ export default function BlogPosts(props) {
 }
 
 export const getStaticProps = async () => {
-    const tinaProps = await staticRequest({
-        query: `
-        {
-            postConnection(first: 100) {
-              edges {
-                node {
-                  id
-                  title
-                  date                
-                  description
-                  _sys {
-                    filename
-                  }
-                }
-              }
-            }
-          }`,
-        variables: {}
-    });
+    const client = ExperimentalGetTinaClient();
+    const tinaProps = await client.postConnection({ first: 100, sort: 'date' });
 
     return {
         props: {
