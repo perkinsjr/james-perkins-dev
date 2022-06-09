@@ -1,4 +1,3 @@
-import { staticRequest } from 'tinacms';
 import { Layout } from '../../components/Layout/Layout';
 import { TinaMarkdown } from 'tinacms/dist/rich-text';
 import { CustomLink } from '../../components/Blog/CustomLink';
@@ -21,10 +20,10 @@ import { Author } from '../../components/Blog/Author/Author';
 import { useTina } from 'tinacms/dist/edit-state';
 import { Prose } from '@nikolovlazar/chakra-ui-prose';
 import FourOhFour from '../404';
-import { JamComments } from '@jam-comments/next';
 import { CarbonAd } from '../../components/Blog/CarbonAd';
 import Link from 'next/link';
 import { ExperimentalGetTinaClient } from '../../.tina/__generated__/types.ts';
+import { Comments } from '../../components/Blog/Comments/Comments';
 
 export default function Slug(props) {
     const { data } = useTina({
@@ -32,7 +31,7 @@ export default function Slug(props) {
         variables: props.variables,
         data: props.data
     });
-    
+    console.log(props.variables.relativePath);
     const components = {
         a: (props) => {
             return <CustomLink href={props.href}>{props.children}</CustomLink>;
@@ -108,10 +107,9 @@ export default function Slug(props) {
                                 <TinaMarkdown content={data.post.body} components={components} />
                             </Prose>
                             <Author author={data.post.authors[0].author} />
-                            <JamComments
-                                comments={props.comments}
-                                domain={props.jamCommentsDomain}
-                                apiKey={props.jamCommentsApiKey}
+                            <Comments
+                                page={props.variables.relativePath}
+                                comments={props.commentResults}
                             />
                         </Container>
                     </article>
@@ -132,7 +130,6 @@ export default function Slug(props) {
 export const getStaticPaths = async () => {
     const client = ExperimentalGetTinaClient();
     const tinaProps = await client.postConnection({ first: 100 });
-    console.log(tinaProps);
     const paths = tinaProps.data.postConnection.edges.map((x) => {
         return { params: { slug: x.node._sys.filename } };
     });
@@ -143,22 +140,25 @@ export const getStaticPaths = async () => {
     };
 };
 export const getStaticProps = async (ctx) => {
-    const { fetchByPath } = require('@jam-comments/next');
     const client = ExperimentalGetTinaClient();
+    const slug = ctx.params.slug + '.mdx';
     const data = await client.getPost({
-        relativePath: ctx.params.slug + '.mdx'
+        relativePath: slug
     });
-    const comments = await fetchByPath({
-        domain: process.env.JAM_COMMENTS_DOMAIN,
-        apiKey: process.env.JAM_COMMENTS_API_KEY,
-        path: `/post/${ctx.params.slug}`
-    });
+    const comments = await fetch(
+        `https://api.airtable.com/v0/appKRBZgjW8ATcGq1/tbl3kLz2Eq6A3uzRy?fields%5B%5D=name&fields%5B%5D=comment&filterByFormula=%7Bpage%7D%3D%22${slug}%22&maxRecords=100`,
+        {
+            headers: {
+                Authorization: `Bearer ${process.env.AIRTABLE_KEY}`
+            }
+        }
+    );
+    const commentResults = await comments.json();
+
     return {
         props: {
             ...data,
-            jamCommentsApiKey: process.env.JAM_COMMENTS_API_KEY,
-            jamCommentsDomain: process.env.JAM_COMMENTS_DOMAIN,
-            comments
+            commentResults
         }
     };
 };

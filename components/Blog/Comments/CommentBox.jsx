@@ -1,5 +1,6 @@
 import {
     Box,
+    Flex,
     Heading,
     Input,
     Textarea,
@@ -12,16 +13,18 @@ import {
 } from '@chakra-ui/react';
 import { useFormik } from 'formik';
 
-export const ContactMe = () => {
+export const CommentBox = ({ page }) => {
+    console.log(page);
     const toast = useToast();
     const formik = useFormik({
         initialValues: {
             email: '',
             name: '',
-            message: ''
+            comment: ''
         },
         onSubmit: async (values) => {
-            const request = await fetch('/api/formsubmit', {
+            values.page = page;
+            const request = await fetch('/api/commentSubmit', {
                 method: 'POST',
                 body: JSON.stringify(values)
             });
@@ -50,45 +53,42 @@ export const ContactMe = () => {
             pt={{ base: '0', md: '2', lg: '16' }}
             pb="24"
         >
-            <Box maxW={{ base: 'xl', md: '5xl' }} mx="auto" px={{ base: '6', md: '8' }}>
-                <Heading textAlign="center" as="h1">
-                    Contact me{' '}
-                </Heading>
+            <Box maxW={{ base: 'xl', md: '2xl' }} mx="auto" px={{ base: '6', md: '8' }}>
                 <Heading mt={{ base: '4', lg: '8' }} textAlign="center" as="h3" fontSize="large">
-                    Reach out for content queries, questions or working together.
+                    Leave a comment
                 </Heading>
                 <form onSubmit={formik.handleSubmit}>
-                    <FormControl isRequired>
-                        <FormLabel htmlFor="email">Email address</FormLabel>
-                        <Input
-                            value={formik.values.email}
-                            onChange={formik.handleChange}
-                            id="email"
-                            type="email"
-                        />
-                        <FormHelperText>We&apos;ll never share your email.</FormHelperText>
-                    </FormControl>
-                    <FormControl isRequired>
-                        <FormLabel htmlFor="name">Name</FormLabel>
-                        <Input
-                            value={formik.values.name}
-                            onChange={formik.handleChange}
-                            id="name"
-                            type="text"
-                        />
-                        <FormHelperText>Just a first name is fine!</FormHelperText>
-                    </FormControl>
+                    <Flex direction={{ base: 'column', md: 'row' }}>
+                        <FormControl isRequired>
+                            <FormLabel htmlFor="email">Email address</FormLabel>
+                            <Input
+                                value={formik.values.email}
+                                onChange={formik.handleChange}
+                                id="email"
+                                type="email"
+                            />
+                        </FormControl>
+                        <FormControl isRequired mx={{ base: 0, md: 2 }}>
+                            <FormLabel htmlFor="name">Name</FormLabel>
+                            <Input
+                                value={formik.values.name}
+                                onChange={formik.handleChange}
+                                id="name"
+                                type="text"
+                            />
+                        </FormControl>
+                    </Flex>
                     <FormControl isRequired mb={4}>
-                        <FormLabel htmlFor="message">Message</FormLabel>
+                        <FormLabel htmlFor="comment">Comment</FormLabel>
                         <Textarea
-                            value={formik.values.message}
+                            value={formik.values.comment}
                             onChange={formik.handleChange}
-                            id="message"
+                            id="comment"
                         />
-                        <FormHelperText>What do you want to talk about?</FormHelperText>
+                        <FormHelperText>Please leave a comment</FormHelperText>
                     </FormControl>
                     <Button isLoading={formik.isSubmitting} type="submit">
-                        Reach out!
+                        Submit
                     </Button>
                 </form>
             </Box>
