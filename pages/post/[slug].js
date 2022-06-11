@@ -31,7 +31,6 @@ export default function Slug(props) {
         variables: props.variables,
         data: props.data
     });
-    console.log(props.variables.relativePath);
     const components = {
         a: (props) => {
             return <CustomLink href={props.href}>{props.children}</CustomLink>;
