@@ -2147,42 +2147,62 @@
   resolved "https://registry.yarnpkg.com/@istanbuljs/schema/-/schema-0.1.3.tgz#e45e384e4b8ec16bce2fd903af78450f6bf7ec98"
   integrity sha512-ZXRY4jNvVgSVQ8DL3LTcakaAtXwTVUxE81hslsyD2AtoXW/wVob10HkOJ1X/pAlcI7D+2YoZKg5do8G/w6RYgA==
 
-"@jam-comments/next@^0.0.35":
-  version "0.0.35"
-  resolved "https://registry.yarnpkg.com/@jam-comments/next/-/next-0.0.35.tgz#789e1c422eae4171e0c3ae0fa0d1290bc681075d"
-  integrity sha512-5fGhwX+6FTzrjDkZk3zvM0zXzfnB2dl6fCbgNLckVFahZTbq7vdFIbT76ai9w5pleSonvee+/D5yqPVtU7mjAw==
+"@jam-comments/client-utilities@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@jam-comments/client-utilities/-/client-utilities-0.0.1.tgz#00a42a5c2688c9f880f8cc553ac125651368f769"
+  integrity sha512-2wqNHhL0N3zW9FkMisFpMFBETTg3taZLK5WBL9yz3flbiYpos+XBb2/zsi8Q8AwhlqMAPr5bcGHDW5LJdncqAQ==
   dependencies:
-    "@jam-comments/react" "^0.0.38"
-    "@jam-comments/styles" "^0.0.19"
-    "@jam-comments/utilities" "^0.1.16"
-    graphql-quest "^1.0.4"
+    "@jam-comments/shared-utilities" "^0.0.1"
+    graphql-quest "^1.1.2"
 
-"@jam-comments/react@^0.0.38":
-  version "0.0.38"
-  resolved "https://registry.yarnpkg.com/@jam-comments/react/-/react-0.0.38.tgz#341ade7c126e703ffa8a4dbd043c82e91bde64e7"
-  integrity sha512-gjZ/pwofbmeeEMj/+kylEXx4fpcRTbTJ3EGYygcVRNT+3GKNNYgnQdmpT5KUplAl39NZTC+xsQ+na4MzLHOqXA==
+"@jam-comments/next@^0.1.3":
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/@jam-comments/next/-/next-0.1.4.tgz#99e17817c1ae8197d5f4616954a0252106519479"
+  integrity sha512-bo1nrD/uw6iNNVMneb9ApC/iJsomob92NImr2iq9AYog6lrGQ2kaXSMqEkRdTcEd/B2A66Yy5AP08QGW2NZ97A==
   dependencies:
+    "@jam-comments/react" "^0.1.2"
+    "@jam-comments/server-utilities" "^0.0.2"
+    "@jam-comments/styles" "^0.0.24"
+    graphql-quest "^1.1.2"
+
+"@jam-comments/react@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@jam-comments/react/-/react-0.1.2.tgz#33a152bd5a8fb3bc8f2c617457d87bd3b6b5bdfb"
+  integrity sha512-GB27Kjxf/4SBYnSQeZwHqiZ5h2nSPLkaEJMK4U8QgG+bltnsak2URpFDz52TwbJZLNGplXv9sJJ8zSwgAqsXew==
+  dependencies:
+    "@jam-comments/client-utilities" "^0.0.1"
+    "@jam-comments/shared-utilities" "^0.0.1"
     "@jam-comments/styles" "^0.0.19"
-    "@jam-comments/utilities" "^0.1.16"
-    graphql-quest "^1.0.2"
-    react "^17.0.2"
-    react-dom "^17.0.2"
+    graphql-quest "^1.1.2"
+    react ">=16.0.0"
+    react-dom ">=16.0.0"
+
+"@jam-comments/server-utilities@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@jam-comments/server-utilities/-/server-utilities-0.0.2.tgz#7b2d99576bbbe61ec4ee253987d90bd698f5f3b0"
+  integrity sha512-M3x6jDtywHbmPrNVvoxnmwFz5mkM9QWYgFI+/zktej3RfeqwIDcvy9ss5z3OWbXRyLr9JPDKizljAcm9RDmWag==
+  dependencies:
+    "@jam-comments/shared-utilities" "^0.0.1"
+    graphql-quest "^1.1.2"
+    typescript "^4.6.4"
+    url-parse "^1.5.3"
+
+"@jam-comments/shared-utilities@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@jam-comments/shared-utilities/-/shared-utilities-0.0.1.tgz#bda7e61ff8d628ad86392efbc3c7a7ca380bb8b3"
+  integrity sha512-Ju9QvtydpzAaBVgGvdrvO3w/m4DMUhHVPrtALgWSZ74xLaMSX5OUmzWSRg5fxmMqYuo+mobY2WBQxsGnv2Dipg==
+  dependencies:
+    chalk "^4.1.0"
 
 "@jam-comments/styles@^0.0.19":
   version "0.0.19"
   resolved "https://registry.yarnpkg.com/@jam-comments/styles/-/styles-0.0.19.tgz#5478ba665467f2cb476909176aa7d43273e745ed"
   integrity sha512-gnIkGD7QX1i6PnniwyeXyFuiDaowfdCEWbw8Dp6vjwUMqOzcoaOgCWo1YevO0hN+YQN09PmDSrKDlM5F6TajlQ==
 
-"@jam-comments/utilities@^0.1.16":
-  version "0.1.16"
-  resolved "https://registry.yarnpkg.com/@jam-comments/utilities/-/utilities-0.1.16.tgz#3c7e03bd2465700154d59408a1edfb6bc4aa3e69"
-  integrity sha512-GmheefqJ7fsK4G7I34EVV6N8reIh0UblKY2V5efAGUudn6RNygNvPiOloBvwAqBka22aRIGOvhiFectuz88HIQ==
-  dependencies:
-    chalk "^4.1.0"
-    graphql-quest "^1.0.2"
-    node-fetch "^2.6.1"
-    shuffle-array "^1.0.1"
-    url-parse "^1.5.3"
+"@jam-comments/styles@^0.0.24":
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/@jam-comments/styles/-/styles-0.0.24.tgz#444d5996d86887de8c0a49a1364c4a28f45a1150"
+  integrity sha512-WPaEzE/cR1i4meZPNkbjhd6CrGG/n+JcuWBZDn+YRqPKuD7OWr9H7XxYbhmcwHXiP1/UhOnj1crS+dYUW32otw==
 
 "@jest/transform@^26.6.2":
   version "26.6.2"
@@ -7676,7 +7696,7 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.10.tgz#147d3a006da4ca3ce14728c7aefc287c367d7a6c"
   integrity sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==
 
-graphql-quest@^1.0.2, graphql-quest@^1.0.4:
+graphql-quest@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/graphql-quest/-/graphql-quest-1.1.2.tgz#ac6ddbf6006512c590f003124174c37e76da1505"
   integrity sha512-/V3BgYWHCr9S0v1bRbt3NLzUsqKOjcBZwX9K5X9VmkrBu4fUNBTRo441UjryuG4ewqYnlZOaz7m5r3IOZV/6jQ==
@@ -11827,7 +11847,7 @@ react-dnd@^14.0.2:
     fast-deep-equal "^3.1.3"
     hoist-non-react-statics "^3.3.2"
 
-react-dom@17.0.2, react-dom@^17.0.2:
+react-dom@17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
@@ -11835,6 +11855,14 @@ react-dom@17.0.2, react-dom@^17.0.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     scheduler "^0.20.2"
+
+react-dom@>=16.0.0:
+  version "18.1.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.1.0.tgz#7f6dd84b706408adde05e1df575b3a024d7e8a2f"
+  integrity sha512-fU1Txz7Budmvamp7bshe4Zi32d0ll7ect+ccxNu9FlObT605GOEB8BfO4tmRJ39R5Zj831VCpvQ05QPBW5yb+w==
+  dependencies:
+    loose-envify "^1.1.0"
+    scheduler "^0.22.0"
 
 react-dropzone@10.1.8:
   version "10.1.8"
@@ -12052,13 +12080,20 @@ react-use@^17.1.1:
     ts-easing "^0.2.0"
     tslib "^2.1.0"
 
-react@17.0.2, react@^17.0.2:
+react@17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
   integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+
+react@>=16.0.0:
+  version "18.1.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.1.0.tgz#6f8620382decb17fdc5cc223a115e2adbf104890"
+  integrity sha512-4oL8ivCz5ZEPyclFQXaNksK3adutVS8l2xzZU0cqEFrE9Sb7fC0EFK5uEk74wIreL1DERyjvsU915j1pcT2uEQ==
+  dependencies:
+    loose-envify "^1.1.0"
 
 react@^16.6.3:
   version "16.14.0"
@@ -12645,6 +12680,13 @@ scheduler@^0.20.2:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
+scheduler@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.22.0.tgz#83a5d63594edf074add9a7198b1bae76c3db01b8"
+  integrity sha512-6QAm1BgQI88NPYymgGQLCZgvep4FyePDWFpXVK+zNSUgHwlqpJy8VEh8Et0KxTACS4VWwMousBElAZOH9nkkoQ==
+  dependencies:
+    loose-envify "^1.1.0"
+
 schema-utils@2.6.6:
   version "2.6.6"
   resolved "https://registry.yarnpkg.com/schema-utils/-/schema-utils-2.6.6.tgz#299fe6bd4a3365dc23d99fd446caff8f1d6c330c"
@@ -12852,11 +12894,6 @@ shell-quote@1.7.2:
   version "1.7.2"
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
-
-shuffle-array@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/shuffle-array/-/shuffle-array-1.0.1.tgz#c4ff3cfe74d16f93730592301b25e6577b12898b"
-  integrity sha512-0TFRU8zVQaLatWKr0/czo19VyPNgb/a3sBc1GAjVfivfzEGaS54vueNgtAu/8/pW7EM/VF5fwq9zgpLdGyRmVw==
 
 side-channel@^1.0.4:
   version "1.0.4"
@@ -13939,7 +13976,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-typescript@^4.3.5:
+typescript@^4.3.5, typescript@^4.6.4:
   version "4.7.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.7.3.tgz#8364b502d5257b540f9de4c40be84c98e23a129d"
   integrity sha512-WOkT3XYvrpXx4vMMqlD+8R8R37fZkjyLGlxavMc4iB8lrl8L0DeTcHbYgw/v0N/z9wAFsgBhcsF0ruoySS22mA==
