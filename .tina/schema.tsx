@@ -181,6 +181,14 @@ const videoSection : TinaTemplate = {
 };
 
 const schema =  defineSchema({
+  config: {
+    media: {
+      tina: {
+        publicFolder: "public",
+        syncFolder: "",
+      },
+    },
+  },
   collections: [
     {
       label: 'Page Content',
@@ -319,6 +327,13 @@ fields: [
           type: "string",
           label: "Description",
           name: "description",
+          ui: {
+            component: () => {
+              return(
+                <div></div>
+              )
+            }
+          }
         },
         {
           type: 'rich-text',
@@ -375,13 +390,9 @@ const apiURL =
 export const tinaConfig = defineConfig({
   apiURL,
   schema,
-  mediaStore: async () => {
-    const pack = await import('next-tinacms-cloudinary');
-    return pack.TinaCloudCloudinaryMediaStore;
-  },
   cmsCallback: (cms) => {
     cms.flags.set('branch-switcher', true);
-
+    cms.flags.set("experimentalData", true);
     import("tinacms").then(({ RouteMappingPlugin }) => {
       const RouteMapping = new RouteMappingPlugin((collection, document) => {
         if (["page"].includes(collection.name)) {
