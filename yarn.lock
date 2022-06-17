@@ -2175,10 +2175,10 @@
   resolved "https://registry.yarnpkg.com/@tinacms/auth/-/auth-0.50.2.tgz#d44998aac125a68d96d097e49ff84d1c1ff7a7c2"
   integrity sha512-5oBWtkXG8vu/W9txQrcIb7r2GC6XlgpPsO2EKdjGF4gTWZVlwah73OHqL/QogZWIbZ/4znPL1QkZVwGZuYURiw==
 
-"@tinacms/cli@^0.60.22":
-  version "0.60.22"
-  resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-0.60.22.tgz#99168c7dd04cce48bd43f4b2f98dbeebdece5852"
-  integrity sha512-JO+rMUt/NHakY7k26J190GUTfZLojaTYU2iDTCJGjV8983XnpHUfk1ZH7cnvz55iImS1Fd6KzoKzwvYlndiNog==
+"@tinacms/cli@^0.60.23":
+  version "0.60.23"
+  resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-0.60.23.tgz#c6d1fb98c796174f6f50d9c5d936b96aa125efe1"
+  integrity sha512-+kbfQI9eqyt+QJes9vBmmGBDG7nate7cMltC2bRl6DvVNK7qCngwxZF7TJC7hIQ7K0085y0rkfF2Bxf6WLHb6g==
   dependencies:
     "@graphql-codegen/core" "^2.1.0"
     "@graphql-codegen/plugin-helpers" latest
@@ -2189,7 +2189,7 @@
     "@graphql-tools/graphql-file-loader" "^7.2.0"
     "@graphql-tools/load" "^7.3.2"
     "@tinacms/datalayer" "0.1.1"
-    "@tinacms/graphql" "0.60.7"
+    "@tinacms/graphql" "0.60.8"
     "@tinacms/metrics" "0.0.3"
     "@tinacms/schema-tools" "0.0.5"
     "@yarnpkg/esbuild-plugin-pnp" "^2.0.1-rc.3"
@@ -2245,13 +2245,14 @@
     prettier "^2.2.1"
     yup "^0.32.9"
 
-"@tinacms/graphql@0.60.7":
-  version "0.60.7"
-  resolved "https://registry.yarnpkg.com/@tinacms/graphql/-/graphql-0.60.7.tgz#afabd067fc5396a221a635decad32147b6aefdd7"
-  integrity sha512-Qpcn1tbNBtms80+Zed2HqO8k4l92aiWrKSZurtaQfWM0E/CKQ5ksl70C2017gwwSzwIxsdAzSj9YNa4bUcRylQ==
+"@tinacms/graphql@0.60.8":
+  version "0.60.8"
+  resolved "https://registry.yarnpkg.com/@tinacms/graphql/-/graphql-0.60.8.tgz#4744ef59c8b5cf664b704156bcfd77163072ea8e"
+  integrity sha512-xwDqUcrEwd7i6Qi1IiPgDKiKJsOXW02r9O5ylc6+LndLU+HRedJHA2EexW+1146j/Uz5pfuwn96NvCwtBSQYIg==
   dependencies:
     "@graphql-tools/relay-operation-optimizer" "^6.4.1"
     "@tinacms/datalayer" "0.1.1"
+    "@tinacms/schema-tools" "0.0.5"
     body-parser "^1.19.0"
     cors "^2.8.5"
     dataloader "^2.0.0"
