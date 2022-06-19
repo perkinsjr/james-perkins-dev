@@ -10,6 +10,7 @@
     "pre-commit": "next lint --fix && git add -A ."
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.6.1",
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11",
