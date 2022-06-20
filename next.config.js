@@ -9,8 +9,8 @@ module.exports = {
         ]
     },
     experimental: {
-        nextScriptWorkers: true,
-      },
+        nextScriptWorkers: true
+    },
     webpack: function (config, { isServer }) {
         if (isServer) {
             require('./scripts/generate-sitemap');

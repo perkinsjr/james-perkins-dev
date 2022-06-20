@@ -2,15 +2,15 @@
 title: Next.js -  How to optimize fonts
 date: '2022-05-02T04:00:00.000Z'
 image: >-
-  https://res.cloudinary.com/dub20ptvt/image/upload/v1651535244/Blog%20Posts/Yellow_And_Green_Bold_Money_Blog_Banner_gjpzog.png
+    https://res.cloudinary.com/dub20ptvt/image/upload/v1651535244/Blog%20Posts/Yellow_And_Green_Bold_Money_Blog_Banner_gjpzog.png
 authors:
-  - author: content/data/authors/james-perkins.md
+    - author: content/data/authors/james-perkins.md
 categories:
-  - category: content/data/categories/tutorials.md
-  - category: content/data/categories/nextjs.md
+    - category: content/data/categories/tutorials.md
+    - category: content/data/categories/nextjs.md
 description: >-
-  When using 3rd party fonts we have to make sure they are optimized, in the
-  times before Next.js 10.2 you had to manually optimize them for example:
+    When using 3rd party fonts we have to make sure they are optimized, in the
+    times before Next.js 10.2 you had to manually optimize them for example:
 ---
 
 When using 3rd party fonts we have to make sure they are optimized, in the times before Next.js 10.2 you had to manually optimize them for example:
@@ -18,11 +18,14 @@ When using 3rd party fonts we have to make sure they are optimized, in the times
 ```html
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap" rel="stylesheet" />
 <link
-   href="https://fonts.googleapis.com/css2?family=Squada+One:wght@400&display=swap"
-   rel="stylesheet"
-   />
+    href="https://fonts.googleapis.com/css2?family=Merriweather+Sans&display=swap"
+    rel="stylesheet"
+/>
+<link
+    href="https://fonts.googleapis.com/css2?family=Squada+One:wght@400&display=swap"
+    rel="stylesheet"
+/>
 ```
 
 After 10.2 Next.js can now optimize Google fonts and Typekit with a variety of font optimization, inside your `_document.js` you can now provide the font:
@@ -52,7 +55,7 @@ class MyDocument extends Document {
 export default MyDocument
 ```
 
-<newsletter/>
+<newsletter />
 
 You can even provide the preferred display options as a query parameter :
 

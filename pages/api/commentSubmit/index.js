@@ -1,6 +1,5 @@
 export default async function handler(req, res) {
     const { email, name, comment, page } = JSON.parse(req.body);
-    console.log(req.body);
     if (!email || !name || !comment || !page) {
         return res.status(400).json({ error: 'Missing field try again!' });
     }
@@ -19,6 +18,5 @@ export default async function handler(req, res) {
     if (request.ok) {
         return res.status(200).json({ data: 'ok' });
     }
-    console.log(request);
     return res.status(400).json({ error: 'error' });
 }

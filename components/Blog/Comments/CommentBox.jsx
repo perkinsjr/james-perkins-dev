@@ -14,7 +14,6 @@ import {
 import { useFormik } from 'formik';
 
 export const CommentBox = ({ page }) => {
-    console.log(page);
     const toast = useToast();
     const formik = useFormik({
         initialValues: {

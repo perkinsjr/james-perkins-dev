@@ -6,7 +6,7 @@
     "build": "yarn tinacms server:start -c \"next build\" --experimentalData",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write \"**/*.{js,jsx,md,mdx}\"",
+    "format": "prettier --write \"**/*.{js,jsx}\"",
     "pre-commit": "next lint --fix && git add -A ."
   },
   "dependencies": {
