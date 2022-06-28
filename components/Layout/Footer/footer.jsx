@@ -15,7 +15,7 @@ const Logo = () => {
         <Img
             height="64px"
             width="64px"
-            src="https://res.cloudinary.com/dub20ptvt/image/upload/v1650064753/James-Perkins-Site/plmtmmgthuivy4s0ksvh.png"
+            src="https://res.cloudinary.com/dub20ptvt/image/upload/v1650064753/James-Perkins-Site/royoky9w35ibgcwbgdg4.png"
         />
     );
 };
