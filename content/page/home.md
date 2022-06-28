@@ -15,13 +15,12 @@ blocks:
           new framework that is even better. This video covers all of this and
           more!
         url: 'https://www.youtube.com/watch?v=g6VJMPpZlgI&t=87s'
-      - title: Create coding profiles using Visual Studio Code
-        description: >
-          This video shows you how to create multiple Visual Studio Code
-          profiles.  I use this daily as it allows me to create content on
-          multiple platforms, and also have a completely separate one for
-          everything else.
-        url: 'https://www.youtube.com/watch?v=L8f-AVBl418'
+      - title: 'GitHub Copilot vs Tabnine : The AI pair programming wars'
+        description: >-
+          This video discusses the new war that is currently taking the market
+          by storm. AI pair programming with products such as GitHub Copilot and
+          Tabnine trying to take control of the market. 
+        url: 'https://www.youtube.com/watch?v=DgpmSoMyxlQ'
       - title: "Build a Next.js theme switcher with cookies \U0001F36A"
         description: >-
           This video shows you how to add a cookie to hold on to whether the
