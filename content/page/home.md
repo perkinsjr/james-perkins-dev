@@ -1,7 +1,7 @@
 ---
 blocks:
   - heading: James Perkins
-    subheading: Developer Advocate
+    subheading: Sr Developer Advocate
     description: >-
       Helping developers understand the Jamstack, and how it can be used to
       build a faster web.
