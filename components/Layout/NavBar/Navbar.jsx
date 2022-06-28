@@ -51,14 +51,6 @@ export const Navbar = () => {
                     />
                 </Flex>
                 <Flex flex={{ base: 1 }} justify="center">
-                    <Box
-                        as={motion.div}
-                        animate={{
-                            scale: [1, 2, 2, 1, 1],
-                            rotate: [0, 0, 270, 270, 0],
-                            borderRadius: ['20%', '20%', '50%', '50%', '20%']
-                        }}
-                    >
                         <Img
                             onClick={toggleColorMode}
                             style={{ cursor: 'pointer' }}
@@ -66,7 +58,6 @@ export const Navbar = () => {
                             width="48px"
                             src={LogoImage}
                         />
-                    </Box>
                     <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
                         <DesktopNav />
                     </Flex>
