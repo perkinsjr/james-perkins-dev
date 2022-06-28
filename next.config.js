@@ -8,9 +8,6 @@ module.exports = {
             'cdn.hashnode.com'
         ]
     },
-    experimental: {
-        nextScriptWorkers: true
-    },
     webpack: function (config, { isServer }) {
         if (isServer) {
             require('./scripts/generate-sitemap');
