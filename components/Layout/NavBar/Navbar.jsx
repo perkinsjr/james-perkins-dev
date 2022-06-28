@@ -23,7 +23,7 @@ export const Navbar = () => {
     const { toggleColorMode } = useColorMode();
     const LogoImage = useColorModeValue(
         'https://res.cloudinary.com/dub20ptvt/image/upload/v1650064753/James-Perkins-Site/ivhqozvibrxkuxnc7e2h.png',
-        'https://res.cloudinary.com/dub20ptvt/image/upload/v1650064753/James-Perkins-Site/plmtmmgthuivy4s0ksvh.png'
+        'https://res.cloudinary.com/dub20ptvt/image/upload/v1650064753/James-Perkins-Site/royoky9w35ibgcwbgdg4.png'
     );
     return (
         <Box>
