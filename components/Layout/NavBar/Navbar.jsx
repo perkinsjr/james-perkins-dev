@@ -15,7 +15,6 @@ import {
     useColorMode,
     useDisclosure
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 import { HamburgerIcon, CloseIcon, ChevronDownIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 export const Navbar = () => {
