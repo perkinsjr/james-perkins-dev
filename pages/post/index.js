@@ -75,7 +75,7 @@ export default function BlogPosts(props) {
 
 export const getStaticProps = async () => {
     const client = ExperimentalGetTinaClient();
-    const tinaProps = await client.postConnection({ first: 100, sort: 'date' });
+    const tinaProps = await client.postConnection({ first: 1000 });
 
     return {
         props: {
