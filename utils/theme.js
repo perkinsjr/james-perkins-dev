@@ -1,9 +1,8 @@
 import { extendTheme } from '@chakra-ui/react';
 import { withProse } from '@nikolovlazar/chakra-ui-prose';
-
 const theme = extendTheme(
     withProse({
-        baseStyle: {
+        baseStyle: () => ({
             p: {
                 fontSize: '1.125rem',
                 lineHeight: '1.5'
@@ -12,7 +11,7 @@ const theme = extendTheme(
                 color: 'purple.500'
             },
             a: {
-                color: '#483d8b',
+                colorScheme: 'purple',
                 fontWeight: 'bold',
                 textDecoration: 'underline'
             },
@@ -27,7 +26,7 @@ const theme = extendTheme(
                     content: '""'
                 }
             }
-        }
+        })
     })
 );
 
