@@ -15,7 +15,7 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@jam-comments/next": "^0.0.35",
+    "@jam-comments/next": "^0.1.4",
     "@nikolovlazar/chakra-ui-prose": "^1.0.6",
     "@tinacms/auth": "^0.50.2",
     "chakra-ui-markdown-renderer": "^4.0.0",
