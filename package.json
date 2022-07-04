@@ -13,7 +13,7 @@
     "@builder.io/partytown": "^0.6.1",
     "@chakra-ui/icons": "^1.1.7",
     "@chakra-ui/react": "^1.8.6",
-    "@emotion/react": "^11",
+    "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11",
     "@jam-comments/next": "^0.0.35",
     "@nikolovlazar/chakra-ui-prose": "^1.0.6",
