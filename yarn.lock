@@ -2175,10 +2175,10 @@
   resolved "https://registry.yarnpkg.com/@sambego/storybook-styles/-/storybook-styles-1.0.0.tgz#4f840ee26dd0b25dcb803a75caa42e16071dcaae"
   integrity sha512-n0SqZwDewUDRaStEcoNMiYy9qovaLVStsh4Gb2dc2LLiG3IIK0UXdeR1N7puVuRihJq/192uOyGPCjZ/NAteuA==
 
-"@tinacms/auth@^0.50.2":
-  version "0.50.2"
-  resolved "https://registry.yarnpkg.com/@tinacms/auth/-/auth-0.50.2.tgz#d44998aac125a68d96d097e49ff84d1c1ff7a7c2"
-  integrity sha512-5oBWtkXG8vu/W9txQrcIb7r2GC6XlgpPsO2EKdjGF4gTWZVlwah73OHqL/QogZWIbZ/4znPL1QkZVwGZuYURiw==
+"@tinacms/auth@^0.50.3":
+  version "0.50.3"
+  resolved "https://registry.yarnpkg.com/@tinacms/auth/-/auth-0.50.3.tgz#92d7b5a055fb37528ab72e3a9bb0d89b7fa766dd"
+  integrity sha512-vucKZyi2Wj83tGU3VBd/mwlgbmgTXclps6/slOPyEzJUH0Sl31vmXs3ATCG0jeIpp4Tu6IBVCVPlmvGcNpE9OQ==
 
 "@tinacms/cli@^0.60.25":
   version "0.60.25"
@@ -2308,13 +2308,6 @@
   integrity sha512-qopRyLvkbNuHuZGHdXsJ6M1DxtB65aecDIf8s8XZP9l6NfEfmWPC4/1uMYgG4PtTLgRymprM0l51XLqneq+5Ng==
   dependencies:
     isomorphic-fetch "^3.0.0"
-
-"@tinacms/schema-tools@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@tinacms/schema-tools/-/schema-tools-0.0.5.tgz#76ae500ac6cac02dffd48cf778a6204db0c448bb"
-  integrity sha512-/Ers8dPWA8aldK0DdsZYAh8blmasJr9pLgQ5iRUyFPyBu79kBhSuB4D8dikppraQyAo50psZIzWZ2cz+2twH2Q==
-  dependencies:
-    zod "^3.14.3"
 
 "@tinacms/schema-tools@0.0.6":
   version "0.0.6"
