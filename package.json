@@ -17,7 +17,7 @@
     "@emotion/styled": "^11",
     "@jam-comments/next": "^0.0.35",
     "@nikolovlazar/chakra-ui-prose": "^1.0.6",
-    "@tinacms/auth": "^0.50.2",
+    "@tinacms/auth": "^0.50.3",
     "chakra-ui-markdown-renderer": "^4.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
