@@ -2180,10 +2180,10 @@
   resolved "https://registry.yarnpkg.com/@tinacms/auth/-/auth-0.50.2.tgz#d44998aac125a68d96d097e49ff84d1c1ff7a7c2"
   integrity sha512-5oBWtkXG8vu/W9txQrcIb7r2GC6XlgpPsO2EKdjGF4gTWZVlwah73OHqL/QogZWIbZ/4znPL1QkZVwGZuYURiw==
 
-"@tinacms/cli@^0.60.25":
-  version "0.60.25"
-  resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-0.60.25.tgz#e19b76786aba191b08cb1e04b103cfed9eefd90c"
-  integrity sha512-Y70hBnzb9an/94AcAXtqle1aPAU0ub44KWqDtbVhc0xhF3RxvFfwDiLI5Yq1rEE/lfANTaGl2TSp0eE/Wq3itw==
+"@tinacms/cli@^0.60.26":
+  version "0.60.26"
+  resolved "https://registry.yarnpkg.com/@tinacms/cli/-/cli-0.60.26.tgz#3892836fa05bc3b2c7568419ae76f873c182ab4a"
+  integrity sha512-dNT8mWXVjG6x8Gp5HKg97oK+C/G/XDzsne9F1zi+lel8rwSKgMD1qVJ23YLBN/BkCVvs7UNTOWK/Qcw7LGxroQ==
   dependencies:
     "@graphql-codegen/core" "^2.1.0"
     "@graphql-codegen/plugin-helpers" latest
@@ -2194,10 +2194,9 @@
     "@graphql-tools/graphql-file-loader" "^7.2.0"
     "@graphql-tools/load" "^7.3.2"
     "@tinacms/datalayer" "0.2.0"
-    "@tinacms/graphql" "0.61.0"
+    "@tinacms/graphql" "0.61.1"
     "@tinacms/metrics" "0.0.3"
-    "@tinacms/schema-tools" "0.0.6"
-    "@yarnpkg/esbuild-plugin-pnp" "^2.0.1-rc.3"
+    "@tinacms/schema-tools" "0.0.7"
     add "^2.0.6"
     ajv "^6.12.3"
     altair-express-middleware "4.0.6"
@@ -2253,14 +2252,14 @@
     prettier "^2.2.1"
     yup "^0.32.9"
 
-"@tinacms/graphql@0.61.0":
-  version "0.61.0"
-  resolved "https://registry.yarnpkg.com/@tinacms/graphql/-/graphql-0.61.0.tgz#e55253c476a331aa5f74d30c1b7f0a6d640b4bcc"
-  integrity sha512-0wIHVUeAN+VZ4CSxq1MbwMT6z7akzCl8dYDnLPkGhH7vlonkYYVdF3A6QOt06Yj3MnbGlUoR79DOeb6keP5TSw==
+"@tinacms/graphql@0.61.1":
+  version "0.61.1"
+  resolved "https://registry.yarnpkg.com/@tinacms/graphql/-/graphql-0.61.1.tgz#a106cf3427351187b3babec0e8ff313e4d1f01ae"
+  integrity sha512-XsAjhH7gEjZjdiT3MGSvrSKZ7fNuyUm1k6xcfG3qPh4JoK3q+9K14vAG+tqWNEdrnR9LPRJGQgcYWPiH/u1/3Q==
   dependencies:
     "@graphql-tools/relay-operation-optimizer" "^6.4.1"
     "@tinacms/datalayer" "0.2.0"
-    "@tinacms/schema-tools" "0.0.6"
+    "@tinacms/schema-tools" "0.0.7"
     body-parser "^1.19.0"
     cors "^2.8.5"
     dataloader "^2.0.0"
@@ -2309,17 +2308,17 @@
   dependencies:
     isomorphic-fetch "^3.0.0"
 
-"@tinacms/schema-tools@0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@tinacms/schema-tools/-/schema-tools-0.0.5.tgz#76ae500ac6cac02dffd48cf778a6204db0c448bb"
-  integrity sha512-/Ers8dPWA8aldK0DdsZYAh8blmasJr9pLgQ5iRUyFPyBu79kBhSuB4D8dikppraQyAo50psZIzWZ2cz+2twH2Q==
-  dependencies:
-    zod "^3.14.3"
-
 "@tinacms/schema-tools@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@tinacms/schema-tools/-/schema-tools-0.0.6.tgz#a326a17a8f960f13c43796d7cde8f266a8bde97a"
   integrity sha512-AWB0pHpy696yM4zCRFKDJMfR1Emh/VLY4C2tNvB/5VgIE6X8i2pcSLKsdIfHMvkHpy6r+uoaywWZcBRv2KoPBw==
+  dependencies:
+    zod "^3.14.3"
+
+"@tinacms/schema-tools@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@tinacms/schema-tools/-/schema-tools-0.0.7.tgz#bcefbebc8f58ba6f5975b0a3db43443241bf8563"
+  integrity sha512-RhWpBxNlPN5bp+icwnb7YtarYAG5w0d3mNVzrGTt2PcXmnPZ3+CcdGEqp0kDWpGevRUNMeCV1XlvEjWklB1Xcg==
   dependencies:
     zod "^3.14.3"
 
@@ -2994,13 +2993,6 @@
   integrity sha512-WwB53ikYudh9pIorgxrkHKrQZcCqNM/Q/bDzZBffEaGUKGuHrRb3zZUT9Sh2qw9yogC7SsdRmQ1ER0pqvd3bfw==
   dependencies:
     tslib "^2.3.0"
-
-"@yarnpkg/esbuild-plugin-pnp@^2.0.1-rc.3":
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/@yarnpkg/esbuild-plugin-pnp/-/esbuild-plugin-pnp-2.0.2.tgz#e9fcb3b6f6a2cb26b4ea43ffa6403c987aecd643"
-  integrity sha512-ymEcviLTzy+Qt4xJu47BQ8zpGnfVvkRL8MhfNtvAE1Dwf7cRtctLvtBkTx3h3thE8xyL/rVk2Uxng5CzlFVr6w==
-  dependencies:
-    tslib "^1.13.0"
 
 abstract-leveldown@^7.2.0:
   version "7.2.0"
@@ -10614,7 +10606,7 @@ tsconfig-paths@^3.14.1:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@^1.0.0, tslib@^1.10.0, tslib@^1.11.1, tslib@^1.13.0, tslib@^1.8.1, tslib@^1.9.3:
+tslib@^1.0.0, tslib@^1.10.0, tslib@^1.11.1, tslib@^1.8.1, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
